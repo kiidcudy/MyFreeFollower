@@ -13,19 +13,27 @@ function resolveToken(): string {
   return key ? (process.env[key] as string) : "";
 }
 
-function getToken(): string {
-  return resolveToken();
+function hasOidcBlobAuth(): boolean {
+  return Boolean(process.env.BLOB_STORE_ID?.trim());
 }
 
-/** Runtime check — token may exist after Vercel redeploy even if module loaded earlier. */
+/** Vercel Blob auth: OIDC (BLOB_STORE_ID) on Vercel, or BLOB_READ_WRITE_TOKEN fallback. */
 export function isBlobReady(): boolean {
-  return Boolean(getToken());
+  return hasOidcBlobAuth() || Boolean(resolveToken());
 }
+
 export function blobEnvKeys(): string[] {
   return Object.keys(process.env).filter((k) => {
     const u = k.toUpperCase();
-    return u.includes("BLOB") || u.endsWith("READ_WRITE_TOKEN");
+    return u.includes("BLOB") || u.endsWith("READ_WRITE_TOKEN") || u === "VERCEL_OIDC_TOKEN";
   });
+}
+
+/** Only pass an explicit token outside Vercel OIDC — empty token blocks SDK auto-auth. */
+function blobAuthOptions(): { token?: string } {
+  const token = resolveToken();
+  if (token && !hasOidcBlobAuth()) return { token };
+  return {};
 }
 
 const TASKS_PATH = "mff/tasks.json";
@@ -67,7 +75,7 @@ async function readJSON<T>(pathname: string, fallback: T): Promise<T> {
     const result = await get(pathname, {
       access: "private",
       useCache: false,
-      token: getToken(),
+      ...blobAuthOptions(),
     });
     if (!result?.stream) return fallback;
     const text = await new Response(result.stream).text();
@@ -84,7 +92,7 @@ async function writeJSON(pathname: string, data: unknown): Promise<void> {
     addRandomSuffix: false,
     allowOverwrite: true,
     contentType: "application/json",
-    token: getToken(),
+    ...blobAuthOptions(),
   });
 }
 
@@ -259,7 +267,7 @@ export async function getAccount(email: string): Promise<ServerAccount | null> {
 
 export async function listAccounts(): Promise<ServerAccount[]> {
   try {
-    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, token: getToken() });
+    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, ...blobAuthOptions() });
     const results = await Promise.all(
       blobs.map(async (b) => {
         const d = await readJSON<Account | null>(b.pathname, null);
@@ -289,7 +297,7 @@ function genRefCode(): string {
 export async function findAccountByUsername(username: string): Promise<Account | null> {
   const u = username.trim().toLowerCase();
   try {
-    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, token: getToken() });
+    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, ...blobAuthOptions() });
     for (const b of blobs) {
       const d = await readJSON<Account | null>(b.pathname, null);
       const name = (d?.username ?? d?.user?.username ?? "").toLowerCase();

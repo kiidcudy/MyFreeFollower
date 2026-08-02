@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          "Vercel Blob yapılandırılmamış. Vercel → Storage → Blob oluştur → projeye bağla → Redeploy. (BLOB_READ_WRITE_TOKEN eksik)",
+          "Vercel Blob yapılandırılmamış. Storage → Blob store projeye bağlı mı? BLOB_STORE_ID veya BLOB_READ_WRITE_TOKEN gerekli. Sonra Redeploy.",
       },
       { status: 503 },
     );

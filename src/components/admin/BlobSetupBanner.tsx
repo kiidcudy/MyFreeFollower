@@ -30,10 +30,11 @@ export function BlobSetupBanner() {
       {hasTokenKey ? (
         <>
           <p className="mt-2">
-            Vercel&apos;de store <strong>Connected</strong> görünse bile, mevcut deployment
-            henüz <code className="rounded bg-amber-100 px-1">BLOB_READ_WRITE_TOKEN</code>{" "}
-            almamış olabilir. Algılanan env anahtarları:{" "}
+            Env değişkenleri tanımlı görünüyor (
             <code className="rounded bg-amber-100 px-1">{status.envKeys.join(", ")}</code>
+            ) ama sunucu Blob&apos;a yazamıyor. Vercel artık OIDC kullanıyor — store bağlıysa{" "}
+            <code className="rounded bg-amber-100 px-1">BLOB_STORE_ID</code> yeterli; redeploy
+            sonrası otomatik çalışmalı.
           </p>
           <ol className="mt-3 list-decimal space-y-1 ps-5">
             <li>
