@@ -342,6 +342,19 @@ export async function fetchAccountByEmail(
   return getAllAccounts().find((a) => a.email === email) ?? null;
 }
 
+export async function fetchStorageStatus(): Promise<{ kv: boolean; envKeys: string[] }> {
+  try {
+    const res = await fetch("/api/tasks", {
+      headers: { "x-admin-password": getAdminPassword() },
+      cache: "no-store",
+    });
+    const data = (await res.json()) as { kv?: boolean; envKeys?: string[] };
+    return { kv: data.kv === true, envKeys: data.envKeys ?? [] };
+  } catch {
+    return { kv: false, envKeys: [] };
+  }
+}
+
 export async function fetchAdminTasks(): Promise<Task[]> {
   try {
     const res = await fetch("/api/tasks", {

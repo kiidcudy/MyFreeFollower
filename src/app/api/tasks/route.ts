@@ -49,8 +49,11 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   if (!blobReady) {
     return NextResponse.json(
-      { error: "Blob storage is not configured (missing env token)." },
-      { status: 503 }
+      {
+        error:
+          "Vercel Blob yapılandırılmamış. Vercel → Storage → Blob oluştur → projeye bağla → Redeploy. (BLOB_READ_WRITE_TOKEN eksik)",
+      },
+      { status: 503 },
     );
   }
   if (!checkAdminPassword(req)) {

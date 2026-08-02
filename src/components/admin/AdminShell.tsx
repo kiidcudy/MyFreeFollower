@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { adminLogout, isAdminAuthed } from "@/lib/admin-store";
+import { BlobSetupBanner } from "@/components/admin/BlobSetupBanner";
 import { siteConfig } from "@/lib/site";
 
 const navItems = [
@@ -125,7 +126,10 @@ export function AdminShell({ children }: { children: ReactNode }) {
             </div>
           </div>
         </header>
-        <main className="flex-1 p-4 lg:p-8">{children}</main>
+        <main className="flex-1 p-4 lg:p-8">
+          <BlobSetupBanner />
+          {children}
+        </main>
       </div>
     </div>
   );
