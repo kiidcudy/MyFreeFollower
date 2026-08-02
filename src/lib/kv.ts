@@ -29,10 +29,12 @@ export function blobEnvKeys(): string[] {
   });
 }
 
-/** Only pass an explicit token outside Vercel OIDC — empty token blocks SDK auto-auth. */
-function blobAuthOptions(): { token?: string } {
+/** Prefer READ_WRITE_TOKEN when set — more reliable than OIDC-only on some deployments. */
+function blobAuthOptions(): { token?: string; storeId?: string } {
   const token = resolveToken();
-  if (token && !hasOidcBlobAuth()) return { token };
+  if (token) return { token };
+  const storeId = process.env.BLOB_STORE_ID?.trim();
+  if (storeId) return { storeId };
   return {};
 }
 
@@ -221,6 +223,10 @@ export async function getTasks(): Promise<Task[]> {
 
 export async function setTasks(tasks: Task[]): Promise<void> {
   await writeJSON(TASKS_PATH, tasks);
+  const saved = await readJSON<Task[] | null>(TASKS_PATH, null);
+  if (!Array.isArray(saved)) {
+    throw new Error("Blob write failed — tasks could not be read back. Check BLOB_READ_WRITE_TOKEN.");
+  }
 }
 
 export async function getTaskById(id: string): Promise<Task | undefined> {

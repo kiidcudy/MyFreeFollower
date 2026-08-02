@@ -104,9 +104,13 @@ export default function AdminTasksPage() {
     }
     const res = await saveTask(payload);
     if (res.ok) {
+      if (res.tasks?.length) {
+        setTasks(res.tasks);
+      } else {
+        await load();
+      }
       setFormOpen(false);
-      setMessage(null);
-      load();
+      setMessage(`Task saved. ${res.tasks?.length ?? 0} task(s) live.`);
     } else {
       setMessage(res.error ?? "Save failed.");
     }
@@ -145,7 +149,17 @@ export default function AdminTasksPage() {
         </div>
       </AdminPageHeader>
 
-      {message && <p className="rounded-lg bg-amber-50 px-4 py-2 text-sm text-amber-900">{message}</p>}
+      {message && (
+        <p
+          className={`rounded-lg px-4 py-2 text-sm ${
+            message.includes("saved") || message.includes("Saved")
+              ? "bg-accent-50 text-accent-900"
+              : "bg-amber-50 text-amber-900"
+          }`}
+        >
+          {message}
+        </p>
+      )}
 
       {formOpen && (
         <div className="card p-6">

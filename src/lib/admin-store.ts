@@ -373,15 +373,18 @@ export async function fetchAdminTasks(): Promise<Task[]> {
 
 export async function saveTask(
   task: Partial<Task> & { update?: boolean },
-): Promise<{ ok: boolean; error?: string }> {
+): Promise<{ ok: boolean; error?: string; tasks?: Task[] }> {
   try {
     const res = await fetch("/api/tasks", {
       method: "POST",
       headers: adminHeaders(),
       body: JSON.stringify(task),
     });
-    const data = (await res.json().catch(() => null)) as { error?: string } | null;
-    if (res.ok) return { ok: true };
+    const data = (await res.json().catch(() => null)) as {
+      error?: string;
+      tasks?: Task[];
+    } | null;
+    if (res.ok) return { ok: true, tasks: data?.tasks };
     return { ok: false, error: data?.error ?? `Error (HTTP ${res.status})` };
   } catch {
     return { ok: false, error: "Connection error." };
