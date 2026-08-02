@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import {
   fetchAllServiceOrders,
   updateServiceOrderStatus,
@@ -36,17 +35,17 @@ export default function AdminOrdersPage() {
 
   return (
     <div className="space-y-6">
-      <AdminPageHeader
-        title={`Service Orders (${orders.length})`}
-        subtitle="Follower, like and view orders created by users spending points."
-      />
+      <div>
+        <h1 className="font-display text-2xl font-bold text-ink-900">Orders</h1>
+        <p className="mt-1 text-sm text-slate-600">Free and paid service orders</p>
+      </div>
 
       {loading ? (
         <p className="text-sm text-slate-500">Loading…</p>
       ) : orders.length === 0 ? (
         <p className="text-sm text-slate-500">No orders found.</p>
       ) : (
-        <div className="card overflow-x-auto">
+        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-card">
           <table className="w-full min-w-[900px] text-start text-sm">
             <thead>
               <tr className="border-b border-slate-100 bg-slate-50 text-xs uppercase text-ink-700">

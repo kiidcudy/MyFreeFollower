@@ -1,7 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-import { PanelHeader } from "@/components/panel/PanelHeader";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
 import { formatPoints } from "@/lib/site";
@@ -14,8 +12,6 @@ function statusLabel(t: (k: string) => string, status: string) {
       return t("dashboard.proofRejected");
     case "needs_edit":
       return t("dashboard.proofNeedsEdit");
-    case "recheck":
-      return t("dashboard.statusRecheck");
     default:
       return t("dashboard.proofPending");
   }
@@ -24,15 +20,13 @@ function statusLabel(t: (k: string) => string, status: string) {
 function statusClass(status: string) {
   switch (status) {
     case "approved":
-      return "bg-accent-100 text-accent-800";
+      return "bg-emerald-100 text-emerald-800";
     case "rejected":
       return "bg-red-100 text-red-800";
     case "needs_edit":
-      return "bg-orange-100 text-orange-800";
-    case "recheck":
-      return "bg-blue-100 text-blue-800";
-    default:
       return "bg-amber-100 text-amber-800";
+    default:
+      return "bg-slate-100 text-slate-700";
   }
 }
 
@@ -40,54 +34,66 @@ export default function DashboardProofsPage() {
   const { t } = useLocale();
   const { proofs } = useAuth();
 
-  const summary = useMemo(
-    () => ({
-      total: proofs.length,
-      approved: proofs.filter((p) => p.status === "approved").length,
-      waiting: proofs.filter((p) => p.status === "pending" || p.status === "recheck").length,
-    }),
-    [proofs],
-  );
-
   return (
     <div className="space-y-6">
-      <PanelHeader title={t("dashboard.proofs")} subtitle={t("dashboard.proofsSummary")}>
-        <div className="flex gap-4 text-sm font-bold">
-          <span>{summary.total} {t("dashboard.proofsTotal")}</span>
-          <span>{summary.approved} {t("dashboard.proofsApproved")}</span>
-          <span>{summary.waiting} {t("dashboard.proofsWaiting")}</span>
-        </div>
-      </PanelHeader>
+      <div>
+        <h1 className="font-display text-2xl font-bold text-ink-900">{t("dashboard.proofs")}</h1>
+        <p className="mt-1 text-sm text-ink-700">{t("dashboard.orderHistory")}</p>
+      </div>
 
       {proofs.length === 0 ? (
-        <div className="card border-dashed p-10 text-center text-sm text-slate-500">
-          {t("dashboard.noActivity")}
+        <div className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center">
+          <p className="text-sm text-slate-500">{t("dashboard.noActivity")}</p>
         </div>
       ) : (
-        <div className="space-y-3">
-          {proofs.map((p) => (
-            <article key={p.id} className="card p-4">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h2 className="font-semibold text-slate-900">{p.taskTitle}</h2>
-                  <p className="text-xs text-slate-500">
-                    {p.platform} · {new Date(p.createdAt).toLocaleString()}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="badge bg-amber-100 font-bold text-amber-700">
-                    +{formatPoints(p.points)} 🪙
-                  </span>
-                  <span className={`badge ${statusClass(p.status)}`}>
-                    {statusLabel(t, p.status)}
-                  </span>
-                </div>
-              </div>
-              {p.note && (
-                <p className="mt-2 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{p.note}</p>
-              )}
-            </article>
-          ))}
+        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-card">
+          <table className="w-full min-w-[640px] text-start text-sm">
+            <thead>
+              <tr className="border-b border-slate-100 bg-slate-50 text-xs uppercase text-ink-700">
+                <th className="px-4 py-3 font-semibold">Task</th>
+                <th className="px-4 py-3 font-semibold">Platform</th>
+                <th className="px-4 py-3 font-semibold">{t("common.points")}</th>
+                <th className="px-4 py-3 font-semibold">Status</th>
+                <th className="px-4 py-3 font-semibold">Date</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {proofs.map((p) => (
+                <tr key={p.id} className="hover:bg-slate-50/50">
+                  <td className="px-4 py-3">
+                    <p className="font-medium text-ink-900">{p.taskTitle}</p>
+                    {p.note && (
+                      <p className="mt-0.5 text-xs text-amber-700">{p.note}</p>
+                    )}
+                    {p.media && (
+                      <a
+                        href={p.media}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 inline-block text-xs text-brand-700 hover:underline"
+                      >
+                        View proof
+                      </a>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-ink-700">{p.platform}</td>
+                  <td className="px-4 py-3 font-semibold text-brand-800">
+                    {formatPoints(p.points)}
+                  </td>
+                  <td className="px-4 py-3">
+                    <span
+                      className={`inline-block rounded-full px-2 py-0.5 text-xs font-bold ${statusClass(p.status)}`}
+                    >
+                      {statusLabel(t, p.status)}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-xs text-slate-500">
+                    {new Date(p.createdAt).toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>

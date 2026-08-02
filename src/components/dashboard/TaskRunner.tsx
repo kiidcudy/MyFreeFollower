@@ -21,7 +21,7 @@ const statusMeta: Record<
   { labelKey: string; cls: string }
 > = {
   pending: { labelKey: "statusPending", cls: "bg-amber-100 text-amber-700" },
-  approved: { labelKey: "statusApproved", cls: "bg-accent-500/15 text-accent-700" },
+  approved: { labelKey: "statusApproved", cls: "bg-emerald-100 text-emerald-800" },
   rejected: { labelKey: "statusRejected", cls: "bg-red-100 text-red-700" },
   needs_edit: { labelKey: "statusNeedsEdit", cls: "bg-orange-100 text-orange-700" },
   recheck: { labelKey: "statusRecheck", cls: "bg-blue-100 text-blue-700" },
@@ -181,7 +181,7 @@ export function TaskRunner() {
             onClick={() => setFilter(p)}
             className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
               filter === p
-                ? "bg-accent-600 text-white"
+                ? "bg-brand-600 text-white"
                 : "bg-white text-slate-600 ring-1 ring-inset ring-slate-200 hover:bg-slate-50"
             }`}
           >
@@ -202,10 +202,9 @@ export function TaskRunner() {
           return (
             <div
               key={task.id}
-              className="overflow-hidden rounded-2xl border border-l-4 border-slate-200 bg-white"
-              style={{ borderLeftColor: pm.color }}
+              className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-card"
             >
-              <div className="flex flex-wrap items-center gap-4 p-4">
+              <div className="flex flex-wrap items-center gap-4 p-5">
                 <span
                   className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-xl"
                   style={{ background: pm.bg }}
@@ -213,19 +212,20 @@ export function TaskRunner() {
                   {pm.emoji}
                 </span>
                 <div className="min-w-0 flex-1 text-center sm:text-left">
-                  <div className="font-semibold text-slate-900">
-                    ⭐ {task.id} — {task.title}
-                  </div>
-                  <div className="text-xs text-slate-500">
-                    {task.platform} · {getTypeMeta(task.type).emoji} {task.type}
+                  <div className="font-display text-lg font-bold text-ink-900">{task.title}</div>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                    <span className="rounded-full bg-brand-50 px-2 py-0.5 font-bold text-brand-800">
+                      {task.platform}
+                    </span>
+                    <span>
+                      {getTypeMeta(task.type).emoji} {task.type}
+                    </span>
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="badge bg-amber-100 font-bold text-amber-700">
-                    +{reward} 🪙
-                  </span>
+                  <span className="font-display text-xl font-bold text-brand-700">+{reward} 🪙</span>
                   {pr && (
-                    <span className={`badge font-semibold ${statusMeta[pr.status].cls}`}>
+                    <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${statusMeta[pr.status].cls}`}>
                       {t(`dashboard.${statusMeta[pr.status].labelKey}`)}
                     </span>
                   )}
@@ -233,7 +233,7 @@ export function TaskRunner() {
                     <button
                       type="button"
                       onClick={() => setActive(isOpen ? null : task.id)}
-                      className="btn-primary px-5 py-2"
+                      className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
                     >
                       {isOpen
                         ? t("dashboard.closeTask")
@@ -258,15 +258,15 @@ export function TaskRunner() {
                     const isFollow =
                       /follow|takip|abone/i.test(task.type);
                     return username && isFollow ? (
-                      <div className="mb-3 flex flex-wrap items-center gap-2 rounded-xl border border-accent-200 bg-accent-50 px-3 py-2.5 text-sm">
-                        <span className="font-semibold text-slate-700">
+                      <div className="mb-3 flex flex-wrap items-center gap-2 rounded-lg border border-brand-200 bg-brand-50 px-3 py-2.5 text-sm">
+                        <span className="font-semibold text-ink-700">
                           👤 {t("dashboard.followAccount")}:
                         </span>
                         <a
                           href={task.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold text-accent-700 hover:underline"
+                          className="font-bold text-brand-700 hover:underline"
                         >
                           @{username}
                         </a>
@@ -289,7 +289,7 @@ export function TaskRunner() {
                         setAccountNames((a) => ({ ...a, [task.id]: e.target.value }))
                       }
                       placeholder={t("dashboard.proofAccountPlaceholder")}
-                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+                      className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
                     />
                   </div>
 
@@ -298,11 +298,11 @@ export function TaskRunner() {
                       href={task.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-ghost px-4 py-2"
+                      className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-ink-700 hover:bg-slate-50"
                     >
                       🔗 {t("dashboard.openTask")}
                     </a>
-                    <label className="cursor-pointer rounded-xl border border-dashed border-slate-300 px-4 py-2 text-sm text-slate-600 hover:border-accent-400">
+                    <label className="cursor-pointer rounded-lg border border-dashed border-slate-300 px-4 py-2 text-sm text-slate-600 hover:border-brand-400">
                       📷{" "}
                       {media[task.id]
                         ? t("dashboard.proofSelected")
@@ -318,7 +318,7 @@ export function TaskRunner() {
                       type="button"
                       disabled={!media[task.id] || busy === task.id}
                       onClick={() => handleSubmit(task)}
-                      className="btn-accent px-5 py-2 disabled:opacity-50"
+                      className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-50"
                     >
                       {busy === task.id ? t("dashboard.submitting") : t("dashboard.submitProof")}
                     </button>

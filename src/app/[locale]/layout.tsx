@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
-import { LocaleChrome } from "@/components/layout/LocaleChrome";
+import { FloatingSupportDock } from "@/components/widgets/FloatingSupportDock";
 import { isLocale, isRtl, locales, type Locale } from "@/lib/i18n/config";
 
 export default async function LocaleLayout({
@@ -18,7 +20,12 @@ export default async function LocaleLayout({
   return (
     <LocaleProvider initialLocale={locale}>
       <div dir={isRtl(locale) ? "rtl" : "ltr"} className="flex min-h-screen flex-col">
-        <LocaleChrome>{children}</LocaleChrome>
+        <Header />
+        <main id="main-content" className="site-main flex-1 w-full overflow-x-hidden pb-24">
+          {children}
+        </main>
+        <Footer />
+        <FloatingSupportDock />
       </div>
     </LocaleProvider>
   );

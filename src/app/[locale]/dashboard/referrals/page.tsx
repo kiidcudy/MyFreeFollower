@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PanelHeader } from "@/components/panel/PanelHeader";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
 import { localizedPath } from "@/lib/i18n/navigation";
@@ -53,16 +52,18 @@ export default function DashboardReferralsPage() {
 
   return (
     <div className="space-y-6">
-      <PanelHeader
-        title={t("dashboard.referrals")}
-        subtitle={t("dashboard.referralDesc", { percent: referralCommissionPercent() })}
-      />
-
-      <div className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-        {t("dashboard.referralWarning")}
+      <div>
+        <h1 className="font-display text-2xl font-bold text-ink-900">
+          {t("dashboard.referrals")}
+        </h1>
+        <p className="mt-1 text-sm text-ink-700">
+          {t("dashboard.referralDesc", {
+            percent: referralCommissionPercent(),
+          })}
+        </p>
       </div>
 
-      <section className="card p-6">
+      <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
         <h2 className="font-display text-lg font-bold text-ink-900">
           {t("dashboard.referralLink")}
         </h2>
@@ -75,7 +76,7 @@ export default function DashboardReferralsPage() {
           <button
             type="button"
             onClick={copyLink}
-            className="btn-primary px-4 py-2 text-sm"
+            className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
           >
             {copied ? t("dashboard.referralCopied") : t("dashboard.referralCopy")}
           </button>
@@ -83,7 +84,7 @@ export default function DashboardReferralsPage() {
         <p className="mt-2 text-xs text-slate-500">Code: {referralCode}</p>
       </section>
 
-      <section className="card p-6">
+      <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
         <h2 className="font-display text-lg font-bold text-ink-900">
           {t("dashboard.referralStats")}
         </h2>
