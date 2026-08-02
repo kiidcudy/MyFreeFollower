@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  blobReady,
+  isBlobReady,
   getWithdrawals,
   addWithdrawal,
   updateWithdrawal,
@@ -12,7 +12,7 @@ import {
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
-  if (!blobReady) return NextResponse.json({ withdrawals: [], kv: false });
+  if (!isBlobReady()) return NextResponse.json({ withdrawals: [], kv: false });
   if (!checkAdminPassword(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
@@ -22,7 +22,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
 
   const body = (await req.json()) as {
     action?: "create" | "review";
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
   if (!checkAdminPassword(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }

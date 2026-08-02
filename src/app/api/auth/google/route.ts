@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { OAuth2Client } from "google-auth-library";
-import { blobReady, upsertGoogleAccount, getClientIp } from "@/lib/kv";
+import { isBlobReady, upsertGoogleAccount, getClientIp } from "@/lib/kv";
 import { siteConfig } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +10,7 @@ const client = siteConfig.googleClientId
   : null;
 
 export async function POST(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
 
   const body = (await req.json()) as { credential?: string; ref?: string };
   if (!body?.credential) {

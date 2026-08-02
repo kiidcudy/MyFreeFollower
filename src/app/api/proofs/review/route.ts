@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { blobReady, reviewProof, checkAdminPassword, type ProofStatus } from "@/lib/kv";
+import { isBlobReady, reviewProof, checkAdminPassword, type ProofStatus } from "@/lib/kv";
 
 export const dynamic = "force-dynamic";
 
 const VALID: ProofStatus[] = ["approved", "rejected", "needs_edit", "recheck"];
 
 export async function POST(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
   if (!checkAdminPassword(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }

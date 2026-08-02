@@ -13,11 +13,19 @@ function resolveToken(): string {
   return key ? (process.env[key] as string) : "";
 }
 
-const TOKEN = resolveToken();
-export const blobReady = Boolean(TOKEN);
+function getToken(): string {
+  return resolveToken();
+}
 
+/** Runtime check — token may exist after Vercel redeploy even if module loaded earlier. */
+export function isBlobReady(): boolean {
+  return Boolean(getToken());
+}
 export function blobEnvKeys(): string[] {
-  return Object.keys(process.env).filter((k) => k.toUpperCase().includes("BLOB"));
+  return Object.keys(process.env).filter((k) => {
+    const u = k.toUpperCase();
+    return u.includes("BLOB") || u.endsWith("READ_WRITE_TOKEN");
+  });
 }
 
 const TASKS_PATH = "mff/tasks.json";
@@ -59,7 +67,7 @@ async function readJSON<T>(pathname: string, fallback: T): Promise<T> {
     const result = await get(pathname, {
       access: "private",
       useCache: false,
-      token: TOKEN,
+      token: getToken(),
     });
     if (!result?.stream) return fallback;
     const text = await new Response(result.stream).text();
@@ -76,7 +84,7 @@ async function writeJSON(pathname: string, data: unknown): Promise<void> {
     addRandomSuffix: false,
     allowOverwrite: true,
     contentType: "application/json",
-    token: TOKEN,
+    token: getToken(),
   });
 }
 
@@ -250,7 +258,7 @@ export async function getAccount(email: string): Promise<ServerAccount | null> {
 
 export async function listAccounts(): Promise<ServerAccount[]> {
   try {
-    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, token: TOKEN });
+    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, token: getToken() });
     const results = await Promise.all(
       blobs.map(async (b) => {
         const d = await readJSON<Account | null>(b.pathname, null);
@@ -280,7 +288,7 @@ function genRefCode(): string {
 export async function findAccountByUsername(username: string): Promise<Account | null> {
   const u = username.trim().toLowerCase();
   try {
-    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, token: TOKEN });
+    const { blobs } = await list({ prefix: ACCOUNTS_PREFIX, token: getToken() });
     for (const b of blobs) {
       const d = await readJSON<Account | null>(b.pathname, null);
       const name = (d?.username ?? d?.user?.username ?? "").toLowerCase();

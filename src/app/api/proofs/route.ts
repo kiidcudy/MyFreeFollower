@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  blobReady,
+  isBlobReady,
   addProof,
   getProofs,
   getProofById,
@@ -12,7 +12,7 @@ import {
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
 
   const body = (await req.json()) as Partial<Proof>;
   if (!body?.taskId || !body?.email || !body?.media || !body?.mediaType) {
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  if (!blobReady) return NextResponse.json({ proofs: [], kv: false });
+  if (!isBlobReady()) return NextResponse.json({ proofs: [], kv: false });
 
   const url = new URL(req.url);
   const email = url.searchParams.get("email")?.toLowerCase();
@@ -71,7 +71,7 @@ export async function GET(req: Request) {
 }
 
 export async function DELETE(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
   if (!checkAdminPassword(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }

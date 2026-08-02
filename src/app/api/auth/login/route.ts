@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { blobReady, loginAccount, getClientIp } from "@/lib/kv";
+import { isBlobReady, loginAccount, getClientIp } from "@/lib/kv";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
 
   const body = (await req.json()) as { identifier?: string; password?: string };
   if (!body?.identifier || !body?.password) {

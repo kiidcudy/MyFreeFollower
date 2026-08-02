@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  blobReady,
+  isBlobReady,
   upsertAccount,
   listAccounts,
   getAccount,
@@ -13,7 +13,7 @@ import {
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
 
   const body = (await req.json()) as {
     email?: string;
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  if (!blobReady) return NextResponse.json({ accounts: [], kv: false });
+  if (!isBlobReady()) return NextResponse.json({ accounts: [], kv: false });
 
   const email = new URL(req.url).searchParams.get("email")?.toLowerCase();
   if (email) {

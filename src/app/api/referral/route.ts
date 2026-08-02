@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { blobReady, listAccounts } from "@/lib/kv";
+import { isBlobReady, listAccounts } from "@/lib/kv";
 import { referralCommissionPercent, siteConfig } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -19,7 +19,7 @@ export async function GET(req: Request) {
 
   const percent = referralCommissionPercent();
 
-  if (!blobReady) {
+  if (!isBlobReady()) {
     return NextResponse.json({
       invited: [],
       count: 0,

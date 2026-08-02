@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  blobReady,
+  isBlobReady,
   blobEnvKeys,
   getTasks,
   setTasks,
@@ -22,7 +22,7 @@ async function getTaskCounts(): Promise<Record<string, number>> {
 }
 
 export async function GET(req: Request) {
-  if (!blobReady) {
+  if (!isBlobReady()) {
     return NextResponse.json({ tasks: [], kv: false, envKeys: blobEnvKeys() });
   }
 
@@ -47,7 +47,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  if (!blobReady) {
+  if (!isBlobReady()) {
     return NextResponse.json(
       {
         error:
@@ -97,7 +97,7 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
-  if (!blobReady) {
+  if (!isBlobReady()) {
     return NextResponse.json({ error: "Blob env missing." }, { status: 503 });
   }
   if (!checkAdminPassword(req)) {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  blobReady,
+  isBlobReady,
   listAccounts,
   adminUpdateUser,
   checkAdminPassword,
@@ -10,7 +10,7 @@ import {
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
-  if (!blobReady) return NextResponse.json({ accounts: [], kv: false });
+  if (!isBlobReady()) return NextResponse.json({ accounts: [], kv: false });
   if (!checkAdminPassword(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
@@ -19,7 +19,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  if (!blobReady) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
   if (!checkAdminPassword(req)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
