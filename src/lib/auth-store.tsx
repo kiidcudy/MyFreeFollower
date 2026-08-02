@@ -127,7 +127,7 @@ interface AuthContextValue extends SessionState {
 
 const ACCOUNTS_KEY = "mff-accounts-v1";
 const SESSION_KEY = "mff-session-v1";
-const TASKS_CACHE_KEY = "mff-shared-tasks-cache-v2";
+const TASKS_CACHE_KEY = "mff-shared-tasks-cache-v3";
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
@@ -197,7 +197,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await fetch("/api/tasks", { cache: "no-store" });
       const data = (await res.json()) as { tasks?: Task[]; kv?: boolean };
-      const tasks = stripLegacyTasks(data.tasks ?? []);
+      const tasks = data.tasks ?? [];
       if (data.kv && typeof window !== "undefined") {
         localStorage.setItem(TASKS_CACHE_KEY, JSON.stringify(tasks));
       }

@@ -7,7 +7,7 @@ import {
   getProofs,
   checkAdminPassword,
 } from "@/lib/kv";
-import type { Task } from "@/lib/tasks/data";
+import { NEW_TASK_ID_FLOOR, type Task } from "@/lib/tasks/data";
 
 export const dynamic = "force-dynamic";
 
@@ -81,7 +81,7 @@ export async function POST(req: Request) {
     const maxId = tasks.reduce((m, t) => {
       const n = parseInt(String(t.id), 10);
       return Number.isFinite(n) && n > m ? n : m;
-    }, 257834);
+    }, NEW_TASK_ID_FLOOR);
 
     const { update: _u2, count: _c2, ...taskData } = body;
     const task: Task = { ...taskData, id: String(maxId + 1) };

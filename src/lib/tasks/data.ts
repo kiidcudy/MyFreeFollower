@@ -15,7 +15,7 @@ export interface Task {
   count?: number;
 }
 
-/** Legacy demo task IDs seeded at build time — stripped from storage on read. */
+/** Legacy demo task IDs seeded at build time — stripped from client cache only. */
 export const legacyDemoTaskIds = new Set([
   "257835",
   "257836",
@@ -25,6 +25,9 @@ export const legacyDemoTaskIds = new Set([
   "257840",
   "257841",
 ]);
+
+/** First auto-assigned task id is NEW_TASK_ID_FLOOR + 1 (must stay above legacy demo ids). */
+export const NEW_TASK_ID_FLOOR = 257841;
 
 export function findTask(id: string, tasks: Task[] = []): Task | undefined {
   return tasks.find((t) => t.id === id);

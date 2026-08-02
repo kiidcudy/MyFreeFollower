@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth, type ProofSubmission } from "@/lib/auth-store";
 import { effectivePoints } from "@/lib/site";
@@ -60,13 +60,17 @@ function matchPlatform(taskPlatform: string, filter: string): boolean {
 
 export function TaskRunner() {
   const { t } = useLocale();
-  const { tasks, proofs, submitProof } = useAuth();
+  const { tasks, proofs, submitProof, refreshTasks } = useAuth();
   const [filter, setFilter] = useState<string>("All");
   const [active, setActive] = useState<string | null>(null);
   const [media, setMedia] = useState<Record<string, { data: string; type: "image" | "video" }>>({});
   const [accountNames, setAccountNames] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+
+  useEffect(() => {
+    void refreshTasks();
+  }, [refreshTasks]);
 
   const proofByTask = useMemo(() => {
     const m = new Map<string, ProofSubmission>();
