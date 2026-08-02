@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
 import { adminLogin } from "@/lib/admin-store";
 
@@ -25,37 +26,35 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4">
+    <div className="flex min-h-dvh items-center justify-center bg-slate-100 px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm rounded-2xl border border-slate-700 bg-slate-800 p-8 shadow-xl"
+        className="w-full max-w-sm rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
       >
-        <h1 className="font-display text-xl font-bold text-white">Admin Login</h1>
-        <p className="mt-1 text-sm text-slate-400">MyFreeFollower control panel</p>
+        <div className="mb-1 text-2xl font-black text-slate-900">🔐 Admin Panel</div>
+        <p className="mb-6 text-sm text-slate-500">Enter admin password to continue.</p>
 
         {error && (
-          <p className="mt-4 rounded-lg bg-red-500/20 px-3 py-2 text-sm text-red-300">{error}</p>
+          <div className="mb-4 rounded-xl bg-red-50 px-4 py-2.5 text-sm font-medium text-red-700">
+            {error}
+          </div>
         )}
 
-        <label className="mt-6 block text-sm font-medium text-slate-300">
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mt-2 w-full rounded-lg border border-slate-600 bg-slate-900 px-3 py-2.5 text-white outline-none focus:border-teal-500"
-            autoComplete="current-password"
-            required
-          />
-        </label>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="mt-6 w-full rounded-lg bg-teal-600 py-2.5 text-sm font-semibold text-white hover:bg-teal-500 disabled:opacity-50"
-        >
-          {loading ? "Signing in…" : "Enter admin"}
+        <input
+          type="password"
+          autoFocus
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Admin password"
+          className="mb-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+          required
+        />
+        <button type="submit" disabled={loading} className="btn-primary w-full">
+          {loading ? "Signing in…" : "Sign in"}
         </button>
+        <Link href="/en" className="mt-4 block text-center text-xs text-slate-400 hover:text-accent-600">
+          ← Back to site
+        </Link>
       </form>
     </div>
   );

@@ -137,6 +137,38 @@
   .mff-nav-link-active {
     @apply rounded-full bg-[#0077ed]/10 px-4 py-2 text-sm font-semibold text-[#0077ed];
   }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-600 text-white shadow-soft hover:bg-accent-700 focus-visible:ring-accent-500;
+  }
+
+  .btn-accent {
+    @apply btn bg-orange-500 text-white hover:bg-orange-600 focus-visible:ring-orange-400;
+  }
+
+  .btn-ghost {
+    @apply btn bg-white text-slate-700 ring-1 ring-inset ring-slate-200 hover:bg-slate-50;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+
+  .panel-header {
+    @apply rounded-2xl bg-gradient-to-r from-accent-800 via-accent-700 to-accent-600 p-6 text-white;
+  }
+
+  .admin-stat-card {
+    @apply rounded-2xl border border-slate-200 bg-white p-5 shadow-sm;
+  }
 }
 
 @layer utilities {

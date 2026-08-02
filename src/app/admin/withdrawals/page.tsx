@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import {
   fetchAllWithdrawals,
   reviewWithdrawal,
@@ -37,20 +38,16 @@ export default function AdminWithdrawalsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="font-display text-2xl font-bold text-ink-900">Withdrawals</h1>
-          <p className="mt-1 text-sm text-slate-600">Approve or reject payout requests</p>
-        </div>
+      <AdminPageHeader title="Withdrawals" subtitle="Approve or reject payout requests">
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value as "all" | "pending")}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+          className="rounded-xl border border-white/30 bg-white/15 px-3 py-2 text-sm text-white"
         >
           <option value="pending">Pending only</option>
           <option value="all">All</option>
         </select>
-      </div>
+      </AdminPageHeader>
 
       {loading ? (
         <p className="text-sm text-slate-500">Loading…</p>

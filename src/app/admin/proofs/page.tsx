@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import {
   fetchAllProofs,
   reviewProof,
@@ -116,15 +117,14 @@ export default function AdminProofsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="font-display text-2xl font-bold text-ink-900">Task Proofs</h1>
-          <p className="mt-1 text-sm text-slate-600">Approve to credit points once</p>
-        </div>
-        <button type="button" onClick={load} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold hover:bg-slate-50">
+      <AdminPageHeader
+        title="Task Proofs"
+        subtitle="Review user proofs. Approved proofs credit points automatically."
+      >
+        <button type="button" onClick={load} className="btn-ghost border-white/30 bg-white/10 text-white hover:bg-white/20">
           Refresh
         </button>
-      </div>
+      </AdminPageHeader>
 
       <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         {tabs.map((t) => (
@@ -133,7 +133,7 @@ export default function AdminProofsPage() {
             type="button"
             onClick={() => setTab(t.id)}
             className={`rounded-full px-4 py-1.5 text-sm font-semibold ${
-              tab === t.id ? "bg-teal-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              tab === t.id ? "bg-accent-600 text-white" : "bg-white text-slate-700 ring-1 ring-inset ring-slate-200 hover:bg-slate-50"
             }`}
           >
             {t.label} ({t.count})

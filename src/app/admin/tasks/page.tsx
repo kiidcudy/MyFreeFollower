@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
 import {
   clearAllTasks,
   fetchAdminTasks,
@@ -130,28 +131,25 @@ export default function AdminTasksPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="font-display text-2xl font-bold text-ink-900">Task Management</h1>
-          <p className="mt-1 text-sm text-slate-600">
-            Base points × {siteConfig.pointsMultiplier} awarded on proof approval
-          </p>
-        </div>
+      <AdminPageHeader
+        title="Task Management"
+        subtitle={`Base points × ${siteConfig.pointsMultiplier} awarded on proof approval`}
+      >
         <div className="flex gap-2">
-          <button type="button" onClick={openCreate} className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-500">
-            + Add Task
+          <button type="button" onClick={openCreate} className="btn-primary px-4 py-2 text-sm">
+            + New Task
           </button>
-          <button type="button" onClick={handleClearAll} className="rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-sm font-semibold text-red-800 hover:bg-red-100">
+          <button type="button" onClick={handleClearAll} className="rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-semibold text-red-800 hover:bg-red-100">
             Clear All
           </button>
         </div>
-      </div>
+      </AdminPageHeader>
 
       {message && <p className="rounded-lg bg-amber-50 px-4 py-2 text-sm text-amber-900">{message}</p>}
 
       {formOpen && (
-        <div className="rounded-xl border border-teal-200 bg-white p-6 shadow-card">
-          <h2 className="font-display text-lg font-bold">{editingId ? "Edit Task" : "New Task"}</h2>
+        <div className="card p-6">
+          <h2 className="font-display text-lg font-bold">+ {editingId ? "Edit Task" : "New Task"}</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <label className="block text-sm font-semibold">
               Platform
@@ -232,8 +230,8 @@ export default function AdminTasksPage() {
             </label>
           </div>
           <div className="mt-4 flex gap-2">
-            <button type="button" onClick={handleSave} className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white">Save</button>
-            <button type="button" onClick={() => setFormOpen(false)} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold">Cancel</button>
+            <button type="button" onClick={handleSave} className="btn-primary px-4 py-2 text-sm">Publish Task</button>
+            <button type="button" onClick={() => setFormOpen(false)} className="btn-ghost px-4 py-2 text-sm">Cancel</button>
           </div>
         </div>
       )}
@@ -243,7 +241,7 @@ export default function AdminTasksPage() {
       ) : tasks.length === 0 ? (
         <p className="text-sm text-slate-500">No tasks. Click Add Task to create one.</p>
       ) : (
-        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-card">
+        <div className="card overflow-x-auto">
           <table className="w-full min-w-[960px] text-start text-sm">
             <thead>
               <tr className="border-b border-slate-100 bg-slate-50 text-xs uppercase text-ink-700">

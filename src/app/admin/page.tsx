@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { AdminPageHeader } from "@/components/admin/AdminPageHeader";
+import { AdminStatGrid } from "@/components/admin/AdminStatGrid";
 import {
   fetchAllAccounts,
   fetchAllProofs,
@@ -18,8 +20,6 @@ export default function AdminDashboardPage() {
     totalProofs: 0,
     activeTasks: 0,
     pendingWithdrawals: 0,
-    pendingProofs: 0,
-    pendingOrders: 0,
   });
   const [topUsers, setTopUsers] = useState<
     { username: string; email: string; points: number }[]
@@ -32,7 +32,7 @@ export default function AdminDashboardPage() {
       fetchAdminTasks(),
       fetchAllServiceOrders(),
       fetchAllWithdrawals(),
-    ]).then(([accounts, proofs, tasks, orders, withdrawals]) => {
+    ]).then(([accounts, proofs, tasks, _orders, withdrawals]) => {
       const totalPoints = accounts.reduce((s, a) => s + (a.user?.points ?? 0), 0);
       setStats({
         users: accounts.length,
@@ -40,8 +40,6 @@ export default function AdminDashboardPage() {
         totalProofs: proofs.length,
         activeTasks: tasks.length,
         pendingWithdrawals: withdrawals.filter((w) => w.status === "pending").length,
-        pendingProofs: proofs.filter((p) => p.status === "pending").length,
-        pendingOrders: orders.filter((o) => o.status === "pending").length,
       });
       setTopUsers(
         accounts
@@ -56,89 +54,68 @@ export default function AdminDashboardPage() {
     });
   }, []);
 
-  const cards = useMemo(
+  const statCards = useMemo(
     () => [
-      { label: "Total Users", value: stats.users, href: "/admin/users" },
-      {
-        label: "Total Points (balances)",
-        value: formatPoints(stats.totalPoints),
-        href: "/admin/users",
-      },
-      {
-        label: "Money equivalent",
-        value: formatMoney(moneyFromPoints(stats.totalPoints)),
-        href: "/admin/withdrawals",
-      },
-      { label: "Total Proofs", value: stats.totalProofs, href: "/admin/proofs" },
-      { label: "Active Tasks", value: stats.activeTasks, href: "/admin/tasks" },
-      {
-        label: "Pending Withdrawals",
-        value: stats.pendingWithdrawals,
-        href: "/admin/withdrawals",
-      },
+      { label: "Total Users", value: stats.users.toLocaleString(), icon: "👥" },
+      { label: "Points Distributed", value: formatPoints(stats.totalPoints), icon: "🪙" },
+      { label: "Money Equivalent", value: formatMoney(moneyFromPoints(stats.totalPoints)), icon: "💰" },
+      { label: "Total Proofs", value: stats.totalProofs.toLocaleString(), icon: "🧾" },
+      { label: "Active Tasks", value: stats.activeTasks.toLocaleString(), icon: "📝" },
+      { label: "Pending Withdrawals", value: stats.pendingWithdrawals.toLocaleString(), icon: "💸" },
     ],
     [stats],
   );
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="font-display text-2xl font-bold text-ink-900">Overview</h1>
-        <p className="mt-1 text-sm text-slate-600">
-          Live stats · {stats.pendingProofs} pending proofs · {stats.pendingOrders} pending orders
-        </p>
-      </div>
+    <div className="space-y-6">
+      <AdminPageHeader
+        title="Overview"
+        subtitle="Live system status and summary statistics."
+      />
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {cards.map((card) => (
-          <Link
-            key={card.label}
-            href={card.href}
-            className="rounded-xl border border-slate-200 bg-white p-5 shadow-card transition hover:border-teal-300"
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              {card.label}
-            </p>
-            <p className="mt-2 font-display text-2xl font-bold text-teal-800">{card.value}</p>
-          </Link>
-        ))}
-      </div>
+      <AdminStatGrid stats={statCards} />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
-          <h2 className="font-display text-lg font-bold text-ink-900">Top 5 users by points</h2>
-          <ul className="mt-4 divide-y divide-slate-100">
-            {topUsers.map((u) => (
-              <li key={u.email} className="flex items-center justify-between py-2 text-sm">
-                <Link href={`/admin/users/${encodeURIComponent(u.email)}`} className="font-medium text-teal-800 hover:underline">
-                  {u.username}
-                </Link>
-                <span className="font-semibold">{formatPoints(u.points)}</span>
-              </li>
-            ))}
-            {topUsers.length === 0 && (
-              <li className="py-4 text-sm text-slate-500">No users yet.</li>
-            )}
-          </ul>
-        </section>
+        <div className="card p-5">
+          <h2 className="mb-3 font-bold text-slate-900">🏆 Top earners</h2>
+          {topUsers.length === 0 ? (
+            <p className="text-sm text-slate-500">No users yet.</p>
+          ) : (
+            <ul className="divide-y divide-slate-100">
+              {topUsers.map((u, i) => (
+                <li key={u.email} className="flex items-center justify-between py-2.5 text-sm">
+                  <Link
+                    href={`/admin/users/${encodeURIComponent(u.email)}`}
+                    className="font-medium text-accent-700 hover:underline"
+                  >
+                    {i + 1}. {u.username}
+                  </Link>
+                  <span className="font-bold text-accent-700">
+                    {formatPoints(u.points)} 🪙
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
 
-        <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
-          <h2 className="font-display text-lg font-bold text-ink-900">Quick actions</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <Link href="/admin/tasks" className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-500">
-              Add Task
+        <div className="card p-5">
+          <h2 className="mb-3 font-bold text-slate-900">⚡ Quick actions</h2>
+          <div className="grid gap-3">
+            <Link href="/admin/tasks" className="btn-primary justify-start">
+              📝 Add new task
             </Link>
-            <Link href="/admin/users" className="rounded-lg bg-slate-200 px-4 py-2 text-sm font-semibold text-ink-800 hover:bg-slate-300">
-              View Users
+            <Link href="/admin/users" className="btn-ghost justify-start">
+              👥 View users
             </Link>
-            <Link href="/admin/proofs" className="rounded-lg bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-900 hover:bg-amber-200">
-              Review Proofs
+            <Link href="/admin/proofs" className="btn-ghost justify-start">
+              🧾 Review proofs
             </Link>
-            <Link href="/admin/withdrawals" className="rounded-lg bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-900 hover:bg-purple-200">
-              Withdrawals
+            <Link href="/admin/withdrawals" className="btn-ghost justify-start">
+              💸 Withdrawals
             </Link>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
