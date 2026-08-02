@@ -1,7 +1,8 @@
 "use client";
 
 import { useLocale } from "@/components/i18n/LocaleProvider";
-import { formatPoints, formatUSD } from "@/lib/site";
+import { formatPrice } from "@/lib/i18n/currency";
+import { formatPoints } from "@/lib/site";
 import type { PaidTier } from "@/lib/catalog";
 
 export function PaidTierSelector({
@@ -15,7 +16,7 @@ export function PaidTierSelector({
   selected: PaidTier | null;
   onSelect: (tier: PaidTier) => void;
 }) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
 
   return (
     <div>
@@ -38,7 +39,7 @@ export function PaidTierSelector({
                 {tier.quantity.toLocaleString()} {unit}
               </span>
               <span className="mt-1 block text-sm text-[#6e6e73]">
-                {formatUSD(tier.priceUSD)} · {formatPoints(tier.points)} {t("common.points")}
+                {formatPrice(locale, tier.priceUSD)} · {formatPoints(tier.points)} {t("common.points")}
               </span>
             </button>
           );

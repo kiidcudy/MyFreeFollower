@@ -11,7 +11,8 @@ import {
   type CatalogService,
 } from "@/lib/catalog";
 import { getServiceDisplayTitle } from "@/lib/i18n/catalog-labels";
-import { formatPoints, formatUSD } from "@/lib/site";
+import { formatPrice } from "@/lib/i18n/currency";
+import { formatPoints } from "@/lib/site";
 
 export function ServiceCard({ service }: { service: CatalogService }) {
   const { t, locale } = useLocale();
@@ -30,7 +31,7 @@ export function ServiceCard({ service }: { service: CatalogService }) {
   } else if (isPaidService(service)) {
     const start = service.tiers[0];
     subtitle = start
-      ? `${t("common.from")} ${formatUSD(start.priceUSD)} · ${service.delivery}`
+      ? `${t("common.from")} ${formatPrice(locale, start.priceUSD)} · ${service.delivery}`
       : service.delivery;
   }
 

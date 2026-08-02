@@ -387,6 +387,12 @@ export const en = {
     customQuantity: "Custom quantity",
     relatedServices: "Related services",
     faqTitle: "Frequently asked questions",
+    platformFreeHeading: "Free {platform} services",
+    platformFreeDesc:
+      "Browse every free trial for {platform} — followers, likes, views, and more. No password, just your public link.",
+    platformPaidHeading: "Buy {platform} growth",
+    platformPaidDesc:
+      "Instant paid packages for {platform}. Choose a tier, enter your username, and checkout securely.",
     tierFree: "Free trial",
     tierPaid: "Paid",
     insufficientPoints: "Not enough points. Complete more tasks to earn points.",
@@ -486,6 +492,7 @@ export const en = {
     search: "Search",
     support: "Support",
     liveChat: "Live chat",
+    currency: "Currency",
     filter: "Filter",
     sort: "Sort",
     all: "All",
@@ -668,6 +675,12 @@ export const en = {
     buyFollowersTitle: "Buy Followers Cheap — All Platforms",
     buyFollowersDescription:
       "Instant Instagram, TikTok, and YouTube growth packages. Pay with card, crypto, or points. Gradual delivery, 24/7 support.",
+    platformFreeTitle: "Free {platform} Services — Trials & Tasks",
+    platformFreeDescription:
+      "All free {platform} trials on MyFreeFollower. Sign up, claim packages, no password required.",
+    platformPaidTitle: "Buy {platform} Followers & Engagement",
+    platformPaidDescription:
+      "Paid {platform} packages with instant checkout. Gradual delivery and 24/7 support.",
     howItWorksTitle: "How It Works",
     howItWorksDescription:
       "Learn how to get free followers in three steps: pick a service, enter your link, and sign up free.",

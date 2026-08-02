@@ -11,6 +11,7 @@ import {
   getPlatformEmoji,
 } from "@/lib/catalog";
 import { isLocale, localesForSelect } from "@/lib/i18n/config";
+import { currencyCode } from "@/lib/i18n/currency";
 import { getServiceDisplayTitle } from "@/lib/i18n/catalog-labels";
 import { siteConfig, whatsappLink } from "@/lib/site";
 
@@ -159,6 +160,10 @@ export function Footer() {
               </ul>
             </div>
             <FooterLanguageSwitcher />
+            <p className="text-xs text-[#86868b]">
+              {t("common.currency")}:{" "}
+              <span className="font-semibold text-[#1d1d1f]">{currencyCode(locale)}</span>
+            </p>
           </div>
         </div>
       </div>

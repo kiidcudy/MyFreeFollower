@@ -17,7 +17,7 @@ import {
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n/config";
 import { getBuyServiceTitle } from "@/lib/i18n/catalog-labels";
 import { t } from "@/lib/i18n/translations";
-import { formatUSD } from "@/lib/site";
+import { formatPrice } from "@/lib/i18n/currency";
 import {
   buildFAQSchema,
   buildProductSchema,
@@ -110,7 +110,7 @@ export default async function PaidServiceDetailPage({
                 {title}
               </h1>
               <p className="mt-2 text-sm text-ink-700">
-                {t(locale, "common.from")} {formatUSD(startPrice)} ·{" "}
+                {t(locale, "common.from")} {formatPrice(locale, startPrice)} ·{" "}
                 {t(locale, "catalog.delivery")}: {service.delivery}
               </p>
             </div>

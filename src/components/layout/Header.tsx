@@ -8,6 +8,7 @@ import { SiteSearch } from "@/components/layout/SiteSearch";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
 import { localesForSelect } from "@/lib/i18n/config";
+import { currencyCode } from "@/lib/i18n/currency";
 import { formatPoints } from "@/lib/site";
 
 function LanguageSwitcher() {
@@ -37,6 +38,9 @@ function LanguageSwitcher() {
       >
         <span>{current?.flag ?? locale.toUpperCase()}</span>
         <span className="hidden sm:inline">{current?.label}</span>
+        <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-[10px] font-bold text-[#0077ed]">
+          {currencyCode(locale)}
+        </span>
       </button>
       {open && (
         <ul
@@ -111,7 +115,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="border-b border-black/[0.04] bg-[#0077ed]/[0.03]">
+      <div
+        className={`overflow-hidden border-b border-black/[0.04] bg-[#0077ed]/[0.03] transition-all duration-300 ease-out ${
+          scrolled ? "max-h-0 border-transparent opacity-0" : "max-h-20 opacity-100"
+        }`}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 text-xs text-[#6e6e73] sm:px-6">
           <p className="truncate font-medium">{t("home.topBanner")}</p>
           <LanguageSwitcher />

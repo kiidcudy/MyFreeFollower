@@ -11,6 +11,9 @@ import { guaranteeBundles } from "@/lib/i18n/guarantee-bundles";
 import { whyBundles } from "@/lib/i18n/why-bundles";
 import { heroBundles } from "@/lib/i18n/hero-bundles";
 import { faqBundles } from "@/lib/i18n/faq-bundles";
+import { legalBundles } from "@/lib/i18n/legal-bundles";
+import { aboutBundles } from "@/lib/i18n/about-bundles";
+import { platformI18nBundles } from "@/lib/i18n/platform-i18n-bundles";
 import { de } from "@/lib/i18n/messages/de";
 import { fr } from "@/lib/i18n/messages/fr";
 import { es } from "@/lib/i18n/messages/es";
@@ -166,6 +169,38 @@ export function getMessages(locale: Locale): Messages {
     merged.faq = deepMergeRecords(
       merged.faq as Record<string, unknown>,
       faqOverride as unknown as Record<string, unknown>,
+    );
+  }
+
+  const legalOverride = legalBundles[locale];
+  if (legalOverride) {
+    merged.legal = deepMergeRecords(
+      merged.legal as Record<string, unknown>,
+      legalOverride as unknown as Record<string, unknown>,
+    );
+  }
+
+  const aboutOverride = aboutBundles[locale];
+  if (aboutOverride) {
+    merged.about = deepMergeRecords(
+      merged.about as Record<string, unknown>,
+      aboutOverride as unknown as Record<string, unknown>,
+    );
+  }
+
+  const platformI18nOverride = platformI18nBundles[locale];
+  if (platformI18nOverride) {
+    merged.meta = deepMergeRecords(
+      merged.meta as Record<string, unknown>,
+      platformI18nOverride.meta as unknown as Record<string, unknown>,
+    );
+    merged.catalog = deepMergeRecords(
+      merged.catalog as Record<string, unknown>,
+      platformI18nOverride.catalog as unknown as Record<string, unknown>,
+    );
+    merged.common = deepMergeRecords(
+      merged.common as Record<string, unknown>,
+      platformI18nOverride.common as unknown as Record<string, unknown>,
     );
   }
 

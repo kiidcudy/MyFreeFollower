@@ -5,7 +5,7 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { getPaidBySlug, getPlatformEmoji } from "@/lib/catalog";
 import { getBuyServiceTitle } from "@/lib/i18n/catalog-labels";
-import { formatUSD } from "@/lib/site";
+import { formatPrice } from "@/lib/i18n/currency";
 
 const POPULAR_SLUGS = [
   "buy-instagram-followers",
@@ -59,7 +59,7 @@ export function PopularServices() {
                 {start && (
                   <p className="mt-1 text-xs font-medium text-[#6e6e73]">
                     {t("common.from")}{" "}
-                    <span className="font-semibold text-[#0077ed]">{formatUSD(start.priceUSD)}</span>
+                    <span className="font-semibold text-[#0077ed]">{formatPrice(locale, start.priceUSD)}</span>
                   </p>
                 )}
               </div>
