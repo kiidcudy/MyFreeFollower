@@ -5,11 +5,15 @@ import { SiteSearch } from "@/components/layout/SiteSearch";
 import { HomeStats } from "@/components/marketing/HomeStats";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 
-export function HeroSection() {
+export function HeroSection({ fullBleed = false }: { fullBleed?: boolean }) {
   const { t } = useLocale();
 
   return (
-    <section className="hero-banner relative overflow-hidden rounded-[36px] px-6 py-16 sm:px-12 sm:py-24 lg:py-28">
+    <section
+      className={`hero-banner relative overflow-hidden px-6 py-16 sm:px-12 sm:py-24 lg:py-28 ${
+        fullBleed ? "rounded-none" : "rounded-[36px]"
+      }`}
+    >
       <div className="pointer-events-none absolute -end-20 -top-20 h-72 w-72 rounded-full bg-[#5ac8fa]/30 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-16 -start-16 h-64 w-64 rounded-full bg-[#30d158]/20 blur-3xl" />
 

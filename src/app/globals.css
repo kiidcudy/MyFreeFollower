@@ -215,6 +215,14 @@
     animation: float 6s ease-in-out infinite;
   }
 
+  .site-main:not(:has(> .home-full)) {
+    @apply mx-auto max-w-7xl px-4 pt-4 sm:px-6;
+  }
+
+  .site-main:has(> .home-full) {
+    @apply pt-0;
+  }
+
   @keyframes float {
     0%,
     100% {

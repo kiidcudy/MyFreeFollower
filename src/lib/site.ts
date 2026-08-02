@@ -39,7 +39,9 @@ export const siteConfig = {
   whatsappDisplay: "+44 7544 368792",
   telegramHandle: "buycheapfollowerr",
   googleClientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? "",
-  tawkPropertyId: process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID ?? "",
+  tawkPropertyId:
+    process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID ?? "6a6f3ea98cda6f1d4902347a",
+  tawkWidgetId: process.env.NEXT_PUBLIC_TAWK_WIDGET_ID ?? "1jv18phrn",
   adminPassword: process.env.ADMIN_PASSWORD ?? "",
   paymentMethods: [
     "Cryptomus",

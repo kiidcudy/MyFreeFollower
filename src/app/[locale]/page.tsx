@@ -65,11 +65,14 @@ export default async function HomePage({
   }));
 
   return (
-    <div className="-mx-4 -mt-8 flex flex-col gap-0">
+    <div className="home-full flex flex-col">
       <JsonLd data={buildFAQSchema(faq)} />
 
-      <div className="px-4 pb-2">
-        <HeroSection />
+      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2">
+        <HeroSection fullBleed />
+      </div>
+
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
         <TrustBar />
       </div>
 
@@ -142,7 +145,7 @@ export default async function HomePage({
         </ul>
       </HomeSection>
 
-      <div className="px-4 pt-4">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6">
         <CtaSection />
       </div>
     </div>
