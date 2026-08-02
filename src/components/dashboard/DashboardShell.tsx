@@ -18,6 +18,7 @@ const navKeys = [
   { href: "/dashboard/withdraw", key: "withdraw", icon: "💸" },
   { href: "/dashboard/referrals", key: "referrals", icon: "🔗" },
   { href: "/dashboard/daily-bonus", key: "dailyBonus", icon: "⭐" },
+  { href: "/dashboard/surveys", key: "surveys", icon: "📝" },
   { href: "/dashboard/orders", key: "orders", icon: "📦" },
   { href: "/dashboard/profile", key: "profile", icon: "👤" },
 ] as const;

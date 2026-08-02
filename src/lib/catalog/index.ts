@@ -1,4 +1,4 @@
-import { priceUsdToPoints } from "../site";
+import { pointsFromMoney, priceFromTiers } from "./pricing";
 import {
   FREE_SERVICE_CATALOG,
   PLATFORM_EMOJI,
@@ -82,12 +82,11 @@ export function computeFreePointsCost(service: FreeCatalogService): number {
     service.platform,
     service.type,
   );
-  if (!paidMatch) {
+  if (!paidMatch || paidMatch.tiers.length === 0) {
     return Math.max(1, service.amount * 2);
   }
-  const unitUsd = getSmallestTierUnitPriceUSD(paidMatch);
-  const referenceUsd = unitUsd * service.amount;
-  return priceUsdToPoints(referenceUsd);
+  const referenceUsd = priceFromTiers(service.amount, paidMatch.tiers);
+  return pointsFromMoney(referenceUsd);
 }
 
 export function getServicesByPlatform(platform: Platform): {

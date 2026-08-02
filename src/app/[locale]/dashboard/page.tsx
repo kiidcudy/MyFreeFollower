@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { LocalizedLink } from "@/components/i18n/LocalizedLink";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
-import { effectivePoints, formatPoints, pointsToUSD } from "@/lib/site";
+import { formatMoney, formatPoints, moneyFromPoints } from "@/lib/site";
 
 function StatCard({
   label,
@@ -26,18 +26,15 @@ function StatCard({
 
 export default function DashboardOverviewPage() {
   const { t } = useLocale();
-  const { user, proofs, serviceOrders, withdrawals, tasks } = useAuth();
+  const { user, proofs, serviceOrders, withdrawals } = useAuth();
 
   const stats = useMemo(() => {
     const pendingProofs = proofs.filter((p) => p.status === "pending").length;
     const approvedProofs = proofs.filter((p) => p.status === "approved").length;
     const pendingOrders = serviceOrders.filter((o) => o.status === "pending").length;
     const pointsSpent = serviceOrders.reduce((s, o) => s + o.points, 0);
-    const pointsEarned =
-      proofs.filter((p) => p.status === "approved").reduce((s, p) => s + p.points, 0) +
-      (user?.todayEarned ?? 0);
-    return { pendingProofs, approvedProofs, pendingOrders, pointsSpent, pointsEarned };
-  }, [proofs, serviceOrders, user]);
+    return { pendingProofs, approvedProofs, pendingOrders, pointsSpent };
+  }, [proofs, serviceOrders]);
 
   const recent = useMemo(() => {
     const items: { type: string; label: string; date: number; status?: string }[] = [];
@@ -83,12 +80,12 @@ export default function DashboardOverviewPage() {
         <StatCard
           label={t("dashboard.pointsBalance")}
           value={formatPoints(user.points)}
-          sub={`≈ $${pointsToUSD(user.points).toFixed(2)} USD`}
+          sub={`≈ ${formatMoney(moneyFromPoints(user.points))}`}
         />
         <StatCard
           label={t("dashboard.pointsEarned")}
           value={formatPoints(user.todayEarned)}
-          sub={t("dashboard.dailyBonus")}
+          sub={t("dashboard.todayLabel")}
         />
         <StatCard
           label={t("dashboard.proofs")}
@@ -149,10 +146,6 @@ export default function DashboardOverviewPage() {
               </LocalizedLink>
             ))}
           </div>
-          <p className="mt-4 text-xs text-slate-500">
-            {tasks.length} {t("dashboard.taskAvailable").toLowerCase()} ·{" "}
-            {effectivePoints(10)}+ {t("common.points")} {t("dashboard.dailyBonus").toLowerCase()}
-          </p>
         </section>
       </div>
     </div>

@@ -6,7 +6,7 @@ import {
   reviewWithdrawal,
   type AdminWithdrawal,
 } from "@/lib/admin-store";
-import { formatPoints } from "@/lib/site";
+import { formatMoney, formatPoints } from "@/lib/site";
 
 export default function AdminWithdrawalsPage() {
   const [items, setItems] = useState<AdminWithdrawal[]>([]);
@@ -69,7 +69,7 @@ export default function AdminWithdrawalsPage() {
                     {formatPoints(w.amountPoints)} points
                   </p>
                   <p className="text-sm text-slate-600">
-                    ${w.amountUSD.toFixed(2)} USD · {w.method}
+                    {formatMoney(w.amountMoney ?? w.amountUSD ?? 0)} · {w.method}
                   </p>
                   <p className="mt-1 text-sm">
                     <span className="font-medium">{w.email}</span> · @{w.username}

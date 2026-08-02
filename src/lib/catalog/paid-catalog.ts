@@ -1,4 +1,4 @@
-import { eurToUsd, siteConfig } from "../site";
+import { servicePointsFromMoney, eurToUsd, siteConfig } from "../site";
 import type { PaidCatalogService, PaidTier, Platform } from "./types";
 import { buildPaidSlug } from "./slug-utils";
 
@@ -24,7 +24,7 @@ export function buildTiersFromBase100(base100EUR: number): PaidTier[] {
     const priceEUR =
       Math.round(base100EUR * multiplier * siteConfig.priceMarkup * 100) / 100;
     const priceUSD = eurToUsd(priceEUR);
-    const points = Math.max(1, Math.round(priceUSD * 200));
+    const points = servicePointsFromMoney(priceUSD);
     return { quantity, priceEUR, priceUSD, points };
   });
 }

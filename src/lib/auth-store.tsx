@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { defaultTasks, findTask as findTaskInList, type Task } from "@/lib/tasks/data";
-import { effectivePoints, pointsToUSD, siteConfig } from "@/lib/site";
+import { effectivePoints, moneyFromPoints, siteConfig } from "@/lib/site";
 
 export type ProofStatus =
   | "pending"
@@ -33,13 +33,16 @@ export interface ProofSubmission {
   media?: string;
   createdAt: number;
   reviewedAt?: number;
+  awarded?: boolean;
 }
 
 export interface Withdrawal {
   id: string;
   method: "PayPal" | "Crypto" | "Bank Transfer" | "Gift Card";
   amountPoints: number;
-  amountUSD: number;
+  amountMoney: number;
+  /** @deprecated legacy alias */
+  amountUSD?: number;
   destination: string;
   status: "pending" | "approved" | "rejected";
   createdAt: number;
@@ -68,6 +71,7 @@ export interface User {
   refCode: string;
   invitedBy?: string;
   lastBonusClaim?: string;
+  lifetimeEarned?: number;
   createdAt: number;
 }
 
@@ -112,7 +116,7 @@ interface AuthContextValue extends SessionState {
   claimDailyBonus: () => { ok: boolean; error?: string; points?: number };
   reward: (points: number) => { ok: boolean; error?: string };
   requestWithdraw: (
-    w: Omit<Withdrawal, "id" | "status" | "createdAt" | "amountUSD">
+    w: Omit<Withdrawal, "id" | "status" | "createdAt" | "amountMoney" | "amountUSD">
   ) => Promise<{ ok: boolean; error?: string }>;
   spendPoints: (
     o: Omit<ServiceOrder, "id" | "status" | "createdAt">
@@ -376,6 +380,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         points: 0,
         todayEarned: 0,
         todayEarnedDate: todayStr(),
+        lifetimeEarned: 0,
         refCode: genRefCode(),
         invitedBy: data.ref?.trim() || undefined,
         createdAt: Date.now(),
@@ -544,7 +549,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 
   const claimDailyBonus: AuthContextValue["claimDailyBonus"] = useCallback(() => {
-    const bonus = effectivePoints(siteConfig.dailyLoginBonusBase);
+    const bonus = siteConfig.dailyBonusPoints;
     let result: { ok: boolean; error?: string; points?: number } = { ok: true, points: bonus };
     setSession((prev) => {
       if (!prev.user) {
@@ -562,6 +567,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           ...user,
           points: user.points + bonus,
           todayEarned: user.todayEarned + bonus,
+          lifetimeEarned: (user.lifetimeEarned ?? 0) + bonus,
           lastBonusClaim: todayStr(),
         },
       };
@@ -583,6 +589,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           ...user,
           points: user.points + points,
           todayEarned: user.todayEarned + points,
+          lifetimeEarned: (user.lifetimeEarned ?? 0) + points,
         },
       };
     });
@@ -602,10 +609,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       };
     }
 
-    const amountUSD = pointsToUSD(w.amountPoints);
+    const amountMoney = moneyFromPoints(w.amountPoints);
     const withdrawal: Withdrawal = {
       ...w,
-      amountUSD,
+      amountMoney,
+      amountUSD: amountMoney,
       id: genId("wd"),
       status: "pending",
       createdAt: Date.now(),
@@ -641,7 +649,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const current = sessionRef.current;
     if (!current.user) return { ok: false, error: "You must be signed in." };
     if (o.points > 0 && o.points > current.user.points) {
-      return { ok: false, error: "Insufficient points. Complete tasks to earn more." };
+      return { ok: false, error: "Not enough points. Complete tasks to earn points." };
     }
 
     const order: ServiceOrder = {

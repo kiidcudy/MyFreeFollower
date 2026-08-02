@@ -34,6 +34,10 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/admin") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/favicon") ||
+    pathname === "/icon" ||
+    pathname.startsWith("/icon?") ||
+    pathname === "/apple-icon" ||
+    pathname.startsWith("/apple-icon?") ||
     pathname.includes(".")
   ) {
     return NextResponse.next();

@@ -4,9 +4,9 @@ import { useMemo } from "react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
 import {
+  formatMoney,
   formatPoints,
-  pointsToUSD,
-  servicePointsToUSD,
+  moneyFromPoints,
   siteConfig,
 } from "@/lib/site";
 
@@ -34,56 +34,54 @@ export default function DashboardPointsPage() {
         <p className="mt-1 text-sm text-ink-700">{t("dashboard.pointsBalance")}</p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-xl border border-brand-200 bg-brand-50 p-6 shadow-card">
-          <p className="text-xs font-semibold uppercase text-brand-800">
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
+          <p className="text-xs font-semibold uppercase text-ink-700">
             {t("dashboard.pointsBalance")}
           </p>
-          <p className="mt-2 font-display text-3xl font-bold text-brand-900">
+          <p className="mt-2 font-display text-2xl font-bold text-brand-800">
             {formatPoints(user.points)}
           </p>
-          <p className="mt-1 text-sm text-brand-700">
-            ≈ ${pointsToUSD(user.points).toFixed(2)} {t("common.usd")} (withdraw)
+          <p className="mt-1 text-xs text-slate-500">
+            ≈ {formatMoney(moneyFromPoints(user.points))} ({t("dashboard.withdrawRate")})
           </p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
+        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
           <p className="text-xs font-semibold uppercase text-ink-700">
             {t("dashboard.pointsEarned")}
           </p>
-          <p className="mt-2 font-display text-3xl font-bold text-ink-900">
+          <p className="mt-2 font-display text-2xl font-bold text-ink-900">
             {formatPoints(earned)}
           </p>
-          <p className="mt-1 text-sm text-slate-500">
-            Today: {formatPoints(user.todayEarned)}
+          <p className="mt-1 text-xs text-slate-500">
+            {t("dashboard.todayLabel")}: {formatPoints(user.todayEarned)}
           </p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
+        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
           <p className="text-xs font-semibold uppercase text-ink-700">
             {t("dashboard.pointsSpent")}
           </p>
-          <p className="mt-2 font-display text-3xl font-bold text-ink-900">
+          <p className="mt-2 font-display text-2xl font-bold text-ink-900">
             {formatPoints(spent)}
-          </p>
-          <p className="mt-1 text-sm text-slate-500">
-            ≈ ${servicePointsToUSD(spent).toFixed(2)} shop value
           </p>
         </div>
       </div>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-card">
-        <h2 className="font-display text-lg font-bold text-ink-900">Conversion rates</h2>
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
+        <h2 className="font-display text-lg font-bold text-ink-900">{t("dashboard.pointsRates")}</h2>
         <ul className="mt-4 space-y-2 text-sm text-ink-700">
           <li>
-            Withdraw: {siteConfig.pointToUSD} {t("common.points")} = $1 USD
+            {t("dashboard.withdrawRate")}: {siteConfig.pointToMoney} {t("common.points")} = 1 ₺
           </li>
           <li>
-            Shop: {siteConfig.servicePointToUSD} {t("common.points")} = $1 USD
+            {t("dashboard.shopRate")}: {siteConfig.servicePointToMoney} {t("common.points")} = $1
           </li>
           <li>
-            Task multiplier: ×{siteConfig.pointsMultiplier} on base task rewards
+            {t("dashboard.taskMultiplier")}: ×{siteConfig.pointsMultiplier}
           </li>
           <li>
-            Min withdrawal: {formatPoints(siteConfig.minWithdrawPoints)} {t("common.points")}
+            {t("dashboard.minWithdraw")}: {formatPoints(siteConfig.minWithdrawPoints)}{" "}
+            {t("common.points")} ({formatMoney(moneyFromPoints(siteConfig.minWithdrawPoints))})
           </li>
         </ul>
       </section>

@@ -1,5 +1,7 @@
 // Default task definitions — seeded to Blob when empty.
 
+import { resolveTaskBasePoints } from "./points";
+
 export type Platform = string;
 export type TaskType = string;
 
@@ -63,9 +65,9 @@ export const defaultTasks: Task[] = [
   {
     id: "257839",
     platform: "Facebook",
-    type: "Share Post",
+    type: "Share",
     title: "Share our Facebook post to your timeline",
-    basePoints: 28,
+    basePoints: resolveTaskBasePoints("Share", "Facebook"),
     url: "https://facebook.com/myfreefollower",
     instructions:
       "Share the pinned post publicly on your timeline. Upload a screenshot of the shared post on your profile.",
@@ -76,7 +78,7 @@ export const defaultTasks: Task[] = [
     platform: "X (Twitter)",
     type: "Follow",
     title: "Follow @myfreefollower on X",
-    basePoints: 30,
+    basePoints: resolveTaskBasePoints("Follow", "X (Twitter)"),
     url: "https://twitter.com/myfreefollower",
     instructions:
       "Follow the account and upload a screenshot showing the Following state on the profile page.",

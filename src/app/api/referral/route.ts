@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import { blobReady, listAccounts } from "@/lib/kv";
-import { siteConfig } from "@/lib/site";
+import { referralCommissionPercent, siteConfig } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
 interface UserLike {
   username?: string;
   points?: number;
+  lifetimeEarned?: number;
   invitedBy?: string;
 }
 
@@ -16,13 +17,15 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Referral code required." }, { status: 400 });
   }
 
+  const percent = referralCommissionPercent();
+
   if (!blobReady) {
     return NextResponse.json({
       invited: [],
       count: 0,
       totalEarned: 0,
       commission: 0,
-      commissionPercent: siteConfig.referralCommissionPercent,
+      commissionPercent: percent,
       kv: false,
     });
   }
@@ -31,19 +34,20 @@ export async function GET(req: Request) {
   const invited = accounts
     .map((a) => a.user as UserLike | null)
     .filter((u): u is UserLike => Boolean(u) && u!.invitedBy === code)
-    .map((u) => ({ username: u.username ?? "User", points: u.points ?? 0 }));
+    .map((u) => ({
+      username: u.username ?? "User",
+      points: u.lifetimeEarned ?? u.points ?? 0,
+    }));
 
   const totalEarned = invited.reduce((s, i) => s + i.points, 0);
-  const commission = Math.floor(
-    (totalEarned * siteConfig.referralCommissionPercent) / 100
-  );
+  const commission = Math.floor(totalEarned * siteConfig.referralCommissionRate);
 
   return NextResponse.json({
     invited,
     count: invited.length,
     totalEarned,
     commission,
-    commissionPercent: siteConfig.referralCommissionPercent,
+    commissionPercent: percent,
     kv: true,
   });
 }

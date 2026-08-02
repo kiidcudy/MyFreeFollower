@@ -75,7 +75,7 @@ function freeVars(locale: Locale, service: FreeCatalogService): Record<string, s
     startQty: "",
     delivery: "",
     maxQty: "",
-    pointsRate: String(siteConfig.servicePointToUSD),
+    pointsRate: String(siteConfig.servicePointToMoney),
     platformLower: platform.toLowerCase(),
     typeLower: type.toLowerCase(),
   };
@@ -107,7 +107,7 @@ function paidVars(locale: Locale, service: PaidCatalogService): Record<string, s
     startQty,
     delivery: service.delivery,
     maxQty,
-    pointsRate: String(siteConfig.servicePointToUSD),
+    pointsRate: String(siteConfig.servicePointToMoney),
     platformLower: platform.toLowerCase(),
     typeLower: type.toLowerCase(),
   };

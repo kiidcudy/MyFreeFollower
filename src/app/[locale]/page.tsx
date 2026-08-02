@@ -11,7 +11,6 @@ import { HomeGuaranteeBand } from "@/components/marketing/HomeGuaranteeBand";
 import { HomeTestimonials } from "@/components/marketing/HomeTestimonials";
 import { HomeBlogPreview } from "@/components/marketing/HomeBlogPreview";
 import { WhyUs } from "@/components/marketing/WhyUs";
-import { HomeFaq } from "@/components/marketing/HomeFaq";
 import { HomeSeoBlock } from "@/components/marketing/HomeSeoBlock";
 import { PaymentMethodsBar } from "@/components/marketing/PaymentMethodsBar";
 import { HomeSection } from "@/components/marketing/HomeSection";
@@ -114,10 +113,6 @@ export default async function HomePage({
 
       <HomeSection variant="sky">
         <HomeTestimonials />
-      </HomeSection>
-
-      <HomeSection variant="white">
-        <HomeFaq />
       </HomeSection>
 
       <HomeSection variant="mesh">

@@ -140,7 +140,7 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
     },
     {
       heading: `Pricing & Payment Options`,
-      body: `Choose from preset tiers up to ${service.tiers[service.tiers.length - 1]?.quantity.toLocaleString("en-US") ?? "10,000"} ${service.unit}. Pay by card, cryptocurrency, or spend earned points at ${siteConfig.servicePointToUSD} points per $1. Volume tiers reduce the per-unit price automatically.`,
+      body: `Choose from preset tiers up to ${service.tiers[service.tiers.length - 1]?.quantity.toLocaleString("en-US") ?? "10,000"} ${service.unit}. Pay by card, cryptocurrency, or spend earned points at ${siteConfig.servicePointToMoney} points per $1. Volume tiers reduce the per-unit price automatically.`,
     },
     {
       heading: `How to Order ${label}`,

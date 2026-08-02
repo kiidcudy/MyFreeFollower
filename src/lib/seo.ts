@@ -93,8 +93,12 @@ export function createMetadata({
     publisher: siteConfig.name,
     category: "Social Media Marketing",
     icons: {
-      icon: [{ url: "/favicon.ico", sizes: "any" }],
-      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
+      ],
+      apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+      shortcut: "/favicon.ico",
     },
   };
 }
@@ -108,7 +112,7 @@ export function buildOrganizationSchema() {
     "@id": organizationId,
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
+    logo: `${siteConfig.url}/logo.svg`,
     email: siteConfig.email,
     description: siteConfig.description,
     sameAs: Object.values(siteConfig.social),
@@ -159,7 +163,7 @@ export function buildProductSchema(product: {
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: product.imageUrl ?? `${siteConfig.url}/logo.png`,
+    image: product.imageUrl ?? `${siteConfig.url}/logo.svg`,
     sku: product.slug,
     brand: { "@type": "Brand", name: siteConfig.name },
     url,

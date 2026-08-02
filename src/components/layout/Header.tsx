@@ -158,6 +158,7 @@ export function Header() {
           </div>
 
           <div className="ms-auto flex items-center gap-2">
+            <LanguageSwitcher />
             <PointsBadge />
             {!ready ? (
               <div className="h-9 w-24 animate-pulse rounded-full bg-black/[0.05]" aria-hidden />

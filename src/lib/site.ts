@@ -6,19 +6,24 @@ export const siteConfig = {
   url: "https://www.myfreefollower.com",
   company: "MyFreeFollower",
   locale: "en_US",
-  /** Withdrawal: 100 points = $1 USD */
-  pointToUSD: 100,
-  /** Service shop: 200 points = $1 USD */
-  servicePointToUSD: 200,
-  /** Task points shown to users = basePoints * multiplier */
+
+  /** Withdrawal: 100 points = 1 ₺ */
+  pointToMoney: 100,
+  /** Service shop: 200 points = 1 USD reference unit */
+  servicePointToMoney: 200,
+  /** Task reward shown/awarded = basePoints × multiplier */
   pointsMultiplier: 2,
   minWithdrawPoints: 20000,
-  /** Convert scraped EUR prices to USD */
+  /** Daily login bonus — awarded once per calendar day (no multiplier) */
+  dailyBonusPoints: 200,
+  /** Referral commission on invitee earnings (0.10 = 10%) */
+  referralCommissionRate: 0.1,
+
+  /** Convert scraped EUR prices to USD for catalog reference */
   eurToUsdRate: 1.08,
   /** Applied to all catalog EUR base prices before USD conversion */
   priceMarkup: 1.02,
-  referralCommissionPercent: 5,
-  dailyLoginBonusBase: 10,
+
   slogan: "Free Followers. Real Growth.",
   tagline: "Free Social Media Growth — Instagram, TikTok, YouTube & More",
   description:
@@ -63,17 +68,17 @@ export const siteConfig = {
 
 export type SiteConfig = typeof siteConfig;
 
-/** Withdrawal conversion: points → USD */
-export function pointsToUSD(points: number): number {
-  return points / siteConfig.pointToUSD;
+/** Withdrawal conversion: points → fiat (₺ at 100:1). */
+export function moneyFromPoints(points: number): number {
+  return points / siteConfig.pointToMoney;
 }
 
-/** Service shop conversion: points → USD */
-export function servicePointsToUSD(points: number): number {
-  return points / siteConfig.servicePointToUSD;
+/** Service shop: reference money → points (200:1). */
+export function servicePointsFromMoney(priceMoney: number): number {
+  return Math.max(1, Math.round(priceMoney * siteConfig.servicePointToMoney));
 }
 
-/** Task base points with display multiplier applied */
+/** Task base points with display/award multiplier applied. */
 export function effectivePoints(base: number): number {
   return base * siteConfig.pointsMultiplier;
 }
@@ -83,21 +88,26 @@ export function eurToUsd(eur: number): number {
   return Math.round(eur * siteConfig.eurToUsdRate * 100) / 100;
 }
 
-/** USD price → service shop points (200 pts = $1) */
-export function priceUsdToPoints(priceUsd: number): number {
-  return Math.max(1, Math.round(priceUsd * siteConfig.servicePointToUSD));
+/** @deprecated Use moneyFromPoints */
+export const pointsToUSD = moneyFromPoints;
+
+/** @deprecated Use servicePointsFromMoney */
+export const priceUsdToPoints = servicePointsFromMoney;
+
+/** @deprecated Use moneyFromPoints */
+export const servicePointsToUSD = (points: number) =>
+  points / siteConfig.servicePointToMoney;
+
+export function formatMoney(value: number, currency = "TRY"): string {
+  return new Intl.NumberFormat("tr-TR", {
+    style: "currency",
+    currency,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(value);
 }
 
-export function whatsappLink(message?: string): string {
-  const text =
-    message ?? "Hello, I need support with MyFreeFollower.";
-  return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;
-}
-
-export function telegramLink(): string {
-  return `https://t.me/${siteConfig.telegramHandle}`;
-}
-
+/** @deprecated Use formatMoney for withdrawal display */
 export function formatUSD(value: number): string {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -108,4 +118,17 @@ export function formatUSD(value: number): string {
 
 export function formatPoints(points: number): string {
   return new Intl.NumberFormat("en-US").format(points);
+}
+
+export function referralCommissionPercent(): number {
+  return Math.round(siteConfig.referralCommissionRate * 100);
+}
+
+export function whatsappLink(message?: string): string {
+  const text = message ?? "Hello, I need support with MyFreeFollower.";
+  return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;
+}
+
+export function telegramLink(): string {
+  return `https://t.me/${siteConfig.telegramHandle}`;
 }

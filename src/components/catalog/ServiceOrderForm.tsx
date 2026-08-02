@@ -164,11 +164,20 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       )}
 
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[20px] bg-[#f5f5f7] px-4 py-4">
-        <span className="text-sm font-semibold text-[#6e6e73]">
-          {isPaidService(service) && paymentMethod !== "points"
-            ? t("catalog.totalDue")
-            : t("catalog.pointsCost")}
-        </span>
+        <div>
+          <span className="block text-sm font-semibold text-[#6e6e73]">
+            {isPaidService(service) && paymentMethod !== "points"
+              ? t("catalog.totalDue")
+              : t("catalog.pointsCost")}
+          </span>
+          {user && (isFreeService(service) || paymentMethod === "points") && (
+            <span className="mt-1 block text-xs text-[#86868b]">
+              {t("dashboard.pointsBalance")}: {formatPoints(user.points)} ·{" "}
+              {t("dashboard.remainingBalance")}:{" "}
+              {formatPoints(Math.max(0, user.points - pointsCost))}
+            </span>
+          )}
+        </div>
         <span className="font-display text-lg font-semibold text-[#0077ed]">
           {!user
             ? t("catalog.signUpToClaim")

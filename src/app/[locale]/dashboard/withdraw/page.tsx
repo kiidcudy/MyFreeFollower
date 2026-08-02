@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth, type Withdrawal } from "@/lib/auth-store";
-import { formatPoints, pointsToUSD, siteConfig } from "@/lib/site";
+import { formatMoney, formatPoints, moneyFromPoints, siteConfig } from "@/lib/site";
 
 const METHODS: Withdrawal["method"][] = [
+  "Bank Transfer",
   "PayPal",
   "Crypto",
-  "Bank Transfer",
   "Gift Card",
 ];
 
@@ -16,12 +16,12 @@ export default function DashboardWithdrawPage() {
   const { t } = useLocale();
   const { user, withdrawals, requestWithdraw } = useAuth();
   const [amount, setAmount] = useState("");
-  const [method, setMethod] = useState<Withdrawal["method"]>("PayPal");
+  const [method, setMethod] = useState<Withdrawal["method"]>("Bank Transfer");
   const [destination, setDestination] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: "ok" | "err"; text: string } | null>(null);
 
-  const minUsd = pointsToUSD(siteConfig.minWithdrawPoints);
+  const minMoney = formatMoney(moneyFromPoints(siteConfig.minWithdrawPoints));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +58,7 @@ export default function DashboardWithdrawPage() {
         <p className="mt-1 text-sm text-ink-700">
           {t("dashboard.withdrawDesc", {
             min: formatPoints(siteConfig.minWithdrawPoints),
-            usd: minUsd.toFixed(0),
+            money: minMoney,
           })}
         </p>
       </div>
@@ -69,6 +69,9 @@ export default function DashboardWithdrawPage() {
           <strong className="text-brand-800">
             {formatPoints(user.points)} {t("common.points")}
           </strong>
+          <span className="ms-2 text-slate-500">
+            (≈ {formatMoney(moneyFromPoints(user.points))})
+          </span>
         </p>
       </div>
 
@@ -101,7 +104,7 @@ export default function DashboardWithdrawPage() {
         </label>
 
         <label className="block text-sm font-semibold text-ink-900">
-          Method
+          {t("dashboard.withdrawMethod")}
           <select
             value={method}
             onChange={(e) => setMethod(e.target.value as Withdrawal["method"])}
@@ -116,12 +119,12 @@ export default function DashboardWithdrawPage() {
         </label>
 
         <label className="block text-sm font-semibold text-ink-900">
-          Destination (email / wallet / account)
+          {t("dashboard.withdrawDestination")}
           <input
             type="text"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
-            placeholder="your@email.com"
+            placeholder="IBAN / wallet / email"
             className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
             required
           />
@@ -138,12 +141,12 @@ export default function DashboardWithdrawPage() {
 
       {withdrawals.length > 0 && (
         <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
-          <h2 className="font-display text-lg font-bold text-ink-900">History</h2>
+          <h2 className="font-display text-lg font-bold text-ink-900">{t("dashboard.withdrawHistory")}</h2>
           <ul className="mt-4 divide-y divide-slate-100">
             {withdrawals.map((w) => (
               <li key={w.id} className="flex flex-wrap items-center justify-between gap-2 py-3 text-sm">
                 <span>
-                  {formatPoints(w.amountPoints)} pts → {w.method}
+                  {formatPoints(w.amountPoints)} {t("common.points")} → {w.method}
                 </span>
                 <span className="capitalize text-slate-500">{w.status}</span>
               </li>

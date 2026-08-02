@@ -94,6 +94,7 @@ export interface AccountUser {
   refCode: string;
   invitedBy?: string;
   lastBonusClaim?: string;
+  lifetimeEarned?: number;
   createdAt: number;
 }
 
@@ -168,7 +169,10 @@ export interface Withdrawal {
   username: string;
   method: "PayPal" | "Crypto" | "Bank Transfer" | "Gift Card";
   amountPoints: number;
-  amountUSD: number;
+  /** Withdrawal fiat value at 100 pts = 1 ₺ */
+  amountMoney: number;
+  /** @deprecated legacy field — same as amountMoney */
+  amountUSD?: number;
   destination: string;
   status: "pending" | "approved" | "rejected";
   createdAt: number;
@@ -308,9 +312,7 @@ async function creditReferralCommission(earnerEmail: string, points: number): Pr
   const referrer = all.find((a) => a.user?.refCode === invitedBy);
   if (!referrer?.user) return;
 
-  const commission = Math.floor(
-    (points * siteConfig.referralCommissionPercent) / 100
-  );
+  const commission = Math.floor(points * siteConfig.referralCommissionRate);
   if (commission <= 0) return;
 
   const raw = await readAccountRaw(referrer.email);
@@ -345,6 +347,7 @@ export async function registerAccount(input: {
     email,
     points: 0,
     todayEarned: 0,
+    lifetimeEarned: 0,
     refCode: genRefCode(),
     invitedBy: input.ref?.trim() || undefined,
     createdAt: Date.now(),
@@ -409,6 +412,7 @@ export async function upsertGoogleAccount(input: {
     email,
     points: 0,
     todayEarned: 0,
+    lifetimeEarned: 0,
     refCode: genRefCode(),
     invitedBy: input.ref?.trim() || undefined,
     createdAt: Date.now(),
@@ -523,6 +527,7 @@ export async function reviewProof(
       const u = { ...acc.user };
       u.points = (u.points ?? 0) + proof.points;
       u.todayEarned = (u.todayEarned ?? 0) + proof.points;
+      u.lifetimeEarned = (u.lifetimeEarned ?? 0) + proof.points;
       await upsertAccount(proof.email, {
         user: u,
         withdrawals: acc.withdrawals ?? [],

@@ -59,7 +59,13 @@ export default function DashboardFreeServicesPage() {
       </div>
 
       <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
-        <label className="block text-sm font-semibold text-ink-900">
+        <div className="flex flex-wrap gap-6 text-sm">
+          <p>
+            <span className="font-semibold text-ink-900">{t("dashboard.pointsBalance")}:</span>{" "}
+            <span className="text-brand-800">{formatPoints(user?.points ?? 0)}</span>
+          </p>
+        </div>
+        <label className="mt-4 block text-sm font-semibold text-ink-900">
           {t("catalog.usernameLabel")}
           <input
             type="text"
@@ -107,8 +113,16 @@ export default function DashboardFreeServicesPage() {
                 <span className="text-sm font-normal text-slate-500">{service.unit}</span>
               </p>
               <p className="mt-2 text-sm font-semibold text-brand-800">
-                {formatPoints(cost)} {t("common.points")}
+                {t("catalog.pointsCost")}: {formatPoints(cost)} {t("common.points")}
               </p>
+              {(user?.points ?? 0) < cost && (
+                <p className="mt-1 text-xs text-red-600">{t("catalog.insufficientPoints")}</p>
+              )}
+              {(user?.points ?? 0) >= cost && (
+                <p className="mt-1 text-xs text-slate-500">
+                  {t("dashboard.remainingBalance")}: {formatPoints((user?.points ?? 0) - cost)}
+                </p>
+              )}
               <button
                 type="button"
                 disabled={!canAfford || loadingSlug === service.slug}

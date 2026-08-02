@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
-import { siteConfig } from "@/lib/site";
+import { localizedPath } from "@/lib/i18n/navigation";
+import { formatPoints, referralCommissionPercent, siteConfig } from "@/lib/site";
 
 interface ReferralStats {
   count: number;
@@ -13,22 +14,30 @@ interface ReferralStats {
 }
 
 export default function DashboardReferralsPage() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const { referralCode } = useAuth();
   const [copied, setCopied] = useState(false);
   const [stats, setStats] = useState<ReferralStats | null>(null);
 
+  const referralPath = localizedPath(`/register?ref=${referralCode}`, locale);
   const referralUrl =
     typeof window !== "undefined"
-      ? `${window.location.origin}/en/register?ref=${referralCode}`
-      : `https://www.myfreefollower.com/en/register?ref=${referralCode}`;
+      ? `${window.location.origin}${referralPath}`
+      : `${siteConfig.url}${referralPath}`;
 
   useEffect(() => {
     if (!referralCode) return;
     fetch(`/api/referral?code=${encodeURIComponent(referralCode)}`)
       .then((r) => r.json())
       .then((data: ReferralStats) => setStats(data))
-      .catch(() => setStats({ count: 0, commission: 0, commissionPercent: siteConfig.referralCommissionPercent, invited: [] }));
+      .catch(() =>
+        setStats({
+          count: 0,
+          commission: 0,
+          commissionPercent: referralCommissionPercent(),
+          invited: [],
+        }),
+      );
   }, [referralCode]);
 
   const copyLink = async () => {
@@ -49,7 +58,7 @@ export default function DashboardReferralsPage() {
         </h1>
         <p className="mt-1 text-sm text-ink-700">
           {t("dashboard.referralDesc", {
-            percent: siteConfig.referralCommissionPercent,
+            percent: referralCommissionPercent(),
           })}
         </p>
       </div>
@@ -103,7 +112,9 @@ export default function DashboardReferralsPage() {
             {stats.invited.map((inv, i) => (
               <li key={i} className="flex justify-between py-2 text-sm">
                 <span className="font-medium">{inv.username}</span>
-                <span className="text-slate-500">{inv.points} pts earned</span>
+                <span className="text-slate-500">
+                  {formatPoints(inv.points)} {t("common.points")}
+                </span>
               </li>
             ))}
           </ul>
