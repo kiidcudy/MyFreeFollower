@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { defaultTasks, findTask as findTaskInList, type Task } from "@/lib/tasks/data";
+import { findTask as findTaskInList, legacyDemoTaskIds, type Task } from "@/lib/tasks/data";
 import { effectivePoints, moneyFromPoints, siteConfig } from "@/lib/site";
 
 export type ProofStatus =
@@ -127,7 +127,7 @@ interface AuthContextValue extends SessionState {
 
 const ACCOUNTS_KEY = "mff-accounts-v1";
 const SESSION_KEY = "mff-session-v1";
-const TASKS_CACHE_KEY = "mff-shared-tasks-cache";
+const TASKS_CACHE_KEY = "mff-shared-tasks-cache-v2";
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
@@ -156,12 +156,16 @@ function writeAccounts(a: Accounts) {
   localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(a));
 }
 
+function stripLegacyTasks(tasks: Task[]): Task[] {
+  return tasks.filter((t) => !legacyDemoTaskIds.has(String(t.id)));
+}
+
 function readCachedTasks(): Task[] {
   try {
     const raw = localStorage.getItem(TASKS_CACHE_KEY);
-    return raw ? (JSON.parse(raw) as Task[]) : defaultTasks;
+    return raw ? stripLegacyTasks(JSON.parse(raw) as Task[]) : [];
   } catch {
-    return defaultTasks;
+    return [];
   }
 }
 
@@ -182,7 +186,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     proofs: [],
     withdrawals: [],
     serviceOrders: [],
-    tasks: defaultTasks,
+    tasks: [],
   });
   const [ready, setReady] = useState(false);
   const emailRef = useRef<string | null>(null);
@@ -193,7 +197,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await fetch("/api/tasks", { cache: "no-store" });
       const data = (await res.json()) as { tasks?: Task[]; kv?: boolean };
-      const tasks = data.tasks?.length ? data.tasks : defaultTasks;
+      const tasks = stripLegacyTasks(data.tasks ?? []);
       if (data.kv && typeof window !== "undefined") {
         localStorage.setItem(TASKS_CACHE_KEY, JSON.stringify(tasks));
       }

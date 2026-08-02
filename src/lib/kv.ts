@@ -3,7 +3,7 @@
 
 import { put, list, get } from "@vercel/blob";
 import { siteConfig } from "@/lib/site";
-import { defaultTasks, type Task } from "@/lib/tasks/data";
+import { legacyDemoTaskIds, type Task } from "@/lib/tasks/data";
 
 function resolveToken(): string {
   if (process.env.BLOB_READ_WRITE_TOKEN) return process.env.BLOB_READ_WRITE_TOKEN;
@@ -203,11 +203,12 @@ export type AdminUserAction = "setPoints" | "addPoints" | "setPassword" | "ban" 
 
 export async function getTasks(): Promise<Task[]> {
   const t = await readJSON<Task[]>(TASKS_PATH, []);
-  if (!Array.isArray(t) || t.length === 0) {
-    await setTasks(defaultTasks);
-    return [...defaultTasks];
+  if (!Array.isArray(t)) return [];
+  const tasks = t.filter((task) => !legacyDemoTaskIds.has(String(task.id)));
+  if (tasks.length !== t.length) {
+    await setTasks(tasks);
   }
-  return t;
+  return tasks;
 }
 
 export async function setTasks(tasks: Task[]): Promise<void> {
