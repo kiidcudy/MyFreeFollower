@@ -1,3 +1,4 @@
+import { getHardcodedFreePoints } from "./free-service-points";
 import { pointsFromMoney, priceFromTiers } from "./pricing";
 import {
   FREE_SERVICE_CATALOG,
@@ -78,6 +79,13 @@ export const allCatalogServices: CatalogService[] = [
  * service smallest-tier unit price × free quantity.
  */
 export function computeFreePointsCost(service: FreeCatalogService): number {
+  const hardcoded = getHardcodedFreePoints(
+    service.platform,
+    service.type,
+    service.amount,
+  );
+  if (hardcoded !== undefined) return hardcoded;
+
   const paidMatch = getPaidServiceByPlatformAndType(
     service.platform,
     service.type,

@@ -49,6 +49,7 @@ export default function AdminOrdersPage() {
           <table className="w-full min-w-[900px] text-start text-sm">
             <thead>
               <tr className="border-b border-slate-100 bg-slate-50 text-xs uppercase text-ink-700">
+                <th className="px-4 py-3 font-semibold">Slug</th>
                 <th className="px-4 py-3 font-semibold">Service</th>
                 <th className="px-4 py-3 font-semibold">Member</th>
                 <th className="px-4 py-3 font-semibold">Target</th>
@@ -61,9 +62,10 @@ export default function AdminOrdersPage() {
             <tbody className="divide-y divide-slate-100">
               {orders.map((o) => (
                 <tr key={o.id} className="hover:bg-slate-50/50">
+                  <td className="px-4 py-3 font-mono text-xs text-slate-500">{o.serviceSlug}</td>
                   <td className="px-4 py-3">
                     <p className="font-medium text-ink-900">{o.serviceTitle}</p>
-                    <p className="text-xs text-slate-500">{o.id}</p>
+                    <p className="text-xs text-slate-500">{o.quantity} qty · {o.id}</p>
                   </td>
                   <td className="px-4 py-3">
                     <p className="text-ink-900">{o.memberUsername}</p>

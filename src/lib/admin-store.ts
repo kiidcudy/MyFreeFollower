@@ -1,6 +1,7 @@
 // Admin panel helpers — server-backed with localStorage fallback.
 
 import { siteConfig } from "@/lib/site";
+import type { Task } from "@/lib/tasks/data";
 import type { User, ProofSubmission, Withdrawal, ServiceOrder } from "@/lib/auth-store";
 
 const ACCOUNTS_KEY = "mff-accounts-v1";
@@ -311,6 +312,93 @@ export async function reviewWithdrawal(
     const data = (await res.json()) as { ok?: boolean; error?: string; refunded?: boolean };
     if (res.ok && data.ok) return { ok: true, refunded: data.refunded };
     return { ok: false, error: data.error ?? `Error (HTTP ${res.status})` };
+  } catch {
+    return { ok: false, error: "Connection error." };
+  }
+}
+
+function adminHeaders(): Record<string, string> {
+  return {
+    "content-type": "application/json",
+    "x-admin-password": getAdminPassword(),
+  };
+}
+
+export async function fetchAccountByEmail(
+  email: string,
+): Promise<AdminAccount | null> {
+  try {
+    const res = await fetch(`/api/accounts?email=${encodeURIComponent(email)}`, {
+      headers: { "x-admin-password": getAdminPassword() },
+      cache: "no-store",
+    });
+    if (res.ok) {
+      const data = (await res.json()) as { account?: AdminAccount | null };
+      if (data.account) return data.account;
+    }
+  } catch {
+    /* fallback */
+  }
+  return getAllAccounts().find((a) => a.email === email) ?? null;
+}
+
+export async function fetchAdminTasks(): Promise<Task[]> {
+  try {
+    const res = await fetch("/api/tasks", {
+      headers: { "x-admin-password": getAdminPassword() },
+      cache: "no-store",
+    });
+    if (res.ok) {
+      const data = (await res.json()) as { tasks?: Task[] };
+      return data.tasks ?? [];
+    }
+  } catch {
+    /* ignore */
+  }
+  return [];
+}
+
+export async function saveTask(
+  task: Partial<Task> & { update?: boolean },
+): Promise<{ ok: boolean; error?: string }> {
+  try {
+    const res = await fetch("/api/tasks", {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify(task),
+    });
+    const data = (await res.json().catch(() => null)) as { error?: string } | null;
+    if (res.ok) return { ok: true };
+    return { ok: false, error: data?.error ?? `Error (HTTP ${res.status})` };
+  } catch {
+    return { ok: false, error: "Connection error." };
+  }
+}
+
+export async function removeTask(id: string): Promise<{ ok: boolean; error?: string }> {
+  try {
+    const res = await fetch("/api/tasks", {
+      method: "DELETE",
+      headers: adminHeaders(),
+      body: JSON.stringify({ id }),
+    });
+    if (res.ok) return { ok: true };
+    const data = (await res.json().catch(() => null)) as { error?: string } | null;
+    return { ok: false, error: data?.error ?? `Error (HTTP ${res.status})` };
+  } catch {
+    return { ok: false, error: "Connection error." };
+  }
+}
+
+export async function clearAllTasks(): Promise<{ ok: boolean; error?: string }> {
+  try {
+    const res = await fetch("/api/tasks", {
+      method: "DELETE",
+      headers: adminHeaders(),
+      body: JSON.stringify({ all: true }),
+    });
+    if (res.ok) return { ok: true };
+    return { ok: false, error: `Error (HTTP ${res.status})` };
   } catch {
     return { ok: false, error: "Connection error." };
   }
