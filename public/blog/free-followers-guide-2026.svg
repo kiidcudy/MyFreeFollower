@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Free followers guide 2026">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#001a33"/>
+      <stop offset="50%" stop-color="#0077ed"/>
+      <stop offset="100%" stop-color="#30d158"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="900" cy="180" r="120" fill="#5ac8fa" opacity="0.25"/>
+  <rect x="120" y="140" width="280" height="520" rx="32" fill="#1d1d1f" opacity="0.35"/>
+  <rect x="150" y="180" width="220" height="380" rx="20" fill="#fff" opacity="0.92"/>
+  <text x="600" y="280" fill="#fff" font-family="system-ui,sans-serif" font-size="56" font-weight="600">Free Followers Guide</text>
+  <text x="600" y="350" fill="#bae6fd" font-family="system-ui,sans-serif" font-size="32">2026 · MyFreeFollower</text>
+</svg>
