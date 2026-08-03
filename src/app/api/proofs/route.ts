@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import {
   isBlobReady,
   addProof,
+  resubmitProof,
   getProofs,
   getProofById,
   deleteProof,
@@ -71,6 +72,34 @@ export async function GET(req: Request) {
   }
 
   return NextResponse.json({ proofs: all, kv: true });
+}
+
+export async function PATCH(req: Request) {
+  if (!isBlobReady()) return NextResponse.json({ ok: false, kv: false }, { status: 503 });
+
+  const body = (await req.json()) as {
+    proofId?: string;
+    email?: string;
+    media?: string;
+    mediaType?: "image" | "video";
+    accountName?: string;
+  };
+
+  if (!body?.proofId || !body?.email || !body?.media || !body?.mediaType) {
+    return NextResponse.json({ error: "Missing resubmit data." }, { status: 400 });
+  }
+
+  const result = await resubmitProof(body.proofId, body.email, {
+    media: body.media,
+    mediaType: body.mediaType,
+    accountName: body.accountName,
+  });
+
+  if (!result.ok) {
+    return NextResponse.json({ error: result.error }, { status: result.error.includes("not found") ? 404 : 409 });
+  }
+
+  return NextResponse.json({ ok: true, proof: result.proof });
 }
 
 export async function DELETE(req: Request) {

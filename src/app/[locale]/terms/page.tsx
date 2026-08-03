@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageBreadcrumbs } from "@/components/seo/PageBreadcrumbs";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n/config";
+import { termsSections } from "@/lib/i18n/page-sections";
 import { t } from "@/lib/i18n/translations";
 import { createMetadata } from "@/lib/seo";
 
@@ -20,7 +21,7 @@ export async function generateMetadata({
   });
 }
 
-const termsSections = [1, 2, 3, 4, 5, 6, 7] as const;
+const termsSectionsList = termsSections;
 
 export default async function TermsPage({
   params,
@@ -52,7 +53,7 @@ export default async function TermsPage({
       </header>
 
       <div className="prose prose-slate mt-10 max-w-3xl">
-        {termsSections.map((n) => (
+        {termsSectionsList.map((n) => (
           <section key={n} className="mt-8">
             <h2 className="font-display text-xl font-bold text-ink-900">
               {t(locale, `legal.termsSection${n}Title`)}

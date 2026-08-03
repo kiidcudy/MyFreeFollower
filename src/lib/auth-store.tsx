@@ -117,6 +117,10 @@ interface AuthContextValue extends SessionState {
     taskId: string,
     data: { media: string; mediaType: "image" | "video"; accountName: string }
   ) => Promise<{ ok: boolean; error?: string }>;
+  resubmitProof: (
+    proofId: string,
+    data: { media: string; mediaType: "image" | "video"; accountName: string }
+  ) => Promise<{ ok: boolean; error?: string }>;
   claimDailyBonus: () => { ok: boolean; error?: string; points?: number };
   reward: (points: number) => { ok: boolean; error?: string };
   spendPoints: (
@@ -502,6 +506,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       const existing = current.proofs.find((p) => p.taskId === taskId);
       if (existing) {
+        if (existing.status === "needs_edit") {
+          return {
+            ok: false,
+            error: "Admin requested edits. Resubmit from your Proofs page.",
+          };
+        }
         return {
           ok: false,
           error:
@@ -558,6 +568,53 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     },
     []
   );
+
+  const resubmitProof: AuthContextValue["resubmitProof"] = useCallback(async (proofId, data) => {
+    const current = sessionRef.current;
+    if (!current.user) return { ok: false, error: "You must be signed in." };
+
+    const existing = current.proofs.find((p) => p.id === proofId);
+    if (!existing) return { ok: false, error: "Proof not found." };
+    if (existing.status !== "needs_edit") {
+      return { ok: false, error: "This proof cannot be edited." };
+    }
+
+    try {
+      const res = await fetch("/api/proofs", {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          proofId,
+          email: current.user.email,
+          media: data.media,
+          mediaType: data.mediaType,
+          accountName: data.accountName,
+        }),
+      });
+      if (!res.ok) {
+        const err = (await res.json().catch(() => null)) as { error?: string } | null;
+        return { ok: false, error: err?.error ?? "Could not resubmit proof. Try again." };
+      }
+      const payload = (await res.json()) as { proof?: ProofSubmission };
+      const updated = payload.proof ?? {
+        ...existing,
+        ...data,
+        accountName: data.accountName?.trim(),
+        status: "pending" as const,
+        note: undefined,
+        reviewedAt: undefined,
+        createdAt: Date.now(),
+      };
+
+      setSession((prev) => ({
+        ...prev,
+        proofs: prev.proofs.map((p) => (p.id === proofId ? { ...p, ...updated } : p)),
+      }));
+      return { ok: true };
+    } catch {
+      return { ok: false, error: "Connection error. Try again." };
+    }
+  }, []);
 
   const claimDailyBonus: AuthContextValue["claimDailyBonus"] = useCallback(() => {
     const bonus = siteConfig.dailyBonusPoints;
@@ -678,6 +735,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       loginWithGoogle,
       logout,
       submitProof,
+      resubmitProof,
       claimDailyBonus,
       reward,
       spendPoints,
@@ -693,6 +751,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       loginWithGoogle,
       logout,
       submitProof,
+      resubmitProof,
       claimDailyBonus,
       reward,
       spendPoints,

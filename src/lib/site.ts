@@ -14,7 +14,7 @@ export const siteConfig = {
   /** Task reward shown/awarded = basePoints × multiplier */
   pointsMultiplier: 2,
   /** Daily login bonus — awarded once per calendar day (no multiplier) */
-  dailyBonusPoints: 200,
+  dailyBonusPoints: 100,
   /** Referral commission on invitee earnings (0.10 = 10%) */
   referralCommissionRate: 0.1,
 

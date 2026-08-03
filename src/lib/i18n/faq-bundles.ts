@@ -1,7 +1,8 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { Messages } from "@/lib/i18n/translations";
 
-type FaqMessages = Messages["faq"];
+type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
+type FaqMessages = DeepPartial<Messages["faq"]>;
 
 export const faqBundles: Partial<Record<Locale, FaqMessages>> = {
   de: {
@@ -475,8 +476,8 @@ export const faqBundles: Partial<Record<Locale, FaqMessages>> = {
     a5: "Evet. Anında paketler için ücretli kataloğumuza göz atın. Kripto, kart, PayPal, Skrill, Revolut veya havale ile checkout veya destek sohbeti üzerinden ödeyin.",
     q6: "Referanslar nasıl çalışır?",
     a6: "Panelden referans bağlantınızı paylaşın. Arkadaşlarınız kaydolup puan harcadığında, aktivitelerinden komisyon kazanırsınız.",
-    q7: "Minimum çekim tutarı nedir?",
-    a7: "20.000 puana ulaştığınızda çekim talep edebilirsiniz (güncel çekim kuruna göre 200 USD karşılığı).",
+    q7: "Puanlarımla ne yapabilirim?",
+    a7: "Puanlarınızı ücretsiz deneme paketlerinde — takipçi, beğeni ve izlenme — harcayın. Ücretli paketler kart veya kripto ile alınır. Puanlar nakde çevrilemez.",
     q8: "Destekle nasıl iletişime geçerim?",
     a8: "Bize 7/24 WhatsApp (+447544368792), Telegram (@buycheapfollowerr), canlı sohbet veya support@myfreefollower.com e-postası ile ulaşın.",
     q9: "Düşüş koruması nedir?",
@@ -495,6 +496,31 @@ export const faqBundles: Partial<Record<Locale, FaqMessages>> = {
     a15: "Evet. Markalar, mağazalar, müzisyenler ve ajanslar lansmanlar, sosyal kanıt ve kampanya desteği için bizi kullanıyor. Hesaplarınıza admin erişimi asla istemiyoruz.",
     q16: "Kişisel verilerimi satıyor veya paylaşıyor musunuz?",
     a16: "Hayır. E-posta ve sipariş bilgilerinizi yalnızca hesabınızı yönetmek ve siparişleri yerine getirmek için kullanıyoruz. Detaylar için Gizlilik Politikamıza bakın.",
+    sectionTasks: "Görevler ve kanıtlar",
+    q17: "Panel görevleri nasıl çalışır?",
+    a17: "Panelde Görevler'e gidin, bağlantıyı takip edin, istenen işlemi yapın, ekran görüntüsü veya kısa video yükleyin. Admin onayladığında puan hesabınıza eklenir.",
+    q18: "Aynı görevi iki kez yapabilir miyim?",
+    a18: "Hayır. Her görev hesap başına bir kez gönderilebilir. Admin düzeltme isterse yalnızca Kanıtlar sayfasından yeniden gönderebilirsiniz.",
+    q19: "Kanıtım reddedilirse ne olur?",
+    a19: "Reddedilen kanıt o görev için tekrar gönderilemez. Admin notunu okuyun ve diğer görevlerle puan kazanmaya devam edin.",
+    q20: "Günlük giriş bonusu nedir?",
+    a20: "Üyeler Günlük Bonus sayfasından takvim günü başına 100 bonus puan alabilir. Günlük bonus görev çarpanı kullanmaz.",
+    q21: "Ücretli paketler nasıl çalışır?",
+    a21: "Ücretli servislerden paket seçin, kullanıcı adı veya link girin, kart veya kripto ile ödeyin. Ücretli siparişlerde puan kullanılmaz.",
+    q22: "Ücretli siparişlerde hangi ödeme yöntemleri kabul edilir?",
+    a22: "Checkout'ta kart ve kripto. PayPal, Skrill, Revolut ve havale özel siparişler için destek sohbeti üzerinden ayarlanabilir.",
+    q23: "Büyüme hizmetleri hesabım için güvenli mi?",
+    a23: "Asla şifre istemiyoruz ve kademeli teslimat yapıyoruz. Üçüncü taraf platformların kendi kuralları vardır — sorumlu kullanın.",
+    q24: "Sipariş durumunu nasıl takip ederim?",
+    a24: "Ücretsiz ve ücretli siparişler Panel → Siparişler'de görünür. Teslimat ilerledikçe durum güncellenir.",
+    q25: "Siparişi iptal edebilir miyim?",
+    a25: "Sipariş ID'nizle hemen destekle iletişime geçin. Teslimat başlamadıysa iptal mümkün olabilir. Sonrasında İade Politikası geçerlidir.",
+    q26: "İşletmeler için fatura sağlıyor musunuz?",
+    a26: "Şirket bilgileriniz ve sipariş ID ile support@myfreefollower.com'a yazın. Uygun olduğunda ödeme onay belgesi sağlayabiliriz.",
+    q27: "MyFreeFollower hangi dilleri destekliyor?",
+    a27: "Site 19 dilde mevcuttur: Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Arapça ve daha fazlası. Dili üst menüden değiştirin.",
+    q28: "Destek ne kadar hızlı yanıt verir?",
+    a28: "Canlı sohbet ve WhatsApp 7/24 izlenir. Çoğu soruya dakikalar içinde yanıt verilir; karmaşık siparişler genelde 24 saat içinde çözülür.",
   },
   ar: {
     title: "الأسئلة الشائعة",

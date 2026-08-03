@@ -1,7 +1,8 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { Messages } from "@/lib/i18n/translations";
 
-type LegalMessages = Messages["legal"];
+type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
+type LegalMessages = DeepPartial<Messages["legal"]>;
 
 export const legalBundles: Partial<Record<Locale, LegalMessages>> = {
   de: {
@@ -744,6 +745,18 @@ export const legalBundles: Partial<Record<Locale, LegalMessages>> = {
     privacySection6Title: "İletişim",
     privacySection6Body:
       "Gizlilik soruları için support@myfreefollower.com adresine yazın veya iletişim sayfamızı kullanın.",
+    privacySection7Title: "Üçüncü taraf hizmet sağlayıcılar",
+    privacySection7Body:
+      "Barındırma, ödeme, analitik ve e-posta için güvenilir altyapı ortakları kullanıyoruz. Ortaklar veriyi yalnızca bizim adımıza işler ve sözleşmeyle korumak zorundadır. Verilerinizi satmalarına izin vermiyoruz.",
+    privacySection8Title: "Uluslararası veri aktarımı",
+    privacySection8Body:
+      "MyFreeFollower küresel çalışır. Bilgileriniz kendi ülkeniz dışında işlenebilir. Gerekli olduğunda sözleşmesel güvenceler veya eşdeğer yasal mekanizmalar uygulanır.",
+    privacySection9Title: "Çocukların gizliliği",
+    privacySection9Body:
+      "Hizmetlerimiz 16 yaş altına yönelik değildir. Bilerek çocuk verisi toplamıyoruz. Çocuk hesabı olduğunu düşünüyorsanız support@myfreefollower.com'a yazın, hesabı sileriz.",
+    privacySection10Title: "Politika güncellemeleri",
+    privacySection10Body:
+      "Bu politikayı yasal, teknik veya iş değişikliklerine göre güncelleyebiliriz. Önemli değişiklikler e-posta veya site bildirimiyle duyurulabilir. Kullanıma devam kabul sayılır.",
     termsIntro:
       "MyFreeFollower'ı kullanarak bu Hizmet Şartlarını kabul etmiş olursunuz. Lütfen dikkatlice okuyun.",
     termsSection1Title: "Şartların kabulü",
@@ -755,9 +768,9 @@ export const legalBundles: Partial<Record<Locale, LegalMessages>> = {
     termsSection3Title: "Hizmetler ve teslimat",
     termsSection3Body:
       "Kademeli teslimatla sosyal medya büyüme hizmetleri sunuyoruz. Teslimat süreleri tahmindir, garanti değildir. Platform politikalarını veya adil kullanım kurallarımızı ihlal eden siparişleri iptal edebilir veya iade edebiliriz.",
-    termsSection4Title: "Görevler, puanlar ve çekimler",
+    termsSection4Title: "Görevler, puanlar ve ücretsiz hizmetler",
     termsSection4Body:
-      "Puanlar onaylanmış görevlerle kazanılır. Eksik veya sahte kanıtları reddedebiliriz. Çekimler minimum eşiklere ve manuel incelemeye tabidir. Referans komisyonları program kurallarına göre yansıtılır.",
+      "Puanlar onaylanmış panel görevleriyle kazanılır ve katalogdaki ücretsiz deneme paketlerinde harcanır. Ücretli hizmetler kart veya kripto gerektirir — puanlar ücretli siparişlerde veya nakde çevrilemez. Sahte kanıtlar reddedilir. Referans komisyonları panel kurallarına tabidir.",
     termsSection5Title: "Yasak kullanım",
     termsSection5Body:
       "Hizmetlerimizi yasadışı faaliyet, taciz, spam veya üçüncü taraf platform şartlarını ihlal etmek için kullanamazsınız. Sistemi kötüye kullanan hesapları askıya alabilir veya kapatabiliriz.",
@@ -767,6 +780,21 @@ export const legalBundles: Partial<Record<Locale, LegalMessages>> = {
     termsSection7Title: "Değişiklikler ve iletişim",
     termsSection7Body:
       "Bu şartları istediğimiz zaman güncelleyebiliriz. Kullanıma devam etmek kabul anlamına gelir. Sorular: support@myfreefollower.com.",
+    termsSection8Title: "Ödemeler ve faturalama",
+    termsSection8Body:
+      "Ücretli siparişler checkout'ta gösterilen para biriminde faturalandırılır. Seçilen yöntemle tahsilat yetkisi verirsiniz. Başarısız kart veya kripto ödemeleri aktif sipariş oluşturmaz.",
+    termsSection9Title: "Fikri mülkiyet",
+    termsSection9Body:
+      "MyFreeFollower logosu, site tasarımı ve özgün içerik korunur. Katalogumuzu yazılı izin olmadan kopyalayamaz veya yeniden satamazsınız. Kanıt medyanız size aittir; inceleme için bize lisans verirsiniz.",
+    termsSection10Title: "Uyuşmazlık çözümü",
+    termsSection10Body:
+      "Her sipariş uyuşmazlığında önce destekle iletişime geçin. 48 saat içinde çözüm hedefliyoruz. Destekle konuşmadan açılan chargeback hesap askısına yol açabilir.",
+    termsSection11Title: "Uygulanacak hukuk",
+    termsSection11Body:
+      "Bu şartlar şirket kaydımızdaki yargı alanına tabidir. Yerel tüketici hakları yasaların gerektirdiği ölçüde geçerlidir.",
+    termsSection12Title: "Bölünebilirlik",
+    termsSection12Body:
+      "Herhangi bir hüküm uygulanamaz bulunursa diğer hükümler yürürlükte kalır. Bir hakkın kullanılmaması gelecekte feragat sayılmaz.",
     refundTitle: "İade Politikası",
     refundDescription: "Bir sipariş tarif edildiği gibi tamamlanamadığında iadeleri nasıl ele aldığımız.",
     refundIntro:
@@ -782,7 +810,19 @@ export const legalBundles: Partial<Record<Locale, LegalMessages>> = {
       "Sipariş ID'niz ve hesap e-postanızla WhatsApp, canlı sohbet veya support@myfreefollower.com üzerinden destekle iletişime geçin. 24–48 saat içinde incelenir.",
     refundSection4Title: "Ödeme yöntemine göre iade",
     refundSection4Body:
-      "Onaylanan iadeler mümkünse orijinal ödeme yöntemine döner. Kripto veya bakiye ödemeleri hesap bakiyesine yansıtılabilir veya anlaşmaya göre iade edilebilir.",
+      "Onaylanan iadeler mümkünse orijinal ödeme yöntemine döner. Kripto iadeler anlaşmaya göre kripto veya hesap kredisi olabilir. Kart iadeleri bankaya göre 5–10 iş günü sürebilir.",
+    refundSection5Title: "Kısmi teslimat ve kısmi iade",
+    refundSection5Body:
+      "Bizim hatamızla siparişin yalnızca bir kısmı teslim edildiyse kısmi iade veya kalan miktarın tamamlanması sunulabilir. Kısmi iade yalnızca teslim edilmeyen kısımdan hesaplanır.",
+    refundSection6Title: "Chargeback ve ödeme itirazları",
+    refundSection6Body:
+      "Destekle iletişime geçmeden banka chargeback'i gecikmeye ve hesap askısına yol açabilir. Önce support@myfreefollower.com'a sipariş ID ile yazın.",
+    refundSection7Title: "İade işlem süresi",
+    refundSection7Body:
+      "Onaylanan iadeler onaydan sonra 1–3 iş günü içinde başlatılır. Kripto iadeler ağ onayına bağlıdır. İade işlendiğinde e-posta onayı alırsınız.",
+    refundSection8Title: "İade talebi iletişimi",
+    refundSection8Body:
+      "Sipariş ID, hesap e-postası, ödeme yöntemi ve kısa açıklama ile support@myfreefollower.com, WhatsApp (+44 7544 368792) veya Telegram (@buycheapfollowerr) üzerinden yazın.",
   },
   ar: {
     privacyTitle: "سياسة الخصوصية",

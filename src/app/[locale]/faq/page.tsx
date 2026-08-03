@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { PageBreadcrumbs } from "@/components/seo/PageBreadcrumbs";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n/config";
+import { faqSections } from "@/lib/i18n/page-sections";
 import { t } from "@/lib/i18n/translations";
 import { buildFAQSchema, createMetadata } from "@/lib/seo";
 
@@ -20,25 +21,6 @@ export async function generateMetadata({
     locale,
   });
 }
-
-const faqSections = [
-  {
-    titleKey: "faq.sectionGeneral",
-    keys: [1, 2, 3, 4] as const,
-  },
-  {
-    titleKey: "faq.sectionOrders",
-    keys: [5, 6, 9, 10, 11, 12] as const,
-  },
-  {
-    titleKey: "faq.sectionAccount",
-    keys: [7, 13, 14, 15] as const,
-  },
-  {
-    titleKey: "faq.sectionSupport",
-    keys: [8, 16] as const,
-  },
-] as const;
 
 export default async function FaqPage({
   params,

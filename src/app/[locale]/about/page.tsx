@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageBreadcrumbs } from "@/components/seo/PageBreadcrumbs";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n/config";
 import { localizedPath } from "@/lib/i18n/navigation";
+import { aboutSections } from "@/lib/i18n/page-sections";
 import { t } from "@/lib/i18n/translations";
 import { createMetadata } from "@/lib/seo";
 
@@ -30,12 +31,6 @@ export default async function AboutPage({
   const { locale: raw } = await params;
   const locale = (isLocale(raw) ? raw : defaultLocale) as Locale;
 
-  const sections = [
-    { titleKey: "about.missionTitle", bodyKey: "about.missionBody" },
-    { titleKey: "about.howTitle", bodyKey: "about.howBody" },
-    { titleKey: "about.trustTitle", bodyKey: "about.trustBody" },
-  ] as const;
-
   return (
     <>
       <PageBreadcrumbs
@@ -55,7 +50,7 @@ export default async function AboutPage({
       </header>
 
       <div className="mt-10 max-w-3xl space-y-10">
-        {sections.map((section) => (
+        {aboutSections.map((section) => (
           <section key={section.titleKey}>
             <h2 className="font-display text-xl font-bold text-ink-900">
               {t(locale, section.titleKey)}

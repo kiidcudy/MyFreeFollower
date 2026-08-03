@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageBreadcrumbs } from "@/components/seo/PageBreadcrumbs";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n/config";
+import { refundSections } from "@/lib/i18n/page-sections";
 import { t } from "@/lib/i18n/translations";
 import { createMetadata } from "@/lib/seo";
 
@@ -20,7 +21,7 @@ export async function generateMetadata({
   });
 }
 
-const sections = [1, 2, 3, 4] as const;
+const sections = refundSections;
 
 export default async function RefundPolicyPage({
   params,

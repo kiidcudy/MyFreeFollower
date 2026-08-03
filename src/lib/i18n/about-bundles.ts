@@ -1,7 +1,8 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { Messages } from "@/lib/i18n/translations";
 
-type AboutMessages = Messages["about"];
+type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
+type AboutMessages = DeepPartial<Messages["about"]>;
 
 export const aboutBundles: Partial<Record<Locale, AboutMessages>> = {
   de: {
@@ -192,6 +193,21 @@ export const aboutBundles: Partial<Record<Locale, AboutMessages>> = {
     trustTitle: "Neden bize güveniyorlar",
     trustBody:
       "Asla şifre istemiyoruz. Destek 7/24 hazır. Siparişler panelinizde takip edilir ve kataloğumuz kullandığınız tüm büyük sosyal ağları kapsar.",
+    storyTitle: "Hikayemiz",
+    storyBody:
+      "MyFreeFollower, sosyal büyümenin pahalı reklamlar veya riskli botlar gerektirmemesi gerektiği inancıyla başladı. Herkesin ücretsiz deneme kazanabileceği görev ekonomisi ve anında hacim isteyenler için kart/kripto checkout kurduk. Bugün 120.000+ üye 24 platformda 90+ ücretsiz deneme ve yüzlerce ücretli paket kullanıyor.",
+    valuesTitle: "Ne savunuyoruz",
+    valuesBody:
+      "Şeffaflık, şifresiz teslimat, adil kanıt incelemesi ve dürüst fiyatlandırma. Hizmetlerin nasıl çalıştığını açıklıyor, teslimat sürelerini önceden gösteriyor ve gerçek destek ekibi sunuyoruz.",
+    platformsTitle: "24 platform, tek panel",
+    platformsBody:
+      "Instagram, TikTok, YouTube, X, Facebook, Telegram, Spotify, Twitch, LinkedIn, Pinterest ve daha fazlası — tek hesaptan. Görev puanlarıyla ücretsiz deneme veya ağ başına ücretli checkout.",
+    supportTitle: "7/24 insan desteği",
+    supportBody:
+      "Sipariş, kanıt veya ödeme soruları — WhatsApp (+44 7544 368792), Telegram (@buycheapfollowerr), canlı sohbet veya support@myfreefollower.com.",
+    safetyTitle: "Güvenlik ve adil kullanım",
+    safetyBody:
+      "Siparişler hesap sağlığı için kademeli teslim edilir. Ücretsiz deneme kötüye kullanımı, sahte kanıt veya çoklu hesap banlanır. Kullanmadan önce Şartlar ve SSS'yi okuyun.",
     ctaTitle: "Büyümeye hazır mısınız?",
     ctaBody: "Ücretsiz hesap oluşturun ve ilk paketinizi bugün alın.",
     ctaButton: "Ücretsiz kayıt ol",

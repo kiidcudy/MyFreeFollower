@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageBreadcrumbs } from "@/components/seo/PageBreadcrumbs";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n/config";
+import { privacySections } from "@/lib/i18n/page-sections";
 import { t } from "@/lib/i18n/translations";
 import { createMetadata } from "@/lib/seo";
 
@@ -20,7 +21,7 @@ export async function generateMetadata({
   });
 }
 
-const privacySections = [1, 2, 3, 4, 5, 6] as const;
+const privacySectionsList = privacySections;
 
 export default async function PrivacyPolicyPage({
   params,
@@ -52,7 +53,7 @@ export default async function PrivacyPolicyPage({
       </header>
 
       <div className="prose prose-slate mt-10 max-w-3xl">
-        {privacySections.map((n) => (
+        {privacySectionsList.map((n) => (
           <section key={n} className="mt-8">
             <h2 className="font-display text-xl font-bold text-ink-900">
               {t(locale, `legal.privacySection${n}Title`)}

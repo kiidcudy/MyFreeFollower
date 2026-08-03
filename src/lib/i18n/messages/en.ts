@@ -269,6 +269,31 @@ export const en = {
     a15: "Yes. Brands, shops, musicians, and agencies use us for launches, social proof, and campaign boosts. We never need admin access to your accounts.",
     q16: "Do you sell or share my personal data?",
     a16: "No. We use your email and order details only to run your account and fulfill orders. See our Privacy Policy for full details.",
+    sectionTasks: "Tasks & proofs",
+    q17: "How do dashboard tasks work?",
+    a17: "Open Tasks in your dashboard, follow the task link, complete the required action, then upload a screenshot or short video as proof. An admin reviews submissions and credits points when approved.",
+    q18: "Can I complete the same task twice?",
+    a18: "No. Each task allows one submission per account. If an admin marks your proof as needs edit, you may resubmit only from the Proofs page with corrected media.",
+    q19: "What happens if my proof is rejected?",
+    a19: "A rejected proof cannot be resubmitted for that task. Read the admin note, review task instructions, and focus on other available tasks to keep earning points.",
+    q20: "What is the daily login bonus?",
+    a20: "Members can claim 100 bonus points once per calendar day from the Daily Bonus page. Daily bonus points are fixed and do not use the task reward multiplier.",
+    q21: "How do paid packages work?",
+    a21: "Browse paid services, select a quantity tier, enter your public username or post link, and checkout with card or crypto. Paid orders do not use points.",
+    q22: "Which payment methods are accepted for paid orders?",
+    a22: "Card and cryptocurrency at checkout. PayPal, Skrill, Revolut, and bank transfer may be arranged via WhatsApp or live chat for custom orders.",
+    q23: "Is using growth services safe for my account?",
+    a23: "We never ask for passwords and deliver gradually to look natural. Third-party platforms enforce their own rules — use services responsibly and avoid spammy behavior.",
+    q24: "How do I track order status?",
+    a24: "Free and paid orders appear under Dashboard → Orders. Status updates from pending to processing to completed as fulfillment progresses.",
+    q25: "Can I cancel an order?",
+    a25: "Contact support immediately with your order ID. If delivery has not started, cancellation may be possible. After processing begins, our Refund Policy applies.",
+    q26: "Do you provide invoices for businesses?",
+    a26: "Email support@myfreefollower.com with your company name, tax details if applicable, and order ID. We provide payment confirmation documents where supported.",
+    q27: "What languages does MyFreeFollower support?",
+    a27: "The website is available in 19 languages including English, Turkish, German, French, Spanish, Portuguese, Arabic, and more. Switch language from the header menu.",
+    q28: "How fast does support respond?",
+    a28: "Live chat and WhatsApp are monitored 24/7. Most inquiries receive a first reply within minutes; complex order issues are typically resolved within 24 hours.",
   },
   about: {
     title: "About MyFreeFollower",
@@ -282,6 +307,21 @@ export const en = {
     trustTitle: "Why members trust us",
     trustBody:
       "We never ask for passwords. Support is available around the clock. Orders are tracked in your dashboard, and our catalog covers every major social network you use.",
+    storyTitle: "Our story",
+    storyBody:
+      "MyFreeFollower began with a simple belief: social growth should not require expensive ads or risky bots. We built a task economy so anyone can earn free trial packages, plus card and crypto checkout for creators who need instant volume. Today more than 120,000 members use 90+ free trials and hundreds of paid tiers across 24 platforms.",
+    valuesTitle: "What we stand for",
+    valuesBody:
+      "Transparency, password-free delivery, fair proof review, and honest pricing. We explain how services work, show delivery windows upfront, and staff real support agents — not anonymous ticket queues.",
+    platformsTitle: "24 platforms, one dashboard",
+    platformsBody:
+      "Instagram, TikTok, YouTube, X, Facebook, Telegram, Spotify, Twitch, LinkedIn, Pinterest, Snapchat, Discord, Reddit, and more — all from one member account. Earn task points for free trials or checkout paid packages per network.",
+    supportTitle: "24/7 human support",
+    supportBody:
+      "Order questions, proof issues, or payment help — reach us on WhatsApp (+44 7544 368792), Telegram (@buycheapfollowerr), live chat, or support@myfreefollower.com. We assist in multiple languages.",
+    safetyTitle: "Safety and fair use",
+    safetyBody:
+      "Orders are delivered gradually to protect account health. Abuse of free trials, fraudulent proofs, or multi-account farming results in suspension. Read our Terms and FAQ — responsible use keeps the platform fair for everyone.",
     ctaTitle: "Ready to grow?",
     ctaBody: "Create a free account and claim your first package today.",
     ctaButton: "Sign up free",
@@ -368,7 +408,8 @@ export const en = {
     rules: "Rules & FAQ",
     startTask: "Start",
     closeTask: "Close",
-    resubmitProof: "Resubmit",
+    resubmitProofHint: "Upload a corrected proof and resubmit for review.",
+    resubmitProof: "Resubmit proof",
     uploadProof: "Upload proof (image or max 3s video)",
     submitProof: "Submit proof",
     submitting: "Submitting…",
@@ -662,6 +703,18 @@ export const en = {
     privacySection6Title: "Contact",
     privacySection6Body:
       "For privacy questions, email support@myfreefollower.com or use our contact page.",
+    privacySection7Title: "Third-party service providers",
+    privacySection7Body:
+      "We use trusted infrastructure providers for hosting, payment processing, analytics, and email delivery. These partners process data only to perform services on our behalf and must protect it under contractual obligations. We do not authorize partners to sell your personal data.",
+    privacySection8Title: "International data transfers",
+    privacySection8Body:
+      "MyFreeFollower operates globally. Your information may be processed in countries other than your own. Where required, we apply appropriate safeguards such as standard contractual clauses or equivalent legal mechanisms to protect cross-border transfers.",
+    privacySection9Title: "Children's privacy",
+    privacySection9Body:
+      "Our services are not directed to children under 16. We do not knowingly collect personal data from minors. If you believe a child has registered, contact support@myfreefollower.com and we will delete the account promptly.",
+    privacySection10Title: "Policy updates",
+    privacySection10Body:
+      "We may update this Privacy Policy to reflect legal, technical, or business changes. The last updated date appears at the top of this page. Material changes may be announced by email or site notice. Continued use after updates means you accept the revised policy.",
     termsIntro:
       "By using MyFreeFollower, you agree to these Terms of Service. Please read them carefully.",
     termsSection1Title: "Acceptance of terms",
@@ -673,9 +726,9 @@ export const en = {
     termsSection3Title: "Services and delivery",
     termsSection3Body:
       "We provide social media growth services delivered gradually. Delivery times are estimates, not guarantees. We reserve the right to cancel or refund orders that violate platform policies or our fair-use rules.",
-    termsSection4Title: "Tasks and points",
+    termsSection4Title: "Tasks, points, and free services",
     termsSection4Body:
-      "Points are earned by completing approved tasks and spent on growth services in the catalog. We may reject proofs that are incomplete or fraudulent. Referral commissions are credited according to program rules.",
+      "Points are earned by completing approved dashboard tasks and spent on free trial packages in the catalog. Paid services require card or crypto checkout — points cannot be used for paid orders or converted to cash. We may reject incomplete or fraudulent proofs. Referral commissions follow program rules published in your dashboard.",
     termsSection5Title: "Prohibited use",
     termsSection5Body:
       "You may not use our services for illegal activity, harassment, spam, or to violate third-party platform terms. We may suspend or terminate accounts that abuse the system.",
@@ -685,6 +738,21 @@ export const en = {
     termsSection7Title: "Changes and contact",
     termsSection7Body:
       "We may update these terms at any time. Continued use after changes constitutes acceptance. Contact support@myfreefollower.com with questions.",
+    termsSection8Title: "Payments and billing",
+    termsSection8Body:
+      "Paid orders are billed at checkout in the currency shown. You authorize us and our payment partners to charge the selected method. Prices include applicable service fees displayed before confirmation. Failed crypto or card payments do not create active orders.",
+    termsSection9Title: "Intellectual property",
+    termsSection9Body:
+      "MyFreeFollower logos, site design, and original content are protected. You may not copy, scrape, or resell our catalog without written permission. Your username and submitted proof media remain yours; you grant us a license to review proofs for task verification.",
+    termsSection10Title: "Dispute resolution",
+    termsSection10Body:
+      "Contact support first for any order dispute. We aim to resolve issues within 48 hours. Chargebacks opened without contacting support may result in account suspension while the case is reviewed.",
+    termsSection11Title: "Governing law",
+    termsSection11Body:
+      "These terms are governed by applicable international commerce principles and the jurisdiction stated in our company registration, without regard to conflict-of-law rules. Local consumer rights that cannot be waived still apply where mandated by law.",
+    termsSection12Title: "Severability",
+    termsSection12Body:
+      "If any provision of these terms is found unenforceable, the remaining provisions stay in effect. Failure to enforce a right does not waive that right for the future.",
     refundTitle: "Refund Policy",
     refundDescription: "How we handle refunds when an order cannot be completed as described.",
     refundIntro:
@@ -700,7 +768,19 @@ export const en = {
       "Contact support via WhatsApp, live chat, or email at support@myfreefollower.com with your order ID and account email. We review requests within 24–48 hours.",
     refundSection4Title: "Payment method refunds",
     refundSection4Body:
-      "Approved refunds are returned to your original payment method where possible. Crypto and balance payments may be credited to your account balance or refunded via an agreed method.",
+      "Approved refunds are returned to your original payment method where possible. Crypto payments may be refunded in crypto or account credit by agreement. Card refunds typically appear within 5–10 business days depending on your bank.",
+    refundSection5Title: "Partial delivery and partial refunds",
+    refundSection5Body:
+      "If only part of an order was delivered due to our error, we may offer a partial refund or completion of the remaining quantity. Partial refunds are calculated from the undelivered portion, not the full order total.",
+    refundSection6Title: "Chargebacks and payment disputes",
+    refundSection6Body:
+      "Opening a chargeback with your bank before contacting support may delay resolution and lead to account suspension. Always email support@myfreefollower.com with your order ID first so we can investigate delivery logs.",
+    refundSection7Title: "Refund processing time",
+    refundSection7Body:
+      "Approved refunds are initiated within 1–3 business days after approval. Crypto refunds depend on network confirmation times. You receive email confirmation when a refund is processed.",
+    refundSection8Title: "Contact for refund requests",
+    refundSection8Body:
+      "Email support@myfreefollower.com, WhatsApp (+44 7544 368792), or Telegram (@buycheapfollowerr) with your order ID, account email, payment method, and a short description of the issue. Incomplete requests may take longer to review.",
   },
   contact: {
     title: "Contact Us",
@@ -748,22 +828,22 @@ export const en = {
       "Learn how to get free followers in three steps: pick a service, enter your link, and sign up free.",
     faqTitle: "FAQ",
     faqDescription:
-      "Frequently asked questions about free followers, paid packages, payment methods, and delivery.",
+      "Complete FAQ about free followers, paid packages, tasks, points, card and crypto payments, delivery times, refunds, and 24/7 support.",
     aboutTitle: "About Us",
     aboutDescription:
-      "Learn about MyFreeFollower — free social media growth and affordable paid packages across 24 platforms.",
+      "About MyFreeFollower — mission, platforms, task-based free growth, paid checkout, safety policies, and 24/7 support for 120,000+ creators.",
     contactTitle: "Contact Us",
     contactDescription:
       "Get 24/7 support via live chat, WhatsApp, or email. We're here to help with orders and account questions.",
     privacyTitle: "Privacy Policy",
     privacyDescription:
-      "How MyFreeFollower collects, uses, and protects your personal information.",
+      "Full privacy policy: data collection, cookies, retention, your GDPR-style rights, third parties, and how MyFreeFollower protects your information.",
     termsTitle: "Terms of Service",
     termsDescription:
-      "Terms and conditions for using MyFreeFollower free and paid social media growth services.",
+      "Complete terms for MyFreeFollower accounts, tasks, points, paid orders, prohibited use, payments, and liability.",
     refundTitle: "Refund Policy",
     refundDescription:
-      "Refund policy and process for MyFreeFollower orders that could not be completed.",
+      "Detailed refund policy: eligibility, partial refunds, chargebacks, processing times, and how to contact support.",
     sitemapTitle: "Sitemap",
     sitemapDescription: "Browse all public pages on MyFreeFollower.",
     dashboardTitle: "Dashboard",

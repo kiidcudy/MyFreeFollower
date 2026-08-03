@@ -527,6 +527,36 @@ export async function addProof(
   return { ok: true };
 }
 
+export async function resubmitProof(
+  proofId: string,
+  email: string,
+  data: { media: string; mediaType: "image" | "video"; accountName?: string },
+): Promise<{ ok: true; proof: Proof } | { ok: false; error: string }> {
+  const all = await getProofs();
+  const normalized = email.toLowerCase();
+  const idx = all.findIndex((p) => p.id === proofId && p.email === normalized);
+  if (idx < 0) return { ok: false, error: "Proof not found." };
+
+  const proof = all[idx];
+  if (proof.status !== "needs_edit") {
+    return { ok: false, error: "This proof cannot be edited." };
+  }
+
+  const updated: Proof = {
+    ...proof,
+    media: data.media,
+    mediaType: data.mediaType,
+    accountName: data.accountName?.trim() || proof.accountName,
+    status: "pending",
+    note: undefined,
+    reviewedAt: undefined,
+    createdAt: Date.now(),
+  };
+  all[idx] = updated;
+  await setProofs(all);
+  return { ok: true, proof: updated };
+}
+
 export async function deleteProof(proofId: string): Promise<boolean> {
   const all = await getProofs();
   const next = all.filter((p) => p.id !== proofId);
