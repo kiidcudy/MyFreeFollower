@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { AuthProvider } from "@/lib/auth-store";
 import { createMetadata, globalStructuredDataJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { JsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
           {children}
           <Analytics />
         </AuthProvider>
+        <GoogleAnalytics />
         <JsonLd data={globalStructuredDataJsonLd()} id="jsonld-global" />
       </body>
     </html>
