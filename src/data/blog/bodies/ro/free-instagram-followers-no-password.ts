@@ -8,7 +8,7 @@ export const freeInstagramFollowersNoPassword: BlogBodyOverride = {
 
 Serviciile sigure folosesc doar **date publice**. Username sau URL e suficient. Testul nostru [urmăritori Instagram gratuiți](/free-followers/free-instagram-followers) nu cere niciodată parolă.
 
-Test de trei secunde: câmp parolă? Închide tab-ul. Livrare graduală explicată? Suport vizibil? Fără parolă elimini cea mai proastă categorie de fraude SMM.`,
+Test de trei secunde: câmp parolă? Închide tab-ul. Livrare graduală explicată? Suport vizibil? Fără parolă elimini cea mai proastă categorie de fraude.`,
     },
     {
       h2: "Urmăritori Instagram gratuiți bazati pe task-uri",

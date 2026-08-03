@@ -8,7 +8,7 @@ export const freeInstagramFollowersNoPassword: BlogBodyOverride = {
 
 Les services sûrs n'utilisent que des **données publiques**. Username ou URL suffisent. Notre essai [followers Instagram gratuits](/free-followers/free-instagram-followers) ne demande jamais de mot de passe.
 
-Test en trois secondes : champ mot de passe ? Quittez. Livraison progressive expliquée ? Support visible ? Sans mot de passe, vous éliminez la pire catégorie d'arnaques SMM.`,
+Test en trois secondes : champ mot de passe ? Quittez. Livraison progressive expliquée ? Support visible ? Sans mot de passe, vous éliminez la pire catégorie d'arnaques.`,
     },
     {
       h2: "Followers Instagram gratuits par tâches",

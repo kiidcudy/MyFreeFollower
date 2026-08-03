@@ -11,7 +11,7 @@ Gevaar: gerecyclede bots, gestolen accounts, phishing. **Veilig goedkoop**: geen
 10.000 volgers voor centen zonder drip? Vermijd. Matige prijzen met tracking verslaan mysterieuze bulk.`,
     },
     {
-      h2: "SMM-panel evalueren vóór betaling",
+      h2: "-panel evalueren vóór betaling",
       body: `Checklist: geen wachtwoord; menselijk contact <24 u; policies in footer; slugs per platform; proef met taken of micro-pakket.
 
 Zoek merk + support/refund. [FAQ](/faq). Proef [gratis TikTok volgers](/free-followers/free-tiktok-followers), 7-dagen retentie, kleinste betaalde tier. Geen Telegram-overboekingen naar onbekende wederverkopers.`,
@@ -44,7 +44,7 @@ Telegram, Spotify, Twitch — slugs op [volgers kopen](/buy-followers). Besteed 
     },
     {
       h2: "Terugbetalingen en support-escalatie",
-      body: `Vóór ticket: username, privacy, servicetermijnen. Escalatie met order-ID en screenshots. Chargeback zonder contact verliest refills. Herverdeel budget als één platform traag is in plaats van hele SMM te stoppen.`,
+      body: `Vóór ticket: username, privacy, servicetermijnen. Escalatie met order-ID en screenshots. Chargeback zonder contact verliest refills. Herverdeel budget als één platform traag is in plaats van hele  te stoppen.`,
     },
   ],
   faq: [

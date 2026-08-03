@@ -99,7 +99,7 @@ const tr: HomeExtra = {
   testimonial4Role: "Topluluk yöneticisi · Almanya",
   blogPreviewTitle: "Büyüme ipuçları ve rehberler",
   blogPreviewSubtitle:
-    "Ücretsiz takipçi, platform stratejileri ve güvenli SMM hakkında en yeni yazılar.",
+    "Ücretsiz takipçi, platform stratejileri ve güvenli  hakkında en yeni yazılar.",
   viewAllBlog: "Tüm yazılar",
   readArticle: "Yazıyı oku",
 };

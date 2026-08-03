@@ -11,7 +11,7 @@ Bahaya: bot daur ulang, akun curian, phishing. **Murah aman**: tanpa password, d
 10.000 followers sen tanpa drip? Hindari. Harga moderat dengan tracking mengalahkan bulk misterius.`,
     },
     {
-      h2: "Evaluasi panel SMM sebelum bayar",
+      h2: "Evaluasi panel de crecimiento sebelum bayar",
       body: `Checklist: tanpa password; kontak manusia <24 jam; policy di footer; slug per platform; trial via tugas atau micro-paket.
 
 Cari brand + support/refund. [FAQ](/faq). Trial [followers TikTok gratis](/free-followers/free-tiktok-followers), retensi 7 hari, tier berbayar terkecil. Tanpa transfer Telegram ke reseller tidak dikenal.`,
@@ -44,7 +44,7 @@ Telegram, Spotify, Twitch — slug di [beli followers](/buy-followers). Spend di
     },
     {
       h2: "Refund dan eskalasi support",
-      body: `Sebelum ticket: username, privasi, timeline layanan. Eskalasi dengan order ID dan screenshot. Chargeback tanpa kontak kehilangan refill. Realokasi budget jika satu platform lambat alih-alih potong seluruh SMM.`,
+      body: `Sebelum ticket: username, privasi, timeline layanan. Eskalasi dengan order ID dan screenshot. Chargeback tanpa kontak kehilangan refill. Realokasi budget jika satu platform lambat alih-alih potong seluruh.`,
     },
   ],
   faq: [

@@ -99,7 +99,7 @@ const blogCoverAltOverrides: Partial<
     "buy-cheap-followers-safely":
       "Безопасная оплата пакетов подписчиков на ноутбуке",
     "earn-free-social-media-growth-tasks":
-      "Панель участника: баллы за бесплатные SMM-услуги",
+      "Панель участника: баллы за бесплатные услуги роста",
   },
   pt: {
     "free-followers-guide-2026":
@@ -183,7 +183,7 @@ const blogCoverAltOverrides: Partial<
     "buy-cheap-followers-safely":
       "Безпечна оплата пакетів підписників на ноутбуці",
     "earn-free-social-media-growth-tasks":
-      "Панель учасника: бали за безкоштовні SMM-послуги",
+      "Панель учасника: бали за безкоштовні послуги роста",
   },
   fa: {
     "free-followers-guide-2026":

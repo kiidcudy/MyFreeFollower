@@ -124,7 +124,7 @@ export const en = {
       "Members can claim free trial packages after signing up. Browse free services, enter your username or link, and redeem from your account.",
     faqQ8: "Is MyFreeFollower affiliated with Instagram or TikTok?",
     faqA8:
-      "No. We are an independent SMM service provider and are not affiliated with Instagram, TikTok, YouTube, or any social platform.",
+      "No. We are an independent social media growth provider and are not affiliated with Instagram, TikTok, YouTube, or any social platform.",
     viewAllFaq: "View all FAQ",
     howTitle: "How it works",
     howStep1Title: "Pick a service",
@@ -677,7 +677,7 @@ export const en = {
   },
   blog: {
     title: "Blog",
-    description: "Guides on free followers, TikTok growth, Instagram tips, and task-based SMM strategies.",
+    description: "Guides on free followers, TikTok growth, Instagram tips, and task-based growth strategies.",
     readMore: "Read article",
     relatedPosts: "Related articles",
     tocHeading: "In this article",
@@ -816,8 +816,8 @@ export const en = {
   meta: {
     defaultTitle: "MyFreeFollower — Free Followers & Social Media Growth",
     defaultDescription:
-      "Get free Instagram, TikTok, and YouTube followers, likes, and views. Buy cheap SMM packages with secure checkout — no password required.",
-    homeTitle: "MyFreeFollower — Free Followers & Buy Cheap SMM Packages",
+      "Get free Instagram, TikTok, and YouTube followers, likes, and views. Buy affordable growth packages with secure checkout — no password required.",
+    homeTitle: "MyFreeFollower — Free Followers & Buy Affordable Growth Packages",
     homeDescription:
       "Free Instagram followers, TikTok likes, YouTube views and more across 24 platforms. Sign up for free trials or buy instant growth packages. No password, 24/7 support.",
     freeFollowersTitle: "Free Services — All Platforms",

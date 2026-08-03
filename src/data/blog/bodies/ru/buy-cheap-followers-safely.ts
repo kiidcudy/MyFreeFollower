@@ -9,7 +9,7 @@ export const buyCheapFollowersSafely: BlogBodyOverride = {
 Опасно: recycled bots, stolen accounts, phishing. **Безопасно дёшево**: без пароля, drip-feed, прозрачный support. Тест [бесплатных подписчиков Instagram](/free-followers/free-instagram-followers), затем [paid](/buy-followers/buy-instagram-followers).`,
     },
     {
-      h2: "Проверка SMM-панели перед оплатой",
+      h2: "Проверка-панели перед оплатой",
       body: `Checklist: no password; human contact <24h; policies; platform slugs; trial via tasks. [FAQ](/faq). [Бесплатные подписчики TikTok](/free-followers/free-tiktok-followers), 7-day retention, smallest paid tier.`,
     },
     {

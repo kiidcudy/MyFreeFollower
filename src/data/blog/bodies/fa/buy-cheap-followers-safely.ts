@@ -3,7 +3,7 @@ import type { BlogBodyOverride } from "@/data/blog/bodies/types";
 export const buyCheapFollowersSafely: BlogBodyOverride = {
   sections: [
     { h2: "«فالوور ارزان» در ۲۰۲۶ یعنی چه", body: `«ارزان» به معنای کیفیت پایین default نیست. [خرید فالوور اینستاگرام](/buy-followers/buy-instagram-followers) ممکن است همان infra premium را داشته باشد.\n\n**ارزان امن**: بدون رمز، drip-feed. تست [فالوور رایگان اینستاگرام](/free-followers/free-instagram-followers) قبل از [paid](/buy-followers/buy-instagram-followers).` },
-    { h2: "ارزیابی panel SMM", body: `Checklist: بدون رمز؛ contact انسانی <24h. [FAQ](/faq). [فالوور رایگان تیک‌تاک](/free-followers/free-tiktok-followers)، retention 7 روز.` },
+    { h2: "ارزیابی panel de crecimiento", body: `Checklist: بدون رمز؛ contact انسانی <24h. [FAQ](/faq). [فالوور رایگان تیک‌تاک](/free-followers/free-tiktok-followers)، retention 7 روز.` },
     { h2: "بسته‌های پولی", body: `**Instagram:** [فالوور](/buy-followers/buy-instagram-followers)، [لایک](/buy-followers/buy-instagram-likes). **TikTok:** [بازدید](/buy-followers/buy-tiktok-views). **YouTube:** [مشترک](/buy-followers/buy-youtube-subscribers). [خرید فالوور](/buy-followers).` },
     { h2: "امنیت پرداخت", body: `کارت، crypto یا امتیاز. checkout رسمی از [خرید فالوور تیک‌تاک](/buy-followers/buy-tiktok-followers). 2FA.` },
     { h2: "تحویل تدریجی", body: `فالوور امن کند enough organic به نظر برسد. >20% drop در 7 روز — pause.` },

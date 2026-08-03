@@ -3,7 +3,7 @@ import type { BlogBodyOverride } from "@/data/blog/bodies/types";
 export const buyCheapFollowersSafely: BlogBodyOverride = {
   sections: [
     { h2: "«সস্তা ফলোয়ার» ২০২৬ মানে", body: `[Instagram ফলোয়ার কিনুন](/buy-followers/buy-instagram-followers)। **নিরাপদ সস্তা**: no password, drip-feed। [ফ্রি Instagram ফলোয়ার](/free-followers/free-instagram-followers) trial।` },
-    { h2: "SMM প্যানেল যাচাই", body: `[FAQ](/faq)। [ফ্রি TikTok ফলোয়ার](/free-followers/free-tiktok-followers), 7-day retention।` },
+    { h2: "গrowth platform যাচাই", body: `[FAQ](/faq)। [ফ্রি TikTok ফলোয়ার](/free-followers/free-tiktok-followers), 7-day retention।` },
     { h2: "পেইড প্যাক", body: `[Instagram ফলোয়ার](/buy-followers/buy-instagram-followers), [লাইক](/buy-followers/buy-instagram-likes), [TikTok ভিউ](/buy-followers/buy-tiktok-views), [YouTube](/buy-followers/buy-youtube-subscribers)। [ফলোয়ার কিনুন](/buy-followers)।` },
     { h2: "পেমেন্ট নিরাপত্তা", body: `[TikTok ফলোয়ার কিনুন](/buy-followers/buy-tiktok-followers) official checkout, 2FA।` },
     { h2: "Gradual delivery", body: `>20% drop 7 দিন = pause।` },

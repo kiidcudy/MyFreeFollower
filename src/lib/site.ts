@@ -26,7 +26,7 @@ export const siteConfig = {
   slogan: "Free Followers. Real Growth.",
   tagline: "Free Social Media Growth — Instagram, TikTok, YouTube & More",
   description:
-    "Get free Instagram, TikTok, and YouTube followers, likes, and views. Buy cheap SMM packages with secure checkout — no password required, 24/7 support.",
+    "Get free Instagram, TikTok, and YouTube followers, likes, and views. Buy affordable growth packages with secure checkout — no password required, 24/7 support.",
   keywords: [
     "free followers",
     "free instagram followers",
@@ -35,7 +35,7 @@ export const siteConfig = {
     "buy followers cheap",
     "buy instagram followers",
     "free social media growth",
-    "smm panel",
+    "growth platform",
     "free youtube subscribers",
   ],
   email: "support@myfreefollower.com",

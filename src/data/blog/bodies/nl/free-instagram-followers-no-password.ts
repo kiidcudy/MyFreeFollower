@@ -8,7 +8,7 @@ export const freeInstagramFollowersNoPassword: BlogBodyOverride = {
 
 Veilige diensten gebruiken alleen **publieke gegevens**. Gebruikersnaam of URL is genoeg. Onze proef [gratis Instagram volgers](/free-followers/free-instagram-followers) vraagt nooit om een wachtwoord.
 
-Drie-seconden test: wachtwoordveld? Sluit het tabblad. Geleidelijke levering uitgelegd? Zichtbare support? Zonder wachtwoord elimineer je de slechtste SMM-fraudecategorie.`,
+Drie-seconden test: wachtwoordveld? Sluit het tabblad. Geleidelijke levering uitgelegd? Zichtbare support? Zonder wachtwoord elimineer je de slechtste-fraudecategorie.`,
     },
     {
       h2: "Taakgebaseerde gratis Instagram volgers",

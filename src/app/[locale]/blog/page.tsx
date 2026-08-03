@@ -29,7 +29,7 @@ export async function generateMetadata({
       "free followers blog",
       "instagram growth tips",
       "tiktok growth guide",
-      "smm tasks",
+      " tasks",
     ],
   });
 }

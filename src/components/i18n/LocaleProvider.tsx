@@ -12,6 +12,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { isRtl, type Locale } from "@/lib/i18n/config";
 import {
+  getLocaleFromPathname,
   LOCALE_COOKIE,
   switchLocalePath,
 } from "@/lib/i18n/navigation";
@@ -37,13 +38,14 @@ export function LocaleProvider({
   children: ReactNode;
   initialLocale: Locale;
 }) {
-  const [locale, setLocaleState] = useState<Locale>(initialLocale);
   const pathname = usePathname();
   const router = useRouter();
+  const pathnameLocale = getLocaleFromPathname(pathname);
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
 
   useEffect(() => {
-    setLocaleState(initialLocale);
-  }, [initialLocale]);
+    setLocaleState(pathnameLocale);
+  }, [pathnameLocale]);
 
   useEffect(() => {
     document.documentElement.lang = locale;
@@ -53,13 +55,12 @@ export function LocaleProvider({
 
   const setLocale = useCallback(
     (next: Locale) => {
-      if (next === locale) return;
-      const target = switchLocalePath(pathname, next);
-      setLocaleState(next);
-      router.push(target);
-      router.refresh();
+      const current = getLocaleFromPathname(pathname);
+      if (next === current) return;
+      setLocaleCookie(next);
+      router.replace(switchLocalePath(pathname, next));
     },
-    [locale, pathname, router],
+    [pathname, router],
   );
 
   const messages = useMemo(() => getMessages(locale), [locale]);

@@ -3,7 +3,7 @@ import type { BlogBodyOverride } from "@/data/blog/bodies/types";
 export const buyCheapFollowersSafely: BlogBodyOverride = {
   sections: [
     { h2: "2026年「便宜粉丝」含义", body: `「便宜」不等于默认低质。[购买Instagram粉丝](/buy-followers/buy-instagram-followers)或与 premium 同 infra。\n\n**安全便宜**：无密码、drip-feed。先试用[免费Instagram粉丝](/free-followers/free-instagram-followers)再[付费](/buy-followers/buy-instagram-followers)。` },
-    { h2: "付款前评估SMM面板", body: `清单：无密码；人工<24h。[FAQ](/faq)。试用[免费TikTok粉丝](/free-followers/free-tiktok-followers)，7日留存。` },
+    { h2: "付款前评估增长平台", body: `清单：无密码；人工<24h。[FAQ](/faq)。试用[免费TikTok粉丝](/free-followers/free-tiktok-followers)，7日留存。` },
     { h2: "各平台付费包", body: `**Instagram:** [粉丝](/buy-followers/buy-instagram-followers)、[点赞](/buy-followers/buy-instagram-likes)。**TikTok:** [播放](/buy-followers/buy-tiktok-views)。**YouTube:** [订阅](/buy-followers/buy-youtube-subscribers)。[购买粉丝](/buy-followers)。` },
     { h2: "支付安全", body: `卡、crypto或积分。官方结账如[购买TikTok粉丝](/buy-followers/buy-tiktok-followers)。2FA。` },
     { h2: "渐进交付与账号健康", body: `安全粉丝足够慢以显 organic。7日跌>20%暂停。` },

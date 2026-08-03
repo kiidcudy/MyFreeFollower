@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { LocalizedLink } from "@/components/i18n/LocalizedLink";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
@@ -97,7 +98,8 @@ export function DashboardShell({ children }: { children: ReactNode }) {
             );
           })}
         </nav>
-        <div className="border-t border-slate-100 p-3">
+        <div className="border-t border-slate-100 p-3 space-y-3">
+          <LanguageSwitcher variant="compact" />
           <button
             type="button"
             onClick={() => {

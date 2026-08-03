@@ -11,7 +11,7 @@ Pericol: boți reciclați, conturi furate, phishing. **Ieftin sigur**: fără pa
 10.000 urmăritori pentru cenți fără drip? Evită. Prețuri moderate cu tracking bat bulk misterios.`,
     },
     {
-      h2: "Evaluează un panou SMM înainte de plată",
+      h2: "Evaluează un panou  înainte de plată",
       body: `Checklist: fără parolă; contact uman <24 h; politici în footer; slug-uri per platformă; test cu task-uri sau micro-pachet.
 
 Caută brand + suport/refund. [FAQ](/faq). Test [urmăritori TikTok gratuiți](/free-followers/free-tiktok-followers), retenție 7 zile, tier plătit cel mai mic. Fără transferuri Telegram la revânzători necunoscuți.`,
@@ -44,7 +44,7 @@ Telegram, Spotify, Twitch — slug-uri pe [cumpără urmăritori](/buy-followers
     },
     {
       h2: "Rambursări și escaladare suport",
-      body: `Înainte de ticket: username, confidențialitate, termene serviciu. Escaladare cu ID comandă și capturi. Chargeback fără contact pierde refill-uri. Realocă buget dacă o platformă e lentă în loc să tai tot SMM-ul.`,
+      body: `Înainte de ticket: username, confidențialitate, termene serviciu. Escaladare cu ID comandă și capturi. Chargeback fără contact pierde refill-uri. Realocă buget dacă o platformă e lentă în loc să tai tot-ul.`,
     },
   ],
   faq: [

@@ -68,7 +68,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Mitglieder können nach der Registrierung kostenlose Testpakete einlösen. Durchsuchen Sie kostenlose Services, geben Sie Ihren Benutzernamen oder Link ein und lösen Sie von Ihrem Konto ein.",
     faqQ8: "Ist MyFreeFollower mit Instagram oder TikTok verbunden?",
     faqA8:
-      "Nein. Wir sind ein unabhängiger SMM-Anbieter und nicht mit Instagram, TikTok, YouTube oder einer Social-Media-Plattform verbunden.",
+      "Nein. Wir sind ein unabhängiger-Anbieter und nicht mit Instagram, TikTok, YouTube oder einer Social-Media-Plattform verbunden.",
     viewAllFaq: "Alle FAQ ansehen",
     howTitle: "So funktioniert's",
     howStep1Title: "Service wählen",
@@ -170,7 +170,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Les membres peuvent réclamer des forfaits d'essai gratuits après inscription. Parcourez les services gratuits, entrez votre nom d'utilisateur ou lien et échangez depuis votre compte.",
     faqQ8: "MyFreeFollower est-il affilié à Instagram ou TikTok ?",
     faqA8:
-      "Non. Nous sommes un fournisseur SMM indépendant et ne sommes affiliés ni à Instagram, TikTok, YouTube ni à aucune plateforme sociale.",
+      "Non. Nous sommes un fournisseur de croissance indépendant et ne sommes affiliés ni à Instagram, TikTok, YouTube ni à aucune plateforme sociale.",
     viewAllFaq: "Voir toutes les FAQ",
     howTitle: "Comment ça marche",
     howStep1Title: "Choisir un service",
@@ -186,7 +186,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Plateformes",
     statsSupport: "Support",
     seoBlockTitle: "Des services social media qui font vraiment la différence",
-    seoBlockDesc: "MyFreeFollower est une boutique SMM mondiale conçue pour une croissance réelle et visible.",
+    seoBlockDesc: "MyFreeFollower est une boutique de croissance mondiale conçue pour une croissance réelle et visible.",
     seoParagraph1:
       "MyFreeFollower est une boutique de marketing social media mondiale conçue pour une chose : une croissance réelle et visible. Obtenez des abonnés Instagram gratuits, des vues TikTok, des abonnés YouTube, likes, commentaires et plus sur 24+ plateformes — le tout livré à votre lien public, sans mot de passe.",
     seoParagraph2:
@@ -272,7 +272,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Los miembros pueden reclamar paquetes de prueba gratis tras registrarse. Explora servicios gratis, introduce tu usuario o enlace y canjéalos desde tu cuenta.",
     faqQ8: "¿MyFreeFollower está afiliado a Instagram o TikTok?",
     faqA8:
-      "No. Somos un proveedor SMM independiente y no estamos afiliados a Instagram, TikTok, YouTube ni a ninguna plataforma social.",
+      "No. Somos un proveedor de crecimiento independiente y no estamos afiliados a Instagram, TikTok, YouTube ni a ninguna plataforma social.",
     viewAllFaq: "Ver todas las FAQ",
     howTitle: "Cómo funciona",
     howStep1Title: "Elige un servicio",
@@ -288,7 +288,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Plataformas",
     statsSupport: "Soporte",
     seoBlockTitle: "Servicios de redes sociales que realmente marcan la diferencia",
-    seoBlockDesc: "MyFreeFollower es una tienda SMM global creada para un crecimiento real y visible.",
+    seoBlockDesc: "MyFreeFollower es una tienda de crecimiento global creada para un crecimiento real y visible.",
     seoParagraph1:
       "MyFreeFollower es una tienda global de marketing en redes sociales creada para una cosa: crecimiento real y visible. Consigue seguidores Instagram gratis, vistas TikTok, suscriptores YouTube, likes, comentarios y más en más de 24 plataformas — todo entregado a tu enlace público, sin contraseña.",
     seoParagraph2:
@@ -374,7 +374,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Os membros podem reclamar pacotes de teste grátis após registo. Explore serviços grátis, introduza o seu utilizador ou link e resgate na sua conta.",
     faqQ8: "MyFreeFollower está afiliado ao Instagram ou TikTok?",
     faqA8:
-      "Não. Somos um fornecedor SMM independente e não estamos afiliados ao Instagram, TikTok, YouTube ou qualquer plataforma social.",
+      "Não. Somos um fornecedor de crescimento independente e não estamos afiliados ao Instagram, TikTok, YouTube ou qualquer plataforma social.",
     viewAllFaq: "Ver todas as FAQ",
     howTitle: "Como funciona",
     howStep1Title: "Escolha um serviço",
@@ -390,7 +390,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Plataformas",
     statsSupport: "Suporte",
     seoBlockTitle: "Serviços de redes sociais que realmente fazem a diferença",
-    seoBlockDesc: "MyFreeFollower é uma loja SMM global feita para crescimento real e visível.",
+    seoBlockDesc: "MyFreeFollower é uma loja de crescimento global feita para crescimento real e visível.",
     seoParagraph1:
       "MyFreeFollower é uma loja global de marketing em redes sociais feita para uma coisa: crescimento real e visível. Obtenha seguidores Instagram grátis, visualizações TikTok, subscritores YouTube, likes, comentários e mais em mais de 24 plataformas — tudo entregue ao seu link público, sem palavra-passe.",
     seoParagraph2:
@@ -476,7 +476,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Membros podem resgatar pacotes de teste grátis após cadastro. Explore serviços grátis, informe seu usuário ou link e resgate na sua conta.",
     faqQ8: "MyFreeFollower é afiliado ao Instagram ou TikTok?",
     faqA8:
-      "Não. Somos um provedor SMM independente e não somos afiliados ao Instagram, TikTok, YouTube ou qualquer plataforma social.",
+      "Não. Somos um provedor de crescimento independente e não somos afiliados ao Instagram, TikTok, YouTube ou qualquer plataforma social.",
     viewAllFaq: "Ver todas as FAQ",
     howTitle: "Como funciona",
     howStep1Title: "Escolha um serviço",
@@ -492,7 +492,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Plataformas",
     statsSupport: "Suporte",
     seoBlockTitle: "Serviços de mídia social que realmente fazem diferença",
-    seoBlockDesc: "MyFreeFollower é uma loja SMM global feita para crescimento real e visível.",
+    seoBlockDesc: "MyFreeFollower é uma loja de crescimento global feita para crescimento real e visível.",
     seoParagraph1:
       "MyFreeFollower é uma loja global de marketing em mídias sociais feita para uma coisa: crescimento real e visível. Ganhe seguidores Instagram grátis, visualizações TikTok, inscritos YouTube, curtidas, comentários e mais em mais de 24 plataformas — tudo entregue ao seu link público, sem senha.",
     seoParagraph2:
@@ -578,7 +578,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "I membri possono richiedere pacchetti di prova gratis dopo la registrazione. Sfoglia servizi gratis, inserisci username o link e riscatta dal tuo account.",
     faqQ8: "MyFreeFollower è affiliato a Instagram o TikTok?",
     faqA8:
-      "No. Siamo un provider SMM indipendente e non siamo affiliati a Instagram, TikTok, YouTube o alcuna piattaforma social.",
+      "No. Siamo un provider di crescita indipendente e non siamo affiliati a Instagram, TikTok, YouTube o alcuna piattaforma social.",
     viewAllFaq: "Vedi tutte le FAQ",
     howTitle: "Come funziona",
     howStep1Title: "Scegli un servizio",
@@ -594,7 +594,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Piattaforme",
     statsSupport: "Supporto",
     seoBlockTitle: "Servizi social media che fanno davvero la differenza",
-    seoBlockDesc: "MyFreeFollower è uno store SMM globale creato per crescita reale e visibile.",
+    seoBlockDesc: "MyFreeFollower è uno store di crescita globale creato per crescita reale e visibile.",
     seoParagraph1:
       "MyFreeFollower è uno store globale di social media marketing creato per una cosa: crescita reale e visibile. Ottieni follower Instagram gratis, visualizzazioni TikTok, iscritti YouTube, like, commenti e altro su oltre 24 piattaforme — tutto consegnato al tuo link pubblico, senza password.",
     seoParagraph2:
@@ -680,7 +680,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Leden kunnen gratis proefpakketten claimen na aanmelding. Bekijk gratis services, voer je gebruikersnaam of link in en wissel in via je account.",
     faqQ8: "Is MyFreeFollower gelieerd aan Instagram of TikTok?",
     faqA8:
-      "Nee. We zijn een onafhankelijke SMM-aanbieder en niet gelieerd aan Instagram, TikTok, YouTube of enig social platform.",
+      "Nee. We zijn een onafhankelijke groei-aanbieder en niet gelieerd aan Instagram, TikTok, YouTube of enig social platform.",
     viewAllFaq: "Alle FAQ bekijken",
     howTitle: "Hoe het werkt",
     howStep1Title: "Kies een service",
@@ -696,7 +696,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Platforms",
     statsSupport: "Support",
     seoBlockTitle: "Social media services die echt verschil maken",
-    seoBlockDesc: "MyFreeFollower is een wereldwijde SMM-winkel voor echte, zichtbare groei.",
+    seoBlockDesc: "MyFreeFollower is een wereldwijde groei-winkel voor echte, zichtbare groei.",
     seoParagraph1:
       "MyFreeFollower is een wereldwijde social media marketing winkel voor één ding: echte, zichtbare groei. Krijg gratis Instagram-volgers, TikTok-views, YouTube-abonnees, likes, reacties en meer op 24+ platforms — alles geleverd op je publieke link, zonder wachtwoord.",
     seoParagraph2:
@@ -782,7 +782,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Członkowie mogą odebrać darmowe pakiety testowe po rejestracji. Przeglądaj darmowe usługi, wpisz nazwę użytkownika lub link i wykorzystaj z konta.",
     faqQ8: "Czy MyFreeFollower jest powiązany z Instagramem lub TikTokiem?",
     faqA8:
-      "Nie. Jesteśmy niezależnym dostawcą SMM i nie jesteśmy powiązani z Instagramem, TikTokiem, YouTube ani żadną platformą społecznościową.",
+      "Nie. Jesteśmy niezależnym dostawcą usług wzrostu i nie jesteśmy powiązani z Instagramem, TikTokiem, YouTube ani żadną platformą społecznościową.",
     viewAllFaq: "Zobacz wszystkie FAQ",
     howTitle: "Jak to działa",
     howStep1Title: "Wybierz usługę",
@@ -798,7 +798,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Platformy",
     statsSupport: "Wsparcie",
     seoBlockTitle: "Usługi social media, które naprawdę robią różnicę",
-    seoBlockDesc: "MyFreeFollower to globalny sklep SMM stworzony dla prawdziwego, widocznego wzrostu.",
+    seoBlockDesc: "MyFreeFollower to globalny sklep wzrostu stworzony dla prawdziwego, widocznego wzrostu.",
     seoParagraph1:
       "MyFreeFollower to globalny sklep marketingu social media stworzony dla jednego: prawdziwego, widocznego wzrostu. Zdobądź darmowych obserwujących na Instagramie, wyświetlenia TikTok, subskrybentów YouTube, polubienia, komentarze i więcej na 24+ platformach — wszystko na publiczny link, bez hasła.",
     seoParagraph2:
@@ -884,7 +884,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Membrii pot revendica pachete de test gratuite după înregistrare. Explorează serviciile gratuite, introdu username-ul sau linkul și răscumpără din cont.",
     faqQ8: "MyFreeFollower este afiliat cu Instagram sau TikTok?",
     faqA8:
-      "Nu. Suntem un furnizor SMM independent și nu suntem afiliați cu Instagram, TikTok, YouTube sau vreo platformă socială.",
+      "Nu. Suntem un furnizor de creștere independent și nu suntem afiliați cu Instagram, TikTok, YouTube sau vreo platformă socială.",
     viewAllFaq: "Vezi toate FAQ",
     howTitle: "Cum funcționează",
     howStep1Title: "Alege un serviciu",
@@ -900,7 +900,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Platforme",
     statsSupport: "Suport",
     seoBlockTitle: "Servicii social media care chiar fac diferența",
-    seoBlockDesc: "MyFreeFollower este un magazin SMM global creat pentru creștere reală și vizibilă.",
+    seoBlockDesc: "MyFreeFollower este un magazin de creștere global creat pentru creștere reală și vizibilă.",
     seoParagraph1:
       "MyFreeFollower este un magazin global de marketing social media creat pentru un lucru: creștere reală și vizibilă. Obține urmăritori Instagram gratuiți, vizualizări TikTok, abonați YouTube, aprecieri, comentarii și multe altele pe 24+ platforme — totul livrat pe linkul tău public, fără parolă.",
     seoParagraph2:
@@ -986,7 +986,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Участники могут получить бесплатные пробные пакеты после регистрации. Выберите услуги, введите имя или ссылку и активируйте в аккаунте.",
     faqQ8: "MyFreeFollower связан с Instagram или TikTok?",
     faqA8:
-      "Нет. Мы независимый SMM-провайдер и не связаны с Instagram, TikTok, YouTube или другими платформами.",
+      "Нет. Мы независимый провайдер роста и не связаны с Instagram, TikTok, YouTube или другими платформами.",
     viewAllFaq: "Все FAQ",
     howTitle: "Как это работает",
     howStep1Title: "Выберите услугу",
@@ -1001,10 +1001,10 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsOrders: "Доставленные заказы",
     statsPlatforms: "Платформы",
     statsSupport: "Поддержка",
-    seoBlockTitle: "SMM-услуги, которые реально работают",
-    seoBlockDesc: "MyFreeFollower — глобальный SMM-магазин для реального, заметного роста.",
+    seoBlockTitle: "услуги роста, которые реально работают",
+    seoBlockDesc: "MyFreeFollower — глобальный магазин роста для реального, заметного роста.",
     seoParagraph1:
-      "MyFreeFollower — глобальный магазин SMM для одного: реального, заметного роста. Бесплатные подписчики Instagram, просмотры TikTok, подписчики YouTube, лайки, комментарии и многое другое на 24+ платформах — всё на публичную ссылку, без пароля.",
+      "MyFreeFollower — глобальный магазин  для одного: реального, заметного роста. Бесплатные подписчики Instagram, просмотры TikTok, подписчики YouTube, лайки, комментарии и многое другое на 24+ платформах — всё на публичную ссылку, без пароля.",
     seoParagraph2:
       "Будь вы автор на пути к первой тысяче подписчиков, бренд с потребностью в social proof или музыкант с новым релизом — наши услуги дают старт, который превращает скроллеров в подписчиков и клиентов. Проверьте качество бесплатно и покупайте, когда готовы.",
     seoParagraph3:
@@ -1088,7 +1088,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Учасники можуть отримати безкоштовні пробні пакети після реєстрації. Оберіть послуги, введіть ім'я або посилання та активуйте в акаунті.",
     faqQ8: "MyFreeFollower пов'язаний з Instagram або TikTok?",
     faqA8:
-      "Ні. Ми незалежний SMM-провайдер і не пов'язані з Instagram, TikTok, YouTube чи іншими платформами.",
+      "Ні. Ми незалежний-провайдер і не пов'язані з Instagram, TikTok, YouTube чи іншими платформами.",
     viewAllFaq: "Усі FAQ",
     howTitle: "Як це працює",
     howStep1Title: "Оберіть послугу",
@@ -1103,10 +1103,10 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsOrders: "Доставлені замовлення",
     statsPlatforms: "Платформи",
     statsSupport: "Підтримка",
-    seoBlockTitle: "SMM-послуги, які реально працюють",
-    seoBlockDesc: "MyFreeFollower — глобальний SMM-магазин для реального, помітного зростання.",
+    seoBlockTitle: "послуги роста, які реально працюють",
+    seoBlockDesc: "MyFreeFollower — глобальний магазин роста для реального, помітного зростання.",
     seoParagraph1:
-      "MyFreeFollower — глобальний магазин SMM для одного: реального, помітного зростання. Безкоштовні підписники Instagram, перегляди TikTok, підписники YouTube, лайки, коментарі та інше на 24+ платформах — усе на публічне посилання, без пароля.",
+      "MyFreeFollower — глобальний магазин  для одного: реального, помітного зростання. Безкоштовні підписники Instagram, перегляди TikTok, підписники YouTube, лайки, коментарі та інше на 24+ платформах — усе на публічне посилання, без пароля.",
     seoParagraph2:
       "Чи ви автор на шляху до першої тисячі підписників, бренд із потребою в social proof чи музикант із новим релізом — наші послуги дають старт, який перетворює скролерів на підписників і клієнтів. Перевірте якість безкоштовно і купуйте, коли готові.",
     seoParagraph3:
@@ -1190,7 +1190,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Üyeler kayıt sonrası ücretsiz deneme paketlerini alabilir. Ücretsiz servislere göz at, kullanıcı adını veya linkini gir ve hesabından kullan.",
     faqQ8: "MyFreeFollower Instagram veya TikTok ile bağlantılı mı?",
     faqA8:
-      "Hayır. Bağımsız bir SMM sağlayıcısıyız ve Instagram, TikTok, YouTube veya herhangi bir sosyal platformla bağlantılı değiliz.",
+      "Hayır. Bağımsız bir  sağlayıcısıyız ve Instagram, TikTok, YouTube veya herhangi bir sosyal platformla bağlantılı değiliz.",
     viewAllFaq: "Tüm SSS'yi gör",
     howTitle: "Nasıl çalışır",
     howStep1Title: "Servis seç",
@@ -1206,7 +1206,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Platform",
     statsSupport: "Destek",
     seoBlockTitle: "Gerçekten fark yaratan sosyal medya servisleri",
-    seoBlockDesc: "MyFreeFollower, gerçek ve görünür büyüme için küresel bir SMM mağazasıdır.",
+    seoBlockDesc: "MyFreeFollower, gerçek ve görünür büyüme için küresel bir  mağazasıdır.",
     seoParagraph1:
       "MyFreeFollower, tek bir amaç için kurulmuş küresel bir sosyal medya pazarlama mağazasıdır: gerçek, görünür büyüme. 24+ platformda ücretsiz Instagram takipçisi, TikTok izlenmesi, YouTube abonesi, beğeni, yorum ve daha fazlasını al — hepsi herkese açık linkine, şifre olmadan teslim edilir.",
     seoParagraph2:
@@ -1292,7 +1292,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "يمكن للأعضاء المطالبة بباقات تجريبية مجانية بعد التسجيل. تصفح الخدمات المجانية، أدخل اسم المستخدم أو الرابط واسترد من حسابك.",
     faqQ8: "هل MyFreeFollower تابع لـ Instagram أو TikTok؟",
     faqA8:
-      "لا. نحن مزود SMM مستقل وغير تابع لـ Instagram أو TikTok أو YouTube أو أي منصة اجتماعية.",
+      "لا. نحن مزود  مستقل وغير تابع لـ Instagram أو TikTok أو YouTube أو أي منصة اجتماعية.",
     viewAllFaq: "عرض كل الأسئلة",
     howTitle: "كيف يعمل",
     howStep1Title: "اختر خدمة",
@@ -1308,7 +1308,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "منصات",
     statsSupport: "الدعم",
     seoBlockTitle: "خدمات سوشيال ميديا تحقق فرقاً حقيقياً",
-    seoBlockDesc: "MyFreeFollower متجر SMM عالمي للنمو الحقيقي والمرئي.",
+    seoBlockDesc: "MyFreeFollower متجر  عالمي للنمو الحقيقي والمرئي.",
     seoParagraph1:
       "MyFreeFollower متجر تسويق سوشيال ميديا عالمي لشيء واحد: نمو حقيقي ومرئي. احصل على متابعين Instagram مجانيين ومشاهدات TikTok ومشتركي YouTube وإعجابات وتعليقات والمزيد على أكثر من 24 منصة — كلها على رابطك العام بدون كلمة مرور.",
     seoParagraph2:
@@ -1394,7 +1394,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "اعضا پس از ثبت‌نام می‌توانند بسته‌های آزمایشی رایگان دریافت کنند. خدمات رایگان را مرور کنید، نام کاربری یا لینک وارد و از حساب استفاده کنید.",
     faqQ8: "آیا MyFreeFollower وابسته به Instagram یا TikTok است؟",
     faqA8:
-      "خیر. ما ارائه‌دهنده SMM مستقل هستیم و وابسته به Instagram، TikTok، YouTube یا هیچ پلتفرمی نیستیم.",
+      "خیر. ما ارائه‌دهنده  مستقل هستیم و وابسته به Instagram، TikTok، YouTube یا هیچ پلتفرمی نیستیم.",
     viewAllFaq: "مشاهده همه سؤالات",
     howTitle: "نحوه کار",
     howStep1Title: "انتخاب خدمت",
@@ -1410,7 +1410,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "پلتفرم‌ها",
     statsSupport: "پشتیبانی",
     seoBlockTitle: "خدمات شبکه اجتماعی که واقعاً تأثیر می‌گذارند",
-    seoBlockDesc: "MyFreeFollower فروشگاه SMM جهانی برای رشد واقعی و قابل مشاهده است.",
+    seoBlockDesc: "MyFreeFollower فروشگاه  جهانی برای رشد واقعی و قابل مشاهده است.",
     seoParagraph1:
       "MyFreeFollower فروشگاه جهانی بازاریابی شبکه‌های اجتماعی برای یک چیز است: رشد واقعی و قابل مشاهده. فالوور رایگان اینستاگرام، بازدید تیک‌تاک، مشترک یوتیوب، لایک، نظر و بیشتر در ۲۴+ پلتفرم — همه به لینک عمومی شما، بدون رمز عبور.",
     seoParagraph2:
@@ -1496,7 +1496,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "注册后会员可领取免费试用套餐。浏览免费服务，输入用户名或链接，从账户兑换。",
     faqQ8: "MyFreeFollower 与 Instagram 或 TikTok 有关联吗？",
     faqA8:
-      "没有。我们是独立 SMM 服务商，与 Instagram、TikTok、YouTube 或任何社交平台无关联。",
+      "没有。我们是独立  服务商，与 Instagram、TikTok、YouTube 或任何社交平台无关联。",
     viewAllFaq: "查看全部 FAQ",
     howTitle: "如何运作",
     howStep1Title: "选择服务",
@@ -1512,7 +1512,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "平台",
     statsSupport: "支持",
     seoBlockTitle: "真正有效的社交媒体服务",
-    seoBlockDesc: "MyFreeFollower 是为真实可见增长打造的全球 SMM 商店。",
+    seoBlockDesc: "MyFreeFollower 是为真实可见增长打造的全球  商店。",
     seoParagraph1:
       "MyFreeFollower 是全球社交媒体营销商店，专注一件事：真实可见的增长。在 24+ 平台获取免费 Instagram 粉丝、TikTok 播放、YouTube 订阅、点赞、评论等 — 全部交付到你的公开链接，无需密码。",
     seoParagraph2:
@@ -1598,7 +1598,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "Member bisa klaim paket uji coba gratis setelah daftar. Jelajahi layanan gratis, masukkan username atau link, dan tukar dari akun.",
     faqQ8: "Apakah MyFreeFollower afiliasi dengan Instagram atau TikTok?",
     faqA8:
-      "Tidak. Kami penyedia SMM independen dan tidak afiliasi dengan Instagram, TikTok, YouTube, atau platform sosial mana pun.",
+      "Tidak. Kami penyedia  independen dan tidak afiliasi dengan Instagram, TikTok, YouTube, atau platform sosial mana pun.",
     viewAllFaq: "Lihat semua FAQ",
     howTitle: "Cara kerjanya",
     howStep1Title: "Pilih layanan",
@@ -1614,7 +1614,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "Platform",
     statsSupport: "Dukungan",
     seoBlockTitle: "Layanan media sosial yang benar-benar berdampak",
-    seoBlockDesc: "MyFreeFollower adalah toko SMM global untuk pertumbuhan nyata dan terlihat.",
+    seoBlockDesc: "MyFreeFollower adalah toko  global untuk pertumbuhan nyata dan terlihat.",
     seoParagraph1:
       "MyFreeFollower adalah toko pemasaran media sosial global untuk satu hal: pertumbuhan nyata dan terlihat. Dapatkan followers Instagram gratis, views TikTok, subscriber YouTube, likes, komentar, dan lainnya di 24+ platform — semua ke link publik Anda, tanpa password.",
     seoParagraph2:
@@ -1700,7 +1700,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "সদস্যরা সাইন আপের পর বিনামূল্যে trial প্যাকেজ claim করতে পারেন। বিনামূল্যে সেবা দেখুন, username বা লিংক দিন এবং অ্যাকাউন্ট থেকে redeem করুন।",
     faqQ8: "MyFreeFollower কি Instagram বা TikTok-এর সাথে যুক্ত?",
     faqA8:
-      "না। আমরা স্বাধীন SMM provider এবং Instagram, TikTok, YouTube বা কোনো social platform-এর সাথে যুক্ত নই।",
+      "না। আমরা স্বাধীন  provider এবং Instagram, TikTok, YouTube বা কোনো social platform-এর সাথে যুক্ত নই।",
     viewAllFaq: "সব FAQ দেখুন",
     howTitle: "কীভাবে কাজ করে",
     howStep1Title: "সেবা বেছে নিন",
@@ -1716,7 +1716,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "প্ল্যাটফর্ম",
     statsSupport: "সাপোর্ট",
     seoBlockTitle: "সোশ্যাল মিডিয়া সেবা যা সত্যিই পার্থক্য করে",
-    seoBlockDesc: "MyFreeFollower আসল, দৃশ্যমান বৃদ্ধির জন্য একটি global SMM store।",
+    seoBlockDesc: "MyFreeFollower আসল, দৃশ্যমান বৃদ্ধির জন্য একটি global  store।",
     seoParagraph1:
       "MyFreeFollower একটি global social media marketing store যা একটিই জিনিসের জন্য: আসল, দৃশ্যমান বৃদ্ধি। ২৪+ প্ল্যাটফর্মে বিনামূল্যে Instagram ফলোয়ার, TikTok ভিউ, YouTube subscriber, লাইক, কমেন্ট ও আরও — সব public লিংকে, পাসওয়ার্ড ছাড়াই।",
     seoParagraph2:
@@ -1802,7 +1802,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
       "सदस्य साइन अप के बाद मुफ़्त trial पैकेज claim कर सकते हैं। मुफ़्त सेवाएं देखें, username या लिंक दें और अकाउंट से redeem करें।",
     faqQ8: "क्या MyFreeFollower Instagram या TikTok से जुड़ा है?",
     faqA8:
-      "नहीं। हम independent SMM provider हैं और Instagram, TikTok, YouTube या किसी social platform से जुड़े नहीं हैं।",
+      "नहीं। हम independent  provider हैं और Instagram, TikTok, YouTube या किसी social platform से जुड़े नहीं हैं।",
     viewAllFaq: "सभी FAQ देखें",
     howTitle: "यह कैसे काम करता है",
     howStep1Title: "सेवा चुनें",
@@ -1818,7 +1818,7 @@ export const homeBundles: Partial<Record<Locale, Partial<HomeMessages>>> = {
     statsPlatforms: "प्लेटफ़ॉर्म",
     statsSupport: "सपोर्ट",
     seoBlockTitle: "सोशल मीडिया सेवाएं जो सच में असर दिखाती हैं",
-    seoBlockDesc: "MyFreeFollower असली, दिखने वाली ग्रोथ के लिए global SMM store है।",
+    seoBlockDesc: "MyFreeFollower असली, दिखने वाली ग्रोथ के लिए global  store है।",
     seoParagraph1:
       "MyFreeFollower global social media marketing store है एक चीज़ के लिए: असली, दिखने वाली ग्रोथ। 24+ प्लेटफ़ॉर्म पर मुफ़्त Instagram फ़ॉलोअर्स, TikTok views, YouTube subscribers, likes, comments और बहुत कुछ — सब public लिंक पर, पासवर्ड के बिना।",
     seoParagraph2:

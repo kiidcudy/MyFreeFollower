@@ -8,7 +8,7 @@ export const freeInstagramFollowersNoPassword: BlogBodyOverride = {
 
 Seriöse Dienste nutzen nur **öffentliche Daten**. Username oder Profil-URL reichen für die Lieferung. Unsere [kostenlose Instagram-Follower](/free-followers/free-instagram-followers)-Probe verlangt kein Passwort — die Infrastruktur braucht es nicht.
 
-Drei-Sekunden-Test: Passwortfeld im Formular? Tab schließen. Schrittweise Lieferung erklärt? Support sichtbar? Passwortfrei eliminiert die schlimmste SMM-Betrugskategorie.`,
+Drei-Sekunden-Test: Passwortfeld im Formular? Tab schließen. Schrittweise Lieferung erklärt? Support sichtbar? Passwortfrei eliminiert die schlimmste-Betrugskategorie.`,
     },
     {
       h2: "Aufgabenbasierte kostenlose Instagram-Follower",

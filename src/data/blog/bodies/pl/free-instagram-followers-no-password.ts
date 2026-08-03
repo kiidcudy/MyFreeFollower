@@ -8,7 +8,7 @@ export const freeInstagramFollowersNoPassword: BlogBodyOverride = {
 
 Bezpieczne usługi używają tylko **danych publicznych**. Wystarczy username lub URL. Nasz test [darmowych obserwujących Instagram](/free-followers/free-instagram-followers) nigdy nie prosi o hasło.
 
-Test trzech sekund: pole hasła? Zamknij kartę. Wyjaśniona stopniowa dostawa? Widoczne wsparcie? Bez hasła eliminujesz najgorszą kategorię oszustw SMM.`,
+Test trzech sekund: pole hasła? Zamknij kartę. Wyjaśniona stopniowa dostawa? Widoczne wsparcie? Bez hasła eliminujesz najgorszą kategorię oszustw.`,
     },
     {
       h2: "Darmowi obserwujący Instagram oparte na zadaniach",

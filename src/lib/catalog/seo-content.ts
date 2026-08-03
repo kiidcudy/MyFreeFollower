@@ -84,7 +84,7 @@ function generateFreeSeoContent(service: FreeCatalogService): SeoContent {
   const sections: SeoSection[] = [
     {
       heading: `What Are Free ${service.platform} ${service.type}?`,
-      body: `Free ${service.type.toLowerCase()} on ${service.platform} help you build social proof before investing in larger packages. Our ${amount} trial is sized for testing delivery speed and quality. ${focusKeyword} is ideal for new creators, small businesses, and anyone exploring task-based SMM growth.`,
+      body: `Free ${service.type.toLowerCase()} on ${service.platform} help you build social proof before investing in larger packages. Our ${amount} trial is sized for testing delivery speed and quality. ${focusKeyword} is ideal for new creators, small businesses, and anyone exploring task-based growth.`,
     },
     {
       heading: `How to Claim Free ${label}`,
@@ -113,6 +113,18 @@ function generateFreeSeoContent(service: FreeCatalogService): SeoContent {
     {
       heading: "Support, Guarantees & Fair Use",
       body: `${siteConfig.name} provides 24/7 support for order questions. Free trials are limited per service to keep the system fair for all members. We never request passwords or private account access. Report any delivery issue with your order ID for fast help.`,
+    },
+    {
+      heading: "How Points Work for This Service",
+      body: `Every approved task adds points to your shared balance across ${siteConfig.name}. This ${amount} ${service.unit} trial costs about ${formatPoints(pointsCost)} points — you can reach that through daily tasks, referrals, surveys, and login bonuses. Points never require a credit card, and you can save them for this service or other free trials on ${service.platform}.`,
+    },
+    {
+      heading: `What Results to Expect on ${service.platform}`,
+      body: `A ${amount} free trial is designed for testing — you should see gradual ${service.type.toLowerCase()} delivery within 0–24 hours, not an instant spike. Compare profile visits, saves, or replies over the next week alongside your organic posts. Use this data to decide whether a paid tier fits your next campaign.`,
+    },
+    {
+      heading: "Scaling After Your Free Trial",
+      body: `Once you validate delivery quality, upgrade to paid ${service.type.toLowerCase()} for larger quantities or keep earning points for additional free services. Many members combine free trials across platforms, then invest in paid packages during product launches, seasonal promos, or creator collaborations.`,
     },
   ];
 
@@ -148,6 +160,14 @@ function generateFreeSeoContent(service: FreeCatalogService): SeoContent {
     {
       question: "What if delivery is slow or incomplete?",
       answer: "Contact 24/7 support with your order ID and username. We review queue status and help resolve eligible issues quickly.",
+    },
+    {
+      question: "Can I earn points without spending money?",
+      answer: `Yes. Complete dashboard tasks, daily login bonuses, referrals, and surveys to earn points with no purchase required. Save points until you have enough for this ${amount} ${service.unit} trial.`,
+    },
+    {
+      question: "Will free ${service.type.toLowerCase()} affect my existing content?",
+      answer: `Delivery is gradual and uses only your public username. Your posts, reels, and stories are not modified — only your ${service.type.toLowerCase()} count increases over time.`,
     },
   ];
 
@@ -211,6 +231,18 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
       heading: "Build a Long-Term Growth Plan",
       body: `Combine paid ${service.type.toLowerCase()} with organic content, free task rewards, and cross-platform packages on ${siteConfig.name}. Many customers start with a small tier, measure results, then scale during product launches or seasonal campaigns.`,
     },
+    {
+      heading: "Choosing the Right Package Size",
+      body: `Start with ${startQty.toLocaleString("en-US")} ${service.unit} if you are testing a new profile or campaign. Mid tiers suit weekly content pushes; top tiers up to ${service.tiers[service.tiers.length - 1]?.quantity.toLocaleString("en-US") ?? "10,000"} ${service.unit} fit launches, ads, or brand partnerships. Larger packages lower the per-unit price automatically.`,
+    },
+    {
+      heading: "Delivery Timeline & Order Tracking",
+      body: `After checkout, orders enter the queue and typically start within ${service.delivery}. Track progress from your dashboard orders page — status updates show when delivery begins and completes. Contact support with your order ID if you need a queue check.`,
+    },
+    {
+      heading: "Combining Paid Growth with Organic Strategy",
+      body: `Paid ${service.type.toLowerCase()} improve first impressions, but organic posting drives long-term engagement. Post consistently, use strong hooks, and reply to comments while your order delivers. Pair ${focusKeyword} with free task points to stretch your budget across multiple platforms.`,
+    },
   ];
 
   const faq: SeoFaq[] = [
@@ -241,6 +273,14 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
     {
       question: "Can I order multiple tiers over time?",
       answer: "Yes. Many customers reorder smaller tiers for ongoing campaigns or upgrade to higher quantities for launches.",
+    },
+    {
+      question: "Can I split one order across multiple profiles?",
+      answer: `Each order is tied to one username or link. Place separate orders if you need ${service.type.toLowerCase()} on multiple ${service.platform} profiles.`,
+    },
+    {
+      question: "Are bulk discounts applied automatically?",
+      answer: "Yes. Higher tiers include lower per-unit pricing at checkout — no coupon code required. Compare tier cards on this page before ordering.",
     },
   ];
 

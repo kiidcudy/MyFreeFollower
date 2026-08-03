@@ -3,7 +3,7 @@ import type { BlogBodyOverride } from "@/data/blog/bodies/types";
 export const buyCheapFollowersSafely: BlogBodyOverride = {
   sections: [
     { h2: "«सस्ते followers» 2026 का मतलब", body: `[Instagram followers खरीदें](/buy-followers/buy-instagram-followers)। **safe cheap**: no password, drip-feed। [फ्री Instagram followers](/free-followers/free-instagram-followers) trial।` },
-    { h2: "SMM panel check", body: `[FAQ](/faq)। [फ्री TikTok followers](/free-followers/free-tiktok-followers), 7-day retention।` },
+    { h2: "Growth platform check", body: `[FAQ](/faq)। [फ्री TikTok followers](/free-followers/free-tiktok-followers), 7-day retention।` },
     { h2: "paid packs", body: `[Instagram followers](/buy-followers/buy-instagram-followers), [likes](/buy-followers/buy-instagram-likes), [TikTok views](/buy-followers/buy-tiktok-views), [YouTube](/buy-followers/buy-youtube-subscribers)। [followers खरीदें](/buy-followers)।` },
     { h2: "payment security", body: `[TikTok followers खरीदें](/buy-followers/buy-tiktok-followers) official checkout, 2FA।` },
     { h2: "gradual delivery", body: `>20% drop 7 days = pause।` },

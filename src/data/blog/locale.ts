@@ -33,7 +33,7 @@ const translations: Record<
       metaTitle:
         "Kostenlose Follower Guide 2026 — Wachstum durch Tasks | MyFreeFollower",
       description:
-        "Kompletter Guide zu kostenlosen Followern 2026: Task-basiertes SMM, Instagram-, TikTok- und YouTube-Strategien, Sicherheitstipps und wann Paid-Pakete sinnvoll sind.",
+        "Kompletter Guide zu kostenlosen Followern 2026: Task-basiertes Wachstum, Instagram-, TikTok- und YouTube-Strategien, Sicherheitstipps und wann Paid-Pakete sinnvoll sind.",
       focusKeyword: "kostenlose follower guide 2026",
     },
     "free-instagram-followers-no-password": {
@@ -53,7 +53,7 @@ const translations: Record<
       focusKeyword: "kostenlose tiktok likes und views",
     },
     "buy-cheap-followers-safely": {
-      title: "Günstige Follower sicher kaufen — SMM Guide 2026",
+      title: "Günstige Follower sicher kaufen — Growth Guide 2026",
       metaTitle: "Günstige Follower sicher kaufen | MyFreeFollower",
       description:
         "Follower günstig und sicher kaufen: Panel prüfen, schrittweise Lieferung, Zahlungssicherheit und Kombination mit kostenlosen Task-Punkten.",
@@ -74,7 +74,7 @@ const translations: Record<
       metaTitle:
         "Guide followers gratuits 2026 | MyFreeFollower",
       description:
-        "Guide complet followers gratuits 2026 : SMM par tâches, stratégies Instagram, TikTok, YouTube, sécurité et passage au payant.",
+        "Guide complet followers gratuits 2026 : croissance par tâches, stratégies Instagram, TikTok, YouTube, sécurité et passage au payant.",
       focusKeyword: "guide followers gratuits 2026",
     },
     "free-instagram-followers-no-password": {
@@ -111,7 +111,7 @@ const translations: Record<
       title: "Guía de seguidores gratis 2026: crecimiento por tareas",
       metaTitle: "Guía seguidores gratis 2026 | MyFreeFollower",
       description:
-        "Guía completa de seguidores gratis en 2026: SMM por tareas, Instagram, TikTok, YouTube, seguridad y cuándo pagar.",
+        "Guía completa de seguidores gratis en 2026: crecimiento por tareas, Instagram, TikTok, YouTube, seguridad y cuándo pagar.",
       focusKeyword: "guía seguidores gratis 2026",
     },
     "free-instagram-followers-no-password": {
@@ -148,7 +148,7 @@ const translations: Record<
       title: "Guia de seguidores grátis 2026: crescimento por tarefas",
       metaTitle: "Guia seguidores grátis 2026 | MyFreeFollower",
       description:
-        "Guia completo de seguidores grátis em 2026: SMM por tarefas, Instagram, TikTok, YouTube e segurança.",
+        "Guia completo de seguidores grátis em 2026: crescimento por tarefas, Instagram, TikTok, YouTube e segurança.",
       focusKeyword: "guia seguidores grátis 2026",
     },
     "free-instagram-followers-no-password": {
@@ -185,7 +185,7 @@ const translations: Record<
       title: "Guia de seguidores grátis 2026: crescimento por tarefas",
       metaTitle: "Guia seguidores grátis 2026 | MyFreeFollower",
       description:
-        "Guia completo de seguidores grátis: SMM por tarefas, Instagram, TikTok, YouTube e dicas de segurança.",
+        "Guia completo de seguidores grátis: crescimento por tarefas, Instagram, TikTok, YouTube e dicas de segurança.",
       focusKeyword: "guia seguidores grátis 2026",
     },
     "free-instagram-followers-no-password": {
@@ -222,7 +222,7 @@ const translations: Record<
       title: "Guida follower gratis 2026: crescita con task",
       metaTitle: "Guida follower gratis 2026 | MyFreeFollower",
       description:
-        "Guida completa ai follower gratis 2026: SMM con task, Instagram, TikTok, YouTube e sicurezza.",
+        "Guida completa ai follower gratis 2026: crescita con task, Instagram, TikTok, YouTube e sicurezza.",
       focusKeyword: "guida follower gratis 2026",
     },
     "free-instagram-followers-no-password": {
@@ -259,7 +259,7 @@ const translations: Record<
       title: "Gratis volgers gids 2026: groei via taken",
       metaTitle: "Gratis volgers gids 2026 | MyFreeFollower",
       description:
-        "Complete gids gratis volgers 2026: taak-SMM, Instagram, TikTok, YouTube en veiligheid.",
+        "Complete gids gratis volgers 2026: taak-groei, Instagram, TikTok, YouTube en veiligheid.",
       focusKeyword: "gratis volgers gids 2026",
     },
     "free-instagram-followers-no-password": {
@@ -296,7 +296,7 @@ const translations: Record<
       title: "Przewodnik darmowych obserwujących 2026",
       metaTitle: "Przewodnik darmowych obserwujących 2026 | MyFreeFollower",
       description:
-        "Kompletny przewodnik darmowych obserwujących: SMM przez zadania, Instagram, TikTok, YouTube.",
+        "Kompletny przewodnik darmowych obserwujących: wzrost przez zadania, Instagram, TikTok, YouTube.",
       focusKeyword: "darmowi obserwujący przewodnik 2026",
     },
     "free-instagram-followers-no-password": {
@@ -333,7 +333,7 @@ const translations: Record<
       title: "Ghid urmăritori gratuiți 2026: creștere prin task-uri",
       metaTitle: "Ghid urmăritori gratuiți 2026 | MyFreeFollower",
       description:
-        "Ghid complet urmăritori gratuiți 2026: SMM prin task-uri, Instagram, TikTok, YouTube.",
+        "Ghid complet urmăritori gratuiți 2026: creștere prin task-uri, Instagram, TikTok, YouTube.",
       focusKeyword: "urmăritori gratuiți ghid 2026",
     },
     "free-instagram-followers-no-password": {
@@ -370,7 +370,7 @@ const translations: Record<
       title: "Гайд по бесплатным подписчикам 2026",
       metaTitle: "Гайд бесплатные подписчики 2026 | MyFreeFollower",
       description:
-        "Полный гайд по бесплатным подписчикам: SMM через задания, Instagram, TikTok, YouTube.",
+        "Полный гайд по бесплатным подписчикам: рост через задания, Instagram, TikTok, YouTube.",
       focusKeyword: "бесплатные подписчики гайд 2026",
     },
     "free-instagram-followers-no-password": {
@@ -407,7 +407,7 @@ const translations: Record<
       title: "Гайд безкоштовних підписників 2026",
       metaTitle: "Гайд безкоштовні підписники 2026 | MyFreeFollower",
       description:
-        "Повний гайд безкоштовних підписників: SMM через завдання, Instagram, TikTok, YouTube.",
+        "Повний гайд безкоштовних підписників: ріст через завдання, Instagram, TikTok, YouTube.",
       focusKeyword: "безкоштовні підписники гайд 2026",
     },
     "free-instagram-followers-no-password": {
@@ -444,7 +444,7 @@ const translations: Record<
       title: "Ücretsiz Takipçi Rehberi 2026: Görevle Büyüme",
       metaTitle: "Ücretsiz Takipçi Rehberi 2026 | MyFreeFollower",
       description:
-        "2026 ücretsiz takipçi rehberi: görev tabanlı SMM, Instagram, TikTok, YouTube stratejileri ve güvenlik.",
+        "2026 ücretsiz takipçi rehberi: görev tabanlı, Instagram, TikTok, YouTube stratejileri ve güvenlik.",
       focusKeyword: "ücretsiz takipçi rehberi 2026",
     },
     "free-instagram-followers-no-password": {
@@ -481,7 +481,7 @@ const translations: Record<
       title: "دليل المتابعين المجانيين 2026: النمو عبر المهام",
       metaTitle: "دليل المتابعين المجانيين 2026 | MyFreeFollower",
       description:
-        "دليل شامل للمتابعين المجانيين 2026: SMM بالمهام، إنستغرام، تيك توك، يوتيوب والأمان.",
+        "دليل شامل للمتابعين المجانيين 2026: النمو بالمهام، إنستغرام، تيك توك، يوتيوب والأمان.",
       focusKeyword: "دليل المتابعين المجانيين 2026",
     },
     "free-instagram-followers-no-password": {
@@ -518,7 +518,7 @@ const translations: Record<
       title: "راهنمای فالوور رایگان ۲۰۲۶",
       metaTitle: "راهنمای فالوور رایگان ۲۰۲۶ | MyFreeFollower",
       description:
-        "راهنمای کامل فالوور رایگان: SMM مبتنی بر تسک، اینستاگرام، تیک‌تاک، یوتیوب.",
+        "راهنمای کامل فالوور رایگان: رشد مبتنی بر تسک، اینستاگرام، تیک‌تاک، یوتیوب.",
       focusKeyword: "راهنمای فالوور رایگان ۲۰۲۶",
     },
     "free-instagram-followers-no-password": {
@@ -555,7 +555,7 @@ const translations: Record<
       title: "2026免费粉丝指南：任务式增长",
       metaTitle: "2026免费粉丝指南 | MyFreeFollower",
       description:
-        "2026免费粉丝完整指南：任务SMM、Instagram、TikTok、YouTube策略与安全提示。",
+        "2026免费粉丝完整指南：任务式增长、Instagram、TikTok、YouTube策略与安全提示。",
       focusKeyword: "免费粉丝指南2026",
     },
     "free-instagram-followers-no-password": {
@@ -592,7 +592,7 @@ const translations: Record<
       title: "Panduan followers gratis 2026: pertumbuhan via tugas",
       metaTitle: "Panduan followers gratis 2026 | MyFreeFollower",
       description:
-        "Panduan lengkap followers gratis: SMM berbasis tugas, Instagram, TikTok, YouTube.",
+        "Panduan lengkap followers gratis: pertumbuhan berbasis tugas, Instagram, TikTok, YouTube.",
       focusKeyword: "panduan followers gratis 2026",
     },
     "free-instagram-followers-no-password": {
@@ -629,7 +629,7 @@ const translations: Record<
       title: "ফ্রি ফলোয়ার গাইড ২০২৬: টাস্কে বৃদ্ধি",
       metaTitle: "ফ্রি ফলোয়ার গাইড ২০২৬ | MyFreeFollower",
       description:
-        "২০২৬ ফ্রি ফলোয়ার সম্পূর্ণ গাইড: টাস্ক SMM, Instagram, TikTok, YouTube।",
+        "২০২৬ ফ্রি ফলোয়ার সম্পূর্ণ গাইড: টাস্ক ভিত্তিক বৃদ্ধি, Instagram, TikTok, YouTube।",
       focusKeyword: "ফ্রি ফলোয়ার গাইড ২০২৬",
     },
     "free-instagram-followers-no-password": {
@@ -666,7 +666,7 @@ const translations: Record<
       title: "फ्री फॉलोअर्स गाइड 2026: टास्क से गrowth",
       metaTitle: "फ्री फॉलोअर्स गाइड 2026 | MyFreeFollower",
       description:
-        "2026 फ्री फॉलोअर्स पूर्ण गाइड: टास्क SMM, Instagram, TikTok, YouTube।",
+        "2026 फ्री फॉलोअर्स पूर्ण गाइड: टास्क आधारित वृद्धि, Instagram, TikTok, YouTube।",
       focusKeyword: "फ्री फॉलोअर्स गाइड 2026",
     },
     "free-instagram-followers-no-password": {

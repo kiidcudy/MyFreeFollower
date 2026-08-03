@@ -11,7 +11,7 @@ Perigo: bots reciclados, contas roubadas, phishing. **Barato seguro**: sem senha
 10.000 seguidores por centavos sem drip? Evite. Preços moderados com tracking superam bulk misterioso.`,
     },
     {
-      h2: "Avaliar um painel SMM antes de pagar",
+      h2: "Avaliar um painel  antes de pagar",
       body: `Checklist: sem senha; contato humano <24 h; policies no footer; slugs por plataforma; teste com tarefas ou micro-pacote.
 
 Pesquise marca + suporte/refund. [FAQ](/faq). Teste [seguidores TikTok grátis](/free-followers/free-tiktok-followers), retenção 7 dias, tier pago menor. Sem transferências Telegram a revendedores desconhecidos.`,
@@ -44,7 +44,7 @@ Telegram, Spotify, Twitch — slugs em [comprar seguidores](/buy-followers). Gas
     },
     {
       h2: "Reembolsos e escalação de suporte",
-      body: `Antes de ticket: username, privacidade, prazos do serviço. Escalação com ID do pedido e capturas. Chargeback sem contato perde refills. Reatribua orçamento se uma plataforma for lenta em vez de cortar todo o SMM.`,
+      body: `Antes de ticket: username, privacidade, prazos do serviço. Escalação com ID do pedido e capturas. Chargeback sem contato perde refills. Reatribua orçamento se uma plataforma for lenta em vez de cortar todo o.`,
     },
   ],
   faq: [

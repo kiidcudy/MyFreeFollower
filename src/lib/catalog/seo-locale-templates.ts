@@ -148,7 +148,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       sections: [
         s(
           "Was sind kostenlose {platform} {type}?",
-          "Kostenlose {typeLower} auf {platform} helfen dir, Social Proof aufzubauen, bevor du in größere Pakete investierst. Unser Test mit {amount} {unit} ist zum Prüfen von Liefergeschwindigkeit und Qualität gedacht. {keyword} eignet sich für neue Creator, kleine Unternehmen und alle, die aufgabenbasiertes SMM-Wachstum ausprobieren möchten.",
+          "Kostenlose {typeLower} auf {platform} helfen dir, Social Proof aufzubauen, bevor du in größere Pakete investierst. Unser Test mit {amount} {unit} ist zum Prüfen von Liefergeschwindigkeit und Qualität gedacht. {keyword} eignet sich für neue Creator, kleine Unternehmen und alle, die aufgabenbasiertes Wachstum ausprobieren möchten.",
         ),
         s(
           "So erhältst du kostenlose {title}",
@@ -238,7 +238,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       sections: [
         s(
           "Que sont les {type} {platform} gratuits ?",
-          "Des {typeLower} gratuits sur {platform} vous aident à construire une preuve sociale avant d'investir dans des packs plus grands. Notre essai de {amount} {unit} sert à tester la vitesse et la qualité de livraison. {keyword} convient aux nouveaux créateurs, aux petites entreprises et à quiconque explore la croissance SMM par tâches.",
+          "Des {typeLower} gratuits sur {platform} vous aident à construire une preuve sociale avant d'investir dans des packs plus grands. Notre essai de {amount} {unit} sert à tester la vitesse et la qualité de livraison. {keyword} convient aux nouveaux créateurs, aux petites entreprises et à quiconque explore la croissance croissance par tâches.",
         ),
         s(
           "Comment obtenir {title}",
@@ -328,7 +328,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       sections: [
         s(
           "¿Qué son los {type} de {platform} gratis?",
-          "Los {typeLower} gratis en {platform} te ayudan a construir prueba social antes de invertir en paquetes mayores. Nuestra prueba de {amount} {unit} sirve para evaluar velocidad y calidad de entrega. {keyword} es ideal para creadores nuevos, pequeños negocios y quienes exploran el crecimiento SMM basado en tareas.",
+          "Los {typeLower} gratis en {platform} te ayudan a construir prueba social antes de invertir en paquetes mayores. Nuestra prueba de {amount} {unit} sirve para evaluar velocidad y calidad de entrega. {keyword} es ideal para creadores nuevos, pequeños negocios y quienes exploran el crecimiento basado en tareas.",
         ),
         s(
           "Cómo obtener {title}",
@@ -416,7 +416,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       intro:
         "{keyword} permite testar crescimento real em {platform} sem pagar antecipadamente. Em {brand}, ganha pontos ao completar microtarefas e resgata-os por um pacote de teste de {amount} {unit}. Nunca pedimos a sua palavra-passe — apenas o nome de utilizador público ou link do perfil.",
       sections: [
-        s("O que são {type} de {platform} grátis?", "Os {typeLower} grátis em {platform} ajudam a construir prova social antes de investir em pacotes maiores. O nosso teste de {amount} {unit} serve para avaliar velocidade e qualidade de entrega. {keyword} é ideal para novos criadores, pequenas empresas e quem explora crescimento SMM baseado em tarefas."),
+        s("O que são {type} de {platform} grátis?", "Os {typeLower} grátis em {platform} ajudam a construir prova social antes de investir em pacotes maiores. O nosso teste de {amount} {unit} serve para avaliar velocidade e qualidade de entrega. {keyword} é ideal para novos criadores, pequenas empresas e quem explora crescimento baseado em tarefas."),
         s("Como obter {title}", "Registe-se gratuitamente, veja as tarefas disponíveis e envie a prova quando terminar. Tarefas aprovadas creditam pontos ao seu saldo. Quando tiver pontos suficientes (este serviço custa cerca de {points} pontos), abra o formulário, introduza o utilizador e confirme. A entrega normalmente inicia em 0–24 horas."),
         s("Porquê escolher {brand} para crescimento grátis", "{brand} combina uma economia de tarefas com um catálogo pago completo em 24 plataformas. Comece com {keyword} e escale com pacotes acessíveis ou continue a ganhar com tarefas diárias. Suporte 24/7 por chat ao vivo e WhatsApp."),
         s("Grátis vs pago: {type} de {platform}", "Os testes grátis usam pontos ganhos e servem para experimentar. Os pacotes pagos entregam quantidades maiores de imediato com cartão, cripto ou pontos no checkout. Muitos pedem primeiro um teste grátis e atualizam ao ver resultados."),
@@ -454,7 +454,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "{type} de {platform} grátis",
       intro: "{keyword} permite testar crescimento real no {platform} sem pagar adiantado. No {brand}, você ganha pontos completando microtarefas e resgata por um pacote de teste de {amount} {unit}. Nunca pedimos sua senha — apenas seu nome de usuário público ou link do perfil.",
       sections: [
-        s("O que são {type} de {platform} grátis?", "Os {typeLower} grátis no {platform} ajudam a construir prova social antes de investir em pacotes maiores. Nosso teste de {amount} {unit} serve para avaliar velocidade e qualidade da entrega. {keyword} é ideal para novos criadores, pequenos negócios e quem explora crescimento SMM por tarefas."),
+        s("O que são {type} de {platform} grátis?", "Os {typeLower} grátis no {platform} ajudam a construir prova social antes de investir em pacotes maiores. Nosso teste de {amount} {unit} serve para avaliar velocidade e qualidade da entrega. {keyword} é ideal para novos criadores, pequenos negócios e quem explora crescimento crescimento por tarefas."),
         s("Como obter {title}", "Cadastre-se grátis, veja as tarefas disponíveis e envie a prova ao concluir. Tarefas aprovadas creditam pontos no seu saldo. Quando tiver pontos suficientes (este serviço custa cerca de {points} pontos), abra o formulário, informe o usuário e confirme. A entrega normalmente começa em 0–24 horas."),
         s("Por que escolher {brand} para crescimento grátis", "{brand} combina economia de tarefas com catálogo pago completo em 24 plataformas. Comece com {keyword} e escale com pacotes acessíveis ou continue ganhando com tarefas diárias. Suporte 24/7 por chat ao vivo e WhatsApp."),
         s("Grátis vs pago: {type} de {platform}", "Testes grátis usam pontos ganhos e servem para experimentar. Pacotes pagos entregam quantidades maiores na hora com cartão, cripto ou pontos no checkout. Muitos pedem um teste grátis primeiro e fazem upgrade ao ver resultados."),
@@ -492,7 +492,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "{type} {platform} gratis",
       intro: "{keyword} ti permette di testare una crescita reale su {platform} senza pagare in anticipo. Su {brand} guadagni punti completando micro-compiti e li riscatti per un pacchetto di prova da {amount} {unit}. Non chiediamo mai la password — solo username pubblico o link del profilo.",
       sections: [
-        s("Cosa sono i {type} {platform} gratis?", "I {typeLower} gratis su {platform} aiutano a costruire prova sociale prima di investire in pacchetti più grandi. La nostra prova da {amount} {unit} serve a testare velocità e qualità di consegna. {keyword} è ideale per nuovi creator, piccole imprese e chi esplora la crescita SMM basata su compiti."),
+        s("Cosa sono i {type} {platform} gratis?", "I {typeLower} gratis su {platform} aiutano a costruire prova sociale prima di investire in pacchetti più grandi. La nostra prova da {amount} {unit} serve a testare velocità e qualità di consegna. {keyword} è ideale per nuovi creator, piccole imprese e chi esplora la crescita basata su compiti."),
         s("Come ottenere {title}", "Registrati gratis, consulta i compiti disponibili e invia la prova al termine. I compiti approvati accreditano punti sul saldo. Quando ne hai abbastanza (questo servizio costa circa {points} punti), apri il modulo, inserisci lo username e conferma. La consegna di solito inizia entro 0–24 ore."),
         s("Perché scegliere {brand} per la crescita gratis", "{brand} combina un'economia di compiti con un catalogo a pagamento completo su 24 piattaforme. Inizia con {keyword} e scala con pacchetti convenienti o continua a guadagnare con compiti giornalieri. Supporto 24/7 via chat live e WhatsApp."),
         s("Gratis vs a pagamento: {type} {platform}", "Le prove gratis usano punti guadagnati e servono per testare. I pacchetti a pagamento consegnano quantità maggiori subito con carta, crypto o punti al checkout. Molti richiedono prima una prova gratis e poi passano al livello superiore vedendo i risultati."),
@@ -530,7 +530,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "gratis {platform} {type}",
       intro: "{keyword} laat je echte groei op {platform} testen zonder vooraf te betalen. Op {brand} verdien je punten door microtaken te voltooien en wisselt ze in voor een proefpakket van {amount} {unit}. We vragen nooit om je wachtwoord — alleen je openbare gebruikersnaam of profiellink.",
       sections: [
-        s("Wat zijn gratis {platform} {type}?", "Gratis {typeLower} op {platform} helpen social proof op te bouwen voordat je in grotere pakketten investeert. Onze proef van {amount} {unit} is bedoeld om leversnelheid en kwaliteit te testen. {keyword} is ideaal voor nieuwe creators, kleine bedrijven en iedereen die taakgebaseerde SMM-groei verkent."),
+        s("Wat zijn gratis {platform} {type}?", "Gratis {typeLower} op {platform} helpen social proof op te bouwen voordat je in grotere pakketten investeert. Onze proef van {amount} {unit} is bedoeld om leversnelheid en kwaliteit te testen. {keyword} is ideaal voor nieuwe creators, kleine bedrijven en iedereen die taakgebaseerde groei verkent."),
         s("Hoe claim je {title}", "Registreer gratis, bekijk beschikbare taken en dien bewijs in wanneer je klaar bent. Goedgekeurde taken crediteren punten op je saldo. Zodra je genoeg punten hebt (deze service kost ongeveer {points} punten), open je het bestelformulier, voer je je gebruikersnaam in en bevestig je. Levering start meestal binnen 0–24 uur."),
         s("Waarom {brand} voor gratis groei", "{brand} combineert een taakeconomie met een volledige betaalde catalogus over 24 platforms. Begin met {keyword} en schaal op met betaalbare pakketten of blijf verdienen via dagelijkse taken. Support 24/7 via live chat en WhatsApp."),
         s("Gratis vs betaald {platform} {type}", "Gratis proeven gebruiken verdiende punten en zijn perfect om te testen. Betaalde pakketten leveren grotere hoeveelheden direct via kaart, crypto of punten bij checkout. Veel leden claimen eerst een gratis proef en upgraden wanneer ze resultaten zien."),
@@ -568,7 +568,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "darmowe {type} {platform}",
       intro: "{keyword} pozwala przetestować prawdziwy wzrost na {platform} bez wcześniejszej płatności. Na {brand} zdobywasz punkty za mikrozadania i wymieniasz je na pakiet próbny {amount} {unit}. Nigdy nie prosimy o hasło — tylko o publiczną nazwę użytkownika lub link do profilu.",
       sections: [
-        s("Czym są darmowe {type} {platform}?", "Darmowe {typeLower} na {platform} pomagają zbudować dowód społeczny przed inwestycją w większe pakiety. Nasza próbka {amount} {unit} służy do testu szybkości i jakości dostawy. {keyword} jest idealne dla nowych twórców, małych firm i osób odkrywających wzrost SMM oparty na zadaniach."),
+        s("Czym są darmowe {type} {platform}?", "Darmowe {typeLower} na {platform} pomagają zbudować dowód społeczny przed inwestycją w większe pakiety. Nasza próbka {amount} {unit} służy do testu szybkości i jakości dostawy. {keyword} jest idealne dla nowych twórców, małych firm i osób odkrywających wzrost oparty na zadaniach."),
         s("Jak odebrać {title}", "Zarejestruj się za darmo, przeglądaj dostępne zadania i prześlij dowód po ukończeniu. Zatwierdzone zadania dodają punkty do salda. Gdy masz wystarczająco (ten serwis kosztuje około {points} punktów), otwórz formularz, podaj nazwę użytkownika i potwierdź. Dostawa zwykle startuje w 0–24 godziny."),
         s("Dlaczego {brand} do darmowego wzrostu", "{brand} łączy ekonomię zadań z pełnym płatnym katalogiem na 24 platformach. Zacznij od {keyword}, potem skaluj tańszymi pakietami lub zdobywaj punkty codziennymi zadaniami. Wsparcie 24/7 przez czat na żywo i WhatsApp."),
         s("Darmowe vs płatne {type} {platform}", "Darmowe próbki używają zdobytych punktów i służą do testów. Płatne pakiety dostarczają większe ilości od razu kartą, krypto lub punktami przy kasie. Wielu najpierw odbiera darmową próbkę, a potem przechodzi na wyższy poziom po zobaczeniu wyników."),
@@ -606,7 +606,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "{type} {platform} gratuite",
       intro: "{keyword} îți permite să testezi creștere reală pe {platform} fără plată în avans. Pe {brand} câștigi puncte completând micro-sarcini și le răscumperi pentru un pachet de test de {amount} {unit}. Nu cerem niciodată parola — doar numele de utilizator public sau linkul profilului.",
       sections: [
-        s("Ce sunt {type} {platform} gratuite?", "{typeLower} gratuite pe {platform} te ajută să construiești dovadă socială înainte de a investi în pachete mai mari. Testul nostru de {amount} {unit} servește pentru a evalua viteza și calitatea livrării. {keyword} este ideal pentru creatori noi, afaceri mici și cei care explorează creșterea SMM bazată pe sarcini."),
+        s("Ce sunt {type} {platform} gratuite?", "{typeLower} gratuite pe {platform} te ajută să construiești dovadă socială înainte de a investi în pachete mai mari. Testul nostru de {amount} {unit} servește pentru a evalua viteza și calitatea livrării. {keyword} este ideal pentru creatori noi, afaceri mici și cei care explorează creșterea bazată pe sarcini."),
         s("Cum obții {title}", "Înregistrează-te gratuit, vezi sarcinile disponibile și trimite dovada când termini. Sarcinile aprobate creditează puncte în sold. Când ai suficiente (acest serviciu costă aproximativ {points} puncte), deschide formularul, introdu utilizatorul și confirmă. Livrarea începe de obicei în 0–24 ore."),
         s("De ce {brand} pentru creștere gratuită", "{brand} combină o economie de sarcini cu un catalog plătit complet pe 24 platforme. Începe cu {keyword}, apoi scalează cu pachete accesibile sau continuă să câștigi prin sarcini zilnice. Suport 24/7 prin chat live și WhatsApp."),
         s("Gratuit vs plătit: {type} {platform}", "Testele gratuite folosesc puncte câștigate și sunt perfecte pentru testare. Pachetele plătite livrează cantități mai mari instant cu card, cripto sau puncte la checkout. Mulți solicită mai întâi un test gratuit, apoi trec la nivel superior când văd rezultate."),
@@ -644,7 +644,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "бесплатные {type} {platform}",
       intro: "{keyword} позволяет протестировать реальный рост на {platform} без предоплаты. На {brand} вы зарабатываете баллы за микрозадания и обмениваете их на пробный пакет {amount} {unit}. Мы никогда не просим пароль — только публичное имя пользователя или ссылку на профиль.",
       sections: [
-        s("Что такое бесплатные {type} {platform}?", "Бесплатные {typeLower} на {platform} помогают создать социальное доказательство до покупки больших пакетов. Наш тест {amount} {unit} подходит для проверки скорости и качества доставки. {keyword} идеален для новых авторов, малого бизнеса и тех, кто изучает SMM-рост через задания."),
+        s("Что такое бесплатные {type} {platform}?", "Бесплатные {typeLower} на {platform} помогают создать социальное доказательство до покупки больших пакетов. Наш тест {amount} {unit} подходит для проверки скорости и качества доставки. {keyword} идеален для новых авторов, малого бизнеса и тех, кто изучает рост через задания."),
         s("Как получить {title}", "Зарегистрируйтесь бесплатно, просмотрите доступные задания и отправьте подтверждение после выполнения. Одобренные задания начисляют баллы на баланс. Когда наберёте достаточно (этот сервис стоит около {points} баллов), откройте форму, введите имя пользователя и подтвердите. Доставка обычно начинается в течение 0–24 часов."),
         s("Почему {brand} для бесплатного роста", "{brand} сочетает экономику заданий с полным платным каталогом на 24 платформах. Начните с {keyword}, затем масштабируйтесь доступными пакетами или продолжайте зарабатывать ежедневными заданиями. Поддержка 24/7 через чат и WhatsApp."),
         s("Бесплатно vs платно: {type} {platform}", "Бесплатные тесты используют заработанные баллы и подходят для проверки. Платные пакеты доставляют большие объёмы сразу картой, криптовалютой или баллами при оплате. Многие сначала берут бесплатный тест, а затем переходят на платный после результатов."),
@@ -682,7 +682,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "безкоштовні {type} {platform}",
       intro: "{keyword} дає змогу протестувати справжній ріст на {platform} без передоплати. На {brand} ви заробляєте бали за мікрозавдання та обмінюєте їх на пробний пакет {amount} {unit}. Ми ніколи не просимо пароль — лише публічне ім'я користувача або посилання на профіль.",
       sections: [
-        s("Що таке безкоштовні {type} {platform}?", "Безкоштовні {typeLower} на {platform} допомагають створити соціальний доказ перед інвестицією в більші пакети. Наш тест {amount} {unit} слугує для перевірки швидкості та якості доставки. {keyword} ідеальний для нових авторів, малого бізнесу та тих, хто досліджує SMM-ріст через завдання."),
+        s("Що таке безкоштовні {type} {platform}?", "Безкоштовні {typeLower} на {platform} допомагають створити соціальний доказ перед інвестицією в більші пакети. Наш тест {amount} {unit} слугує для перевірки швидкості та якості доставки. {keyword} ідеальний для нових авторів, малого бізнесу та тих, хто досліджує ріст через завдання."),
         s("Як отримати {title}", "Зареєструйтеся безкоштовно, перегляньте доступні завдання та надішліть підтвердження після виконання. Схвалені завдання нараховують бали на баланс. Коли наберете достатньо (цей сервіс коштує близько {points} балів), відкрийте форму, введіть ім'я користувача та підтвердіть. Доставка зазвичай починається протягом 0–24 годин."),
         s("Чому {brand} для безкоштовного росту", "{brand} поєднує економіку завдань із повним платним каталогом на 24 платформах. Почніть з {keyword}, потім масштабуйтеся доступними пакетами або продовжуйте заробляти щоденними завданнями. Підтримка 24/7 через чат і WhatsApp."),
         s("Безкоштовно vs платно: {type} {platform}", "Безкоштовні тести використовують зароблені бали і підходять для перевірки. Платні пакети доставляють більші обсяги одразу карткою, криптовалютою або балами при оплаті. Багато хто спочатку бере безкоштовний тест, а потім переходить на платний після результатів."),
@@ -720,7 +720,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "ücretsiz {platform} {type}",
       intro: "{keyword}, {platform}'da önceden ödeme yapmadan gerçek büyümeyi test etmenizi sağlar. {brand}'da mikro görevlerle puan kazanır ve {amount} {unit} deneme paketi için kullanırsınız. Asla şifrenizi istemeyiz — yalnızca herkese açık kullanıcı adınız veya profil bağlantınız.",
       sections: [
-        s("Ücretsiz {platform} {type} nedir?", "{platform}'daki ücretsiz {typeLower}, daha büyük paketlere yatırım yapmadan önce sosyal kanıt oluşturmanıza yardımcı olur. {amount} {unit} denememiz teslimat hızı ve kalitesini test etmek içindir. {keyword}, yeni içerik üreticileri, küçük işletmeler ve görev tabanlı SMM büyümesini keşfedenler için idealdir."),
+        s("Ücretsiz {platform} {type} nedir?", "{platform}'daki ücretsiz {typeLower}, daha büyük paketlere yatırım yapmadan önce sosyal kanıt oluşturmanıza yardımcı olur. {amount} {unit} denememiz teslimat hızı ve kalitesini test etmek içindir. {keyword}, yeni içerik üreticileri, küçük işletmeler ve görev tabanlı büyümesini keşfedenler için idealdir."),
         s("{title} nasıl alınır", "Ücretsiz kaydolun, mevcut görevlere göz atın ve bitince kanıt gönderin. Onaylanan görevler bakiyenize puan ekler. Yeterli puanınız olduğunda (bu hizmet yaklaşık {points} puan), sipariş formunu açın, kullanıcı adınızı girin ve onaylayın. Teslimat genellikle 0–24 saat içinde başlar."),
         s("Ücretsiz büyüme için neden {brand}", "{brand}, görev ekonomisini 24 platformda tam ücretli katalogla birleştirir. {keyword} ile başlayın, uygun fiyatlı paketlerle ölçeklendirin veya günlük görevlerle kazanmaya devam edin. 7/24 canlı sohbet ve WhatsApp desteği."),
         s("Ücretsiz vs ücretli {platform} {type}", "Ücretsiz denemeler kazanılan puanları kullanır ve test için idealdir. Ücretli paketler kart, kripto veya puanla anında daha büyük miktarlar teslim eder. Birçok kişi önce ücretsiz deneme alır, sonuç görünce yükseltir."),
@@ -758,7 +758,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "{type} {platform} مجانية",
       intro: "يتيح لك {keyword} اختبار نمو حقيقي على {platform} دون دفع مسبق. على {brand} تكسب نقاطاً بإنجاز مهام صغيرة وتستبدلها بباقة تجريبية {amount} {unit}. لا نطلب كلمة المرور أبداً — فقط اسم المستخدم العام أو رابط الملف الشخصي.",
       sections: [
-        s("ما هي {type} {platform} المجانية؟", "تساعدك {typeLower} المجانية على {platform} في بناء دليل اجتماعي قبل الاستثمار في باقات أكبر. تجربتنا {amount} {unit} مخصصة لاختبار سرعة وجودة التسليم. {keyword} مثالي للمبدعين الجدد والشركات الصغيرة ومن يستكشف نمو SMM القائم على المهام."),
+        s("ما هي {type} {platform} المجانية؟", "تساعدك {typeLower} المجانية على {platform} في بناء دليل اجتماعي قبل الاستثمار في باقات أكبر. تجربتنا {amount} {unit} مخصصة لاختبار سرعة وجودة التسليم. {keyword} مثالي للمبدعين الجدد والشركات الصغيرة ومن يستكشف نمو  القائم على المهام."),
         s("كيفية الحصول على {title}", "سجّل مجاناً، تصفح المهام المتاحة وأرسل الإثبات عند الانتهاء. المهام المعتمدة تضيف نقاطاً إلى رصيدك. عندما يكون لديك ما يكفي (هذه الخدمة تكلف حوالي {points} نقطة)، افتح النموذج، أدخل اسم المستخدم وأكد. يبدأ التسليم عادة خلال 0–24 ساعة."),
         s("لماذا {brand} للنمو المجاني", "يجمع {brand} بين اقتصاد المهام وخدمات مدفوعة كاملة على 24 منصة. ابدأ بـ {keyword} ثم وسّع بباقات بأسعار معقولة أو استمر في الكسب عبر مهام يومية. دعم على مدار الساعة عبر الدردشة المباشرة وWhatsApp."),
         s("مجاني مقابل مدفوع: {type} {platform}", "تستخدم التجارب المجانية النقاط المكتسبة وهي مثالية للاختبار. الباقات المدفوعة تسلم كميات أكبر فوراً بالبطاقة أو العملات الرقمية أو النقاط عند الدفع. كثيرون يطلبون تجربة مجانية أولاً ثم يرقّون عند رؤية النتائج."),
@@ -796,7 +796,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "{type} رایگان {platform}",
       intro: "{keyword} به شما امکان می‌دهد رشد واقعی در {platform} را بدون پرداخت پیش‌پرداخت آزمایش کنید. در {brand} با انجام میکروکارها امتیاز می‌گیرید و برای بسته آزمایشی {amount} {unit} مبادله می‌کنید. هرگز رمز عبور نمی‌خواهیم — فقط نام کاربری عمومی یا لینک پروفایل.",
       sections: [
-        s("{type} رایگان {platform} چیست؟", "{typeLower} رایگان در {platform} قبل از سرمایه‌گذاری در بسته‌های بزرگ‌تر به ساخت اثبات اجتماعی کمک می‌کند. آزمایش {amount} {unit} ما برای بررسی سرعت و کیفیت تحویل است. {keyword} برای خالقان جدید، کسب‌وکارهای کوچک و کسانی که رشد SMM مبتنی بر کار را کاوش می‌کنند ایده‌آل است."),
+        s("{type} رایگان {platform} چیست؟", "{typeLower} رایگان در {platform} قبل از سرمایه‌گذاری در بسته‌های بزرگ‌تر به ساخت اثبات اجتماعی کمک می‌کند. آزمایش {amount} {unit} ما برای بررسی سرعت و کیفیت تحویل است. {keyword} برای خالقان جدید، کسب‌وکارهای کوچک و کسانی که رشد مبتنی بر کار را کاوش می‌کنند ایده‌آل است."),
         s("چگونه {title} دریافت کنیم", "رایگان ثبت‌نام کنید، کارهای موجود را ببینید و پس از اتمام مدرک ارسال کنید. کارهای تأییدشده امتیاز به موجودی اضافه می‌کنند. وقتی کافی دارید (این سرویس حدود {points} امتیاز هزینه دارد)، فرم را باز کنید، نام کاربری را وارد و تأیید کنید. تحویل معمولاً در 0–24 ساعت شروع می‌شود."),
         s("چرا {brand} برای رشد رایگان", "{brand} اقتصاد کار را با کاتالوگ پولی کامل در 24 پلتفرم ترکیب می‌کند. با {keyword} شروع کنید، سپس با بسته‌های مقرون‌به‌صرفه مقیاس دهید یا با کارهای روزانه ادامه دهید. پشتیبانی 24/7 از طریق چت زنده و WhatsApp."),
         s("رایگان در برابر پولی: {type} {platform}", "آزمایش‌های رایگان از امتیازهای کسب‌شده استفاده می‌کنند و برای آزمایش مناسب‌اند. بسته‌های پولی مقادیر بیشتر را فوری با کارت، رمزارز یا امتیاز تحویل می‌دهند. بسیاری ابتدا آزمایش رایگان می‌گیرند و پس از دیدن نتایج ارتقا می‌دهند."),
@@ -834,7 +834,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "免费{platform}{type}",
       intro: "{keyword}让你无需预付即可在{platform}测试真实增长。在{brand}通过微任务赚取积分，兑换{amount}{unit}试用包。我们从不索要密码 — 只需公开用户名或主页链接。",
       sections: [
-        s("什么是免费{platform}{type}？", "免费{platform}{typeLower}帮助你在投资更大套餐前建立社交证明。我们的{amount}{unit}试用用于测试交付速度和质量。{keyword}适合新创作者、小企业和探索任务式SMM增长的用户。"),
+        s("什么是免费{platform}{type}？", "免费{platform}{typeLower}帮助你在投资更大套餐前建立社交证明。我们的{amount}{unit}试用用于测试交付速度和质量。{keyword}适合新创作者、小企业和探索任务式增长的用户。"),
         s("如何领取{title}", "免费注册，浏览可用任务，完成后提交证明。通过的任务会将积分计入余额。积分足够时（此服务约需{points}积分），打开订单表单，输入用户名并确认。交付通常在0–24小时内开始。"),
         s("为何选择{brand}免费增长", "{brand}将任务经济与24个平台的完整付费目录结合。从{keyword}开始，再用实惠套餐扩展或继续每日任务赚取。7×24在线聊天和WhatsApp支持。"),
         s("免费与付费{platform}{type}对比", "免费试用使用赚取的积分，适合测试。付费套餐通过卡、加密货币或积分即时交付更大数量。许多人先领取免费试用，看到效果后再升级。"),
@@ -872,7 +872,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "{type} {platform} gratis",
       intro: "{keyword} memungkinkan Anda menguji pertumbuhan nyata di {platform} tanpa bayar di muka. Di {brand} Anda mendapat poin dengan menyelesaikan micro-tugas dan menukarnya untuk paket uji coba {amount} {unit}. Kami tidak pernah meminta kata sandi — hanya username publik atau tautan profil.",
       sections: [
-        s("Apa itu {type} {platform} gratis?", "{typeLower} gratis di {platform} membantu membangun bukti sosial sebelum investasi paket lebih besar. Uji coba {amount} {unit} kami untuk menguji kecepatan dan kualitas pengiriman. {keyword} ideal untuk kreator baru, bisnis kecil, dan yang mengeksplorasi pertumbuhan SMM berbasis tugas."),
+        s("Apa itu {type} {platform} gratis?", "{typeLower} gratis di {platform} membantu membangun bukti sosial sebelum investasi paket lebih besar. Uji coba {amount} {unit} kami untuk menguji kecepatan dan kualitas pengiriman. {keyword} ideal untuk kreator baru, bisnis kecil, dan yang mengeksplorasi pertumbuhan pertumbuhan berbasis tugas."),
         s("Cara mendapatkan {title}", "Daftar gratis, lihat tugas tersedia, dan kirim bukti setelah selesai. Tugas disetujui menambah poin ke saldo. Saat cukup (layanan ini sekitar {points} poin), buka formulir, masukkan username, dan konfirmasi. Pengiriman biasanya mulai dalam 0–24 jam."),
         s("Mengapa {brand} untuk pertumbuhan gratis", "{brand} menggabungkan ekonomi tugas dengan katalog berbayar lengkap di 24 platform. Mulai dengan {keyword}, lalu skala dengan paket terjangkau atau terus dapat poin lewat tugas harian. Dukungan 24/7 via live chat dan WhatsApp."),
         s("Gratis vs berbayar: {type} {platform}", "Uji coba gratis memakai poin yang diperoleh dan cocok untuk testing. Paket berbayar mengirim jumlah lebih besar instan via kartu, kripto, atau poin saat checkout. Banyak yang klaim uji coba gratis dulu, lalu upgrade saat melihat hasil."),
@@ -910,7 +910,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "বিনামূল্যে {platform} {type}",
       intro: "{keyword} আপনাকে {platform}-এ অগ্রিম পেমেন্ট ছাড়াই প্রকৃত বৃদ্ধি পরীক্ষা করতে দেয়। {brand}-এ মাইক্রো-টাস্ক সম্পন্ন করে পয়েন্ট অর্জন করুন এবং {amount} {unit} ট্রায়াল প্যাকের জন্য রিডিম করুন। আমরা কখনো পাসওয়ার্ড চাই না — শুধু পাবলিক ইউজারনেম বা প্রোফাইল লিংক।",
       sections: [
-        s("বিনামূল্যে {platform} {type} কী?", "{platform}-এ বিনামূল্যে {typeLower} বড় প্যাকে বিনিয়োগের আগে সামাজিক প্রমাণ গড়তে সাহায্য করে। আমাদের {amount} {unit} ট্রায়াল ডেলিভারি গতি ও মান পরীক্ষার জন্য। {keyword} নতুন ক্রিয়েটর, ছোট ব্যবসা এবং টাস্ক-ভিত্তিক SMM বৃদ্ধি অনুসন্ধানকারীদের জন্য আদর্শ।"),
+        s("বিনামূল্যে {platform} {type} কী?", "{platform}-এ বিনামূল্যে {typeLower} বড় প্যাকে বিনিয়োগের আগে সামাজিক প্রমাণ গড়তে সাহায্য করে। আমাদের {amount} {unit} ট্রায়াল ডেলিভারি গতি ও মান পরীক্ষার জন্য। {keyword} নতুন ক্রিয়েটর, ছোট ব্যবসা এবং টাস্ক-ভিত্তিক বৃদ্ধি অনুসন্ধানকারীদের জন্য আদর্শ।"),
         s("কীভাবে {title} পাবেন", "বিনামূল্যে সাইন আপ করুন, উপলব্ধ কাজ দেখুন এবং শেষ হলে প্রমাণ জমা দিন। অনুমোদিত কাজে ব্যালেন্সে পয়েন্ট যোগ হয়। যথেষ্ট পয়েন্ট হলে (এই সেবায় প্রায় {points} পয়েন্ট), ফর্ম খুলুন, ইউজারনেম দিন এবং নিশ্চিত করুন। ডেলিভারি সাধারণত 0–24 ঘণ্টায় শুরু হয়।"),
         s("বিনামূল্যে বৃদ্ধির জন্য কেন {brand}", "{brand} টাস্ক ইকোনমিকে 24 প্ল্যাটফর্মে সম্পূর্ণ পেইড ক্যাটালগের সাথে মিলিয়ে। {keyword} দিয়ে শুরু করুন, সাশ্রয়ী প্যাকে স্কেল করুন বা দৈনিক টাস্কে অর্থ উপার্জন চালিয়ে যান। 24/7 লাইভ চ্যাট ও WhatsApp সাপোর্ট।"),
         s("বিনামূল্যে vs পেইড {platform} {type}", "বিনামূল্যে ট্রায়াল অর্জিত পয়েন্ট ব্যবহার করে এবং পরীক্ষার জন্য উপযুক্ত। পেইড প্যাক কার্ড, ক্রিপ্টো বা পয়েন্টে তাৎক্ষণিক বড় পরিমাণ দেয়। অনেকে আগে ফ্রি ট্রায়াল নেন, ফল দেখে আপগ্রেড করেন।"),
@@ -948,7 +948,7 @@ const LOCALE_TEMPLATES: Record<Exclude<Locale, "en">, LocaleTemplates> = {
       focusKeyword: "मुफ़्त {platform} {type}",
       intro: "{keyword} आपको {platform} पर बिना अग्रिम भुगतान के वास्तविक वृद्धि आज़माने देता है। {brand} पर माइक्रो-टास्क पूरे करके पॉइंट कमाएं और {amount} {unit} ट्रायल पैक के लिए रिडीम करें। हम कभी पासवर्ड नहीं मांगते — केवल सार्वजनिक यूज़रनेम या प्रोफ़ाइल लिंक।",
       sections: [
-        s("मुफ़्त {platform} {type} क्या हैं?", "{platform} पर मुफ़्त {typeLower} बड़े पैक में निवेश से पहले सामाजिक प्रमाण बनाने में मदद करते हैं। हमारा {amount} {unit} ट्रायल डिलीवरी गति और गुणवत्ता जांचने के लिए है। {keyword} नए क्रिएटर, छोटे व्यवसाय और टास्क-आधारित SMM वृद्धि खोजने वालों के लिए आदर्श है।"),
+        s("मुफ़्त {platform} {type} क्या हैं?", "{platform} पर मुफ़्त {typeLower} बड़े पैक में निवेश से पहले सामाजिक प्रमाण बनाने में मदद करते हैं। हमारा {amount} {unit} ट्रायल डिलीवरी गति और गुणवत्ता जांचने के लिए है। {keyword} नए क्रिएटर, छोटे व्यवसाय और टास्क-आधारित वृद्धि खोजने वालों के लिए आदर्श है।"),
         s("{title} कैसे पाएं", "मुफ़्त साइन अप करें, उपलब्ध कार्य देखें और पूरा होने पर प्रमाण भेजें। स्वीकृत कार्यों से बैलेंस में पॉइंट जुड़ते हैं। पर्याप्त पॉइंट होने पर (यह सेवा लगभग {points} पॉइंट), फॉर्म खोलें, यूज़रनेम दर्ज करें और पुष्टि करें। डिलीवरी आमतौर पर 0–24 घंटे में शुरू होती है।"),
         s("मुफ़्त वृद्धि के लिए {brand} क्यों", "{brand} टास्क इकोनॉमी को 24 प्लेटफ़ॉर्म पर पूर्ण paid कैटलॉग के साथ जोड़ता है। {keyword} से शुरू करें, सस्ते पैक से स्केल करें या दैनिक कार्यों से कमाते रहें। 24/7 लाइव चैट और WhatsApp सपोर्ट।"),
         s("मुफ़्त vs paid {platform} {type}", "मुफ़्त ट्रायल कमाए पॉइंट इस्तेमाल करते हैं और परीक्षण के लिए उपयुक्त हैं। paid पैक कार्ड, क्रिप्टो या पॉइंट से तुरंत बड़ी मात्रा देते हैं। कई पहले मुफ़्त ट्रायल लेते हैं, परिणाम देखकर अपग्रेड करते हैं।"),

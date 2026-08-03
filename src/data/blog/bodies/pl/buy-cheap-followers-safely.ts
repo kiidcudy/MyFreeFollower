@@ -11,7 +11,7 @@ Niebezpieczeństwo: recyklingowane boty, skradzione konta, phishing. **Tanio bez
 10 000 obserwujących za grosze bez drip? Unikaj. Umiarkowane ceny z trackingiem biją tajemniczy bulk.`,
     },
     {
-      h2: "Ocena panelu SMM przed płatnością",
+      h2: "Ocena panelu  przed płatnością",
       body: `Checklist: bez hasła; kontakt człowieka <24 h; polityki w stopce; slugi per platforma; test zadaniami lub micro-pakietem.
 
 Szukaj marki + wsparcie/refund. [FAQ](/faq). Test [darmowych obserwujących TikTok](/free-followers/free-tiktok-followers), retencja 7 dni, najmniejszy płatny tier. Bez przelewów Telegram do nieznanych resellerów.`,
@@ -44,7 +44,7 @@ Telegram, Spotify, Twitch — slugi na [kup obserwujących](/buy-followers). Wyd
     },
     {
       h2: "Zwroty i eskalacja wsparcia",
-      body: `Przed ticketem: username, prywatność, terminy usługi. Eskalacja z ID zamówienia i screenami. Chargeback bez kontaktu traci refille. Przydziel budżet, jeśli jedna platforma wolna, zamiast ciąć cały SMM.`,
+      body: `Przed ticketem: username, prywatność, terminy usługi. Eskalacja z ID zamówienia i screenami. Chargeback bez kontaktu traci refille. Przydziel budżet, jeśli jedna platforma wolna, zamiast ciąć cały.`,
     },
   ],
   faq: [
