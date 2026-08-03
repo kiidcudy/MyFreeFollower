@@ -194,9 +194,8 @@ export function TaskRunner() {
         {list.map((task) => {
           const pm = getPlatformMeta(task.platform);
           const pr = proofByTask.get(task.id);
-          const locked = pr && ["pending", "approved", "recheck"].includes(pr.status);
-          const canResubmit = pr && ["rejected", "needs_edit"].includes(pr.status);
-          const isOpen = active === task.id;
+          const done = Boolean(pr);
+          const isOpen = active === task.id && !done;
           const reward = effectivePoints(task.basePoints);
 
           return (
@@ -229,17 +228,13 @@ export function TaskRunner() {
                       {t(`dashboard.${statusMeta[pr.status].labelKey}`)}
                     </span>
                   )}
-                  {!locked && (
+                  {!done && (
                     <button
                       type="button"
                       onClick={() => setActive(isOpen ? null : task.id)}
                       className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
                     >
-                      {isOpen
-                        ? t("dashboard.closeTask")
-                        : canResubmit
-                          ? t("dashboard.resubmitProof")
-                          : t("dashboard.startTask")}
+                      {isOpen ? t("dashboard.closeTask") : t("dashboard.startTask")}
                     </button>
                   )}
                 </div>
@@ -251,7 +246,7 @@ export function TaskRunner() {
                 </div>
               )}
 
-              {isOpen && !locked && (
+              {isOpen && (
                 <div className="border-t border-slate-100 bg-slate-50 p-4">
                   {(() => {
                     const username = extractUsername(task.url);

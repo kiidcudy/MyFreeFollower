@@ -12,7 +12,8 @@ const navItems = [
   { href: "/admin/tasks", label: "Tasks", icon: "✓" },
   { href: "/admin/users", label: "Users", icon: "👥" },
   { href: "/admin/proofs", label: "Proofs", icon: "📋" },
-  { href: "/admin/orders", label: "Orders", icon: "📦" },
+  { href: "/admin/orders", label: "Free Orders", icon: "🎁" },
+  { href: "/admin/paid-orders", label: "Paid Orders", icon: "💳" },
 ];
 
 export function AdminShell({ children }: { children: ReactNode }) {

@@ -58,6 +58,10 @@ export interface ServiceOrder {
   tier: "free" | "paid";
   packageId?: string;
   status: "pending" | "processing" | "completed";
+  paymentMethod?: "card" | "crypto" | "points";
+  paymentStatus?: "pending" | "paid" | "failed";
+  chargeUSD?: number;
+  chargeEUR?: number;
   createdAt: number;
 }
 
@@ -497,13 +501,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (!current.user) return { ok: false, error: "You must be signed in." };
 
       const existing = current.proofs.find((p) => p.taskId === taskId);
-      if (existing && ["pending", "approved", "recheck"].includes(existing.status)) {
+      if (existing) {
         return {
           ok: false,
           error:
             existing.status === "approved"
-              ? "This task is already approved."
-              : "Proof for this task is already under review.",
+              ? "You have already completed this task."
+              : "You have already submitted proof for this task.",
         };
       }
 
@@ -522,11 +526,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         createdAt: Date.now(),
       };
 
-      setSession((prev) => ({
-        ...prev,
-        proofs: [proof, ...prev.proofs.filter((p) => p.taskId !== taskId)],
-      }));
-
       try {
         const res = await fetch("/api/proofs", {
           method: "POST",
@@ -537,12 +536,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             username: current.user.username,
           }),
         });
-        if (!res.ok && res.status !== 503) {
-          return { ok: false, error: "Could not submit proof. Try again." };
+        if (!res.ok) {
+          const data = (await res.json().catch(() => null)) as { error?: string } | null;
+          if (res.status === 409) {
+            return { ok: false, error: data?.error ?? "You have already submitted proof for this task." };
+          }
+          if (res.status !== 503) {
+            return { ok: false, error: data?.error ?? "Could not submit proof. Try again." };
+          }
         }
       } catch {
         return { ok: false, error: "Connection error. Try again." };
       }
+
+      setSession((prev) => ({
+        ...prev,
+        proofs: [proof, ...prev.proofs.filter((p) => p.taskId !== taskId)],
+      }));
+
       return { ok: true };
     },
     []

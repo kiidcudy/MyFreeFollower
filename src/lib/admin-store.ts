@@ -28,6 +28,10 @@ export interface AdminServiceOrder {
   tier: "free" | "paid";
   packageId?: string;
   status: "pending" | "processing" | "completed";
+  paymentMethod?: "card" | "crypto" | "points";
+  paymentStatus?: "pending" | "paid" | "failed";
+  chargeUSD?: number;
+  chargeEUR?: number;
   email: string;
   memberUsername: string;
   createdAt: number;
@@ -248,6 +252,13 @@ export async function updateServiceOrderStatus(
   id: string,
   status: "pending" | "processing" | "completed"
 ): Promise<{ ok: boolean; error?: string }> {
+  return updateServiceOrder(id, { status });
+}
+
+export async function updateServiceOrder(
+  id: string,
+  patch: Partial<AdminServiceOrder>,
+): Promise<{ ok: boolean; error?: string }> {
   try {
     const res = await fetch("/api/service-orders", {
       method: "PATCH",
@@ -255,7 +266,7 @@ export async function updateServiceOrderStatus(
         "content-type": "application/json",
         "x-admin-password": getAdminPassword(),
       },
-      body: JSON.stringify({ id, patch: { status } }),
+      body: JSON.stringify({ id, patch }),
     });
     if (res.ok) return { ok: true };
     const d = (await res.json().catch(() => null)) as { error?: string } | null;

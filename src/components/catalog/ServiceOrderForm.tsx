@@ -12,6 +12,7 @@ import {
   type CatalogService,
   type PaidTier,
 } from "@/lib/catalog";
+import { formatPrice } from "@/lib/i18n/currency";
 import { localizedPath } from "@/lib/i18n/navigation";
 import { getServiceDisplayTitle } from "@/lib/i18n/catalog-labels";
 import { formatPoints } from "@/lib/site";
@@ -27,13 +28,12 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<"points" | "card" | "crypto">("points");
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
 
   const pointsCost = useMemo(() => {
     if (isFreeService(service)) return computeFreePointsCost(service);
-    if (selectedTier) return selectedTier.points;
     return 0;
-  }, [service, selectedTier]);
+  }, [service]);
 
   const needsLink = ["Comments", "Video Views", "Reels Views", "Story Views", "Views"].includes(
     service.type,
@@ -58,10 +58,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       return;
     }
 
-    const usePoints =
-      isFreeService(service) || (isPaidService(service) && paymentMethod === "points");
-
-    if (usePoints && pointsCost > (user?.points ?? 0)) {
+    if (isFreeService(service) && pointsCost > (user?.points ?? 0)) {
       setError(t("catalog.insufficientPoints"));
       return;
     }
@@ -71,12 +68,16 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       serviceSlug: service.slug,
       serviceTitle: getServiceDisplayTitle(locale, service),
       username: username.trim(),
-      points: usePoints ? pointsCost : 0,
+      points: isFreeService(service) ? pointsCost : 0,
       quantity: isFreeService(service)
         ? service.amount
         : (selectedTier?.quantity ?? 0),
       tier: isFreeService(service) ? "free" : "paid",
       packageId: selectedTier ? String(selectedTier.quantity) : undefined,
+      paymentMethod: isPaidService(service) ? paymentMethod : "points",
+      paymentStatus: isPaidService(service) ? "pending" : undefined,
+      chargeUSD: isPaidService(service) ? selectedTier?.priceUSD : undefined,
+      chargeEUR: isPaidService(service) ? selectedTier?.priceEUR : undefined,
     });
     setLoading(false);
 
@@ -139,8 +140,8 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       {isPaidService(service) && user && (
         <div className="mt-5">
           <p className="text-sm font-semibold text-ink-800">{t("catalog.paymentMethod")}</p>
-          <div className="mt-2 grid grid-cols-3 gap-2">
-            {(["points", "card", "crypto"] as const).map((method) => (
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            {(["card", "crypto"] as const).map((method) => (
               <button
                 key={method}
                 type="button"
@@ -155,22 +156,18 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
               </button>
             ))}
           </div>
-          {(paymentMethod === "card" || paymentMethod === "crypto") && (
-            <p className="mt-2 rounded-lg bg-accent-50 px-3 py-2 text-xs text-accent-800">
-              {t("catalog.checkoutPlaceholder")}
-            </p>
-          )}
+          <p className="mt-2 rounded-lg bg-accent-50 px-3 py-2 text-xs text-accent-800">
+            {t("catalog.checkoutPlaceholder")}
+          </p>
         </div>
       )}
 
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[20px] bg-[#f5f5f7] px-4 py-4">
         <div>
           <span className="block text-sm font-semibold text-[#6e6e73]">
-            {isPaidService(service) && paymentMethod !== "points"
-              ? t("catalog.totalDue")
-              : t("catalog.pointsCost")}
+            {isPaidService(service) ? t("catalog.totalDue") : t("catalog.pointsCost")}
           </span>
-          {user && (isFreeService(service) || paymentMethod === "points") && (
+          {user && isFreeService(service) && (
             <span className="mt-1 block text-xs text-[#86868b]">
               {t("dashboard.pointsBalance")}: {formatPoints(user.points)} ·{" "}
               {t("dashboard.remainingBalance")}:{" "}
@@ -181,8 +178,8 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
         <span className="font-display text-lg font-semibold text-[#0077ed]">
           {!user
             ? t("catalog.signUpToClaim")
-            : isPaidService(service) && paymentMethod !== "points" && selectedTier
-              ? `$${selectedTier.priceUSD.toFixed(2)}`
+            : isPaidService(service) && selectedTier
+              ? formatPrice(locale, selectedTier.priceUSD)
               : `${formatPoints(pointsCost)} ${t("common.points")}`}
         </span>
       </div>

@@ -4,13 +4,14 @@ import { useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
 import { allPaidServices, getPlatformEmoji } from "@/lib/catalog";
-import { formatPoints, formatUSD } from "@/lib/site";
+import { formatPrice } from "@/lib/i18n/currency";
 
 export default function DashboardBuyServicesPage() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const { user, spendPoints } = useAuth();
   const [username, setUsername] = useState("");
   const [selected, setSelected] = useState<Record<string, number>>({});
+  const [paymentMethods, setPaymentMethods] = useState<Record<string, "card" | "crypto">>({});
   const [loading, setLoading] = useState<string | null>(null);
   const [message, setMessage] = useState<{ type: "ok" | "err"; text: string } | null>(null);
 
@@ -28,10 +29,7 @@ export default function DashboardBuyServicesPage() {
     const tier = service.tiers[tierIdx];
     if (!tier) return;
 
-    if (user.points < tier.points) {
-      setMessage({ type: "err", text: t("catalog.insufficientPoints") });
-      return;
-    }
+    const paymentMethod = paymentMethods[slug] ?? "card";
 
     setLoading(slug);
     setMessage(null);
@@ -40,10 +38,14 @@ export default function DashboardBuyServicesPage() {
       serviceSlug: slug,
       serviceTitle: title,
       username: target,
-      points: tier.points,
+      points: 0,
       quantity: tier.quantity,
       tier: "paid",
       packageId: String(tier.quantity),
+      paymentMethod,
+      paymentStatus: "pending",
+      chargeUSD: tier.priceUSD,
+      chargeEUR: tier.priceEUR,
     });
     setLoading(null);
     if (res.ok) {
@@ -73,11 +75,6 @@ export default function DashboardBuyServicesPage() {
             className="mt-2 w-full max-w-md rounded-lg border border-slate-200 px-3 py-2 text-sm"
           />
         </label>
-        {user && (
-          <p className="mt-2 text-sm text-brand-800">
-            {t("dashboard.pointsBalance")}: {formatPoints(user.points)} {t("common.points")}
-          </p>
-        )}
       </div>
 
       {message && (
@@ -94,7 +91,7 @@ export default function DashboardBuyServicesPage() {
         {allPaidServices.slice(0, 18).map((service) => {
           const tierIdx = selected[service.slug] ?? 0;
           const tier = service.tiers[tierIdx] ?? service.tiers[0];
-          const canAfford = (user?.points ?? 0) >= (tier?.points ?? 0);
+          const paymentMethod = paymentMethods[service.slug] ?? "card";
 
           return (
             <article
@@ -112,10 +109,7 @@ export default function DashboardBuyServicesPage() {
                   </div>
                 </div>
                 <div className="text-end text-sm">
-                  <p className="font-bold text-brand-800">
-                    {formatPoints(tier.points)} {t("common.points")}
-                  </p>
-                  <p className="text-xs text-slate-500">{formatUSD(tier.priceUSD)}</p>
+                  <p className="font-bold text-brand-800">{formatPrice(locale, tier.priceUSD)}</p>
                 </div>
               </div>
 
@@ -132,24 +126,41 @@ export default function DashboardBuyServicesPage() {
                 >
                   {service.tiers.map((tr, i) => (
                     <option key={i} value={i}>
-                      {tr.quantity} {service.unit} — {formatPoints(tr.points)} pts (
-                      {formatUSD(tr.priceUSD)})
+                      {tr.quantity} {service.unit} — {formatPrice(locale, tr.priceUSD)}
                     </option>
                   ))}
                 </select>
               </div>
 
+              <div className="mt-4">
+                <p className="text-xs font-semibold text-ink-700">{t("catalog.paymentMethod")}</p>
+                <div className="mt-2 flex gap-2">
+                  {(["card", "crypto"] as const).map((method) => (
+                    <button
+                      key={method}
+                      type="button"
+                      onClick={() =>
+                        setPaymentMethods((s) => ({ ...s, [service.slug]: method }))
+                      }
+                      className={`rounded-lg border px-3 py-1.5 text-xs font-semibold ${
+                        paymentMethod === method
+                          ? "border-brand-600 bg-brand-50 text-brand-800"
+                          : "border-slate-200 text-slate-600"
+                      }`}
+                    >
+                      {t(`catalog.payWith${method.charAt(0).toUpperCase()}${method.slice(1)}`)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <button
                 type="button"
-                disabled={!canAfford || loading === service.slug}
+                disabled={!user || loading === service.slug}
                 onClick={() => handleOrder(service.slug)}
-                className={`mt-4 rounded-lg px-4 py-2 text-sm font-semibold ${
-                  canAfford
-                    ? "bg-brand-600 text-white hover:bg-brand-700"
-                    : "cursor-not-allowed bg-slate-100 text-slate-400"
-                }`}
+                className="mt-4 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                {loading === service.slug ? t("common.loading") : t("catalog.orderNow")}
+                {loading === service.slug ? t("common.loading") : t("catalog.buyNow")}
               </button>
             </article>
           );

@@ -166,6 +166,10 @@ export interface Proof {
   reviewedAt?: number;
 }
 
+export type OrderPaymentMethod = "card" | "crypto" | "points";
+export type OrderPaymentStatus = "pending" | "paid" | "failed";
+export type OrderDeliveryStatus = "pending" | "processing" | "completed";
+
 export interface ServiceOrder {
   id: string;
   serviceSlug: string;
@@ -175,7 +179,12 @@ export interface ServiceOrder {
   quantity: number;
   tier: "free" | "paid";
   packageId?: string;
-  status: "pending" | "processing" | "completed";
+  /** Delivery / fulfillment status */
+  status: OrderDeliveryStatus;
+  paymentMethod?: OrderPaymentMethod;
+  paymentStatus?: OrderPaymentStatus;
+  chargeUSD?: number;
+  chargeEUR?: number;
   email: string;
   memberUsername: string;
   createdAt: number;
@@ -506,13 +515,16 @@ export async function getProofById(id: string): Promise<Proof | undefined> {
   return all.find((p) => p.id === id);
 }
 
-export async function addProof(proof: Proof): Promise<void> {
+export async function addProof(
+  proof: Proof,
+): Promise<{ ok: true } | { ok: false; error: string }> {
   const all = await getProofs();
-  const filtered = all.filter(
-    (p) => !(p.email === proof.email && p.taskId === proof.taskId)
-  );
-  filtered.unshift(proof);
-  await setProofs(filtered);
+  if (all.some((p) => p.email === proof.email && p.taskId === proof.taskId)) {
+    return { ok: false, error: "You have already submitted proof for this task." };
+  }
+  all.unshift(proof);
+  await setProofs(all);
+  return { ok: true };
 }
 
 export async function deleteProof(proofId: string): Promise<boolean> {

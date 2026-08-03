@@ -37,7 +37,10 @@ export async function POST(req: Request) {
     createdAt: Date.now(),
   };
 
-  await addProof(proof);
+  const result = await addProof(proof);
+  if (!result.ok) {
+    return NextResponse.json({ error: result.error }, { status: 409 });
+  }
   return NextResponse.json({ ok: true, id: proof.id });
 }
 

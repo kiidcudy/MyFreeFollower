@@ -165,7 +165,7 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
 
   const metaTitle = `${title} — From ${startPrice} | ${siteConfig.name}`;
   const description = clampDescription(
-    `Buy ${focusKeyword} from ${startPrice}. Instant delivery in ${service.delivery}. Pay with card, crypto, or points. Trusted ${service.platform} growth — no password required.`,
+    `Buy ${focusKeyword} from ${startPrice}. Instant delivery in ${service.delivery}. Pay with card or crypto. Trusted ${service.platform} growth — no password required.`,
   );
 
   const intro = `${focusKeyword} on ${siteConfig.name} delivers real-looking ${service.unit} with fast, gradual delivery. Packages start at ${startQty.toLocaleString("en-US")} ${service.unit} for ${startPrice}. Enter your username, choose a tier, and checkout securely — we never request your password. Ideal for launches, campaigns, and scaling social proof across ${service.platform}.`;
@@ -173,7 +173,7 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
   const highlights = [
     `Packages from ${startPrice} with volume discounts`,
     `Delivery starts within ${service.delivery}`,
-    "Pay by card, crypto, or earned points",
+    "Pay by card or cryptocurrency",
     "No password — username or link only",
     "24/7 support and order tracking in dashboard",
   ];
@@ -189,11 +189,11 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
     },
     {
       heading: `Pricing & Payment Options`,
-      body: `Choose from preset tiers up to ${service.tiers[service.tiers.length - 1]?.quantity.toLocaleString("en-US") ?? "10,000"} ${service.unit}. Pay by card, cryptocurrency, or spend earned points at ${siteConfig.servicePointToMoney} points per $1. Volume tiers reduce the per-unit price automatically.`,
+      body: `Choose from preset tiers up to ${service.tiers[service.tiers.length - 1]?.quantity.toLocaleString("en-US") ?? "10,000"} ${service.unit}. Pay by credit/debit card or cryptocurrency at checkout. Volume tiers reduce the per-unit price automatically.`,
     },
     {
       heading: `How to Order ${label}`,
-      body: `Select a package size, enter your ${service.platform} username or link, and complete checkout. You can also earn points through free tasks and redeem them toward paid services. Track status anytime from your orders page.`,
+      body: `Select a package size, enter your ${service.platform} username or link, and complete checkout with card or crypto. Track status anytime from your orders page.`,
     },
     {
       heading: `Who Buys ${service.platform} ${service.type}?`,
@@ -209,7 +209,7 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
     },
     {
       heading: "Build a Long-Term Growth Plan",
-      body: `Combine paid ${service.type.toLowerCase()} with organic content, free task points, and cross-platform packages on ${siteConfig.name}. Many customers start with a small tier, measure results, then scale during product launches or seasonal campaigns.`,
+      body: `Combine paid ${service.type.toLowerCase()} with organic content, free task rewards, and cross-platform packages on ${siteConfig.name}. Many customers start with a small tier, measure results, then scale during product launches or seasonal campaigns.`,
     },
   ];
 
@@ -223,8 +223,12 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
       answer: `Most ${focusKeyword} orders begin within ${service.delivery}. Completion time depends on package size and current queue volume.`,
     },
     {
-      question: `Can I pay with points instead of money?`,
-      answer: `Yes. Earn points by completing tasks, then spend them at checkout. Point prices are shown alongside USD for every tier.`,
+      question: `Which payment methods are accepted?`,
+      answer: `Credit/debit card and cryptocurrency are supported at checkout. Prices display in your local currency where available.`,
+    },
+    {
+      question: `Can I use free task points for paid packages?`,
+      answer: `No. Points are for free trial services only. Paid packages require card or crypto checkout.`,
     },
     {
       question: `What if I need help with my order?`,
@@ -235,16 +239,8 @@ function generatePaidSeoContent(service: PaidCatalogService): SeoContent {
       answer: "Eligible orders may qualify for refills per our service terms. Open a ticket with your order details and our team will review.",
     },
     {
-      question: "Can I combine free tasks with paid orders?",
-      answer: "Yes. Earn points from dashboard tasks and apply them at checkout, or pay by card/crypto for instant larger packages.",
-    },
-    {
       question: "Can I order multiple tiers over time?",
       answer: "Yes. Many customers reorder smaller tiers for ongoing campaigns or upgrade to higher quantities for launches.",
-    },
-    {
-      question: "Which payment methods are accepted?",
-      answer: "Card, cryptocurrency, and points are supported. Prices display in your local currency where available.",
     },
   ];
 

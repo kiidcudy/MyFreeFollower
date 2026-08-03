@@ -51,7 +51,7 @@ export const tr: DeepPartial<Messages> = {
     title: "Panel",
     welcome: "Tekrar hoÅŸ geldin",
     pointsBalance: "Puan bakiyesi",
-    pointsSpendHint: "PuanlarÄ±nÄ±zÄ± Ã¼cretsiz ve Ã¼cretli bÃ¼yÃ¼me hizmetlerinde harcayÄ±n.",
+    pointsSpendHint: "Puanlarınızı katalogdaki ücretsiz büyüme hizmetlerinde harcayın.",
     tasks: "GÃ¶revler",
     proofs: "KanÄ±tlar",
     freeServices: "Ãœcretsiz Servisler",
