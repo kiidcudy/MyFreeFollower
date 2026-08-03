@@ -461,6 +461,7 @@ export const en = {
     customQuantity: "Custom quantity",
     relatedServices: "Related services",
     faqTitle: "Frequently asked questions",
+    highlightsTitle: "Key benefits",
     platformFreeHeading: "Free {platform} services",
     platformFreeDesc:
       "Browse every free trial for {platform} — followers, likes, views, and more. No password, just your public link.",

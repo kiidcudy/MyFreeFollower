@@ -3,8 +3,10 @@ import type { SeoContent } from "@/lib/catalog/seo-content";
 import {
   getBuyServiceTitle,
   getFreeServiceTitle,
+  localizeDelivery,
   localizePlatform,
   localizeType,
+  localizeUnit,
 } from "@/lib/i18n/catalog-labels";
 import { clampDescription } from "@/lib/seo";
 import {
@@ -23,6 +25,7 @@ interface SeoTemplateSet {
   description: string;
   focusKeyword: string;
   intro: string;
+  highlights?: string[];
   sections: { heading: string; body: string }[];
   faq: { question: string; answer: string }[];
 }
@@ -48,6 +51,7 @@ function renderSet(set: SeoTemplateSet, vars: Record<string, string>): SeoConten
     description: clampDescription(applyTemplate(set.description, filled)),
     focusKeyword: keyword,
     intro: applyTemplate(set.intro, filled),
+    highlights: (set.highlights ?? []).map((h) => applyTemplate(h, filled)),
     sections: set.sections.map((s) => ({
       heading: applyTemplate(s.heading, filled),
       body: applyTemplate(s.body, filled),
@@ -68,7 +72,7 @@ function freeVars(locale: Locale, service: FreeCatalogService): Record<string, s
     type,
     title: getFreeServiceTitle(locale, service.platform, service.type),
     amount,
-    unit: service.unit,
+    unit: localizeUnit(locale, service.unit),
     brand: siteConfig.name,
     points: formatPoints(computeFreePointsCost(service)),
     startPrice: "",
@@ -100,12 +104,12 @@ function paidVars(locale: Locale, service: PaidCatalogService): Record<string, s
     type,
     title: getBuyServiceTitle(locale, service.platform, service.type),
     amount: "",
-    unit: service.unit,
+    unit: localizeUnit(locale, service.unit),
     brand: siteConfig.name,
     points: "",
     startPrice,
     startQty,
-    delivery: service.delivery,
+    delivery: localizeDelivery(locale, service.delivery),
     maxQty,
     pointsRate: String(siteConfig.servicePointToMoney),
     platformLower: platform.toLowerCase(),

@@ -1,0 +1,27 @@
+{
+  "units": {
+    "followers": "followers",
+    "likes": "likes",
+    "views": "views",
+    "comments": "comments",
+    "shares": "shares",
+    "saves": "saves",
+    "members": "members",
+    "plays": "plays",
+    "reposts": "reposts",
+    "upvotes": "upvotes",
+    "reactions": "reactions",
+    "reviews": "reviews",
+    "visits": "visits",
+    "subscribers": "subscribers",
+    "hours": "hours",
+    "listeners": "listeners"
+  },
+  "delivery": {
+    "0–60 min": "0–60 min",
+    "Gradual": "Gradual",
+    "1–3 days": "1–3 days",
+    "1–24 hours": "1–24 hours",
+    "2–5 days": "2–5 days"
+  }
+}

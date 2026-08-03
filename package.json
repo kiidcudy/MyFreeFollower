@@ -9,7 +9,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "echo \"Lint skipped\""
+    "lint": "echo \"Lint skipped\"",
+    "translate": "node scripts/sync-translations.mjs",
+    "translate:seo": "node scripts/sync-translations.mjs --seo-only",
+    "translate:catalog": "node scripts/sync-translations.mjs --catalog-only"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

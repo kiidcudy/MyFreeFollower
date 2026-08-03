@@ -1,0 +1,164 @@
+{
+  "free": {
+    "metaTitle": "{title} — {amount} {unit} Trial | {brand}",
+    "description": "Claim {amount} {unit} {keyword} on {brand}. Complete simple tasks, earn points, and redeem — no password required. Start free social media growth today.",
+    "focusKeyword": "free {platform} {type}",
+    "intro": "{keyword} lets you test real growth on {platform} without paying upfront. On {brand}, you earn points by completing micro-tasks and redeem them for a {amount} {unit} trial package. We never ask for your password — only your public username or profile link. Thousands of members use our task economy daily before upgrading to paid packages.",
+    "highlights": [
+      "No password required — public username or link only",
+      "{amount} {unit} trial sized for real testing",
+      "Earn points through simple dashboard tasks",
+      "Delivery typically starts within 0–24 hours",
+      "Upgrade to paid tiers anytime from the same account"
+    ],
+    "sections": [
+      {
+        "heading": "What Are Free {platform} {type}?",
+        "body": "Free {typeLower} on {platform} help you build social proof before investing in larger packages. Our {amount} {unit} trial is sized for testing delivery speed and quality. {keyword} is ideal for new creators, small businesses, and anyone exploring task-based SMM growth."
+      },
+      {
+        "heading": "How to Claim Free {title}",
+        "body": "Sign up free, browse available tasks, and submit proof when finished. Approved tasks credit points to your balance. When you have enough points (this service costs about {points} points), open the order form, enter your username, and confirm. Delivery typically starts within 0–24 hours."
+      },
+      {
+        "heading": "Why Choose {brand} for Free Growth",
+        "body": "{brand} combines a task economy with a full paid catalog across 24 platforms. You can start with {keyword}, then scale with affordable paid tiers or keep earning through daily tasks. Support is available 24/7 via live chat and WhatsApp."
+      },
+      {
+        "heading": "Free vs Paid {platform} {type}",
+        "body": "Free trials use earned points and are perfect for testing. Paid packages deliver larger quantities instantly with card, crypto, or points at checkout. Many members claim a free trial first, then upgrade when they see results."
+      },
+      {
+        "heading": "Who Should Use Free {platform} {type}?",
+        "body": "Free trials suit new accounts, side projects, local businesses, and creators validating a niche before ad spend. If you want to see how {platform} {typeLower} affect profile trust and engagement signals, a {amount} {unit} test is a low-risk starting point."
+      },
+      {
+        "heading": "Step-by-Step: Sign-Up to Delivery",
+        "body": "1) Create a free account. 2) Complete tasks in your dashboard and collect points. 3) Open this service page and redeem your trial. 4) Enter your public username or profile URL. 5) Track delivery from your orders area. Most trials begin within 0–24 hours."
+      },
+      {
+        "heading": "Tips for Best Results",
+        "body": "Use a complete public profile with a clear photo and bio. Avoid changing your username during delivery. Combine {typeLower} with consistent posting for stronger organic momentum. Save screenshots if you plan to compare before/after metrics."
+      },
+      {
+        "heading": "Support, Guarantees & Fair Use",
+        "body": "{brand} provides 24/7 support for order questions. Free trials are limited per service to keep the system fair for all members. We never request passwords or private account access. Report any delivery issue with your order ID for fast help."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is {keyword} really free?",
+        "answer": "Yes. You earn points by completing tasks — no credit card required. This {amount} {unit} package costs approximately {points} points to redeem."
+      },
+      {
+        "question": "Do I need to share my {platform} password?",
+        "answer": "Never. We only need your public username or profile URL. {brand} will never ask for your password."
+      },
+      {
+        "question": "How long does free {typeLower} delivery take?",
+        "answer": "Most free orders start within 0–24 hours. Larger queues may extend completion time slightly, but delivery is gradual and safe for your account."
+      },
+      {
+        "question": "Can I order free {typeLower} more than once?",
+        "answer": "Free trials are limited per service to keep the system fair. You can explore other free services on the same platform or upgrade to a paid package for larger quantities."
+      },
+      {
+        "question": "Is my {platform} account safe?",
+        "answer": "We only use public profile information you provide. Delivery is gradual and designed to look natural. Never share passwords with any growth service."
+      },
+      {
+        "question": "Can I use points on other platforms too?",
+        "answer": "Yes. Points are shared across the {brand} catalog — Instagram, TikTok, YouTube, and 20+ other platforms."
+      },
+      {
+        "question": "Do free trial points expire?",
+        "answer": "Points remain on your account while you stay active. Complete tasks regularly to maintain balance for redemptions."
+      },
+      {
+        "question": "What if delivery is slow or incomplete?",
+        "answer": "Contact 24/7 support with your order ID and username. We review queue status and help resolve eligible issues quickly."
+      }
+    ]
+  },
+  "paid": {
+    "metaTitle": "{title} — From {startPrice} | {brand}",
+    "description": "Buy {keyword} from {startPrice}. Instant delivery in {delivery}. Pay with card, crypto, or points. Trusted {platform} growth — no password required.",
+    "focusKeyword": "buy {platform} {type}",
+    "intro": "{keyword} on {brand} delivers real-looking {unit} with fast, gradual delivery. Packages start at {startQty} {unit} for {startPrice}. Enter your username, choose a tier, and checkout securely — we never request your password. Ideal for launches, campaigns, and scaling social proof across {platform}.",
+    "highlights": [
+      "Packages from {startPrice} with volume discounts",
+      "Delivery starts within {delivery}",
+      "Pay by card, crypto, or earned points",
+      "No password — username or link only",
+      "24/7 support and order tracking in dashboard"
+    ],
+    "sections": [
+      {
+        "heading": "Why Buy {platform} {type}?",
+        "body": "{type} on {platform} signal popularity and trust. Higher counts improve first impressions, encourage organic engagement, and help content reach wider audiences. {keyword} is one of the fastest ways to kick-start momentum when you launch a profile, campaign, or product."
+      },
+      {
+        "heading": "Delivery & Quality",
+        "body": "Orders typically start within {delivery}. Delivery is spread naturally to protect account health. All packages are backed by {brand} support and transparent order tracking in your dashboard."
+      },
+      {
+        "heading": "Pricing & Payment Options",
+        "body": "Choose from preset tiers up to {maxQty} {unit}. Pay by card, cryptocurrency, or spend earned points at {pointsRate} points per $1. Volume tiers reduce the per-unit price automatically."
+      },
+      {
+        "heading": "How to Order {title}",
+        "body": "Select a package size, enter your {platform} username or link, and complete checkout. You can also earn points through free tasks and redeem them toward paid services. Track status anytime from your orders page."
+      },
+      {
+        "heading": "Who Buys {platform} {type}?",
+        "body": "Creators, brands, agencies, and small businesses buy {typeLower} to improve credibility at launch, support ad campaigns, or strengthen social proof before partnerships. {keyword} helps new profiles look established faster."
+      },
+      {
+        "heading": "What's Included in Every Order",
+        "body": "Every order includes gradual delivery, dashboard tracking, tier-based pricing, and access to 24/7 support. You choose quantity and payment method — we handle fulfillment from {startQty} up to {maxQty} {unit}."
+      },
+      {
+        "heading": "Refunds, Refills & Order Handling",
+        "body": "If eligible delivery issues occur, contact support with your order ID. We review queue logs and policy terms to offer refills or credits where applicable. See our refund policy for full details."
+      },
+      {
+        "heading": "Build a Long-Term Growth Plan",
+        "body": "Combine paid {typeLower} with organic content, free task points, and cross-platform packages on {brand}. Many customers start with a small tier, measure results, then scale during product launches or seasonal campaigns."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is it safe to buy {platform} {typeLower}?",
+        "answer": "Yes. We never ask for your password. Delivery is gradual and designed to look natural. Thousands of orders are processed daily on {brand}."
+      },
+      {
+        "question": "How fast will my order start?",
+        "answer": "Most {keyword} orders begin within {delivery}. Completion time depends on package size and current queue volume."
+      },
+      {
+        "question": "Can I pay with points instead of money?",
+        "answer": "Yes. Earn points by completing tasks, then spend them at checkout. Point prices are shown alongside USD for every tier."
+      },
+      {
+        "question": "What if I need help with my order?",
+        "answer": "Contact our 24/7 support team via live chat or WhatsApp. Provide your order ID and username for the fastest resolution."
+      },
+      {
+        "question": "Do you offer drop protection or refills?",
+        "answer": "Eligible orders may qualify for refills per our service terms. Open a ticket with your order details and our team will review."
+      },
+      {
+        "question": "Can I combine free tasks with paid orders?",
+        "answer": "Yes. Earn points from dashboard tasks and apply them at checkout, or pay by card/crypto for instant larger packages."
+      },
+      {
+        "question": "Can I order multiple tiers over time?",
+        "answer": "Yes. Many customers reorder smaller tiers for ongoing campaigns or upgrade to higher quantities for launches."
+      },
+      {
+        "question": "Which payment methods are accepted?",
+        "answer": "Card, cryptocurrency, and points are supported. Prices display in your local currency where available."
+      }
+    ]
+  }
+}

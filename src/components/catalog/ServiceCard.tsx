@@ -10,7 +10,7 @@ import {
   isPaidService,
   type CatalogService,
 } from "@/lib/catalog";
-import { getServiceDisplayTitle } from "@/lib/i18n/catalog-labels";
+import { getServiceDisplayTitle, localizeDelivery, localizeUnit } from "@/lib/i18n/catalog-labels";
 import { formatPrice } from "@/lib/i18n/currency";
 import { formatPoints } from "@/lib/site";
 
@@ -25,14 +25,16 @@ export function ServiceCard({ service }: { service: CatalogService }) {
 
   let subtitle = "";
   if (isFreeService(service)) {
+    const unit = localizeUnit(locale, service.unit);
     subtitle = ready && user
-      ? `${service.amount.toLocaleString()} ${service.unit} · ${formatPoints(computeFreePointsCost(service))} ${t("common.points")}`
-      : `${service.amount.toLocaleString()} ${service.unit} · ${t("catalog.signUpToClaim")}`;
+      ? `${service.amount.toLocaleString()} ${unit} · ${formatPoints(computeFreePointsCost(service))} ${t("common.points")}`
+      : `${service.amount.toLocaleString()} ${unit} · ${t("catalog.signUpToClaim")}`;
   } else if (isPaidService(service)) {
     const start = service.tiers[0];
+    const delivery = localizeDelivery(locale, service.delivery);
     subtitle = start
-      ? `${t("common.from")} ${formatPrice(locale, start.priceUSD)} · ${service.delivery}`
-      : service.delivery;
+      ? `${t("common.from")} ${formatPrice(locale, start.priceUSD)} · ${delivery}`
+      : delivery;
   }
 
   return (

@@ -15,7 +15,7 @@ import {
   serviceCanonicalPath,
 } from "@/lib/catalog/seo-content";
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n/config";
-import { getFreeServiceTitle } from "@/lib/i18n/catalog-labels";
+import { getFreeServiceTitle, localizeUnit } from "@/lib/i18n/catalog-labels";
 import { t } from "@/lib/i18n/translations";
 import { formatPoints } from "@/lib/site";
 import {
@@ -109,7 +109,7 @@ export default async function FreeServiceDetailPage({
                 {title}
               </h1>
               <p className="mt-2 text-sm text-ink-700">
-                {service.amount.toLocaleString()} {service.unit} ·{" "}
+                {service.amount.toLocaleString()} {localizeUnit(locale, service.unit)} ·{" "}
                 {formatPoints(pointsCost)} {t(locale, "common.points")} ·{" "}
                 {t(locale, "catalog.deliveryTime")}
               </p>
@@ -117,6 +117,25 @@ export default async function FreeServiceDetailPage({
           </div>
 
           <p className="mt-6 text-base leading-relaxed text-ink-800">{seo.intro}</p>
+
+          {seo.highlights.length > 0 && (
+            <section className="mt-6">
+              <h2 className="font-display text-lg font-bold text-ink-900">
+                {t(locale, "catalog.highlightsTitle")}
+              </h2>
+              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                {seo.highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-2 rounded-xl border border-brand-100 bg-brand-50/60 px-3 py-2.5 text-sm text-ink-800"
+                  >
+                    <span className="font-bold text-brand-700">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <div className="prose prose-slate mt-8 max-w-none">
             {seo.sections.map((section) => (

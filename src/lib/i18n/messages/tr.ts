@@ -86,6 +86,7 @@ export const tr: DeepPartial<Messages> = {
     freeWithTasks: "Görevlerle ücretsiz",
     buyNow: "Şimdi satın al",
     claimFree: "Ücretsiz al",
+    highlightsTitle: "Temel avantajlar",
     usernameHint: "Asla şifrenizi istemiyoruz.",
   },
   common: {

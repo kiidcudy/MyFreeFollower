@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { CatalogService } from "@/lib/catalog/types";
 import { isFreeService } from "@/lib/catalog/types";
+import { localizeDeliveryLabel, localizeUnitLabel } from "@/lib/i18n/catalog-units";
 
 const PLATFORMS: Record<Locale, Record<string, string>> = {
   en: { "X (Twitter)": "X (Twitter)", "Website Traffic": "Website Traffic" },
@@ -332,6 +333,14 @@ export function localizePlatform(locale: Locale, platform: string): string {
 
 export function localizeType(locale: Locale, type: string): string {
   return TYPES[locale]?.[type] ?? type;
+}
+
+export function localizeUnit(locale: Locale, unit: string): string {
+  return localizeUnitLabel(locale, unit);
+}
+
+export function localizeDelivery(locale: Locale, delivery: string): string {
+  return localizeDeliveryLabel(locale, delivery);
 }
 
 export function getFreeServiceTitle(locale: Locale, platform: string, type: string): string {
