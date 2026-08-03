@@ -70,7 +70,7 @@ export const id: DeepPartial<Messages> = {
   },
   common: {
     ...en.common,
-    loading: "Memuatâ€¦",
+    loading: "Memuat…",
     save: "Simpan",
     cancel: "Batal",
     close: "Tutup",
@@ -85,10 +85,10 @@ export const id: DeepPartial<Messages> = {
     privacyPolicy: "Kebijakan privasi",
     terms: "Syarat layanan",
     sitemap: "Peta situs",
-    copyright: "Â© {year} MyFreeFollower. Hak cipta dilindungi.",
+    copyright: "© {year} MyFreeFollower. Hak cipta dilindungi.",
   },
   meta: {
     ...en.meta,
-    defaultTitle: "MyFreeFollower â€” Kerjakan tugas. Dapatkan followers gratis.",
+    defaultTitle: "MyFreeFollower — Kerjakan tugas. Dapatkan followers gratis.",
   },
 };

@@ -70,7 +70,7 @@ export const nl: DeepPartial<Messages> = {
   },
   common: {
     ...en.common,
-    loading: "Ladenâ€¦",
+    loading: "Laden…",
     save: "Opslaan",
     cancel: "Annuleren",
     close: "Sluiten",
@@ -85,10 +85,10 @@ export const nl: DeepPartial<Messages> = {
     privacyPolicy: "Privacybeleid",
     terms: "Servicevoorwaarden",
     sitemap: "Sitemap",
-    copyright: "Â© {year} MyFreeFollower. Alle rechten voorbehouden.",
+    copyright: "© {year} MyFreeFollower. Alle rechten voorbehouden.",
   },
   meta: {
     ...en.meta,
-    defaultTitle: "MyFreeFollower â€” Doe taken. Krijg gratis volgers.",
+    defaultTitle: "MyFreeFollower — Doe taken. Krijg gratis volgers.",
   },
 };
