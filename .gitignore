@@ -4,3 +4,6 @@ node_modules
 .env.local
 .vercel
 *.tsbuildinfo
+public/sitemap.xml
+public/sitemaps/
+public/robots.txt
