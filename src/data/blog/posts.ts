@@ -688,7 +688,7 @@ Join creator communities that discuss ethical SMM — not password-sharing schem
 
 When campaigns succeed, reinvest a portion of revenue into [buy followers](/buy-followers) packages while keeping tasks as a baseline hedge against cash flow dips. Creators who master both sides — **earned** and **paid** — outlast pure free riders and overspending buyers.
 
-Connect this playbook with deep dives: [free followers guide 2026](/blog/free-followers-guide-2026) for strategy, [free TikTok likes and views](/blog/free-tiktok-likes-and-views) for video metrics, and [buy cheap followers safely](/blog/buy-cheap-followers-safely) when you scale spend. Questions about tasks, proofs, or withdrawals appear in the [FAQ](/faq). Start earning today — open the task board after signup and claim your first assignment within minutes.`,
+Connect this playbook with deep dives: [free followers guide 2026](/blog/free-followers-guide-2026) for strategy, [free TikTok likes and views](/blog/free-tiktok-likes-and-views) for video metrics, and [buy cheap followers safely](/blog/buy-cheap-followers-safely) when you scale spend. Questions about tasks, proofs, or spending points appear in the [FAQ](/faq). Start earning today — open the task board after signup and claim your first assignment within minutes.`,
       },
       {
         h2: "Scaling Task Earnings Without Burnout",
@@ -744,7 +744,7 @@ End each month by redeeming at least one service — unused points do not improv
       },
       {
         q: "Can I withdraw points as cash?",
-        a: "Points redeem for growth services on the platform. Separate withdrawal rules apply to referral earnings — see your dashboard and FAQ for current thresholds and policies.",
+        a: "No. Points are used only for free and paid growth services on the platform — followers, likes, views, and more.",
       },
       {
         q: "Do task approvals happen on weekends?",

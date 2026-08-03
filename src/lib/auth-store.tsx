@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { findTask as findTaskInList, legacyDemoTaskIds, type Task } from "@/lib/tasks/data";
-import { effectivePoints, moneyFromPoints, siteConfig } from "@/lib/site";
+import { effectivePoints, siteConfig } from "@/lib/site";
 
 export type ProofStatus =
   | "pending"
@@ -115,9 +115,6 @@ interface AuthContextValue extends SessionState {
   ) => Promise<{ ok: boolean; error?: string }>;
   claimDailyBonus: () => { ok: boolean; error?: string; points?: number };
   reward: (points: number) => { ok: boolean; error?: string };
-  requestWithdraw: (
-    w: Omit<Withdrawal, "id" | "status" | "createdAt" | "amountMoney" | "amountUSD">
-  ) => Promise<{ ok: boolean; error?: string }>;
   spendPoints: (
     o: Omit<ServiceOrder, "id" | "status" | "createdAt">
   ) => Promise<{ ok: boolean; error?: string; order?: ServiceOrder }>;
@@ -308,7 +305,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         email,
         data: {
           user: session.user,
-          withdrawals: session.withdrawals,
         },
       }),
       keepalive: true,
@@ -600,55 +596,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return result;
   }, []);
 
-  const requestWithdraw: AuthContextValue["requestWithdraw"] = useCallback(async (w) => {
-    const current = sessionRef.current;
-    if (!current.user) return { ok: false, error: "You must be signed in." };
-    if (w.amountPoints > current.user.points) {
-      return { ok: false, error: "Insufficient points." };
-    }
-    if (w.amountPoints < siteConfig.minWithdrawPoints) {
-      return {
-        ok: false,
-        error: `Minimum withdrawal is ${siteConfig.minWithdrawPoints.toLocaleString()} points.`,
-      };
-    }
-
-    const amountMoney = moneyFromPoints(w.amountPoints);
-    const withdrawal: Withdrawal = {
-      ...w,
-      amountMoney,
-      amountUSD: amountMoney,
-      id: genId("wd"),
-      status: "pending",
-      createdAt: Date.now(),
-    };
-
-    setSession((prev) => ({
-      ...prev,
-      withdrawals: [withdrawal, ...prev.withdrawals],
-      user: prev.user ? { ...prev.user, points: prev.user.points - w.amountPoints } : null,
-    }));
-
-    try {
-      await fetch("/api/admin/withdrawals", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          action: "create",
-          withdrawal: {
-            ...withdrawal,
-            email: current.user.email,
-            username: current.user.username,
-          },
-        }),
-      });
-    } catch {
-      /* synced via accounts POST */
-    }
-
-    return { ok: true };
-  }, []);
-
   const spendPoints: AuthContextValue["spendPoints"] = useCallback(async (o) => {
     const current = sessionRef.current;
     if (!current.user) return { ok: false, error: "You must be signed in." };
@@ -722,7 +669,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       submitProof,
       claimDailyBonus,
       reward,
-      requestWithdraw,
       spendPoints,
       refreshTasks,
       updateProfile,
@@ -738,7 +684,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       submitProof,
       claimDailyBonus,
       reward,
-      requestWithdraw,
       spendPoints,
       refreshTasks,
       updateProfile,

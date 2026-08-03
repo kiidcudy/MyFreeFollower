@@ -15,7 +15,6 @@ const navKeys = [
   { href: "/dashboard/free-services", key: "freeServices", icon: "🎁" },
   { href: "/dashboard/buy-services", key: "buyServices", icon: "🛒" },
   { href: "/dashboard/points", key: "pointsHistory", icon: "💎" },
-  { href: "/dashboard/withdraw", key: "withdraw", icon: "💸" },
   { href: "/dashboard/referrals", key: "referrals", icon: "🔗" },
   { href: "/dashboard/daily-bonus", key: "dailyBonus", icon: "⭐" },
   { href: "/dashboard/surveys", key: "surveys", icon: "📝" },

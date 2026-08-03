@@ -13,7 +13,6 @@ const navItems = [
   { href: "/admin/users", label: "Users", icon: "👥" },
   { href: "/admin/proofs", label: "Proofs", icon: "📋" },
   { href: "/admin/orders", label: "Orders", icon: "📦" },
-  { href: "/admin/withdrawals", label: "Withdrawals", icon: "💸" },
 ];
 
 export function AdminShell({ children }: { children: ReactNode }) {

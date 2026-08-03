@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { LocalizedLink } from "@/components/i18n/LocalizedLink";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
-import { formatMoney, formatPoints, moneyFromPoints } from "@/lib/site";
+import { formatPoints } from "@/lib/site";
 
 function StatCard({
   label,
@@ -26,7 +26,7 @@ function StatCard({
 
 export default function DashboardOverviewPage() {
   const { t } = useLocale();
-  const { user, proofs, serviceOrders, withdrawals } = useAuth();
+  const { user, proofs, serviceOrders } = useAuth();
 
   const stats = useMemo(() => {
     const pendingProofs = proofs.filter((p) => p.status === "pending").length;
@@ -54,16 +54,8 @@ export default function DashboardOverviewPage() {
         status: o.status,
       });
     }
-    for (const w of withdrawals.slice(0, 3)) {
-      items.push({
-        type: "withdraw",
-        label: `${formatPoints(w.amountPoints)} pts → ${w.method}`,
-        date: w.createdAt,
-        status: w.status,
-      });
-    }
     return items.sort((a, b) => b.date - a.date).slice(0, 8);
-  }, [proofs, serviceOrders, withdrawals]);
+  }, [proofs, serviceOrders]);
 
   if (!user) return null;
 
@@ -80,7 +72,7 @@ export default function DashboardOverviewPage() {
         <StatCard
           label={t("dashboard.pointsBalance")}
           value={formatPoints(user.points)}
-          sub={`≈ ${formatMoney(moneyFromPoints(user.points))}`}
+          sub={t("dashboard.pointsSpendHint")}
         />
         <StatCard
           label={t("dashboard.pointsEarned")}

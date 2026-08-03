@@ -1,4 +1,4 @@
-import { en } from "./en";
+﻿import { en } from "./en";
 import type { Messages } from "../translations";
 
 type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
@@ -54,7 +54,6 @@ export const id: DeepPartial<Messages> = {
     proofs: "Bukti",
     freeServices: "Layanan gratis",
     buyServices: "Beli layanan",
-    withdraw: "Tarik",
     referrals: "Referral",
     dailyBonus: "Bonus harian",
     profile: "Profil",
@@ -71,7 +70,7 @@ export const id: DeepPartial<Messages> = {
   },
   common: {
     ...en.common,
-    loading: "Memuat…",
+    loading: "Memuatâ€¦",
     save: "Simpan",
     cancel: "Batal",
     close: "Tutup",
@@ -86,10 +85,10 @@ export const id: DeepPartial<Messages> = {
     privacyPolicy: "Kebijakan privasi",
     terms: "Syarat layanan",
     sitemap: "Peta situs",
-    copyright: "© {year} MyFreeFollower. Hak cipta dilindungi.",
+    copyright: "Â© {year} MyFreeFollower. Hak cipta dilindungi.",
   },
   meta: {
     ...en.meta,
-    defaultTitle: "MyFreeFollower — Kerjakan tugas. Dapatkan followers gratis.",
+    defaultTitle: "MyFreeFollower â€” Kerjakan tugas. Dapatkan followers gratis.",
   },
 };

@@ -7,13 +7,12 @@ export const siteConfig = {
   company: "MyFreeFollower",
   locale: "en_US",
 
-  /** Withdrawal: 100 points = 1 ₺ */
+  /** Reference value: 100 points = 1 ₺ (display only) */
   pointToMoney: 100,
   /** Service shop: 200 points = 1 USD reference unit */
   servicePointToMoney: 200,
   /** Task reward shown/awarded = basePoints × multiplier */
   pointsMultiplier: 2,
-  minWithdrawPoints: 20000,
   /** Daily login bonus — awarded once per calendar day (no multiplier) */
   dailyBonusPoints: 200,
   /** Referral commission on invitee earnings (0.10 = 10%) */

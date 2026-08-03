@@ -1,4 +1,4 @@
-import { en } from "./en";
+﻿import { en } from "./en";
 import type { Messages } from "../translations";
 
 type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
@@ -54,7 +54,6 @@ export const nl: DeepPartial<Messages> = {
     proofs: "Bewijzen",
     freeServices: "Gratis diensten",
     buyServices: "Diensten kopen",
-    withdraw: "Opnemen",
     referrals: "Verwijzingen",
     dailyBonus: "Dagelijkse bonus",
     profile: "Profiel",
@@ -71,7 +70,7 @@ export const nl: DeepPartial<Messages> = {
   },
   common: {
     ...en.common,
-    loading: "Laden…",
+    loading: "Ladenâ€¦",
     save: "Opslaan",
     cancel: "Annuleren",
     close: "Sluiten",
@@ -86,10 +85,10 @@ export const nl: DeepPartial<Messages> = {
     privacyPolicy: "Privacybeleid",
     terms: "Servicevoorwaarden",
     sitemap: "Sitemap",
-    copyright: "© {year} MyFreeFollower. Alle rechten voorbehouden.",
+    copyright: "Â© {year} MyFreeFollower. Alle rechten voorbehouden.",
   },
   meta: {
     ...en.meta,
-    defaultTitle: "MyFreeFollower — Doe taken. Krijg gratis volgers.",
+    defaultTitle: "MyFreeFollower â€” Doe taken. Krijg gratis volgers.",
   },
 };

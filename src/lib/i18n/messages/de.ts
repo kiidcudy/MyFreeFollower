@@ -1,4 +1,4 @@
-import { en } from "./en";
+﻿import { en } from "./en";
 import type { Messages } from "../translations";
 
 type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
@@ -13,7 +13,7 @@ export const de: DeepPartial<Messages> = {
     howItWorks: "So funktioniert's",
     blog: "Blog",
     faq: "FAQ",
-    about: "Über uns",
+    about: "Ãœber uns",
     contact: "Kontakt",
     login: "Anmelden",
     register: "Registrieren",
@@ -26,13 +26,13 @@ export const de: DeepPartial<Messages> = {
   },
   auth: {
     ...en.auth,
-    loginTitle: "Willkommen zurück",
+    loginTitle: "Willkommen zurÃ¼ck",
     registerTitle: "Konto erstellen",
     loginSubmit: "Anmelden",
     registerSubmit: "Konto erstellen",
     email: "E-Mail",
     password: "Passwort",
-    confirmPassword: "Passwort bestätigen",
+    confirmPassword: "Passwort bestÃ¤tigen",
     successLogin: "Sie sind angemeldet.",
     successRegister: "Konto erfolgreich erstellt.",
   },
@@ -40,7 +40,7 @@ export const de: DeepPartial<Messages> = {
     ...en.home,
     heroTitle: "Aufgaben erledigen. Kostenlose Follower erhalten.",
     heroSubtitle:
-      "Erledigen Sie einfache Mikro-Aufgaben, sammeln Sie Punkte und lösen Sie sie für kostenloses Instagram-, TikTok- und YouTube-Wachstum ein.",
+      "Erledigen Sie einfache Mikro-Aufgaben, sammeln Sie Punkte und lÃ¶sen Sie sie fÃ¼r kostenloses Instagram-, TikTok- und YouTube-Wachstum ein.",
     ctaSignUp: "Kostenlose Aufgaben starten",
     ctaBrowsePaid: "Bezahlte Pakete ansehen",
     ctaBrowseFree: "Kostenlose Services ansehen",
@@ -48,15 +48,14 @@ export const de: DeepPartial<Messages> = {
   dashboard: {
     ...en.dashboard,
     title: "Dashboard",
-    welcome: "Willkommen zurück",
+    welcome: "Willkommen zurÃ¼ck",
     pointsBalance: "Punktestand",
     tasks: "Aufgaben",
     proofs: "Nachweise",
     freeServices: "Kostenlose Services",
     buyServices: "Services kaufen",
-    withdraw: "Auszahlen",
     referrals: "Empfehlungen",
-    dailyBonus: "Täglicher Bonus",
+    dailyBonus: "TÃ¤glicher Bonus",
     profile: "Profil",
     orders: "Bestellungen",
   },
@@ -71,10 +70,10 @@ export const de: DeepPartial<Messages> = {
   },
   common: {
     ...en.common,
-    loading: "Wird geladen…",
+    loading: "Wird geladenâ€¦",
     save: "Speichern",
     cancel: "Abbrechen",
-    close: "Schließen",
+    close: "SchlieÃŸen",
     search: "Suchen",
     points: "Punkte",
     contactSupport: "Support kontaktieren",
@@ -86,10 +85,10 @@ export const de: DeepPartial<Messages> = {
     privacyPolicy: "Datenschutz",
     terms: "Nutzungsbedingungen",
     sitemap: "Sitemap",
-    copyright: "© {year} MyFreeFollower. Alle Rechte vorbehalten.",
+    copyright: "Â© {year} MyFreeFollower. Alle Rechte vorbehalten.",
   },
   meta: {
     ...en.meta,
-    defaultTitle: "MyFreeFollower — Aufgaben erledigen. Kostenlose Follower erhalten.",
+    defaultTitle: "MyFreeFollower â€” Aufgaben erledigen. Kostenlose Follower erhalten.",
   },
 };

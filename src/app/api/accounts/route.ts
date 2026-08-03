@@ -6,8 +6,6 @@ import {
   getAccount,
   getClientIp,
   checkAdminPassword,
-  addWithdrawal,
-  type Withdrawal,
 } from "@/lib/kv";
 
 export const dynamic = "force-dynamic";
@@ -19,7 +17,6 @@ export async function POST(req: Request) {
     email?: string;
     data?: {
       user?: unknown;
-      withdrawals?: Withdrawal[];
     };
   };
 
@@ -29,25 +26,11 @@ export async function POST(req: Request) {
 
   const ip = getClientIp(req);
   const email = body.email.toLowerCase();
-  const prevAccount = await getAccount(email);
-  const prevIds = new Set((prevAccount?.withdrawals ?? []).map((w) => w.id));
-  const incoming = body.data.withdrawals ?? [];
 
   await upsertAccount(email, {
     ...(body.data as object),
     ...(ip ? { ip } : {}),
   });
-
-  for (const w of incoming) {
-    if (!prevIds.has(w.id) && w.status === "pending") {
-      await addWithdrawal({
-        ...w,
-        email,
-        username:
-          (body.data.user as { username?: string } | undefined)?.username ?? email,
-      });
-    }
-  }
 
   return NextResponse.json({ ok: true });
 }

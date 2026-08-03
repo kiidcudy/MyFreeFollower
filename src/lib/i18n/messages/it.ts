@@ -1,4 +1,4 @@
-import { en } from "./en";
+﻿import { en } from "./en";
 import type { Messages } from "../translations";
 
 type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
@@ -38,10 +38,10 @@ export const it: DeepPartial<Messages> = {
   },
   home: {
     ...en.home,
-    heroTitle: "Completa attività. Ottieni follower gratuiti.",
+    heroTitle: "Completa attivitÃ . Ottieni follower gratuiti.",
     heroSubtitle:
-      "Completa semplici micro-attività, guadagna punti e riscattali per crescita gratuita su Instagram, TikTok e YouTube.",
-    ctaSignUp: "Inizia attività gratuite",
+      "Completa semplici micro-attivitÃ , guadagna punti e riscattali per crescita gratuita su Instagram, TikTok e YouTube.",
+    ctaSignUp: "Inizia attivitÃ  gratuite",
     ctaBrowsePaid: "Sfoglia pacchetti a pagamento",
     ctaBrowseFree: "Sfoglia servizi gratuiti",
   },
@@ -50,11 +50,10 @@ export const it: DeepPartial<Messages> = {
     title: "Dashboard",
     welcome: "Bentornato",
     pointsBalance: "Saldo punti",
-    tasks: "Attività",
+    tasks: "AttivitÃ ",
     proofs: "Prove",
     freeServices: "Servizi gratuiti",
     buyServices: "Acquista servizi",
-    withdraw: "Preleva",
     referrals: "Referral",
     dailyBonus: "Bonus giornaliero",
     profile: "Profilo",
@@ -64,14 +63,14 @@ export const it: DeepPartial<Messages> = {
     ...en.catalog,
     freeHubTitle: "Follower e engagement gratuiti",
     paidHubTitle: "Compra follower e pacchetti di crescita",
-    freeWithTasks: "Gratuito con attività",
+    freeWithTasks: "Gratuito con attivitÃ ",
     buyNow: "Acquista ora",
     claimFree: "Richiedi gratis",
     usernameHint: "Non chiediamo mai la tua password.",
   },
   common: {
     ...en.common,
-    loading: "Caricamento…",
+    loading: "Caricamentoâ€¦",
     save: "Salva",
     cancel: "Annulla",
     close: "Chiudi",
@@ -86,10 +85,10 @@ export const it: DeepPartial<Messages> = {
     privacyPolicy: "Privacy Policy",
     terms: "Termini di servizio",
     sitemap: "Mappa del sito",
-    copyright: "© {year} MyFreeFollower. Tutti i diritti riservati.",
+    copyright: "Â© {year} MyFreeFollower. Tutti i diritti riservati.",
   },
   meta: {
     ...en.meta,
-    defaultTitle: "MyFreeFollower — Completa attività. Ottieni follower gratuiti.",
+    defaultTitle: "MyFreeFollower â€” Completa attivitÃ . Ottieni follower gratuiti.",
   },
 };

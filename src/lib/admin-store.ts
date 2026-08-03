@@ -2,7 +2,7 @@
 
 import { siteConfig } from "@/lib/site";
 import type { Task } from "@/lib/tasks/data";
-import type { User, ProofSubmission, Withdrawal, ServiceOrder } from "@/lib/auth-store";
+import type { User, ProofSubmission, ServiceOrder, Withdrawal } from "@/lib/auth-store";
 
 const ACCOUNTS_KEY = "mff-accounts-v1";
 const ADMIN_SESSION_KEY = "mff-admin-session-v1";
@@ -31,11 +31,6 @@ export interface AdminServiceOrder {
   email: string;
   memberUsername: string;
   createdAt: number;
-}
-
-export interface AdminWithdrawal extends Withdrawal {
-  email: string;
-  username: string;
 }
 
 export type AdminUserAction = "setPoints" | "addPoints" | "setPassword" | "ban" | "unban";
@@ -249,31 +244,6 @@ export async function fetchAllServiceOrders(): Promise<AdminServiceOrder[]> {
   return fromLocal().sort((a, b) => b.createdAt - a.createdAt);
 }
 
-export async function fetchAllWithdrawals(): Promise<AdminWithdrawal[]> {
-  try {
-    const res = await fetch("/api/admin/withdrawals", {
-      headers: { "x-admin-password": getAdminPassword() },
-      cache: "no-store",
-    });
-    if (res.ok) {
-      const data = (await res.json()) as { withdrawals?: AdminWithdrawal[] };
-      if (Array.isArray(data.withdrawals)) {
-        return data.withdrawals.sort((a, b) => b.createdAt - a.createdAt);
-      }
-    }
-  } catch {
-    /* fallback */
-  }
-
-  const all: AdminWithdrawal[] = [];
-  for (const a of getAllAccounts()) {
-    for (const w of a.withdrawals) {
-      all.push({ ...w, email: a.email, username: a.user?.username ?? a.email });
-    }
-  }
-  return all.sort((a, b) => b.createdAt - a.createdAt);
-}
-
 export async function updateServiceOrderStatus(
   id: string,
   status: "pending" | "processing" | "completed"
@@ -290,28 +260,6 @@ export async function updateServiceOrderStatus(
     if (res.ok) return { ok: true };
     const d = (await res.json().catch(() => null)) as { error?: string } | null;
     return { ok: false, error: d?.error ?? `Error (HTTP ${res.status})` };
-  } catch {
-    return { ok: false, error: "Connection error." };
-  }
-}
-
-export async function reviewWithdrawal(
-  id: string,
-  status: "approved" | "rejected",
-  note?: string
-): Promise<{ ok: boolean; error?: string; refunded?: boolean }> {
-  try {
-    const res = await fetch("/api/admin/withdrawals", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-admin-password": getAdminPassword(),
-      },
-      body: JSON.stringify({ action: "review", id, status, note }),
-    });
-    const data = (await res.json()) as { ok?: boolean; error?: string; refunded?: boolean };
-    if (res.ok && data.ok) return { ok: true, refunded: data.refunded };
-    return { ok: false, error: data.error ?? `Error (HTTP ${res.status})` };
   } catch {
     return { ok: false, error: "Connection error." };
   }

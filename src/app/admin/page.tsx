@@ -7,9 +7,8 @@ import {
   fetchAllProofs,
   fetchAdminTasks,
   fetchAllServiceOrders,
-  fetchAllWithdrawals,
 } from "@/lib/admin-store";
-import { formatMoney, formatPoints, moneyFromPoints } from "@/lib/site";
+import { formatPoints } from "@/lib/site";
 
 export default function AdminDashboardPage() {
   const [stats, setStats] = useState({
@@ -17,7 +16,6 @@ export default function AdminDashboardPage() {
     totalPoints: 0,
     totalProofs: 0,
     activeTasks: 0,
-    pendingWithdrawals: 0,
     pendingProofs: 0,
     pendingOrders: 0,
   });
@@ -31,15 +29,13 @@ export default function AdminDashboardPage() {
       fetchAllProofs(),
       fetchAdminTasks(),
       fetchAllServiceOrders(),
-      fetchAllWithdrawals(),
-    ]).then(([accounts, proofs, tasks, orders, withdrawals]) => {
+    ]).then(([accounts, proofs, tasks, orders]) => {
       const totalPoints = accounts.reduce((s, a) => s + (a.user?.points ?? 0), 0);
       setStats({
         users: accounts.length,
         totalPoints,
         totalProofs: proofs.length,
         activeTasks: tasks.length,
-        pendingWithdrawals: withdrawals.filter((w) => w.status === "pending").length,
         pendingProofs: proofs.filter((p) => p.status === "pending").length,
         pendingOrders: orders.filter((o) => o.status === "pending").length,
       });
@@ -64,18 +60,10 @@ export default function AdminDashboardPage() {
         value: formatPoints(stats.totalPoints),
         href: "/admin/users",
       },
-      {
-        label: "Money equivalent",
-        value: formatMoney(moneyFromPoints(stats.totalPoints)),
-        href: "/admin/withdrawals",
-      },
       { label: "Total Proofs", value: stats.totalProofs, href: "/admin/proofs" },
       { label: "Active Tasks", value: stats.activeTasks, href: "/admin/tasks" },
-      {
-        label: "Pending Withdrawals",
-        value: stats.pendingWithdrawals,
-        href: "/admin/withdrawals",
-      },
+      { label: "Pending Proofs", value: stats.pendingProofs, href: "/admin/proofs" },
+      { label: "Pending Orders", value: stats.pendingOrders, href: "/admin/orders" },
     ],
     [stats],
   );
@@ -134,8 +122,8 @@ export default function AdminDashboardPage() {
             <Link href="/admin/proofs" className="rounded-lg bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-900 hover:bg-amber-200">
               Review Proofs
             </Link>
-            <Link href="/admin/withdrawals" className="rounded-lg bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-900 hover:bg-purple-200">
-              Withdrawals
+            <Link href="/admin/orders" className="rounded-lg bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-900 hover:bg-purple-200">
+              Orders
             </Link>
           </div>
         </section>
