@@ -38,6 +38,9 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/icon?") ||
     pathname === "/apple-icon" ||
     pathname.startsWith("/apple-icon?") ||
+    pathname === "/sitemap.xml" ||
+    pathname.startsWith("/sitemap/") ||
+    pathname === "/robots.txt" ||
     pathname.includes(".")
   ) {
     return NextResponse.next();
