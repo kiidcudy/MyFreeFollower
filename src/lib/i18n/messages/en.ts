@@ -232,7 +232,7 @@ export const en = {
   faq: {
     title: "Frequently Asked Questions",
     subtitle:
-      "Straight answers about free trials, paid packages, delivery, payments, and support — no fluff.",
+      "Straight answers about free trials, paid packages, dashboard tasks, points, card and crypto payments, delivery times, refunds, privacy, and 24/7 support. Updated August 2026.",
     sectionGeneral: "Getting started",
     sectionOrders: "Orders & delivery",
     sectionAccount: "Account, points & payments",
@@ -294,10 +294,19 @@ export const en = {
     a27: "The website is available in 19 languages including English, Turkish, German, French, Spanish, Portuguese, Arabic, and more. Switch language from the header menu.",
     q28: "How fast does support respond?",
     a28: "Live chat and WhatsApp are monitored 24/7. Most inquiries receive a first reply within minutes; complex order issues are typically resolved within 24 hours.",
+    q29: "Do you deliver to private or restricted accounts?",
+    a29: "Most services need a public profile or post URL. Private, age-restricted, or geo-blocked targets may fail delivery. Set the account or post public before ordering when possible.",
+    q30: "What proof formats are accepted for tasks?",
+    a30: "Upload a clear screenshot or a video up to 3 seconds showing the completed action. Cropped, blurry, unrelated, or heavily edited proofs may be rejected during review.",
+    q31: "How does the referral commission work?",
+    a31: "Share your referral link from the dashboard. When invited members earn and spend points on free services, you receive a commission at the rate shown in your Referrals section.",
+    q32: "Can I use MyFreeFollower on mobile?",
+    a32: "Yes. The site is fully responsive. Complete tasks, upload proofs, claim daily bonus, and checkout paid packages from any modern mobile browser without installing an app.",
   },
   about: {
     title: "About MyFreeFollower",
-    subtitle: "Free social media growth for creators, brands, and everyday users.",
+    subtitle:
+      "MyFreeFollower helps creators, brands, and everyday users grow on Instagram, TikTok, YouTube, and 22 more networks — with free task-based trials, secure paid checkout, and round-the-clock support since 2024.",
     missionTitle: "Our mission",
     missionBody:
       "MyFreeFollower makes social media growth accessible to everyone. We offer free trial packages and affordable paid boosts — so creators, small businesses, and everyday users can build real momentum without risky shortcuts.",
@@ -684,7 +693,7 @@ export const en = {
     lastUpdated: "Last updated",
     lastUpdatedDate: "August 1, 2026",
     privacyIntro:
-      "This Privacy Policy explains how MyFreeFollower collects, uses, and protects your information when you use our website and services.",
+      "This Privacy Policy explains how MyFreeFollower (\"we\", \"us\") collects, uses, stores, and protects personal information when you visit myfreefollower.com, create an account, complete tasks, or purchase growth services. By using our website you acknowledge this policy. For questions contact support@myfreefollower.com.",
     privacySection1Title: "Information we collect",
     privacySection1Body:
       "We collect information you provide when registering (username, email, password), order details (usernames and profile links), proof submissions, and support messages. We also collect basic usage data such as IP address and browser type for security and analytics.",
@@ -716,7 +725,7 @@ export const en = {
     privacySection10Body:
       "We may update this Privacy Policy to reflect legal, technical, or business changes. The last updated date appears at the top of this page. Material changes may be announced by email or site notice. Continued use after updates means you accept the revised policy.",
     termsIntro:
-      "By using MyFreeFollower, you agree to these Terms of Service. Please read them carefully.",
+      "These Terms of Service (\"Terms\") govern access to MyFreeFollower.com, member accounts, free task rewards, and paid social media growth orders. Please read them carefully before registering or checking out. If you disagree with any section, do not use our services.",
     termsSection1Title: "Acceptance of terms",
     termsSection1Body:
       "By creating an account or placing an order, you agree to comply with these terms and all applicable laws. If you do not agree, do not use our services.",
@@ -756,7 +765,7 @@ export const en = {
     refundTitle: "Refund Policy",
     refundDescription: "How we handle refunds when an order cannot be completed as described.",
     refundIntro:
-      "We want every order to land cleanly. If we cannot deliver what you paid for, contact us and we will work through a fair resolution.",
+      "This Refund Policy describes when refunds or order credits apply, how to open a case, and expected timelines. We aim for fair outcomes when delivery cannot be completed as described. Always contact support before opening a bank chargeback.",
     refundSection1Title: "When refunds apply",
     refundSection1Body:
       "You may request a refund if your order was not started within the stated delivery window, was not delivered at all, or was significantly incomplete due to a fault on our side.",

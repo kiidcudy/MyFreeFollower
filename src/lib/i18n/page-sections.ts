@@ -20,5 +20,5 @@ export const faqSections = [
   { titleKey: "faq.sectionOrders", keys: [5, 9, 10, 11, 12, 21, 22, 24, 25] as const },
   { titleKey: "faq.sectionAccount", keys: [6, 7, 13, 14, 15, 20] as const },
   { titleKey: "faq.sectionTasks", keys: [17, 18, 19] as const },
-  { titleKey: "faq.sectionSupport", keys: [8, 16, 23, 26, 28] as const },
+  { titleKey: "faq.sectionSupport", keys: [8, 16, 23, 26, 28, 29, 30, 31, 32] as const },
 ] as const;

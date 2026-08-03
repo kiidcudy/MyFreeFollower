@@ -12,7 +12,8 @@
     "lint": "echo \"Lint skipped\"",
     "translate": "node scripts/sync-translations.mjs",
     "translate:seo": "node scripts/sync-translations.mjs --seo-only",
-    "translate:catalog": "node scripts/sync-translations.mjs --catalog-only"
+    "translate:catalog": "node scripts/sync-translations.mjs --catalog-only",
+    "translate:pages": "node scripts/sync-static-pages.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

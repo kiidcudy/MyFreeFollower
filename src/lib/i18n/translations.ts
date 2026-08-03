@@ -13,6 +13,7 @@ import { heroBundles } from "@/lib/i18n/hero-bundles";
 import { faqBundles } from "@/lib/i18n/faq-bundles";
 import { legalBundles } from "@/lib/i18n/legal-bundles";
 import { aboutBundles } from "@/lib/i18n/about-bundles";
+import { staticPageBundles } from "@/lib/i18n/static-page-bundles";
 import { platformI18nBundles } from "@/lib/i18n/platform-i18n-bundles";
 import { de } from "@/lib/i18n/messages/de";
 import { fr } from "@/lib/i18n/messages/fr";
@@ -186,6 +187,34 @@ export function getMessages(locale: Locale): Messages {
       merged.about as Record<string, unknown>,
       aboutOverride as unknown as Record<string, unknown>,
     );
+  }
+
+  const staticPages = staticPageBundles[locale];
+  if (staticPages) {
+    if (staticPages.faq) {
+      merged.faq = deepMergeRecords(
+        merged.faq as Record<string, unknown>,
+        staticPages.faq as unknown as Record<string, unknown>,
+      );
+    }
+    if (staticPages.about) {
+      merged.about = deepMergeRecords(
+        merged.about as Record<string, unknown>,
+        staticPages.about as unknown as Record<string, unknown>,
+      );
+    }
+    if (staticPages.legal) {
+      merged.legal = deepMergeRecords(
+        merged.legal as Record<string, unknown>,
+        staticPages.legal as unknown as Record<string, unknown>,
+      );
+    }
+    if (staticPages.meta) {
+      merged.meta = deepMergeRecords(
+        merged.meta as Record<string, unknown>,
+        staticPages.meta as unknown as Record<string, unknown>,
+      );
+    }
   }
 
   const platformI18nOverride = platformI18nBundles[locale];
