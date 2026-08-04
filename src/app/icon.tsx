@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 32, height: 32 };
+export const size = { width: 48, height: 48 };
 export const contentType = "image/png";
 
 function LogoMark({ size: px }: { size: number }) {
@@ -53,7 +53,7 @@ export default function Icon() {
           background: "#ffffff",
         }}
       >
-        <LogoMark size={28} />
+        <LogoMark size={40} />
       </div>
     ),
     { ...size },

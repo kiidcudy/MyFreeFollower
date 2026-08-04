@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-favicons.mjs && next build",
     "start": "next start",
     "lint": "echo \"Lint skipped\"",
     "translate": "node scripts/sync-translations.mjs",
