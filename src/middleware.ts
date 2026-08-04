@@ -40,6 +40,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/apple-icon?") ||
     pathname === "/sitemap.xml" ||
     pathname.startsWith("/sitemap/") ||
+    pathname.startsWith("/sitemaps/") ||
     pathname === "/robots.txt" ||
     pathname.includes(".")
   ) {
