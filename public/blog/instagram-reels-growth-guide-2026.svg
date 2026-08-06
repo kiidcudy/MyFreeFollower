@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Instagram Reels growth guide 2026">
+  <defs>
+    <linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#833ab4"/>
+      <stop offset="50%" stop-color="#fd1d1d"/>
+      <stop offset="100%" stop-color="#fcb045"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0f0f0f"/>
+  <rect x="380" y="70" width="440" height="490" rx="36" fill="#1d1d1f" stroke="url(#ig)" stroke-width="4"/>
+  <rect x="420" y="120" width="360" height="320" rx="20" fill="#000"/>
+  <polygon points="520,200 520,360 680,280" fill="#fff" opacity="0.92"/>
+  <rect x="420" y="460" width="80" height="8" rx="4" fill="#30d158"/>
+  <rect x="510" y="460" width="120" height="8" rx="4" fill="#0077ed"/>
+  <rect x="640" y="460" width="60" height="8" rx="4" fill="#6e6e73"/>
+  <text x="600" y="530" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="38" font-weight="600">Reels Growth 2026</text>
+  <text x="600" y="575" text-anchor="middle" fill="#a1a1a6" font-family="system-ui,sans-serif" font-size="22">Views, Likes, Followers</text>
+</svg>

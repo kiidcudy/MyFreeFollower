@@ -20,6 +20,7 @@ const SLUGS = [
   "free-tiktok-likes-and-views",
   "buy-cheap-followers-safely",
   "earn-free-social-media-growth-tasks",
+  "instagram-reels-growth-guide-2026",
 ] as const;
 
 /** Localized titles, meta, and body overrides via blogBodyOverrides for pt, pt-br, it, nl, pl, ro, uk, fa, zh, id, bn, hi (+ tr/de/fr/es/ar/ru). */
@@ -67,6 +68,13 @@ const translations: Record<
         "Verdiene kostenloses Instagram-, TikTok- und YouTube-Wachstum durch Aufgaben. Tägliche Routinen, Proof-Tipps, Referrals und Punkt-Strategien.",
       focusKeyword: "kostenloses social media growth tasks",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Instagram Reels Wachstum 2026: Views, Likes, Follower",
+      metaTitle: "Instagram Reels Wachstum Guide 2026 | MyFreeFollower",
+      description:
+        "Instagram Reels 2026 wachsen: Hook-Tests, kostenlose Reels-Views und Likes via Tasks, Profil-Conversion, sicheres Pacing und Paid-Pakete.",
+      focusKeyword: "instagram reels wachstum 2026",
+    },
   },
   fr: {
     "free-followers-guide-2026": {
@@ -105,6 +113,13 @@ const translations: Record<
         "Gagnez followers et engagement gratuits via des micro-tâches. Routines, preuves, parrainage et rachat de points.",
       focusKeyword: "croissance sociale gratuite tâches",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Croissance Reels Instagram 2026 : vues, likes, abonnés",
+      metaTitle: "Guide croissance Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Faites grandir vos Reels Instagram en 2026 : hooks, vues et likes gratuits via tâches, conversion profil et livraison progressive.",
+      focusKeyword: "croissance reels instagram 2026",
+    },
   },
   es: {
     "free-followers-guide-2026": {
@@ -141,6 +156,13 @@ const translations: Record<
       description:
         "Gana seguidores gratis con micro-tareas. Rutinas diarias, pruebas, referidos y canje de puntos.",
       focusKeyword: "crecimiento social gratis tareas",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "Crecimiento Reels Instagram 2026: views, likes, seguidores",
+      metaTitle: "Guía crecimiento Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Crece en Instagram Reels 2026: ganchos, vistas y likes gratis con tareas, conversión de perfil y entrega segura.",
+      focusKeyword: "crecimiento reels instagram 2026",
     },
   },
   pt: {
@@ -179,6 +201,13 @@ const translations: Record<
         "Ganhe seguidores grátis com micro-tarefas. Rotinas, provas, indicações e resgate de pontos.",
       focusKeyword: "crescimento social grátis tarefas",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Crescimento Reels Instagram 2026: views, likes, seguidores",
+      metaTitle: "Guia Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Cresça no Instagram Reels em 2026: hooks, visualizações e likes grátis via tarefas e conversão de perfil.",
+      focusKeyword: "crescimento reels instagram 2026",
+    },
   },
   "pt-br": {
     "free-followers-guide-2026": {
@@ -215,6 +244,13 @@ const translations: Record<
       description:
         "Ganhe seguidores grátis completando tarefas. Rotina diária, provas e indicações.",
       focusKeyword: "crescimento social grátis tarefas",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "Crescimento Reels Instagram 2026: views, curtidas, seguidores",
+      metaTitle: "Guia Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Cresça no Instagram Reels em 2026: ganchos, visualizações e curtidas grátis via tarefas e perfil otimizado.",
+      focusKeyword: "crescimento reels instagram 2026",
     },
   },
   it: {
@@ -253,6 +289,13 @@ const translations: Record<
         "Guadagna follower gratis completando task. Routine, prove e referral.",
       focusKeyword: "crescita social gratis task",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Crescita Reels Instagram 2026: views, like, follower",
+      metaTitle: "Guida Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Fai crescere i Reels Instagram nel 2026: hook, visualizzazioni e like gratis via task e conversione profilo.",
+      focusKeyword: "crescita reels instagram 2026",
+    },
   },
   nl: {
     "free-followers-guide-2026": {
@@ -289,6 +332,13 @@ const translations: Record<
       description:
         "Verdien gratis volgers met micro-taken. Dagelijkse routine en punten inwisselen.",
       focusKeyword: "gratis social growth taken",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "Instagram Reels groei 2026: views, likes, volgers",
+      metaTitle: "Instagram Reels groei gids 2026 | MyFreeFollower",
+      description:
+        "Groei met Instagram Reels in 2026: hooks, gratis Reels views en likes via taken en profielconversie.",
+      focusKeyword: "instagram reels groei 2026",
     },
   },
   pl: {
@@ -327,6 +377,13 @@ const translations: Record<
         "Zdobywaj darmowych obserwujących wykonując zadania. Rutyna i punkty.",
       focusKeyword: "darmowy wzrost social zadania",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Wzrost Reels Instagram 2026: wyświetlenia, polubienia",
+      metaTitle: "Przewodnik Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Rozwijaj Reels na Instagramie w 2026: haki, darmowe wyświetlenia i polubienia przez zadania.",
+      focusKeyword: "wzrost reels instagram 2026",
+    },
   },
   ro: {
     "free-followers-guide-2026": {
@@ -363,6 +420,13 @@ const translations: Record<
       description:
         "Câștigă urmăritori gratuiți completând task-uri zilnice.",
       focusKeyword: "creștere social task-uri",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "Creștere Reels Instagram 2026: vizualizări, like-uri",
+      metaTitle: "Ghid Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Crește pe Instagram Reels în 2026: hook-uri, vizualizări și like-uri gratuite prin task-uri.",
+      focusKeyword: "creștere reels instagram 2026",
     },
   },
   ru: {
@@ -401,6 +465,13 @@ const translations: Record<
         "Зарабатывай подписчиков выполняя задания. Ежедневная рутина и баллы.",
       focusKeyword: "бесплатный рост задания",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Рост Reels в Instagram 2026: просмотры, лайки",
+      metaTitle: "Гайд по Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Рост Instagram Reels в 2026: хуки, бесплатные просмотры и лайки через задания и конверсия профиля.",
+      focusKeyword: "рост reels instagram 2026",
+    },
   },
   uk: {
     "free-followers-guide-2026": {
@@ -437,6 +508,13 @@ const translations: Record<
       description:
         "Заробляй підписників виконуючи завдання щодня.",
       focusKeyword: "безкоштовне зростання завдання",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "Зростання Reels Instagram 2026: перегляди, лайки",
+      metaTitle: "Гайд Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Зростання Instagram Reels у 2026: хуки, безкоштовні перегляди та лайки через завдання.",
+      focusKeyword: "зростання reels instagram 2026",
     },
   },
   tr: {
@@ -475,6 +553,13 @@ const translations: Record<
         "Görev yaparak ücretsiz takipçi kazanın. Günlük rutin, kanıt ipuçları ve puan stratejileri.",
       focusKeyword: "görevle ücretsiz sosyal medya büyümesi",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Instagram Reels Büyümesi 2026: İzlenme, Beğeni, Takipçi",
+      metaTitle: "Instagram Reels Büyüme Rehberi 2026 | MyFreeFollower",
+      description:
+        "2026'da Instagram Reels büyütün: kanca testleri, görevle ücretsiz Reels izlenme/beğeni, profil dönüşümü ve güvenli teslimat.",
+      focusKeyword: "instagram reels büyümesi 2026",
+    },
   },
   ar: {
     "free-followers-guide-2026": {
@@ -511,6 +596,13 @@ const translations: Record<
       description:
         "اكسب متابعين مجاناً بإكمال مهام بسيطة. روتين يومي ونقاط.",
       focusKeyword: "نمو مجاني مهام",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "نمو Reels إنستغرام 2026: مشاهدات، إعجابات، متابعون",
+      metaTitle: "دليل نمو Reels إنستغرام 2026 | MyFreeFollower",
+      description:
+        "نمِّ Reels على إنستغرام في 2026: خطافات، مشاهدات وإعجابات مجانية عبر المهام وتحويل الملف الشخصي.",
+      focusKeyword: "نمو reels إنستغرام 2026",
     },
   },
   fa: {
@@ -549,6 +641,13 @@ const translations: Record<
         "با تکمیل تسک فالوور رایگان کسب کنید.",
       focusKeyword: "رشد رایگان تسک",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "رشد Reels اینستاگرام ۲۰۲۶: بازدید، لایک، فالوور",
+      metaTitle: "راهنمای رشد Reels اینستاگرام ۲۰۲۶ | MyFreeFollower",
+      description:
+        "رشد Reels اینستاگرام در ۲۰۲۶: قلاب، بازدید و لایک رایگان با تسک و تبدیل پروفایل.",
+      focusKeyword: "رشد reels اینستاگرام ۲۰۲۶",
+    },
   },
   zh: {
     "free-followers-guide-2026": {
@@ -585,6 +684,13 @@ const translations: Record<
       description:
         "完成任务赚取免费粉丝。每日 routine、证明技巧与积分策略。",
       focusKeyword: "任务免费社交媒体增长",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "Instagram Reels增长2026：播放、点赞、粉丝",
+      metaTitle: "Instagram Reels增长指南2026 | MyFreeFollower",
+      description:
+        "2026 Instagram Reels增长：钩子测试、任务免费播放/点赞、主页转化与安全节奏。",
+      focusKeyword: "instagram reels增长 2026",
     },
   },
   id: {
@@ -623,6 +729,13 @@ const translations: Record<
         "Hasilkan followers gratis dengan menyelesaikan tugas.",
       focusKeyword: "pertumbuhan sosmed gratis tugas",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Pertumbuhan Reels Instagram 2026: views, likes, followers",
+      metaTitle: "Panduan Reels Instagram 2026 | MyFreeFollower",
+      description:
+        "Tumbuhkan Instagram Reels 2026: hook, views dan likes gratis via tugas dan konversi profil.",
+      focusKeyword: "pertumbuhan reels instagram 2026",
+    },
   },
   bn: {
     "free-followers-guide-2026": {
@@ -660,6 +773,13 @@ const translations: Record<
         "টাস্ক সম্পন্ন করে ফ্রি ফলোয়ার অর্জন করুন।",
       focusKeyword: "টাস্ক ফ্রি সোশ্যাল বৃদ্ধি",
     },
+    "instagram-reels-growth-guide-2026": {
+      title: "Instagram Reels বৃদ্ধি ২০২৬: ভিউ, লাইক, ফলোয়ার",
+      metaTitle: "Instagram Reels গাইড ২০২৬ | MyFreeFollower",
+      description:
+        "২০২৬-এ Instagram Reels বাড়ান: হুক, টাস্কে ফ্রি ভিউ/লাইক ও প্রোফাইল রূপান্তর।",
+      focusKeyword: "instagram reels বৃদ্ধি ২০২৬",
+    },
   },
   hi: {
     "free-followers-guide-2026": {
@@ -696,6 +816,13 @@ const translations: Record<
       description:
         "टास्क पूरा करके फ्री फॉलोअर्स कमाएं।",
       focusKeyword: "टास्क फ्री सोशल गrowth",
+    },
+    "instagram-reels-growth-guide-2026": {
+      title: "Instagram Reels growth 2026: views, likes, followers",
+      metaTitle: "Instagram Reels guide 2026 | MyFreeFollower",
+      description:
+        "2026 में Instagram Reels बढ़ाएं: hooks, tasks से free views/likes और profile conversion.",
+      focusKeyword: "instagram reels growth 2026",
     },
   },
 };

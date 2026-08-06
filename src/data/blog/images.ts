@@ -24,6 +24,10 @@ export const blogCoverImages: Record<
     src: "/blog/earn-free-social-media-growth-tasks.png",
     alt: "Member dashboard earning points for free social media services",
   },
+  "instagram-reels-growth-guide-2026": {
+    src: "/blog/instagram-reels-growth-guide-2026.png",
+    alt: "Instagram Reels vertical video with engagement metrics — growth guide 2026",
+  },
 };
 
 const blogCoverAltOverrides: Partial<
@@ -40,6 +44,8 @@ const blogCoverAltOverrides: Partial<
       "Dizüstü bilgisayarda sosyal medya takipçi paketleri için güvenli ödeme",
     "earn-free-social-media-growth-tasks":
       "Ücretsiz sosyal medya hizmetleri için puan kazanan üye paneli",
+    "instagram-reels-growth-guide-2026":
+      "Etkileşim metrikleri gösteren dikey Instagram Reels videosu — 2026 büyüme rehberi",
   },
   de: {
     "free-followers-guide-2026":
@@ -52,6 +58,8 @@ const blogCoverAltOverrides: Partial<
       "Sicherer Checkout für Follower-Pakete auf dem Laptop",
     "earn-free-social-media-growth-tasks":
       "Mitglieder-Dashboard: Punkte für kostenlose Social-Media-Services verdienen",
+    "instagram-reels-growth-guide-2026":
+      "Instagram Reels vertikales Video mit Engagement-Metriken — Wachstumsguide 2026",
   },
   fr: {
     "free-followers-guide-2026":
@@ -64,6 +72,8 @@ const blogCoverAltOverrides: Partial<
       "Paiement sécurisé pour des packs de followers sur ordinateur portable",
     "earn-free-social-media-growth-tasks":
       "Tableau de bord membre gagnant des points pour services sociaux gratuits",
+    "instagram-reels-growth-guide-2026":
+      "Vidéo Reels Instagram verticale avec métriques d'engagement — guide 2026",
   },
   es: {
     "free-followers-guide-2026":
@@ -76,6 +86,8 @@ const blogCoverAltOverrides: Partial<
       "Checkout seguro de paquetes de seguidores en portátil",
     "earn-free-social-media-growth-tasks":
       "Panel de miembro ganando puntos para servicios sociales gratis",
+    "instagram-reels-growth-guide-2026":
+      "Video Reels vertical de Instagram con métricas de engagement — guía 2026",
   },
   ar: {
     "free-followers-guide-2026":
@@ -88,6 +100,8 @@ const blogCoverAltOverrides: Partial<
       "دفع آمن لحزم المتابعين على الحاسوب المحمول",
     "earn-free-social-media-growth-tasks":
       "لوحة عضو تكسب نقاطاً لخدمات التواصل المجانية",
+    "instagram-reels-growth-guide-2026":
+      "فيديو Reels عمودي على إنستغرام مع مقاييس التفاعل — دليل 2026",
   },
   ru: {
     "free-followers-guide-2026":
@@ -100,6 +114,8 @@ const blogCoverAltOverrides: Partial<
       "Безопасная оплата пакетов подписчиков на ноутбуке",
     "earn-free-social-media-growth-tasks":
       "Панель участника: баллы за бесплатные услуги роста",
+    "instagram-reels-growth-guide-2026":
+      "Вертикальное Reels-видео Instagram с метриками вовлечённости — гайд 2026",
   },
   pt: {
     "free-followers-guide-2026":
@@ -112,6 +128,8 @@ const blogCoverAltOverrides: Partial<
       "Checkout seguro de pacotes de seguidores no portátil",
     "earn-free-social-media-growth-tasks":
       "Painel de membro a ganhar pontos para serviços sociais grátis",
+    "instagram-reels-growth-guide-2026":
+      "Vídeo Reels vertical no Instagram com métricas de engagement — guia 2026",
   },
   "pt-br": {
     "free-followers-guide-2026":
@@ -124,6 +142,8 @@ const blogCoverAltOverrides: Partial<
       "Checkout seguro de pacotes de seguidores no notebook",
     "earn-free-social-media-growth-tasks":
       "Painel de membro ganhando pontos para serviços sociais grátis",
+    "instagram-reels-growth-guide-2026":
+      "Vídeo Reels vertical no Instagram com métricas de engajamento — guia 2026",
   },
   it: {
     "free-followers-guide-2026":
@@ -136,6 +156,8 @@ const blogCoverAltOverrides: Partial<
       "Checkout sicuro per pacchetti follower sul portatile",
     "earn-free-social-media-growth-tasks":
       "Dashboard membro che guadagna punti per servizi social gratis",
+    "instagram-reels-growth-guide-2026":
+      "Video Reels verticale Instagram con metriche di engagement — guida 2026",
   },
   nl: {
     "free-followers-guide-2026":
@@ -148,6 +170,8 @@ const blogCoverAltOverrides: Partial<
       "Veilige checkout voor volgerpakketten op laptop",
     "earn-free-social-media-growth-tasks":
       "Memberdashboard verdient punten voor gratis social services",
+    "instagram-reels-growth-guide-2026":
+      "Verticale Instagram Reels-video met engagement metrics — gids 2026",
   },
   pl: {
     "free-followers-guide-2026":
@@ -160,6 +184,8 @@ const blogCoverAltOverrides: Partial<
       "Bezpieczna płatność za pakiety obserwujących na laptopie",
     "earn-free-social-media-growth-tasks":
       "Panel członka zdobywający punkty na darmowe usługi social",
+    "instagram-reels-growth-guide-2026":
+      "Pionowe wideo Reels na Instagramie z metrykami zaangażowania — przewodnik 2026",
   },
   ro: {
     "free-followers-guide-2026":
@@ -172,6 +198,8 @@ const blogCoverAltOverrides: Partial<
       "Checkout sigur pentru pachete urmăritori pe laptop",
     "earn-free-social-media-growth-tasks":
       "Panou membru câștigând puncte pentru servicii sociale gratuite",
+    "instagram-reels-growth-guide-2026":
+      "Video Reels vertical Instagram cu metrici de engagement — ghid 2026",
   },
   uk: {
     "free-followers-guide-2026":
@@ -184,6 +212,8 @@ const blogCoverAltOverrides: Partial<
       "Безпечна оплата пакетів підписників на ноутбуці",
     "earn-free-social-media-growth-tasks":
       "Панель учасника: бали за безкоштовні послуги роста",
+    "instagram-reels-growth-guide-2026":
+      "Вертикальне Reels-відео Instagram з метриками залученості — гайд 2026",
   },
   fa: {
     "free-followers-guide-2026":
@@ -196,6 +226,8 @@ const blogCoverAltOverrides: Partial<
       "پرداخت امن بسته فالوور روی لپ‌تاپ",
     "earn-free-social-media-growth-tasks":
       "داشبورد عضو در حال کسب امتیاز برای خدمات رایگان",
+    "instagram-reels-growth-guide-2026":
+      "ویدیوی عمودی Reels اینستاگرام با معیارهای تعامل — راهنمای ۲۰۲۶",
   },
   zh: {
     "free-followers-guide-2026":
@@ -208,6 +240,8 @@ const blogCoverAltOverrides: Partial<
       "笔记本电脑上安全购买粉丝套餐",
     "earn-free-social-media-growth-tasks":
       "会员面板通过任务赚取免费社交媒体服务积分",
+    "instagram-reels-growth-guide-2026":
+      "带互动指标的Instagram Reels竖屏视频 — 2026增长指南",
   },
   id: {
     "free-followers-guide-2026":
@@ -220,6 +254,8 @@ const blogCoverAltOverrides: Partial<
       "Checkout aman paket followers di laptop",
     "earn-free-social-media-growth-tasks":
       "Dashboard member mengumpulkan poin untuk layanan sosmed gratis",
+    "instagram-reels-growth-guide-2026":
+      "Video Reels Instagram vertikal dengan metrik engagement — panduan 2026",
   },
   bn: {
     "free-followers-guide-2026":
@@ -232,6 +268,8 @@ const blogCoverAltOverrides: Partial<
       "ল্যাপটপে ফলোয়ার প্যাকেজের নিরাপদ চেকআউট",
     "earn-free-social-media-growth-tasks":
       "সদস্য ড্যাশবোর্ডে ফ্রি সোশ্যাল সার্ভিসের জন্য পয়েন্ট অর্জন",
+    "instagram-reels-growth-guide-2026":
+      "এনগেজমেন্ট মেট্রিক্সসহ Instagram Reels ভিডিও — ২০২৬ গাইড",
   },
   hi: {
     "free-followers-guide-2026":
@@ -244,6 +282,8 @@ const blogCoverAltOverrides: Partial<
       "लैपटॉप पर followers पैकेज का सुरक्षित checkout",
     "earn-free-social-media-growth-tasks":
       "सदस्य डैशबोर्ड में फ्री social सेवाओं के लिए points कमाना",
+    "instagram-reels-growth-guide-2026":
+      "Engagement metrics वाला Instagram Reels vertical video — 2026 guide",
   },
 };
 
