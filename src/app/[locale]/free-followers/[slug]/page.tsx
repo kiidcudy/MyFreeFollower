@@ -96,7 +96,7 @@ export default async function FreeServiceDetailPage({
       />
 
       <div className="grid gap-10 lg:grid-cols-[1fr_380px]">
-        <article>
+        <article className="order-2 lg:order-1">
           <div className="flex items-start gap-4">
             <span className="text-4xl" aria-hidden>
               {getPlatformEmoji(service.platform)}
@@ -166,7 +166,7 @@ export default async function FreeServiceDetailPage({
           </section>
         </article>
 
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+        <aside className="order-1 lg:order-2 lg:sticky lg:top-24 lg:self-start">
           <ServiceOrderForm service={service} />
         </aside>
       </div>
