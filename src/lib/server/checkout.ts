@@ -4,11 +4,15 @@ import {
   mutateCheckout,
   saveCheckout,
   getCheckoutById,
+  getCheckouts,
+  updateServiceOrder,
   type CheckoutLineItem,
   type MffCheckout,
   type ServiceOrder,
 } from "@/lib/kv";
 import { eurToUsdt } from "@/lib/binance-pay";
+import { createCryptomusInvoice, cryptomusConfigured } from "@/lib/server/cryptomus";
+import { siteConfig } from "@/lib/site";
 
 function uid(prefix: string): string {
   return `${prefix}${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
@@ -139,6 +143,79 @@ export async function confirmBinancePaymentSubmitted(checkoutId: string): Promis
     if (c.status !== "pending") return c;
     return { ...c, paymentStatus: "awaiting" };
   });
+}
+
+export async function startCryptomusCheckoutPayment(
+  checkoutId: string,
+  locale = "en",
+): Promise<{ paymentId: string; amountEur: number; payUrl: string }> {
+  const checkout = await getCheckoutById(checkoutId);
+  if (!checkout || checkout.status !== "pending") {
+    throw new Error("Checkout not found or already paid");
+  }
+  if (!cryptomusConfigured()) throw new Error("Cryptomus not configured");
+
+  const paymentId = uid("pay_");
+  const base = siteConfig.url.replace(/\/$/, "");
+
+  const invoice = await createCryptomusInvoice({
+    orderId: paymentId,
+    amountEur: checkout.totalEUR,
+    returnUrl: `${base}/${locale}/cart?payment=return&checkout=${checkoutId}`,
+    callbackUrl: `${base}/api/payments/cryptomus/webhook`,
+  });
+
+  await mutateCheckout(checkoutId, (c) => ({
+    ...c,
+    paymentMethod: "cryptomus",
+    paymentStatus: "pending",
+    paymentId,
+  }));
+
+  return {
+    paymentId,
+    amountEur: checkout.totalEUR,
+    payUrl: invoice.url,
+  };
+}
+
+export async function completeCryptomusCheckoutPayment(
+  paymentId: string,
+  _externalRef?: string,
+): Promise<{ checkoutOrderNumber?: string } | null> {
+  const all = await getCheckouts();
+  const checkout = all.find((c) => c.paymentId === paymentId);
+  if (!checkout) return null;
+
+  if (checkout.status === "paid") {
+    return { checkoutOrderNumber: checkout.checkoutOrderNumber };
+  }
+
+  const orderNumber = checkout.checkoutOrderNumber ?? genCheckoutOrderNumber();
+
+  const updated = await mutateCheckout(checkout.id, (c) => {
+    if (c.status === "paid") return c;
+    return {
+      ...c,
+      status: "paid",
+      paymentStatus: "completed",
+      paymentMethod: "cryptomus",
+      checkoutOrderNumber: orderNumber,
+      paidAt: Date.now(),
+    };
+  });
+
+  if (!updated) return null;
+
+  for (const item of checkout.items) {
+    await updateServiceOrder(item.orderId, {
+      status: "processing",
+      paymentStatus: "paid",
+      paymentMethod: "crypto",
+    });
+  }
+
+  return { checkoutOrderNumber: orderNumber };
 }
 
 export async function getCheckoutStatus(checkoutId: string) {

@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { startBinanceCheckoutPayment, storageReady } from "@/lib/server/checkout";
+import {
+  startBinanceCheckoutPayment,
+  startCryptomusCheckoutPayment,
+  storageReady,
+} from "@/lib/server/checkout";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,6 +14,7 @@ export async function POST(req: NextRequest) {
     const body = (await req.json()) as {
       checkoutId?: string;
       method?: "binance" | "cryptomus" | "card";
+      locale?: string;
     };
 
     if (!body.checkoutId || !body.method) {
@@ -19,6 +24,12 @@ export async function POST(req: NextRequest) {
     if (body.method === "binance") {
       const result = await startBinanceCheckoutPayment(body.checkoutId);
       return NextResponse.json({ ...result, method: "binance" });
+    }
+
+    if (body.method === "cryptomus") {
+      const locale = typeof body.locale === "string" && body.locale.trim() ? body.locale.trim() : "en";
+      const result = await startCryptomusCheckoutPayment(body.checkoutId, locale);
+      return NextResponse.json({ ...result, method: "cryptomus" });
     }
 
     return NextResponse.json({ error: "Payment method not available yet" }, { status: 501 });

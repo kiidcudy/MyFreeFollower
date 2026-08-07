@@ -27,12 +27,14 @@ export async function prepareCheckoutOrder(input: {
 export async function startCheckoutPayment(input: {
   checkoutId: string;
   method: "binance" | "cryptomus" | "card";
+  locale?: string;
 }): Promise<{
   paymentId: string;
   method: string;
   amountEur: number;
   amountUsdt?: number;
   orderNumber?: string;
+  payUrl?: string;
 }> {
   const res = await fetch("/api/payments/checkout", {
     method: "POST",

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { LocalizedLink } from "@/components/i18n/LocalizedLink";
 import { BinancePayModal } from "@/components/cart/BinancePayModal";
 import { useLocale } from "@/components/i18n/LocaleProvider";
@@ -10,6 +11,7 @@ import { formatPrice } from "@/lib/i18n/currency";
 import { PAYMENTS } from "@/lib/site";
 import {
   confirmBinanceSubmitted,
+  pollCheckoutStatus,
   prepareCheckoutOrder,
   startCheckoutPayment,
 } from "@/lib/payments-client";
@@ -49,6 +51,15 @@ function clearPending() {
 }
 
 export function CartView() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center text-[#86868b]">…</div>}>
+      <CartViewInner />
+    </Suspense>
+  );
+}
+
+function CartViewInner() {
+  const searchParams = useSearchParams();
   const { t, locale } = useLocale();
   const { user } = useAuth();
   const { cart, removeFromCart, clearCart, hydrated, itemCount } = useCart();
@@ -87,6 +98,52 @@ export function CartView() {
   useEffect(() => {
     if (user?.email) setGuestEmail(user.email);
   }, [user?.email]);
+
+  useEffect(() => {
+    const checkoutId = searchParams.get("checkout");
+    if (searchParams.get("payment") !== "return" || !checkoutId) return;
+
+    let cancelled = false;
+
+    async function handleReturn() {
+      try {
+        const res = await fetch(`/api/checkout/status?id=${encodeURIComponent(checkoutId!)}`, {
+          cache: "no-store",
+        });
+        if (res.ok) {
+          const data = (await res.json()) as { status?: string; checkoutOrderNumber?: string };
+          if (!cancelled && data.status === "paid") {
+            setSuccessOrderNumber(data.checkoutOrderNumber ?? null);
+            clearPending();
+            setStep("success");
+            return;
+          }
+        }
+      } catch {
+        /* fall through to polling */
+      }
+
+      if (cancelled) return;
+      setMessage(t("cart.paymentPendingOrder"));
+      pollCheckoutStatus(checkoutId!, (data) => {
+        if (data.checkoutOrderNumber) setSuccessOrderNumber(data.checkoutOrderNumber);
+      })
+        .then((result) => {
+          if (result.ok && !cancelled) {
+            setSuccessOrderNumber(result.checkoutOrderNumber ?? null);
+            clearPending();
+            setStep("success");
+          }
+        })
+        .catch(() => {});
+    }
+
+    void handleReturn();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [searchParams, t]);
 
   if (!hydrated) {
     return <div className="py-20 text-center text-[#86868b]">{t("common.loading")}</div>;
@@ -143,14 +200,26 @@ export function CartView() {
                 {t("cart.payBinance")}
               </button>
             )}
-            <button
-              type="button"
-              disabled
-              title={t("cart.comingSoon")}
-              className="w-full cursor-not-allowed rounded-2xl border border-black/[0.08] px-4 py-3.5 text-sm font-semibold text-[#86868b] opacity-60"
-            >
-              {t("cart.payCrypto")}
-            </button>
+            {PAYMENTS.cryptomus.enabled && (
+              <button
+                type="button"
+                disabled={loading}
+                onClick={() => payCheckout("cryptomus")}
+                className="w-full rounded-2xl bg-[#1d1d1f] px-4 py-3.5 text-sm font-bold text-white hover:opacity-95 disabled:opacity-50"
+              >
+                {t("cart.payCrypto")}
+              </button>
+            )}
+            {!PAYMENTS.cryptomus.enabled && (
+              <button
+                type="button"
+                disabled
+                title={t("cart.comingSoon")}
+                className="w-full cursor-not-allowed rounded-2xl border border-black/[0.08] px-4 py-3.5 text-sm font-semibold text-[#86868b] opacity-60"
+              >
+                {t("cart.payCrypto")}
+              </button>
+            )}
             <button
               type="button"
               disabled
@@ -263,7 +332,7 @@ export function CartView() {
 
   async function payCheckout(method: "binance" | "cryptomus" | "card") {
     if (!pending) return;
-    if (method !== "binance") {
+    if (method === "card") {
       setMessage(t("cart.comingSoon"));
       return;
     }
@@ -272,7 +341,17 @@ export function CartView() {
     setError(null);
     setMessage(null);
     try {
-      const result = await startCheckoutPayment({ checkoutId: pending.checkoutId, method });
+      const result = await startCheckoutPayment({
+        checkoutId: pending.checkoutId,
+        method,
+        locale,
+      });
+
+      if (method === "cryptomus" && result.payUrl) {
+        window.location.href = result.payUrl;
+        return;
+      }
+
       if (method === "binance" && result.orderNumber) {
         setBinanceData({
           amountUsdt: result.amountUsdt ?? result.amountEur,

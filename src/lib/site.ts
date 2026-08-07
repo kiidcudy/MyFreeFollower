@@ -69,9 +69,9 @@ export const siteConfig = {
   },
 } as const;
 
-/** Checkout payment methods — card/cryptomus wired later. */
+/** Checkout payment methods */
 export const PAYMENTS = {
-  cryptomus: { enabled: false, label: "Cryptomus" },
+  cryptomus: { enabled: true, label: "Cryptomus" },
   binancePay: { enabled: true, label: "Binance Pay" },
   card: { enabled: false, label: "Credit / Debit Card" },
 } as const;
