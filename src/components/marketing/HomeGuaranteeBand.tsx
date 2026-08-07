@@ -21,7 +21,7 @@ export function HomeGuaranteeBand() {
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
           <div key={item.titleKey} className="mff-card p-6">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0077ed]/10 text-lg text-[#0077ed]">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0077ed]/10 text-lg text-[#0066cc]">
               {item.icon}
             </span>
             <h3 className="mt-4 font-display text-base font-semibold tracking-tight">

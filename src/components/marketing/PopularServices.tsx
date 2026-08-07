@@ -53,13 +53,13 @@ export function PopularServices() {
                 {getPlatformEmoji(service.platform)}
               </span>
               <div className="min-w-0">
-                <p className="truncate text-sm font-semibold text-[#1d1d1f] group-hover:text-[#0077ed]">
+                <p className="truncate text-sm font-semibold text-[#1d1d1f] group-hover:text-[#0066cc]">
                   {getBuyServiceTitle(locale, service.platform, service.type)}
                 </p>
                 {start && (
                   <p className="mt-1 text-xs font-medium text-[#6e6e73]">
                     {t("common.from")}{" "}
-                    <span className="font-semibold text-[#0077ed]">{formatPrice(locale, start.priceUSD)}</span>
+                    <span className="font-semibold text-[#0066cc]">{formatPrice(locale, start.priceUSD)}</span>
                   </p>
                 )}
               </div>

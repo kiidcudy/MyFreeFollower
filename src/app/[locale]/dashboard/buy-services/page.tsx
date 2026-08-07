@@ -119,6 +119,7 @@ export default function DashboardBuyServicesPage() {
                 </label>
                 <select
                   value={tierIdx}
+                  aria-label={t("catalog.selectTier")}
                   onChange={(e) =>
                     setSelected((s) => ({ ...s, [service.slug]: Number(e.target.value) }))
                   }

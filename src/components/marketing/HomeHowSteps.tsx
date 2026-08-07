@@ -24,7 +24,7 @@ export function HomeHowSteps({ dark = false }: { dark?: boolean }) {
           >
             <span
               className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl text-sm font-bold ${
-                dark ? "bg-white text-[#0077ed]" : "bg-[#0077ed] text-white"
+                dark ? "bg-white text-[#0066cc]" : "bg-[#0071e3] text-white"
               }`}
             >
               {step}

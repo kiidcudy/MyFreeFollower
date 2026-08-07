@@ -20,7 +20,7 @@ function FooterLanguageSwitcher() {
 
   return (
     <label className="flex flex-col gap-2 text-sm">
-      <span className="font-semibold text-[#86868b]">{t("nav.language")}</span>
+      <span className="font-semibold text-[#6e6e73]">{t("nav.language")}</span>
       <select
         value={locale}
         onChange={(e) => {
@@ -81,10 +81,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#86868b]">{t("nav.freeServices")}</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("nav.freeServices")}</h3>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <LocalizedLink href="/free-followers" className="text-sm font-semibold text-[#0077ed] hover:underline">
+                <LocalizedLink href="/free-followers" className="text-sm font-semibold text-[#0066cc] hover:underline">
                   {t("footer.allFreeServices")}
                 </LocalizedLink>
               </li>
@@ -106,10 +106,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#86868b]">{t("nav.services")}</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("nav.services")}</h3>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <LocalizedLink href="/buy-followers" className="text-sm font-semibold text-[#0077ed] hover:underline">
+                <LocalizedLink href="/buy-followers" className="text-sm font-semibold text-[#0066cc] hover:underline">
                   {t("footer.allServices")}
                 </LocalizedLink>
               </li>
@@ -131,7 +131,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#86868b]">{t("footer.company")}</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("footer.company")}</h3>
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.href}>
@@ -145,22 +145,22 @@ export function Footer() {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#86868b]">{t("footer.support")}</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("footer.support")}</h3>
               <ul className="mt-4 space-y-2.5 text-sm text-[#6e6e73]">
                 <li>
-                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-[#0077ed]">
+                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-[#0066cc]">
                     WhatsApp: {siteConfig.whatsappDisplay}
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-[#0077ed]">
+                  <a href={`mailto:${siteConfig.email}`} className="hover:text-[#0066cc]">
                     {siteConfig.email}
                   </a>
                 </li>
               </ul>
             </div>
             <FooterLanguageSwitcher />
-            <p className="text-xs text-[#86868b]">
+            <p className="text-xs text-[#6e6e73]">
               {t("common.currency")}:{" "}
               <span className="font-semibold text-[#1d1d1f]">{currencyCode(locale)}</span>
             </p>
@@ -172,18 +172,20 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
           <PaymentMethodsBar compact />
           <div className="mt-8 flex flex-col gap-4 border-t border-black/[0.06] pt-8 md:flex-row md:items-center md:justify-between">
-            <p className="text-xs text-[#86868b]">{t("footer.copyright", { year })}</p>
+            <p className="text-xs text-[#6e6e73]" suppressHydrationWarning>
+              {t("footer.copyright", { year })}
+            </p>
             <ul className="flex flex-wrap gap-4">
               {bottomLinks.map((link) => (
                 <li key={link.href}>
-                  <LocalizedLink href={link.href} className="text-xs font-medium text-[#6e6e73] hover:text-[#0077ed]">
+                  <LocalizedLink href={link.href} className="text-xs font-medium text-[#6e6e73] hover:text-[#0066cc]">
                     {link.label}
                   </LocalizedLink>
                 </li>
               ))}
             </ul>
           </div>
-          <p className="mt-4 text-xs leading-relaxed text-[#86868b]">{t("footer.disclaimer")}</p>
+          <p className="mt-4 text-xs leading-relaxed text-[#6e6e73]">{t("footer.disclaimer")}</p>
         </div>
       </div>
     </footer>

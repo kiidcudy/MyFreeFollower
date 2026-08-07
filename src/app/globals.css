@@ -29,7 +29,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  :focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
   body {
+    --font-display: var(--font-sans);
     @apply min-h-screen bg-[#f5f5f7] font-sans text-[#1d1d1f] antialiased;
     background-image:
       radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 119, 237, 0.08), transparent),
@@ -87,7 +93,7 @@
   }
 
   .mff-btn-primary {
-    @apply mff-btn bg-[#0077ed] text-white shadow-[0_4px_20px_rgba(0,119,237,0.35)] hover:bg-[#0071e3] hover:shadow-[0_8px_28px_rgba(0,119,237,0.4)];
+    @apply mff-btn bg-[#0071e3] text-white shadow-[0_4px_20px_rgba(0,119,237,0.35)] hover:bg-[#0066cc] hover:shadow-[0_8px_28px_rgba(0,119,237,0.4)];
   }
 
   .mff-btn-secondary {
@@ -107,7 +113,7 @@
   }
 
   .mff-link-arrow {
-    @apply inline-flex items-center gap-1 text-sm font-semibold text-[#0077ed] transition hover:gap-2;
+    @apply inline-flex items-center gap-1 text-sm font-semibold text-[#0066cc] transition hover:gap-2;
   }
 
   .mff-badge {
@@ -117,17 +123,17 @@
   .mff-badge-free {
     @apply mff-badge;
     background: rgba(48, 209, 88, 0.15);
-    color: #248a3d;
+    color: #166534;
   }
 
   .mff-badge-paid {
     @apply mff-badge;
     background: rgba(0, 119, 237, 0.12);
-    color: #0077ed;
+    color: #0066cc;
   }
 
   .mff-input {
-    @apply w-full rounded-2xl border border-black/[0.08] bg-white/90 px-4 py-3 text-sm font-medium text-[#1d1d1f] outline-none transition placeholder:text-[#86868b] focus:border-[#0077ed]/40 focus:ring-4 focus:ring-[#0077ed]/10;
+    @apply w-full rounded-2xl border border-black/[0.08] bg-white/90 px-4 py-3 text-sm font-medium text-[#1d1d1f] outline-none transition placeholder:text-[#6e6e73] focus:border-[#0077ed]/40 focus:ring-4 focus:ring-[#0077ed]/10;
   }
 
   .mff-nav-link {
@@ -135,7 +141,7 @@
   }
 
   .mff-nav-link-active {
-    @apply rounded-full bg-[#0077ed]/10 px-4 py-2 text-sm font-semibold text-[#0077ed];
+    @apply rounded-full bg-[#0077ed]/10 px-4 py-2 text-sm font-semibold text-[#0066cc];
   }
 
   .btn {
@@ -143,7 +149,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-accent-600 text-white shadow-soft hover:bg-accent-700 focus-visible:ring-accent-500;
+    @apply btn bg-[#1a7f37] text-white shadow-soft hover:bg-accent-700 focus-visible:ring-accent-700;
   }
 
   .btn-accent {

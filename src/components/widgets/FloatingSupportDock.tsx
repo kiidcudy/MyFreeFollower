@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 
@@ -42,19 +42,16 @@ export function FloatingSupportDock() {
   const propertyId = siteConfig.tawkPropertyId;
   const widgetId = siteConfig.tawkWidgetId;
   const [loadTawk, setLoadTawk] = useState(false);
+  const pendingOpenRef = useRef(false);
 
+  // Chat is only fetched once the visitor interacts, so the third-party bundle
+  // never competes with the initial page load.
   useEffect(() => {
     if (!propertyId) return;
-    const timer = window.setTimeout(() => setLoadTawk(true), 5000);
-    const onInteraction = () => {
-      setLoadTawk(true);
-      window.removeEventListener("scroll", onInteraction);
-      window.removeEventListener("pointerdown", onInteraction);
-    };
+    const onInteraction = () => setLoadTawk(true);
     window.addEventListener("scroll", onInteraction, { once: true, passive: true });
     window.addEventListener("pointerdown", onInteraction, { once: true, passive: true });
     return () => {
-      window.clearTimeout(timer);
       window.removeEventListener("scroll", onInteraction);
       window.removeEventListener("pointerdown", onInteraction);
     };
@@ -68,6 +65,11 @@ export function FloatingSupportDock() {
 
     window.Tawk_API.onLoad = function onTawkLoad() {
       previousOnLoad?.();
+      if (pendingOpenRef.current) {
+        pendingOpenRef.current = false;
+        window.Tawk_API?.maximize?.();
+        return;
+      }
       window.Tawk_API?.hideWidget?.();
     };
   }, [propertyId, loadTawk]);
@@ -77,7 +79,8 @@ export function FloatingSupportDock() {
       window.Tawk_API.maximize();
       return;
     }
-    window.Tawk_API?.showWidget?.();
+    pendingOpenRef.current = true;
+    setLoadTawk(true);
   };
 
   return (
@@ -92,8 +95,9 @@ export function FloatingSupportDock() {
       )}
 
       <div
-        className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex items-end justify-between px-4 pb-4 sm:px-6 sm:pb-6"
+        role="group"
         aria-label={t("common.support")}
+        className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex items-end justify-between px-4 pb-4 sm:px-6 sm:pb-6"
       >
         <a
           href={whatsappLink()}

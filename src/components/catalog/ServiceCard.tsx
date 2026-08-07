@@ -45,7 +45,7 @@ export function ServiceCard({ service }: { service: CatalogService }) {
         </span>
         <span className={isFreeService(service) ? "mff-badge-free" : "mff-badge-paid"}>{badge}</span>
       </div>
-      <h3 className="mt-4 font-display text-base font-semibold tracking-tight group-hover:text-[#0077ed]">
+      <h3 className="mt-4 font-display text-base font-semibold tracking-tight group-hover:text-[#0066cc]">
         {title}
       </h3>
       <p className="mt-2 text-sm text-[#6e6e73]">{subtitle}</p>

@@ -28,7 +28,7 @@ export function SectionHeader({
       <div className={`max-w-3xl ${alignClass}`}>
         {eyebrow && (
           <p
-            className={`mff-eyebrow mb-4 ${light ? "bg-white/15 text-white/90" : "bg-[#0077ed]/10 text-[#0077ed]"}`}
+            className={`mff-eyebrow mb-4 ${light ? "bg-white/15 text-white/90" : "bg-[#0077ed]/10 text-[#0066cc]"}`}
           >
             {eyebrow}
           </p>

@@ -73,7 +73,7 @@ export function HomeFeaturedPlatforms() {
             <div className="mt-6 flex flex-wrap gap-2">
               <LocalizedLink
                 href={`/free-followers/${item.freeSlug}`}
-                className="mff-btn bg-[#30d158] px-4 py-2 text-xs text-white hover:bg-[#248a3d]"
+                className="mff-btn bg-[#1a7f37] px-4 py-2 text-xs text-white hover:bg-[#166534]"
               >
                 {t("home.featuredFreeLabel")}
               </LocalizedLink>

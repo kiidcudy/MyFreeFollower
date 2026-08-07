@@ -13,13 +13,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-});
-
-const interDisplay = Inter({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["500", "600", "700"],
+  preload: true,
 });
 
 export const metadata: Metadata = createMetadata({
@@ -42,9 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${interDisplay.variable} flex min-h-screen flex-col`}
-      >
+      <body className={`${inter.variable} flex min-h-screen flex-col`}>
         <AuthProvider>
           <CartProvider>
             {children}

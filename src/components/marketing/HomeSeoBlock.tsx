@@ -24,7 +24,7 @@ export function HomeSeoBlock() {
             {[t("home.trustNoPassword"), t("home.trustSupport"), t("home.trustSecure"), t("home.why6Title")].map(
               (item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#30d158] text-[10px] text-white">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1a7f37] text-[10px] text-white">
                     ✓
                   </span>
                   {item}

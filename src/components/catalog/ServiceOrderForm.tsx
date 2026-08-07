@@ -245,7 +245,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
   if (success) {
     return (
       <div className="mff-card border-[#30d158]/20 bg-[#30d158]/10 p-8 text-center">
-        <p className="font-display text-lg font-semibold text-[#248a3d]">{t("toast.orderPlaced")}</p>
+        <p className="font-display text-lg font-semibold text-[#166534]">{t("toast.orderPlaced")}</p>
         <button
           type="button"
           onClick={() => router.push(localizedPath("/dashboard/orders", locale))}
@@ -290,7 +290,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
               placeholder={t("catalog.customAmountPlaceholder")}
               className="mff-input mt-2"
             />
-            <p className="mt-1.5 text-xs text-[#86868b]">
+            <p className="mt-1.5 text-xs text-[#6e6e73]">
               {t("catalog.customAmountRange")
                 .replace("{min}", MIN_CUSTOM.toLocaleString())
                 .replace("{max}", MAX_CUSTOM.toLocaleString())}
@@ -321,17 +321,17 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
           <button
             type="button"
             onClick={handleCheckLink}
-            className="shrink-0 rounded-2xl border border-[#0077ed] px-4 py-2.5 text-sm font-semibold text-[#0077ed] transition hover:bg-[#0077ed]/10"
+            className="shrink-0 rounded-2xl border border-[#0077ed] px-4 py-2.5 text-sm font-semibold text-[#0066cc] transition hover:bg-[#0077ed]/10"
           >
             {t("catalog.checkLink")}
           </button>
         </div>
         {linkChecked && (
-          <p className="mt-2 text-xs font-semibold text-[#248a3d]">{t("catalog.linkVerified")}</p>
+          <p className="mt-2 text-xs font-semibold text-[#166534]">{t("catalog.linkVerified")}</p>
         )}
       </div>
 
-      <div className="mt-4 flex items-start gap-2 rounded-2xl bg-[#30d158]/10 px-4 py-3 text-sm text-[#248a3d]">
+      <div className="mt-4 flex items-start gap-2 rounded-2xl bg-[#30d158]/10 px-4 py-3 text-sm text-[#166534]">
         <span aria-hidden>🛡️</span>
         <p>{t("catalog.usernameHint")}</p>
       </div>
@@ -340,10 +340,10 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
         <div className="mt-5 grid gap-4 rounded-[20px] bg-[#f5f5f7] px-4 py-4 sm:grid-cols-2">
           <div>
             <span className="block text-sm font-semibold text-[#6e6e73]">{t("catalog.totalToPay")}</span>
-            <span className="mt-1 block font-display text-2xl font-bold text-[#0077ed]">
+            <span className="mt-1 block font-display text-2xl font-bold text-[#0066cc]">
               {formatPrice(locale, paidPricing.priceUSD)}
             </span>
-            <span className="mt-1 block text-xs text-[#86868b]">
+            <span className="mt-1 block text-xs text-[#6e6e73]">
               {t("catalog.unitPrice").replace(
                 "{price}",
                 formatUnitPrice(locale, paidPricing.priceUSD, paidQuantity),
@@ -362,7 +362,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       {isFreeService(service) && (
         <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[20px] bg-[#f5f5f7] px-4 py-4">
           <span className="text-sm font-semibold text-[#6e6e73]">{t("catalog.pointsCost")}</span>
-          <span className="font-display text-lg font-semibold text-[#0077ed]">
+          <span className="font-display text-lg font-semibold text-[#0066cc]">
             {!user
               ? t("catalog.signUpToClaim")
               : `${formatPoints(pointsCost)} ${t("common.points")}`}
@@ -371,7 +371,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       )}
 
       {paidService && (
-        <p className="mt-4 text-center text-xs text-[#86868b]">{t("catalog.guestCheckout")}</p>
+        <p className="mt-4 text-center text-xs text-[#6e6e73]">{t("catalog.guestCheckout")}</p>
       )}
 
       {error && (
@@ -380,7 +380,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
         </p>
       )}
       {cartNotice && (
-        <p className="mt-4 rounded-lg bg-[#30d158]/10 px-3 py-2 text-sm text-[#248a3d]" role="status">
+        <p className="mt-4 rounded-lg bg-[#30d158]/10 px-3 py-2 text-sm text-[#166534]" role="status">
           {cartNotice}{" "}
           <button
             type="button"
@@ -397,7 +397,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
           <button
             type="button"
             onClick={handleAddToCart}
-            className="rounded-full border-2 border-[#0077ed] bg-white px-5 py-3 text-sm font-semibold text-[#0077ed] transition hover:bg-[#0077ed]/10"
+            className="rounded-full border-2 border-[#0077ed] bg-white px-5 py-3 text-sm font-semibold text-[#0066cc] transition hover:bg-[#0077ed]/10"
           >
             {t("catalog.addToCart")}
           </button>
@@ -420,7 +420,9 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
           {[t("catalog.securePayment"), t("catalog.instantDelivery"), t("catalog.noPasswordNeeded"), t("catalog.noMembershipRequired")].map(
             (item) => (
               <li key={item} className="flex items-center gap-2">
-                <span className="font-bold text-[#30d158]">✓</span>
+                <span className="font-bold text-[#1a7f37]" aria-hidden>
+                  ✓
+                </span>
                 {item}
               </li>
             ),

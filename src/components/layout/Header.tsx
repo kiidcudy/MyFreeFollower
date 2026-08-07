@@ -34,7 +34,7 @@ function CartBadge() {
   return (
     <LocalizedLink
       href="/cart"
-      className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0077ed]/10 text-[#0077ed] transition hover:bg-[#0077ed]/15"
+      className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0077ed]/10 text-[#0066cc] transition hover:bg-[#0077ed]/15"
       aria-label={t("nav.cart")}
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -43,7 +43,7 @@ function CartBadge() {
         <circle cx="17" cy="19" r="1.5" fill="currentColor" />
         <path d="M6 6L5 3H2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
       </svg>
-      <span className="absolute -end-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#0077ed] px-1 text-[10px] font-bold text-white">
+      <span className="absolute -end-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#0071e3] px-1 text-[10px] font-bold text-white">
         {itemCount > 9 ? "9+" : itemCount}
       </span>
     </LocalizedLink>
@@ -58,7 +58,7 @@ function PointsBadge() {
   return (
     <LocalizedLink
       href="/dashboard"
-      className="hidden items-center gap-1.5 rounded-full bg-[#0077ed]/10 px-3.5 py-1.5 text-xs font-semibold text-[#0077ed] transition hover:bg-[#0077ed]/15 sm:inline-flex"
+      className="hidden items-center gap-1.5 rounded-full bg-[#0077ed]/10 px-3.5 py-1.5 text-xs font-semibold text-[#0066cc] transition hover:bg-[#0077ed]/15 sm:inline-flex"
     >
       {formatPoints(user.points)} {t("nav.points")}
     </LocalizedLink>
@@ -137,9 +137,7 @@ export function Header() {
             <LanguageSwitcher />
             <CartBadge />
             <PointsBadge />
-            {!ready ? (
-              <div className="h-9 w-24 animate-pulse rounded-full bg-black/[0.05]" aria-hidden />
-            ) : user ? (
+            {ready && user ? (
               <div className="flex items-center gap-1">
                 <LocalizedLink href="/dashboard" className="mff-nav-link hidden sm:inline-flex">
                   {t("nav.dashboard")}
@@ -165,6 +163,7 @@ export function Header() {
               onClick={() => setMenuOpen((o) => !o)}
               aria-label={menuOpen ? t("nav.closeMenu") : t("nav.menu")}
               aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
                 {menuOpen ? (
@@ -179,7 +178,7 @@ export function Header() {
       </div>
 
       {menuOpen && (
-        <div className="border-b border-black/[0.06] bg-white/95 backdrop-blur-xl lg:hidden">
+        <div id="mobile-nav" className="border-b border-black/[0.06] bg-white/95 backdrop-blur-xl lg:hidden">
           <div className="mx-auto max-w-7xl space-y-3 px-4 py-4 sm:px-6">
             <SiteSearch variant="header" />
             <nav className="space-y-1" aria-label="Mobile">
@@ -190,7 +189,7 @@ export function Header() {
                   onClick={() => setMenuOpen(false)}
                   className={`block rounded-2xl px-4 py-3 text-sm font-medium transition ${
                     pathname.includes(link.href)
-                      ? "bg-[#0077ed]/10 text-[#0077ed]"
+                      ? "bg-[#0077ed]/10 text-[#0066cc]"
                       : "text-[#1d1d1f] hover:bg-black/[0.04]"
                   }`}
                 >

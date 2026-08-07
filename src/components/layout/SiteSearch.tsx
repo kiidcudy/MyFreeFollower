@@ -26,7 +26,7 @@ export function SiteSearch({ variant = "hero" }: { variant?: "hero" | "header" }
     <div className={`relative ${isHero ? "mx-auto w-full max-w-xl" : "w-full max-w-md"}`}>
       <div className="relative">
         <svg
-          className={`pointer-events-none absolute start-4 top-1/2 h-5 w-5 -translate-y-1/2 ${isHero ? "text-[#86868b]" : "text-[#86868b]"}`}
+          className={`pointer-events-none absolute start-4 top-1/2 h-5 w-5 -translate-y-1/2 ${isHero ? "text-[#6e6e73]" : "text-[#6e6e73]"}`}
           viewBox="0 0 24 24"
           fill="none"
           aria-hidden

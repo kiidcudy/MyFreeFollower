@@ -284,6 +284,7 @@ export function TaskRunner() {
                         setAccountNames((a) => ({ ...a, [task.id]: e.target.value }))
                       }
                       placeholder={t("dashboard.proofAccountPlaceholder")}
+                      aria-label={t("dashboard.proofAccountLabel")}
                       className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
                     />
                   </div>

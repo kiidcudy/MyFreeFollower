@@ -32,10 +32,10 @@ export function HeroSection({ fullBleed = false }: { fullBleed?: boolean }) {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <LocalizedLink href="/buy-followers" className="mff-btn bg-white text-[#0077ed] hover:bg-white/95">
+          <LocalizedLink href="/buy-followers" className="mff-btn bg-white text-[#0066cc] hover:bg-white/95">
             {t("home.ctaExploreServices")}
           </LocalizedLink>
-          <LocalizedLink href="/free-followers" className="mff-btn bg-[#30d158] text-white hover:bg-[#248a3d]">
+          <LocalizedLink href="/free-followers" className="mff-btn bg-[#1a7f37] text-white hover:bg-[#166534]">
             {t("home.ctaTryFree")}
           </LocalizedLink>
           <LocalizedLink href="/register" className="mff-btn-outline-light">

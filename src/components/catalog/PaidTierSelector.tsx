@@ -35,7 +35,7 @@ export function PaidTierSelector({
             <span className="block font-display text-base font-semibold tracking-tight text-[#1d1d1f]">
               {tier.quantity.toLocaleString()}
             </span>
-            <span className="mt-1 block text-sm font-semibold text-[#0077ed]">
+            <span className="mt-1 block text-sm font-semibold text-[#0066cc]">
               {formatPrice(locale, tier.priceUSD)}
             </span>
           </button>

@@ -37,7 +37,7 @@ export function HomeTestimonials() {
               </span>
               <div>
                 <p className="text-sm font-semibold">{t(item.nameKey)}</p>
-                <p className="text-xs text-[#86868b]">{t(item.roleKey)}</p>
+                <p className="text-xs text-[#6e6e73]">{t(item.roleKey)}</p>
               </div>
             </footer>
           </blockquote>

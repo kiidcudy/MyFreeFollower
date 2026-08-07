@@ -80,8 +80,18 @@ export function BinancePayModal({
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      <button type="button" className="absolute inset-0 bg-slate-900/50" onClick={onClose} aria-label="Close" />
-      <div className="relative max-h-[95vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white shadow-2xl">
+      <button
+        type="button"
+        className="absolute inset-0 bg-slate-900/50"
+        onClick={onClose}
+        aria-label={labels.close}
+      />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={labels.stepPay}
+        className="relative max-h-[95vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white shadow-2xl"
+      >
         <div className="flex items-center justify-center gap-3 border-b border-slate-100 px-6 py-5">
           <div className="flex items-center gap-2">
             <span className={`flex h-7 w-7 items-center justify-center rounded-full text-sm font-bold ${step === 1 ? "bg-blue-600 text-white" : "bg-blue-100 text-blue-700"}`}>1</span>
@@ -100,9 +110,12 @@ export function BinancePayModal({
               <p className="text-center text-3xl font-bold tracking-tight text-slate-900">{amountUsdt.toFixed(2)} USDT</p>
 
               <div className="mt-6">
-                <label className="text-sm font-medium text-slate-700">{labels.sendToId}</label>
+                <label htmlFor="binance-pay-uid" className="text-sm font-medium text-slate-700">
+                  {labels.sendToId}
+                </label>
                 <div className="mt-2 flex gap-2">
                   <input
+                    id="binance-pay-uid"
                     readOnly
                     value={BINANCE_PAY.uid}
                     className="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 font-mono text-sm text-slate-800"
@@ -128,7 +141,14 @@ export function BinancePayModal({
                   <div className="px-4 pb-4 pt-3">
                     <p className="text-center text-[11px] text-white/80">{labels.scanViaApp}</p>
                     <div className="mx-auto mt-3 flex h-[180px] w-[180px] items-center justify-center rounded-lg bg-white p-2">
-                      <QRCodeSVG value={qrPayload} size={164} level="M" includeMargin={false} aria-label="Binance Pay QR" />
+                      <QRCodeSVG
+                        value={qrPayload}
+                        size={164}
+                        level="M"
+                        includeMargin={false}
+                        role="img"
+                        aria-label="Binance Pay QR"
+                      />
                     </div>
                     <div className="mt-3 flex justify-between border-t border-white/10 pt-2 text-[11px] text-white/70">
                       <span>{labels.nickname}</span>

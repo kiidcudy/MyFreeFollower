@@ -71,6 +71,7 @@ export default function DashboardReferralsPage() {
           <input
             readOnly
             value={referralUrl}
+            aria-label={t("dashboard.referralLink")}
             className="min-w-0 flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm"
           />
           <button

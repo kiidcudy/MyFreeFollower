@@ -139,6 +139,7 @@ function ProofResubmitForm({ proof }: { proof: ProofSubmission }) {
           value={accountName}
           onChange={(e) => setAccountName(e.target.value)}
           placeholder={t("dashboard.proofAccountPlaceholder")}
+          aria-label={t("dashboard.proofAccountPlaceholder")}
           className="w-full rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm"
         />
         <div className="flex flex-wrap items-center gap-2">

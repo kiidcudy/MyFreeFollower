@@ -66,7 +66,7 @@ export function Logo({
       <LogoMark className="h-10 w-10 shrink-0 sm:h-11 sm:w-11" gradId={gradId} />
       <span className="flex flex-col leading-none">
         <span
-          className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-[#86868b]"
+          className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-[#6e6e73]"
           style={{ letterSpacing: "0.22em" }}
         >
           My

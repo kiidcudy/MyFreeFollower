@@ -158,6 +158,7 @@ export default async function BlogPostPage({
               alt={cover.alt}
               width={1200}
               height={630}
+              sizes="(max-width: 1024px) 100vw, 1024px"
               className="h-auto w-full object-cover"
               priority
             />

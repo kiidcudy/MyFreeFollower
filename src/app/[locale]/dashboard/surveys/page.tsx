@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LocalizedLink } from "@/components/i18n/LocalizedLink";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
@@ -16,15 +16,16 @@ const SURVEYS = [
 export default function DashboardSurveysPage() {
   const { t } = useLocale();
   const { user, reward } = useAuth();
-  const [completed, setCompleted] = useState<Set<string>>(() => {
-    if (typeof window === "undefined") return new Set();
+  const [completed, setCompleted] = useState<Set<string>>(() => new Set());
+
+  useEffect(() => {
     try {
       const raw = localStorage.getItem("mff-surveys-v1");
-      return raw ? new Set(JSON.parse(raw) as string[]) : new Set();
+      if (raw) setCompleted(new Set(JSON.parse(raw) as string[]));
     } catch {
-      return new Set();
+      /* ignore */
     }
-  });
+  }, []);
   const [message, setMessage] = useState<{ type: "ok" | "err"; text: string } | null>(null);
 
   const markComplete = (id: string, points: number) => {

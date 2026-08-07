@@ -21,7 +21,7 @@ export function PageBreadcrumbs({ items }: { items: BreadcrumbItem[] }) {
 
   return (
     <nav aria-label="Breadcrumb" className="mb-8">
-      <ol className="flex flex-wrap items-center gap-2 text-sm text-[#86868b]">
+      <ol className="flex flex-wrap items-center gap-2 text-sm text-[#6e6e73]">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           const linkable = item.href ?? !isLast;
@@ -30,7 +30,7 @@ export function PageBreadcrumbs({ items }: { items: BreadcrumbItem[] }) {
             <li key={`${item.path}-${index}`} className="flex items-center gap-2">
               {index > 0 && <span aria-hidden>/</span>}
               {linkable ? (
-                <LocalizedLink href={item.path} className="font-medium text-[#0077ed] hover:underline">
+                <LocalizedLink href={item.path} className="font-medium text-[#0066cc] hover:underline">
                   {item.label}
                 </LocalizedLink>
               ) : (

@@ -20,7 +20,7 @@ export function PaymentMethodsBar({ compact = false }: { compact?: boolean }) {
             </span>
           ))}
         </div>
-        <p className="mt-4 text-xs leading-relaxed text-[#86868b]">{t("payments.note")}</p>
+        <p className="mt-4 text-xs leading-relaxed text-[#6e6e73]">{t("payments.note")}</p>
       </>
     );
   }
@@ -38,13 +38,13 @@ export function PaymentMethodsBar({ compact = false }: { compact?: boolean }) {
         {siteConfig.paymentMethods.map((method) => (
           <span
             key={method}
-            className="rounded-2xl bg-[#f5f5f7] px-2 py-3.5 text-center text-[11px] font-semibold leading-tight text-[#1d1d1f] transition hover:bg-[#0077ed]/10 hover:text-[#0077ed]"
+            className="rounded-2xl bg-[#f5f5f7] px-2 py-3.5 text-center text-[11px] font-semibold leading-tight text-[#1d1d1f] transition hover:bg-[#0077ed]/10 hover:text-[#0066cc]"
           >
             {method}
           </span>
         ))}
       </div>
-      <p className="mt-6 text-xs leading-relaxed text-[#86868b]">{t("payments.note")}</p>
+      <p className="mt-6 text-xs leading-relaxed text-[#6e6e73]">{t("payments.note")}</p>
     </div>
   );
 }

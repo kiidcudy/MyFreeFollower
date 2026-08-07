@@ -50,14 +50,15 @@ export function HomeBlogPreview({ locale }: { locale: Locale }) {
                 alt={cover.alt}
                 width={600}
                 height={315}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="h-40 w-full object-cover"
               />
             )}
             <div className="flex flex-1 flex-col p-6 sm:p-7">
-            <time dateTime={post.publishedAt} className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0077ed]">
+            <time dateTime={post.publishedAt} className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0066cc]">
               {formatDate(post.publishedAt, locale)}
             </time>
-            <h3 className="mt-4 font-display text-lg font-semibold tracking-tight group-hover:text-[#0077ed]">
+            <h3 className="mt-4 font-display text-lg font-semibold tracking-tight group-hover:text-[#0066cc]">
               <Link href={localizedPath(`/blog/${post.slug}`, locale)}>{post.title}</Link>
             </h3>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-[#6e6e73] line-clamp-3">

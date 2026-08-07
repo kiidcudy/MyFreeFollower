@@ -10,13 +10,17 @@ import {
   type ReactNode,
 } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { isRtl, type Locale } from "@/lib/i18n/config";
+import { isRtl, localeHreflang, type Locale } from "@/lib/i18n/config";
 import {
   getLocaleFromPathname,
   LOCALE_COOKIE,
   switchLocalePath,
 } from "@/lib/i18n/navigation";
-import { getMessages, t, type Messages } from "@/lib/i18n/translations";
+import {
+  getCoreMessages,
+  resolveMessage,
+  type Messages,
+} from "@/lib/i18n/messages-core";
 
 interface LocaleContextValue {
   locale: Locale;
@@ -48,7 +52,7 @@ export function LocaleProvider({
   }, [pathnameLocale]);
 
   useEffect(() => {
-    document.documentElement.lang = locale;
+    document.documentElement.lang = localeHreflang[locale] ?? locale;
     document.documentElement.dir = isRtl(locale) ? "rtl" : "ltr";
     setLocaleCookie(locale);
   }, [locale]);
@@ -63,16 +67,21 @@ export function LocaleProvider({
     [pathname, router],
   );
 
-  const messages = useMemo(() => getMessages(locale), [locale]);
+  const messages = useMemo(() => getCoreMessages(locale), [locale]);
 
   const translate = useCallback(
     (key: string, params?: Record<string, string | number>) =>
-      t(locale, key, params),
-    [locale],
+      resolveMessage(messages, key, params),
+    [messages],
   );
 
   const value = useMemo(
-    () => ({ locale, setLocale, messages, t: translate }),
+    () => ({
+      locale,
+      setLocale,
+      messages,
+      t: translate,
+    }),
     [locale, setLocale, messages, translate],
   );
 

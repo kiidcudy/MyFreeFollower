@@ -100,7 +100,7 @@ export default async function HowItWorksPage({
         </Link>
         <Link
           href={localizedPath("/buy-followers", locale)}
-          className="rounded-full bg-accent-600 px-6 py-3 text-sm font-bold text-white hover:bg-accent-700"
+          className="rounded-full bg-[#1a7f37] px-6 py-3 text-sm font-bold text-white hover:bg-accent-700"
         >
           {t(locale, "howItWorks.ctaBrowsePaid")}
         </Link>

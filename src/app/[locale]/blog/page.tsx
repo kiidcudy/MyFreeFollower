@@ -74,7 +74,7 @@ export default async function BlogListingPage({
       </header>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {posts.map((post) => {
+        {posts.map((post, index) => {
           const cover = getBlogCover(post.slug, locale);
           return (
           <article
@@ -87,6 +87,8 @@ export default async function BlogListingPage({
                 alt={cover.alt}
                 width={600}
                 height={315}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={index === 0}
                 className="h-40 w-full object-cover"
               />
             )}

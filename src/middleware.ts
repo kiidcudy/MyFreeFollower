@@ -66,7 +66,10 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|admin|_next|.*\\..*).*)"],
+  // Extensionless metadata routes (/icon, /apple-icon) live at the root, not under
+  // /[locale], so they must be excluded explicitly — the `.*\..*` clause only skips
+  // paths that contain a dot, and redirecting them yields a 404.
+  matcher: ["/((?!api|admin|_next|icon$|apple-icon$|.*\\..*).*)"],
 };
 
 export {

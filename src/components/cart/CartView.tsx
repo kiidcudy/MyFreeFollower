@@ -52,7 +52,7 @@ function clearPending() {
 
 export function CartView() {
   return (
-    <Suspense fallback={<div className="py-20 text-center text-[#86868b]">…</div>}>
+    <Suspense fallback={<div className="py-20 text-center text-[#6e6e73]">…</div>}>
       <CartViewInner />
     </Suspense>
   );
@@ -146,20 +146,20 @@ function CartViewInner() {
   }, [searchParams, t]);
 
   if (!hydrated) {
-    return <div className="py-20 text-center text-[#86868b]">{t("common.loading")}</div>;
+    return <div className="py-20 text-center text-[#6e6e73]">{t("common.loading")}</div>;
   }
 
   if (step === "success") {
     return (
       <div className="mff-card mx-auto max-w-lg p-8 text-center">
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#30d158]/15 text-[#248a3d]">
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#30d158]/15 text-[#166534]">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
             <path d="M5 12l4 4 10-10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <h2 className="font-display text-xl font-bold text-[#1d1d1f]">{t("cart.successTitle")}</h2>
         {successOrderNumber && (
-          <p className="mt-2 font-mono text-sm font-semibold text-[#0077ed]">
+          <p className="mt-2 font-mono text-sm font-semibold text-[#0066cc]">
             {t("cart.checkoutOrderNumber")}: {successOrderNumber}
           </p>
         )}
@@ -170,7 +170,7 @@ function CartViewInner() {
               {t("nav.orders")}
             </LocalizedLink>
           )}
-          <LocalizedLink href="/buy-followers" className="rounded-full border border-[#0077ed] px-5 py-2.5 text-sm font-semibold text-[#0077ed]">
+          <LocalizedLink href="/buy-followers" className="rounded-full border border-[#0077ed] px-5 py-2.5 text-sm font-semibold text-[#0066cc]">
             {t("cart.continueShopping")}
           </LocalizedLink>
         </div>
@@ -184,10 +184,10 @@ function CartViewInner() {
         <div className="mff-card mx-auto max-w-lg p-6 sm:p-8">
           <h2 className="font-display text-lg font-bold text-[#1d1d1f]">{t("cart.payOrderTitle")}</h2>
           <p className="mt-2 text-sm text-[#6e6e73]">{t("cart.payOrderHint")}</p>
-          <p className="mt-4 text-center font-display text-3xl font-bold text-[#0077ed]">
+          <p className="mt-4 text-center font-display text-3xl font-bold text-[#0066cc]">
             {formatPrice(locale, payTotalUSD)}
           </p>
-          <p className="text-center text-xs text-[#86868b]">≈ €{payTotalEUR.toFixed(2)}</p>
+          <p className="text-center text-xs text-[#6e6e73]">≈ €{payTotalEUR.toFixed(2)}</p>
 
           <div className="mt-6 space-y-2">
             {PAYMENTS.binancePay.enabled && (
@@ -215,7 +215,7 @@ function CartViewInner() {
                 type="button"
                 disabled
                 title={t("cart.comingSoon")}
-                className="w-full cursor-not-allowed rounded-2xl border border-black/[0.08] px-4 py-3.5 text-sm font-semibold text-[#86868b] opacity-60"
+                className="w-full cursor-not-allowed rounded-2xl border border-black/[0.08] px-4 py-3.5 text-sm font-semibold text-[#6e6e73] opacity-60"
               >
                 {t("cart.payCrypto")}
               </button>
@@ -224,7 +224,7 @@ function CartViewInner() {
               type="button"
               disabled
               title={t("cart.comingSoon")}
-              className="w-full cursor-not-allowed rounded-2xl border border-black/[0.08] px-4 py-3.5 text-sm font-semibold text-[#86868b] opacity-60"
+              className="w-full cursor-not-allowed rounded-2xl border border-black/[0.08] px-4 py-3.5 text-sm font-semibold text-[#6e6e73] opacity-60"
             >
               {t("cart.payCard")}
             </button>
@@ -242,7 +242,7 @@ function CartViewInner() {
               setError(null);
               setMessage(null);
             }}
-            className="mt-6 w-full text-sm font-semibold text-[#86868b] hover:text-[#1d1d1f]"
+            className="mt-6 w-full text-sm font-semibold text-[#6e6e73] hover:text-[#1d1d1f]"
           >
             {t("cart.backToCart")}
           </button>
@@ -389,7 +389,7 @@ function CartViewInner() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_340px]">
       <div className="mff-card overflow-hidden">
-        <div className="hidden grid-cols-[1fr_auto_auto] gap-4 border-b border-black/[0.06] px-5 py-3 text-xs font-semibold uppercase tracking-wide text-[#86868b] sm:grid">
+        <div className="hidden grid-cols-[1fr_auto_auto] gap-4 border-b border-black/[0.06] px-5 py-3 text-xs font-semibold uppercase tracking-wide text-[#6e6e73] sm:grid">
           <span>{t("cart.item")}</span>
           <span>{t("cart.qty")}</span>
           <span>{t("cart.price")}</span>
@@ -399,13 +399,13 @@ function CartViewInner() {
             <li key={item.key} className="flex flex-col gap-3 px-5 py-4 sm:grid sm:grid-cols-[1fr_auto_auto] sm:items-center sm:gap-4">
               <div>
                 <p className="font-semibold text-[#1d1d1f]">{item.serviceTitle}</p>
-                <p className="mt-1 text-xs text-[#86868b]">
+                <p className="mt-1 text-xs text-[#6e6e73]">
                   {item.platform} · {t("cart.target")}: {item.username}
                 </p>
               </div>
               <span className="text-sm font-medium text-[#6e6e73] sm:text-center">{item.quantity.toLocaleString()}</span>
               <div className="flex items-center justify-between gap-3 sm:block sm:text-end">
-                <span className="font-semibold text-[#0077ed]">{formatPrice(locale, item.priceUSD)}</span>
+                <span className="font-semibold text-[#0066cc]">{formatPrice(locale, item.priceUSD)}</span>
                 <button
                   type="button"
                   onClick={() => removeFromCart(item.key)}
@@ -434,15 +434,15 @@ function CartViewInner() {
               placeholder="you@example.com"
               required
             />
-            <p className="mt-1.5 text-xs text-[#86868b]">{t("cart.guestCheckout")}</p>
+            <p className="mt-1.5 text-xs text-[#6e6e73]">{t("cart.guestCheckout")}</p>
           </div>
         )}
 
         <div className="flex items-center justify-between text-sm">
           <span className="text-[#6e6e73]">{t("cart.total")}</span>
-          <span className="font-display text-xl font-bold text-[#0077ed]">{formatPrice(locale, totalUSD)}</span>
+          <span className="font-display text-xl font-bold text-[#0066cc]">{formatPrice(locale, totalUSD)}</span>
         </div>
-        <p className="mt-1 text-end text-xs text-[#86868b]">≈ €{totalEUR.toFixed(2)}</p>
+        <p className="mt-1 text-end text-xs text-[#6e6e73]">≈ €{totalEUR.toFixed(2)}</p>
 
         {error && (
           <p className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
@@ -461,7 +461,7 @@ function CartViewInner() {
 
         <LocalizedLink
           href="/buy-followers"
-          className="mt-3 block text-center text-sm font-semibold text-[#0077ed] hover:underline"
+          className="mt-3 block text-center text-sm font-semibold text-[#0066cc] hover:underline"
         >
           {t("cart.continueShopping")}
         </LocalizedLink>

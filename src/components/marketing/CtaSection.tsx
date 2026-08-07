@@ -13,10 +13,10 @@ export function CtaSection() {
         <h2 className="mff-heading-lg text-white">{t("home.ctaFinalTitle")}</h2>
         <p className="mx-auto mt-5 text-base leading-relaxed text-white/80">{t("home.ctaFinalDesc")}</p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <LocalizedLink href="/free-followers" className="mff-btn bg-white text-[#0077ed] hover:bg-white/95">
+          <LocalizedLink href="/free-followers" className="mff-btn bg-white text-[#0066cc] hover:bg-white/95">
             {t("home.ctaTryFree")}
           </LocalizedLink>
-          <LocalizedLink href="/register" className="mff-btn bg-[#30d158] text-white hover:bg-[#248a3d]">
+          <LocalizedLink href="/register" className="mff-btn bg-[#1a7f37] text-white hover:bg-[#166534]">
             {t("home.ctaSignUp")}
           </LocalizedLink>
           <LocalizedLink href="/buy-followers" className="mff-btn-outline-light">

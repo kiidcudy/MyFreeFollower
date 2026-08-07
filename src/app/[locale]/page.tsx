@@ -131,7 +131,7 @@ export default async function HomePage({
             <li key={link.path}>
               <Link
                 href={localizedPath(link.path, locale)}
-                className="mff-card-hover block px-5 py-4 text-sm font-semibold text-[#1d1d1f] hover:text-[#0077ed]"
+                className="mff-card-hover block px-5 py-4 text-sm font-semibold text-[#1d1d1f] hover:text-[#0066cc]"
               >
                 {t(locale, link.labelKey)} →
               </Link>
