@@ -22,8 +22,6 @@ const STATIC_PATHS = [
   "/privacy-policy",
   "/terms",
   "/refund-policy",
-  "/login",
-  "/register",
 ] as const;
 
 function entry(

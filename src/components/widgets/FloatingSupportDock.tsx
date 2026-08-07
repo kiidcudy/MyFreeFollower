@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { siteConfig, whatsappLink } from "@/lib/site";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 
@@ -41,9 +41,27 @@ export function FloatingSupportDock() {
   const { t } = useLocale();
   const propertyId = siteConfig.tawkPropertyId;
   const widgetId = siteConfig.tawkWidgetId;
+  const [loadTawk, setLoadTawk] = useState(false);
 
   useEffect(() => {
     if (!propertyId) return;
+    const timer = window.setTimeout(() => setLoadTawk(true), 5000);
+    const onInteraction = () => {
+      setLoadTawk(true);
+      window.removeEventListener("scroll", onInteraction);
+      window.removeEventListener("pointerdown", onInteraction);
+    };
+    window.addEventListener("scroll", onInteraction, { once: true, passive: true });
+    window.addEventListener("pointerdown", onInteraction, { once: true, passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onInteraction);
+      window.removeEventListener("pointerdown", onInteraction);
+    };
+  }, [propertyId]);
+
+  useEffect(() => {
+    if (!propertyId || !loadTawk) return;
 
     window.Tawk_API = window.Tawk_API || {};
     const previousOnLoad = window.Tawk_API.onLoad;
@@ -52,7 +70,7 @@ export function FloatingSupportDock() {
       previousOnLoad?.();
       window.Tawk_API?.hideWidget?.();
     };
-  }, [propertyId]);
+  }, [propertyId, loadTawk]);
 
   const openTawk = () => {
     if (window.Tawk_API?.maximize) {
@@ -64,11 +82,11 @@ export function FloatingSupportDock() {
 
   return (
     <>
-      {propertyId && (
+      {propertyId && loadTawk && (
         <Script
           id="tawk-widget"
           src={`https://embed.tawk.to/${propertyId}/${widgetId}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           crossOrigin="anonymous"
         />
       )}
