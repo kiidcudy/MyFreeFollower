@@ -1,7 +1,7 @@
 import { getHardcodedFreePoints } from "./free-service-points";
 import { pointsFromMoney, priceFromTiers } from "./pricing";
 
-export { pointsFromMoney, priceFromTiers } from "./pricing";
+export { pointsFromMoney, priceFromTiers, applyTierPriceFloor, MIN_EUR_PER_1000 } from "./pricing";
 import {
   FREE_SERVICE_CATALOG,
   PLATFORM_EMOJI,

@@ -1,4 +1,5 @@
 import { servicePointsFromMoney, eurToUsd, siteConfig } from "../site";
+import { applyTierPriceFloor } from "./pricing";
 import type { PaidCatalogService, PaidTier, Platform } from "./types";
 import { buildPaidSlug } from "./slug-utils";
 
@@ -19,7 +20,7 @@ const BCF_TIER_MULTIPLIERS: Record<number, number> = {
 };
 
 export function buildTiersFromBase100(base100EUR: number): PaidTier[] {
-  return STANDARD_TIER_QUANTITIES.map((quantity) => {
+  const tiers = STANDARD_TIER_QUANTITIES.map((quantity) => {
     const multiplier = BCF_TIER_MULTIPLIERS[quantity] ?? quantity / 100;
     const priceEUR =
       Math.round(base100EUR * multiplier * siteConfig.priceMarkup * 100) / 100;
@@ -27,6 +28,7 @@ export function buildTiersFromBase100(base100EUR: number): PaidTier[] {
     const points = servicePointsFromMoney(priceUSD);
     return { quantity, priceEUR, priceUSD, points };
   });
+  return applyTierPriceFloor(tiers);
 }
 
 interface PaidServiceDef {
