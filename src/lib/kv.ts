@@ -43,6 +43,7 @@ const ACCOUNTS_PREFIX = "mff/accounts/";
 const PROOFS_PATH = "mff/proofs.json";
 const SERVICE_ORDERS_PATH = "mff/service-orders.json";
 const WITHDRAWALS_PATH = "mff/withdrawals.json";
+const CHECKOUTS_PATH = "mff/checkouts.json";
 
 // ---- Password (demo — simple hash, plain fallback) ----
 
@@ -711,4 +712,68 @@ export async function deleteWithdrawal(id: string): Promise<boolean> {
     await writeJSON(emailToPath(item.email), acc);
   }
   return true;
+}
+
+// ---- Checkouts (paid cart) ----
+
+export type CheckoutStatus = "pending" | "paid";
+export type CheckoutPaymentStatus = "none" | "pending" | "awaiting" | "completed" | "failed";
+
+export interface CheckoutLineItem {
+  orderId: string;
+  serviceSlug: string;
+  serviceTitle: string;
+  platform: string;
+  quantity: number;
+  priceUSD: number;
+  priceEUR: number;
+  username: string;
+}
+
+export interface MffCheckout {
+  id: string;
+  email: string;
+  memberUsername?: string;
+  items: CheckoutLineItem[];
+  totalEUR: number;
+  totalUSD: number;
+  status: CheckoutStatus;
+  checkoutOrderNumber?: string;
+  paymentMethod?: "binance" | "cryptomus" | "card";
+  paymentStatus: CheckoutPaymentStatus;
+  paymentId?: string;
+  createdAt: number;
+  paidAt?: number;
+}
+
+export async function getCheckouts(): Promise<MffCheckout[]> {
+  const rows = await readJSON<MffCheckout[]>(CHECKOUTS_PATH, []);
+  return Array.isArray(rows) ? rows : [];
+}
+
+export async function getCheckoutById(id: string): Promise<MffCheckout | undefined> {
+  const all = await getCheckouts();
+  return all.find((c) => c.id === id);
+}
+
+export async function saveCheckout(checkout: MffCheckout): Promise<void> {
+  const all = await getCheckouts();
+  const idx = all.findIndex((c) => c.id === checkout.id);
+  if (idx >= 0) all[idx] = checkout;
+  else all.unshift(checkout);
+  await writeJSON(CHECKOUTS_PATH, all);
+}
+
+export async function mutateCheckout(
+  id: string,
+  mutator: (checkout: MffCheckout) => MffCheckout | null,
+): Promise<MffCheckout | null> {
+  const all = await getCheckouts();
+  const idx = all.findIndex((c) => c.id === id);
+  if (idx < 0) return null;
+  const next = mutator(all[idx]!);
+  if (!next) return null;
+  all[idx] = next;
+  await writeJSON(CHECKOUTS_PATH, all);
+  return next;
 }

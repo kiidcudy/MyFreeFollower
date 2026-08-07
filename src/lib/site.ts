@@ -69,6 +69,20 @@ export const siteConfig = {
   },
 } as const;
 
+/** Checkout payment methods — card/cryptomus wired later. */
+export const PAYMENTS = {
+  cryptomus: { enabled: false, label: "Cryptomus" },
+  binancePay: { enabled: true, label: "Binance Pay" },
+  card: { enabled: false, label: "Credit / Debit Card" },
+} as const;
+
+/** Binance Pay — same merchant as buycheapfollower.com */
+export const BINANCE_PAY = {
+  uid: "67636255",
+  nickname: "Allegre",
+  usdtPerEur: 1.08,
+} as const;
+
 export type SiteConfig = typeof siteConfig;
 
 /** Withdrawal conversion: points → fiat (₺ at 100:1). */

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import { AuthProvider } from "@/lib/auth-store";
+import { CartProvider } from "@/lib/cart-store";
 import { createMetadata, globalStructuredDataJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
@@ -45,8 +46,10 @@ export default function RootLayout({
         className={`${inter.variable} ${interDisplay.variable} flex min-h-screen flex-col`}
       >
         <AuthProvider>
-          {children}
-          <Analytics />
+          <CartProvider>
+            {children}
+            <Analytics />
+          </CartProvider>
         </AuthProvider>
         <GoogleAnalytics />
         <JsonLd data={globalStructuredDataJsonLd()} id="jsonld-global" />

@@ -8,7 +8,47 @@ import { LocalizedLink } from "@/components/i18n/LocalizedLink";
 import { SiteSearch } from "@/components/layout/SiteSearch";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
+import { useCart } from "@/lib/cart-store";
 import { formatPoints } from "@/lib/site";
+
+function CartBadge() {
+  const { itemCount, hydrated } = useCart();
+  const { t } = useLocale();
+  if (!hydrated || itemCount === 0) {
+    return (
+      <LocalizedLink
+        href="/cart"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/[0.04] text-[#1d1d1f] transition hover:bg-black/[0.08]"
+        aria-label={t("nav.cart")}
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M6 6h15l-1.5 9h-12L6 6z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+          <circle cx="9" cy="19" r="1.5" fill="currentColor" />
+          <circle cx="17" cy="19" r="1.5" fill="currentColor" />
+          <path d="M6 6L5 3H2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        </svg>
+      </LocalizedLink>
+    );
+  }
+
+  return (
+    <LocalizedLink
+      href="/cart"
+      className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0077ed]/10 text-[#0077ed] transition hover:bg-[#0077ed]/15"
+      aria-label={t("nav.cart")}
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M6 6h15l-1.5 9h-12L6 6z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+        <circle cx="9" cy="19" r="1.5" fill="currentColor" />
+        <circle cx="17" cy="19" r="1.5" fill="currentColor" />
+        <path d="M6 6L5 3H2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+      <span className="absolute -end-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#0077ed] px-1 text-[10px] font-bold text-white">
+        {itemCount > 9 ? "9+" : itemCount}
+      </span>
+    </LocalizedLink>
+  );
+}
 
 function PointsBadge() {
   const { user, ready } = useAuth();
@@ -95,6 +135,7 @@ export function Header() {
 
           <div className="ms-auto flex items-center gap-2">
             <LanguageSwitcher />
+            <CartBadge />
             <PointsBadge />
             {!ready ? (
               <div className="h-9 w-24 animate-pulse rounded-full bg-black/[0.05]" aria-hidden />

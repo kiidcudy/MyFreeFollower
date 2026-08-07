@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { PaidTierSelector } from "@/components/catalog/PaidTierSelector";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useAuth } from "@/lib/auth-store";
+import { useCart } from "@/lib/cart-store";
 import {
   computeFreePointsCost,
   isFreeService,
@@ -21,7 +22,6 @@ import { formatPoints } from "@/lib/site";
 
 const MIN_CUSTOM = 100;
 const MAX_CUSTOM = 10_000_000;
-const CART_KEY = "mff-cart";
 
 function isValidTarget(value: string): boolean {
   const v = value.trim();
@@ -51,6 +51,7 @@ function formatUnitPrice(locale: Parameters<typeof formatPrice>[0], usd: number,
 export function ServiceOrderForm({ service }: { service: CatalogService }) {
   const { t, locale } = useLocale();
   const { user, ready, spendPoints } = useAuth();
+  const { addToCart } = useCart();
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [linkChecked, setLinkChecked] = useState(false);
@@ -62,7 +63,6 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
   const [error, setError] = useState<string | null>(null);
   const [cartNotice, setCartNotice] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<"card" | "crypto">("card");
 
   const pointsCost = useMemo(() => {
     if (isFreeService(service)) return computeFreePointsCost(service);
@@ -121,7 +121,7 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       quantity,
       tier: isFreeService(service) ? ("free" as const) : ("paid" as const),
       packageId: isPaidService(service) ? String(quantity) : undefined,
-      paymentMethod: isPaidService(service) ? paymentMethod : ("points" as const),
+      paymentMethod: isPaidService(service) ? ("crypto" as const) : ("points" as const),
       paymentStatus: isPaidService(service) ? ("pending" as const) : undefined,
       chargeUSD: pricing?.priceUSD,
       chargeEUR: pricing?.priceEUR,
@@ -159,8 +159,50 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
     return true;
   }
 
+  function buildCartItem() {
+    const quantity = isFreeService(service) ? service.amount : paidQuantity;
+    const pricing = isPaidService(service) ? priceForQuantity(quantity, service.tiers) : null;
+    if (!isPaidService(service) || !pricing) return null;
+
+    return {
+      serviceSlug: service.slug,
+      serviceTitle: getServiceDisplayTitle(locale, service),
+      platform: service.platform,
+      quantity,
+      priceUSD: pricing.priceUSD,
+      priceEUR: pricing.priceEUR,
+      username: username.trim(),
+    };
+  }
+
   async function handleBuyNow(e?: React.FormEvent) {
     e?.preventDefault();
+    if (isPaidService(service)) {
+      setError(null);
+      setCartNotice(null);
+      if (!username.trim() || !isValidTarget(username)) {
+        setError(t("catalog.linkCheckFailed"));
+        return;
+      }
+      if (!linkChecked) {
+        setError(t("catalog.linkCheckFailed"));
+        return;
+      }
+      if (paidQuantity < MIN_CUSTOM || paidQuantity > MAX_CUSTOM) {
+        setError(
+          t("catalog.customAmountRange")
+            .replace("{min}", MIN_CUSTOM.toLocaleString())
+            .replace("{max}", MAX_CUSTOM.toLocaleString()),
+        );
+        return;
+      }
+      const item = buildCartItem();
+      if (!item) return;
+      addToCart(item);
+      router.push(localizedPath("/cart", locale));
+      return;
+    }
+
     if (!validateBeforeSubmit()) return;
 
     setLoading(true);
@@ -194,19 +236,10 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       return;
     }
 
-    const item = {
-      ...buildOrderPayload(),
-      addedAt: Date.now(),
-    };
-    try {
-      const raw = sessionStorage.getItem(CART_KEY);
-      const cart = raw ? (JSON.parse(raw) as unknown[]) : [];
-      cart.unshift(item);
-      sessionStorage.setItem(CART_KEY, JSON.stringify(cart.slice(0, 20)));
-      setCartNotice(t("catalog.addedToCart"));
-    } catch {
-      setCartNotice(t("catalog.addedToCart"));
-    }
+    const item = buildCartItem();
+    if (!item) return;
+    addToCart(item);
+    setCartNotice(t("catalog.addedToCart"));
   }
 
   if (success) {
@@ -303,28 +336,6 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
         <p>{t("catalog.usernameHint")}</p>
       </div>
 
-      {paidService && (
-        <div className="mt-5">
-          <p className="text-sm font-semibold text-[#1d1d1f]">{t("catalog.paymentMethod")}</p>
-          <div className="mt-2 grid grid-cols-2 gap-2">
-            {(["card", "crypto"] as const).map((method) => (
-              <button
-                key={method}
-                type="button"
-                onClick={() => setPaymentMethod(method)}
-                className={`rounded-2xl border px-3 py-2.5 text-xs font-semibold transition ${
-                  paymentMethod === method
-                    ? "border-[#0077ed] bg-[#0077ed]/10 text-[#0077ed]"
-                    : "border-black/[0.08] bg-white text-[#6e6e73] hover:border-[#0077ed]/30"
-                }`}
-              >
-                {t(`catalog.payWith${method.charAt(0).toUpperCase()}${method.slice(1)}`)}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
       {paidService && paidPricing && paidQuantity > 0 && (
         <div className="mt-5 grid gap-4 rounded-[20px] bg-[#f5f5f7] px-4 py-4 sm:grid-cols-2">
           <div>
@@ -370,7 +381,14 @@ export function ServiceOrderForm({ service }: { service: CatalogService }) {
       )}
       {cartNotice && (
         <p className="mt-4 rounded-lg bg-[#30d158]/10 px-3 py-2 text-sm text-[#248a3d]" role="status">
-          {cartNotice}
+          {cartNotice}{" "}
+          <button
+            type="button"
+            onClick={() => router.push(localizedPath("/cart", locale))}
+            className="font-bold underline"
+          >
+            {t("catalog.viewCart")}
+          </button>
         </p>
       )}
 
