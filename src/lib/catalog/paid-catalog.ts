@@ -1,29 +1,43 @@
 import { servicePointsFromMoney, eurToUsd, siteConfig } from "../site";
-import { applyTierPriceFloor } from "./pricing";
+import { applyTierPriceFloor, volumeDiscountFactor } from "./pricing";
 import type { PaidCatalogService, PaidTier, Platform } from "./types";
 import { buildPaidSlug } from "./slug-utils";
 
-/** Standard BCF preset quantities */
+/** BCF standard preset quantities — up to 1M */
 export const STANDARD_TIER_QUANTITIES = [
-  100, 250, 500, 1000, 2500, 5000, 10000,
+  100, 250, 500, 750, 1000, 2500, 5000, 7500, 10000, 25000, 50000, 100000, 250000,
+  500000, 1000000,
 ] as const;
 
-/** Volume discount multipliers vs 100-unit base (Instagram Followers BCF curve) */
-const BCF_TIER_MULTIPLIERS: Record<number, number> = {
-  100: 1,
-  250: 2.405172,
-  500: 4.646552,
-  1000: 8.965517,
-  2500: 21.344828,
-  5000: 41.068966,
-  10000: 78.896552,
-};
+/** BCF bulk preset quantities — views/plays/traffic up to 2M */
+export const BULK_TIER_QUANTITIES = [
+  500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2000000,
+] as const;
 
-export function buildTiersFromBase100(base100EUR: number): PaidTier[] {
-  const tiers = STANDARD_TIER_QUANTITIES.map((quantity) => {
-    const multiplier = BCF_TIER_MULTIPLIERS[quantity] ?? quantity / 100;
-    const priceEUR =
-      Math.round(base100EUR * multiplier * siteConfig.priceMarkup * 100) / 100;
+export const SMALL_TIER_QUANTITIES = [5, 10, 25, 50, 100, 250] as const;
+
+export const WATCHTIME_TIER_QUANTITIES = [
+  500, 1000, 2000, 4000, 8000, 15000, 30000,
+] as const;
+
+const round2 = (v: number) => Math.round(v * 100) / 100;
+
+/** Build preset tiers using the same volume curve as buycheapfollower.com */
+export function buildTiersFromBase100(
+  base100EUR: number,
+  quantities: readonly number[] = STANDARD_TIER_QUANTITIES,
+): PaidTier[] {
+  const df100 = volumeDiscountFactor(100);
+  let prevEur = 0;
+  const tiers = quantities.map((quantity) => {
+    let priceEUR = round2(
+      base100EUR *
+        (quantity / 100) *
+        (volumeDiscountFactor(quantity) / df100) *
+        siteConfig.priceMarkup,
+    );
+    if (priceEUR <= prevEur) priceEUR = round2(prevEur + 0.01);
+    prevEur = priceEUR;
     const priceUSD = eurToUsd(priceEUR);
     const points = servicePointsFromMoney(priceUSD);
     return { quantity, priceEUR, priceUSD, points };
@@ -31,15 +45,40 @@ export function buildTiersFromBase100(base100EUR: number): PaidTier[] {
   return applyTierPriceFloor(tiers);
 }
 
+type TierProfile = "standard" | "bulk" | "small" | "watchtime";
+
 interface PaidServiceDef {
   platform: Platform;
   type: string;
   unit: string;
   base100EUR: number;
   delivery?: string;
+  tierProfile?: TierProfile;
+}
+
+function tierQuantitiesFor(profile: TierProfile): readonly number[] {
+  switch (profile) {
+    case "bulk":
+      return BULK_TIER_QUANTITIES;
+    case "small":
+      return SMALL_TIER_QUANTITIES;
+    case "watchtime":
+      return WATCHTIME_TIER_QUANTITIES;
+    default:
+      return STANDARD_TIER_QUANTITIES;
+  }
+}
+
+function inferTierProfile(unit: string, type: string): TierProfile {
+  if (unit === "reviews") return "small";
+  if (unit === "hours") return "watchtime";
+  if (unit === "views" || unit === "plays" || unit === "visits") return "bulk";
+  if (type.toLowerCase().includes("traffic")) return "bulk";
+  return "standard";
 }
 
 function paid(def: PaidServiceDef): PaidCatalogService {
+  const tierProfile = def.tierProfile ?? inferTierProfile(def.unit, def.type);
   return {
     tier: "paid",
     platform: def.platform,
@@ -47,7 +86,7 @@ function paid(def: PaidServiceDef): PaidCatalogService {
     slug: buildPaidSlug(def.platform, def.type),
     unit: def.unit,
     delivery: def.delivery ?? "0–60 min",
-    tiers: buildTiersFromBase100(def.base100EUR),
+    tiers: buildTiersFromBase100(def.base100EUR, tierQuantitiesFor(tierProfile)),
   };
 }
 
