@@ -4,7 +4,10 @@ export const siteConfig = {
   name: "MyFreeFollower",
   shortName: "MFF",
   url: "https://www.myfreefollower.com",
-  company: "MyFreeFollower",
+  company: "MyFreeFollower Media Ltd",
+  address: "85 Great Portland Street, London W1W 7LT, United Kingdom",
+  city: "London",
+  country: "United Kingdom",
   locale: "en_US",
 
   /** Reference value: 100 points = 1 ₺ (display only) */

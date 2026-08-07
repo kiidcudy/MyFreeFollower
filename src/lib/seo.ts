@@ -113,6 +113,7 @@ export function buildOrganizationSchema() {
     "@type": "Organization",
     "@id": organizationId,
     name: siteConfig.name,
+    legalName: siteConfig.company,
     url: siteConfig.url,
     logo: `${siteConfig.url}/icon-192.png`,
     email: siteConfig.email,
@@ -122,7 +123,14 @@ export function buildOrganizationSchema() {
       "@type": "ContactPoint",
       contactType: "customer support",
       email: siteConfig.email,
+      telephone: siteConfig.whatsappDisplay,
       availableLanguage: ["English"],
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address,
+      addressLocality: siteConfig.city ?? "London",
+      addressCountry: siteConfig.country === "United Kingdom" ? "GB" : siteConfig.country,
     },
   };
 }
