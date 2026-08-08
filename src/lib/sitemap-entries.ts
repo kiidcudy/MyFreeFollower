@@ -6,9 +6,11 @@ import {
   getPlatformsWithServices,
   platformToSlug,
 } from "@/lib/catalog";
-import type { Locale } from "@/lib/i18n/config";
-import { localizedPath } from "@/lib/i18n/navigation";
+import { defaultLocale } from "@/lib/i18n/config";
+import { buildAlternateLanguages, localizedPath } from "@/lib/i18n/navigation";
 import { siteConfig } from "@/lib/site";
+
+const contentUpdated = new Date(siteConfig.lastContentUpdate);
 
 const STATIC_PATHS = [
   "",
@@ -24,33 +26,35 @@ const STATIC_PATHS = [
   "/refund-policy",
 ] as const;
 
+/** One entry per logical path, carrying the full hreflang cluster as per-URL
+ *  alternates. Listing all 19 locales as flat, unrelated URLs made Google treat
+ *  them as ~4,800 near-duplicate pages and work out the language map itself. */
 function entry(
   path: string,
-  locale: Locale,
   options: {
     changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
     priority: number;
     lastModified?: Date;
   },
 ): MetadataRoute.Sitemap[number] {
-  const normalized = path === "" ? "" : path;
   return {
-    url: `${siteConfig.url}${localizedPath(normalized || "/", locale)}`,
-    lastModified: options.lastModified ?? new Date(),
+    url: `${siteConfig.url}${localizedPath(path || "/", defaultLocale)}`,
+    alternates: { languages: buildAlternateLanguages(path, siteConfig.url) },
+    lastModified: options.lastModified ?? contentUpdated,
     changeFrequency: options.changeFrequency,
     priority: options.priority,
   };
 }
 
-/** All public URLs for a single locale (~250 entries). */
-export function buildLocaleSitemap(locale: Locale): MetadataRoute.Sitemap {
+/** Every public page, once, with its language cluster attached. */
+export function buildSitemap(): MetadataRoute.Sitemap {
   const items: MetadataRoute.Sitemap = [];
   const blogSlugs = getAllPostSlugs();
   const platforms = getPlatformsWithServices();
 
   for (const path of STATIC_PATHS) {
     items.push(
-      entry(path, locale, {
+      entry(path, {
         changeFrequency: path === "" || path === "/blog" ? "weekly" : "monthly",
         priority:
           path === ""
@@ -66,13 +70,13 @@ export function buildLocaleSitemap(locale: Locale): MetadataRoute.Sitemap {
 
   for (const platform of platforms) {
     items.push(
-      entry(`/free-followers/platform/${platformToSlug(platform)}`, locale, {
+      entry(`/free-followers/platform/${platformToSlug(platform)}`, {
         changeFrequency: "weekly",
         priority: 0.85,
       }),
     );
     items.push(
-      entry(`/buy-followers/platform/${platformToSlug(platform)}`, locale, {
+      entry(`/buy-followers/platform/${platformToSlug(platform)}`, {
         changeFrequency: "weekly",
         priority: 0.85,
       }),
@@ -81,7 +85,7 @@ export function buildLocaleSitemap(locale: Locale): MetadataRoute.Sitemap {
 
   for (const service of allFreeServices) {
     items.push(
-      entry(`/free-followers/${service.slug}`, locale, {
+      entry(`/free-followers/${service.slug}`, {
         changeFrequency: "weekly",
         priority: 0.8,
       }),
@@ -90,7 +94,7 @@ export function buildLocaleSitemap(locale: Locale): MetadataRoute.Sitemap {
 
   for (const service of allPaidServices) {
     items.push(
-      entry(`/buy-followers/${service.slug}`, locale, {
+      entry(`/buy-followers/${service.slug}`, {
         changeFrequency: "weekly",
         priority: 0.8,
       }),
@@ -99,7 +103,7 @@ export function buildLocaleSitemap(locale: Locale): MetadataRoute.Sitemap {
 
   for (const slug of blogSlugs) {
     items.push(
-      entry(`/blog/${slug}`, locale, {
+      entry(`/blog/${slug}`, {
         changeFrequency: "monthly",
         priority: 0.65,
       }),

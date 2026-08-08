@@ -26,6 +26,11 @@ export const siteConfig = {
   /** Applied to all catalog EUR base prices before USD conversion */
   priceMarkup: 1.02,
 
+  /** Sitemap lastmod. Bump when catalog or page copy changes — a build-time
+   *  `new Date()` marked all 4,800 URLs as freshly modified on every deploy,
+   *  which makes Google discard the lastmod signal entirely. */
+  lastContentUpdate: "2026-08-08",
+
   slogan: "Free Followers. Real Growth.",
   tagline: "Free Social Media Growth — Instagram, TikTok, YouTube & More",
   description:
