@@ -1,78 +1,57 @@
-"use client";
-
+import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { LocalizedLink } from "@/components/i18n/LocalizedLink";
+import { FooterLocaleSelect } from "@/components/layout/FooterLocaleSelect";
 import { PaymentMethodsBar } from "@/components/marketing/PaymentMethodsBar";
-import { useLocale } from "@/components/i18n/LocaleProvider";
 import {
   PLATFORM_ORDER,
   getFreeServicesByPlatform,
   getPaidServicesByPlatform,
   getPlatformEmoji,
 } from "@/lib/catalog";
-import { isLocale, localesForSelect } from "@/lib/i18n/config";
+import type { Locale } from "@/lib/i18n/config";
 import { currencyCode } from "@/lib/i18n/currency";
 import { getServiceDisplayTitle } from "@/lib/i18n/catalog-labels";
+import { localizedPath } from "@/lib/i18n/navigation";
+import { t } from "@/lib/i18n/translations";
 import { siteConfig, whatsappLink } from "@/lib/site";
 
-function FooterLanguageSwitcher() {
-  const { locale, setLocale, t } = useLocale();
-
-  return (
-    <label className="flex flex-col gap-2 text-sm">
-      <span className="font-semibold text-[#6e6e73]">{t("nav.language")}</span>
-      <select
-        value={locale}
-        onChange={(e) => {
-          const value = e.target.value;
-          if (isLocale(value)) setLocale(value);
-        }}
-        className="mff-input rounded-2xl py-2.5"
-        aria-label={t("nav.language")}
-      >
-        {localesForSelect.map((item) => (
-          <option key={item.code} value={item.code}>
-            {item.label}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
-
-export function Footer() {
-  const { t, locale } = useLocale();
+export function Footer({ locale }: { locale: Locale }) {
   const year = new Date().getFullYear();
   const topFreePlatforms = PLATFORM_ORDER.slice(0, 8);
   const topPaidPlatforms = PLATFORM_ORDER.slice(0, 8);
 
   const legalLinks = [
-    { href: "/privacy-policy", label: t("footer.privacyPolicy") },
-    { href: "/terms", label: t("footer.terms") },
-    { href: "/refund-policy", label: t("footer.refundPolicy") },
+    { href: "/privacy-policy", label: t(locale, "footer.privacyPolicy") },
+    { href: "/terms", label: t(locale, "footer.terms") },
+    { href: "/refund-policy", label: t(locale, "footer.refundPolicy") },
   ];
 
   const companyLinks = [
-    { href: "/about", label: t("nav.about") },
-    { href: "/blog", label: t("nav.blog") },
-    { href: "/contact", label: t("nav.contact") },
-    { href: "/how-it-works", label: t("nav.howItWorks") },
+    { href: "/about", label: t(locale, "nav.about") },
+    { href: "/blog", label: t(locale, "nav.blog") },
+    { href: "/contact", label: t(locale, "nav.contact") },
+    { href: "/how-it-works", label: t(locale, "nav.howItWorks") },
   ];
 
-  const bottomLinks = [
-    { href: "/faq", label: t("nav.faq") },
-    ...legalLinks,
+  const bottomLinks = [{ href: "/faq", label: t(locale, "nav.faq") }, ...legalLinks];
+
+  const trustChips = [
+    t(locale, "home.trustNoPassword"),
+    t(locale, "home.trustSupport"),
+    t(locale, "home.trustSecure"),
   ];
 
   return (
-    <footer className="mt-auto border-t border-black/[0.06] bg-[#f5f5f7]">
+    <footer className="defer-render mt-auto border-t border-black/[0.06] bg-[#f5f5f7]">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <Logo locale={locale} />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#6e6e73]">{t("footer.tagline")}</p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#6e6e73]">
+              {t(locale, "footer.tagline")}
+            </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {[t("home.trustNoPassword"), t("home.trustSupport"), t("home.trustSecure")].map((item) => (
+              {trustChips.map((item) => (
                 <span key={item} className="rounded-full bg-black/[0.04] px-3 py-1 text-xs font-semibold text-[#1d1d1f]">
                   {item}
                 </span>
@@ -81,24 +60,29 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("nav.freeServices")}</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t(locale, "nav.freeServices")}</h2>
+            <ul className="mt-4">
               <li>
-                <LocalizedLink href="/free-followers" className="text-sm font-semibold text-[#0066cc] hover:underline">
-                  {t("footer.allFreeServices")}
-                </LocalizedLink>
+                <Link
+                  prefetch={false}
+                  href={localizedPath("/free-followers", locale)}
+                  className="block py-1.5 text-sm font-semibold text-[#0066cc] hover:underline"
+                >
+                  {t(locale, "footer.allFreeServices")}
+                </Link>
               </li>
               {topFreePlatforms.map((platform) => {
                 const first = getFreeServicesByPlatform(platform)[0];
                 if (!first) return null;
                 return (
                   <li key={platform}>
-                    <LocalizedLink
-                      href={`/free-followers/${first.slug}`}
-                      className="text-sm text-[#6e6e73] transition hover:text-[#1d1d1f]"
+                    <Link
+                      prefetch={false}
+                      href={localizedPath(`/free-followers/${first.slug}`, locale)}
+                      className="block py-1.5 text-sm text-[#6e6e73] transition hover:text-[#1d1d1f]"
                     >
                       {getPlatformEmoji(platform)} {getServiceDisplayTitle(locale, first)}
-                    </LocalizedLink>
+                    </Link>
                   </li>
                 );
               })}
@@ -106,24 +90,29 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("nav.services")}</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t(locale, "nav.services")}</h2>
+            <ul className="mt-4">
               <li>
-                <LocalizedLink href="/buy-followers" className="text-sm font-semibold text-[#0066cc] hover:underline">
-                  {t("footer.allServices")}
-                </LocalizedLink>
+                <Link
+                  prefetch={false}
+                  href={localizedPath("/buy-followers", locale)}
+                  className="block py-1.5 text-sm font-semibold text-[#0066cc] hover:underline"
+                >
+                  {t(locale, "footer.allServices")}
+                </Link>
               </li>
               {topPaidPlatforms.map((platform) => {
                 const first = getPaidServicesByPlatform(platform)[0];
                 if (!first) return null;
                 return (
                   <li key={platform}>
-                    <LocalizedLink
-                      href={`/buy-followers/${first.slug}`}
-                      className="text-sm text-[#6e6e73] transition hover:text-[#1d1d1f]"
+                    <Link
+                      prefetch={false}
+                      href={localizedPath(`/buy-followers/${first.slug}`, locale)}
+                      className="block py-1.5 text-sm text-[#6e6e73] transition hover:text-[#1d1d1f]"
                     >
                       {getPlatformEmoji(platform)} {getServiceDisplayTitle(locale, first)}
-                    </LocalizedLink>
+                    </Link>
                   </li>
                 );
               })}
@@ -131,13 +120,17 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("footer.company")}</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t(locale, "footer.company")}</h2>
+            <ul className="mt-4">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <LocalizedLink href={link.href} className="text-sm text-[#6e6e73] transition hover:text-[#1d1d1f]">
+                  <Link
+                    prefetch={false}
+                    href={localizedPath(link.href, locale)}
+                    className="block py-1.5 text-sm text-[#6e6e73] transition hover:text-[#1d1d1f]"
+                  >
                     {link.label}
-                  </LocalizedLink>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -145,23 +138,28 @@ export function Footer() {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t("footer.support")}</h3>
-              <ul className="mt-4 space-y-2.5 text-sm text-[#6e6e73]">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e6e73]">{t(locale, "footer.support")}</h2>
+              <ul className="mt-4 text-sm text-[#6e6e73]">
                 <li>
-                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-[#0066cc]">
+                  <a
+                    href={whatsappLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-1.5 hover:text-[#0066cc]"
+                  >
                     WhatsApp: {siteConfig.whatsappDisplay}
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-[#0066cc]">
+                  <a href={`mailto:${siteConfig.email}`} className="block py-1.5 hover:text-[#0066cc]">
                     {siteConfig.email}
                   </a>
                 </li>
               </ul>
             </div>
-            <FooterLanguageSwitcher />
+            <FooterLocaleSelect label={t(locale, "nav.language")} />
             <p className="text-xs text-[#6e6e73]">
-              {t("common.currency")}:{" "}
+              {t(locale, "common.currency")}:{" "}
               <span className="font-semibold text-[#1d1d1f]">{currencyCode(locale)}</span>
             </p>
           </div>
@@ -170,22 +168,24 @@ export function Footer() {
 
       <div className="border-t border-black/[0.06] bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-          <PaymentMethodsBar compact />
+          <PaymentMethodsBar locale={locale} compact />
           <div className="mt-8 flex flex-col gap-4 border-t border-black/[0.06] pt-8 md:flex-row md:items-center md:justify-between">
-            <p className="text-xs text-[#6e6e73]" suppressHydrationWarning>
-              {t("footer.copyright", { year })}
-            </p>
-            <ul className="flex flex-wrap gap-4">
+            <p className="text-xs text-[#6e6e73]">{t(locale, "footer.copyright", { year })}</p>
+            <ul className="flex flex-wrap gap-x-4 gap-y-1">
               {bottomLinks.map((link) => (
                 <li key={link.href}>
-                  <LocalizedLink href={link.href} className="text-xs font-medium text-[#6e6e73] hover:text-[#0066cc]">
+                  <Link
+                    prefetch={false}
+                    href={localizedPath(link.href, locale)}
+                    className="block py-1.5 text-xs font-medium text-[#6e6e73] hover:text-[#0066cc]"
+                  >
                     {link.label}
-                  </LocalizedLink>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <p className="mt-4 text-xs leading-relaxed text-[#6e6e73]">{t("footer.disclaimer")}</p>
+          <p className="mt-4 text-xs leading-relaxed text-[#6e6e73]">{t(locale, "footer.disclaimer")}</p>
         </div>
       </div>
     </footer>

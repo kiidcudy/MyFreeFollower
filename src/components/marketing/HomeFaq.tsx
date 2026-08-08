@@ -1,26 +1,23 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale } from "@/components/i18n/LocaleProvider";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildFAQSchema, type FaqItem } from "@/lib/seo";
+import type { Locale } from "@/lib/i18n/config";
 import { localizedPath } from "@/lib/i18n/navigation";
+import { t } from "@/lib/i18n/translations";
 
 const FAQ_KEYS = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 
-export function HomeFaq() {
-  const { t, locale } = useLocale();
-
+export function HomeFaq({ locale }: { locale: Locale }) {
   const faq: FaqItem[] = FAQ_KEYS.map((n) => ({
-    question: t(`home.faqQ${n}`),
-    answer: t(`home.faqA${n}`),
+    question: t(locale, `home.faqQ${n}`),
+    answer: t(locale, `home.faqA${n}`),
   }));
 
   return (
     <>
       <JsonLd data={buildFAQSchema(faq)} />
-      <SectionHeader title={t("home.faqTitle")} subtitle={t("home.faqSubtitle")} />
+      <SectionHeader title={t(locale, "home.faqTitle")} subtitle={t(locale, "home.faqSubtitle")} />
 
       <dl className="mt-12 grid gap-3 lg:grid-cols-2">
         {faq.map((item) => (
@@ -32,8 +29,8 @@ export function HomeFaq() {
       </dl>
 
       <p className="mt-10 text-center">
-        <Link href={localizedPath("/faq", locale)} className="mff-btn-primary">
-          {t("home.viewAllFaq")} →
+        <Link prefetch={false} href={localizedPath("/faq", locale)} className="mff-btn-primary">
+          {t(locale, "home.viewAllFaq")} →
         </Link>
       </p>
     </>

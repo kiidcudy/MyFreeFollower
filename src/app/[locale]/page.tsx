@@ -68,51 +68,51 @@ export default async function HomePage({
       <JsonLd data={buildFAQSchema(faq)} />
 
       <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2">
-        <HeroSection fullBleed />
+        <HeroSection locale={locale} fullBleed />
       </div>
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
-        <TrustBar />
+        <TrustBar locale={locale} />
       </div>
 
       <HomeSection variant="slate">
-        <PlatformGrid />
+        <PlatformGrid locale={locale} />
       </HomeSection>
 
       <HomeSection variant="white">
-        <PopularFreeServices />
+        <PopularFreeServices locale={locale} />
       </HomeSection>
 
       <HomeSection variant="mesh">
-        <PopularServices />
+        <PopularServices locale={locale} />
       </HomeSection>
 
       <HomeSection variant="brand" tight>
-        <HomeSplitCta />
+        <HomeSplitCta locale={locale} />
       </HomeSection>
 
       <HomeSection variant="white">
-        <HomeFeaturedPlatforms />
+        <HomeFeaturedPlatforms locale={locale} />
       </HomeSection>
 
       <HomeSection variant="mesh">
-        <WhyUs />
+        <WhyUs locale={locale} />
       </HomeSection>
 
       <HomeSection variant="ink">
-        <HomeHowSteps dark />
+        <HomeHowSteps locale={locale} dark />
       </HomeSection>
 
       <HomeSection variant="teal">
-        <HomeGuaranteeBand />
+        <HomeGuaranteeBand locale={locale} />
       </HomeSection>
 
       <HomeSection variant="slate">
-        <PaymentMethodsBar />
+        <PaymentMethodsBar locale={locale} />
       </HomeSection>
 
       <HomeSection variant="sky">
-        <HomeTestimonials />
+        <HomeTestimonials locale={locale} />
       </HomeSection>
 
       <HomeSection variant="mesh">
@@ -120,7 +120,7 @@ export default async function HomePage({
       </HomeSection>
 
       <HomeSection variant="slate">
-        <HomeSeoBlock />
+        <HomeSeoBlock locale={locale} />
       </HomeSection>
 
       <HomeSection variant="elevated" tight>
@@ -130,6 +130,7 @@ export default async function HomePage({
           {internalLinks.map((link) => (
             <li key={link.path}>
               <Link
+                prefetch={false}
                 href={localizedPath(link.path, locale)}
                 className="mff-card-hover block px-5 py-4 text-sm font-semibold text-[#1d1d1f] hover:text-[#0066cc]"
               >
@@ -140,8 +141,8 @@ export default async function HomePage({
         </ul>
       </HomeSection>
 
-      <div className="mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6">
-        <CtaSection />
+      <div className="defer-render mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6">
+        <CtaSection locale={locale} />
       </div>
     </div>
   );

@@ -1,8 +1,6 @@
-"use client";
-
-import { LocalizedLink } from "@/components/i18n/LocalizedLink";
-import { useLocale } from "@/components/i18n/LocaleProvider";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import type { Locale } from "@/lib/i18n/config";
+import { t } from "@/lib/i18n/translations";
 
 const items = [
   { titleKey: "home.guarantee1Title", descKey: "home.guarantee1Desc", icon: "↻" },
@@ -11,12 +9,13 @@ const items = [
   { titleKey: "home.guarantee4Title", descKey: "home.guarantee4Desc", icon: "⚡" },
 ] as const;
 
-export function HomeGuaranteeBand() {
-  const { t } = useLocale();
-
+export function HomeGuaranteeBand({ locale }: { locale: Locale }) {
   return (
     <>
-      <SectionHeader title={t("home.guaranteeTitle")} subtitle={t("home.guaranteeSubtitle")} />
+      <SectionHeader
+        title={t(locale, "home.guaranteeTitle")}
+        subtitle={t(locale, "home.guaranteeSubtitle")}
+      />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
@@ -25,9 +24,9 @@ export function HomeGuaranteeBand() {
               {item.icon}
             </span>
             <h3 className="mt-4 font-display text-base font-semibold tracking-tight">
-              {t(item.titleKey)}
+              {t(locale, item.titleKey)}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-[#6e6e73]">{t(item.descKey)}</p>
+            <p className="mt-2 text-sm leading-relaxed text-[#6e6e73]">{t(locale, item.descKey)}</p>
           </div>
         ))}
       </div>

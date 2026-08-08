@@ -284,9 +284,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
       refreshFromServer(email);
     }
-    refreshTasks();
+    // Task list is only rendered by the dashboard's TaskRunner, which fetches it
+    // on its own mount — pulling it here cost every marketing page an API call
+    // during hydration.
     setReady(true);
-  }, [refreshFromServer, refreshTasks]);
+  }, [refreshFromServer]);
 
   useEffect(() => {
     if (!ready) return;

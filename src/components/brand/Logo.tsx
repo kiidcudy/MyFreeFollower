@@ -59,7 +59,8 @@ export function Logo({
 }) {
   const gradId = useId().replace(/:/g, "");
   const textMain = variant === "light" ? "#ffffff" : "#1d1d1f";
-  const textAccent = variant === "light" ? "#64d2ff" : "#0077ed";
+  // #0066cc clears 4.5:1 on the #f5f5f7 footer surface; #0077ed only reaches 3.96:1.
+  const textAccent = variant === "light" ? "#64d2ff" : "#0066cc";
 
   const content = (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
@@ -83,6 +84,7 @@ export function Logo({
 
   return (
     <Link
+      prefetch={false}
       href={localizedPath("/", locale)}
       className="inline-flex shrink-0 items-center"
       aria-label="MyFreeFollower"

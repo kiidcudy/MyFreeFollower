@@ -1,6 +1,5 @@
-"use client";
-
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import type { Locale } from "@/lib/i18n/config";
+import { t } from "@/lib/i18n/translations";
 
 const stats = [
   { value: "2.4M+", key: "home.statsOrders", accent: "from-[#0077ed]/20 to-[#5ac8fa]/10" },
@@ -9,9 +8,7 @@ const stats = [
   { value: "24/7", key: "home.statsSupport", accent: "from-[#ff9f0a]/20 to-[#fde68a]/10" },
 ] as const;
 
-export function HomeStats() {
-  const { t } = useLocale();
-
+export function HomeStats({ locale }: { locale: Locale }) {
   return (
     <section className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
       {stats.map((item) => (
@@ -23,7 +20,7 @@ export function HomeStats() {
             {item.value}
           </p>
           <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
-            {t(item.key)}
+            {t(locale, item.key)}
           </p>
         </div>
       ))}

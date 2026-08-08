@@ -14,6 +14,10 @@ type LocalizedLinkProps = Omit<
 export function LocalizedLink({
   href,
   children,
+  // Header and footer nav links sit in the viewport on every page, so the
+  // default viewport prefetch fires a dozen ?_rsc requests during load.
+  // Next still prefetches on hover/touch-start, so navigation stays fast.
+  prefetch = false,
   ...props
 }: LocalizedLinkProps) {
   const { locale } = useLocale();
@@ -30,7 +34,7 @@ export function LocalizedLink({
   }
 
   return (
-    <Link href={path} {...props}>
+    <Link href={path} prefetch={prefetch} {...props}>
       {children}
     </Link>
   );

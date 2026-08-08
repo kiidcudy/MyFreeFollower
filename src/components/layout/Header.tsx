@@ -65,7 +65,7 @@ function PointsBadge() {
   );
 }
 
-export function Header() {
+export function Header({ topBanner }: { topBanner: string }) {
   const { t, locale } = useLocale();
   const { user, ready, logout } = useAuth();
   const pathname = usePathname();
@@ -97,7 +97,7 @@ export function Header() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 text-xs text-[#6e6e73] sm:px-6">
-          <p className="truncate font-medium">{t("home.topBanner")}</p>
+          <p className="truncate font-medium">{topBanner}</p>
           <LanguageSwitcher />
         </div>
       </div>

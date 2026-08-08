@@ -20,7 +20,14 @@ import { staticPageBundles } from "@/lib/i18n/static-page-bundles";
 
 export type { Messages } from "@/lib/i18n/messages-core";
 
+// `t()` is called hundreds of times per page across 5k prerendered pages, so the
+// merged tree is built once per locale instead of once per lookup.
+const mergedCache = new Map<Locale, Messages>();
+
 export function getMessages(locale: Locale): Messages {
+  const cached = mergedCache.get(locale);
+  if (cached) return cached;
+
   const merged: MutableMessages = getCoreMessages(locale);
 
   const faqOverride = faqBundles[locale];
@@ -54,6 +61,7 @@ export function getMessages(locale: Locale): Messages {
     }
   }
 
+  mergedCache.set(locale, merged);
   return merged;
 }
 

@@ -30,7 +30,11 @@ export function HomeBlogPreview({ locale }: { locale: Locale }) {
         title={t(locale, "home.blogPreviewTitle")}
         subtitle={t(locale, "home.blogPreviewSubtitle")}
         action={
-          <Link href={localizedPath("/blog", locale)} className="mff-link-arrow shrink-0">
+          <Link
+            prefetch={false}
+            href={localizedPath("/blog", locale)}
+            className="mff-link-arrow shrink-0"
+          >
             {t(locale, "home.viewAllBlog")} →
           </Link>
         }
@@ -59,12 +63,18 @@ export function HomeBlogPreview({ locale }: { locale: Locale }) {
               {formatDate(post.publishedAt, locale)}
             </time>
             <h3 className="mt-4 font-display text-lg font-semibold tracking-tight group-hover:text-[#0066cc]">
-              <Link href={localizedPath(`/blog/${post.slug}`, locale)}>{post.title}</Link>
+              <Link prefetch={false} href={localizedPath(`/blog/${post.slug}`, locale)}>
+                {post.title}
+              </Link>
             </h3>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-[#6e6e73] line-clamp-3">
               {post.description}
             </p>
-            <Link href={localizedPath(`/blog/${post.slug}`, locale)} className="mff-link-arrow mt-5">
+            <Link
+              prefetch={false}
+              href={localizedPath(`/blog/${post.slug}`, locale)}
+              className="mff-link-arrow mt-5"
+            >
               {t(locale, "home.readArticle")} →
             </Link>
             </div>

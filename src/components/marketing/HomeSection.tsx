@@ -42,7 +42,7 @@ export function HomeSection({
 }) {
   return (
     <div
-      className={`relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 ${variantClasses[variant]} ${className}`}
+      className={`defer-render relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 ${variantClasses[variant]} ${className}`}
     >
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 ${tight ? "py-12 sm:py-14" : "py-16 sm:py-20"}`}>
         {children}

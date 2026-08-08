@@ -1,12 +1,14 @@
-"use client";
-
-import { useLocale } from "@/components/i18n/LocaleProvider";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import type { Locale } from "@/lib/i18n/config";
+import { t } from "@/lib/i18n/translations";
 import { siteConfig } from "@/lib/site";
 
-export function PaymentMethodsBar({ compact = false }: { compact?: boolean }) {
-  const { t } = useLocale();
-
+export function PaymentMethodsBar({
+  locale,
+  compact = false,
+}: {
+  locale: Locale;
+  compact?: boolean;
+}) {
   if (compact) {
     return (
       <>
@@ -20,7 +22,7 @@ export function PaymentMethodsBar({ compact = false }: { compact?: boolean }) {
             </span>
           ))}
         </div>
-        <p className="mt-4 text-xs leading-relaxed text-[#6e6e73]">{t("payments.note")}</p>
+        <p className="mt-4 text-xs leading-relaxed text-[#6e6e73]">{t(locale, "payments.note")}</p>
       </>
     );
   }
@@ -29,10 +31,10 @@ export function PaymentMethodsBar({ compact = false }: { compact?: boolean }) {
     <div className="mff-card p-8 sm:p-10">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-2xl">
-          <h2 className="mff-heading-md">{t("payments.title")}</h2>
-          <p className="mt-3 mff-subtitle">{t("payments.description")}</p>
+          <h2 className="mff-heading-md">{t(locale, "payments.title")}</h2>
+          <p className="mt-3 mff-subtitle">{t(locale, "payments.description")}</p>
         </div>
-        <span className="mff-badge-paid shrink-0 px-3 py-1">{t("payments.secureBadge")}</span>
+        <span className="mff-badge-paid shrink-0 px-3 py-1">{t(locale, "payments.secureBadge")}</span>
       </div>
       <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-8">
         {siteConfig.paymentMethods.map((method) => (
@@ -44,7 +46,7 @@ export function PaymentMethodsBar({ compact = false }: { compact?: boolean }) {
           </span>
         ))}
       </div>
-      <p className="mt-6 text-xs leading-relaxed text-[#6e6e73]">{t("payments.note")}</p>
+      <p className="mt-6 text-xs leading-relaxed text-[#6e6e73]">{t(locale, "payments.note")}</p>
     </div>
   );
 }

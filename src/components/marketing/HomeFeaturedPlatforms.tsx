@@ -1,9 +1,9 @@
-"use client";
-
-import { LocalizedLink } from "@/components/i18n/LocalizedLink";
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { getPlatformEmoji } from "@/lib/catalog";
+import type { Locale } from "@/lib/i18n/config";
+import { localizedPath } from "@/lib/i18n/navigation";
+import { t } from "@/lib/i18n/translations";
 
 const FEATURED_PLATFORMS = [
   {
@@ -50,12 +50,13 @@ const FEATURED_PLATFORMS = [
   },
 ] as const;
 
-export function HomeFeaturedPlatforms() {
-  const { t } = useLocale();
-
+export function HomeFeaturedPlatforms({ locale }: { locale: Locale }) {
   return (
     <>
-      <SectionHeader title={t("home.featuredTitle")} subtitle={t("home.featuredSubtitle")} />
+      <SectionHeader
+        title={t(locale, "home.featuredTitle")}
+        subtitle={t(locale, "home.featuredSubtitle")}
+      />
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURED_PLATFORMS.map((item) => (
@@ -69,20 +70,24 @@ export function HomeFeaturedPlatforms() {
               </span>
               <h3 className="font-display text-xl font-semibold tracking-tight">{item.platform}</h3>
             </div>
-            <p className="mt-4 flex-1 text-sm leading-relaxed text-[#6e6e73]">{t(item.descKey)}</p>
+            <p className="mt-4 flex-1 text-sm leading-relaxed text-[#6e6e73]">
+              {t(locale, item.descKey)}
+            </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              <LocalizedLink
-                href={`/free-followers/${item.freeSlug}`}
+              <Link
+                prefetch={false}
+                href={localizedPath(`/free-followers/${item.freeSlug}`, locale)}
                 className="mff-btn bg-[#1a7f37] px-4 py-2 text-xs text-white hover:bg-[#166534]"
               >
-                {t("home.featuredFreeLabel")}
-              </LocalizedLink>
-              <LocalizedLink
-                href={`/buy-followers/${item.paidSlug}`}
+                {t(locale, "home.featuredFreeLabel")}
+              </Link>
+              <Link
+                prefetch={false}
+                href={localizedPath(`/buy-followers/${item.paidSlug}`, locale)}
                 className="mff-btn-ghost px-4 py-2 text-xs"
               >
-                {t("home.featuredBuyLabel")}
-              </LocalizedLink>
+                {t(locale, "home.featuredBuyLabel")}
+              </Link>
             </div>
           </article>
         ))}

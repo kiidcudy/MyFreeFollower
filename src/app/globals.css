@@ -253,6 +253,14 @@
     animation: float 6s ease-in-out infinite;
   }
 
+  /* Below-the-fold bands are gradient-heavy and cost ~1s of style/layout on a
+     throttled mobile CPU. Skipping their render until they approach the
+     viewport does not change how they look once scrolled into view. */
+  .defer-render {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 640px;
+  }
+
   .site-main:not(:has(> .home-full)) {
     @apply mx-auto max-w-7xl px-4 pt-4 sm:px-6;
   }

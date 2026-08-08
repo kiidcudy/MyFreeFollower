@@ -1,13 +1,17 @@
-"use client";
-
-import { LocalizedLink } from "@/components/i18n/LocalizedLink";
+import Link from "next/link";
 import { SiteSearch } from "@/components/layout/SiteSearch";
 import { HomeStats } from "@/components/marketing/HomeStats";
-import { useLocale } from "@/components/i18n/LocaleProvider";
+import type { Locale } from "@/lib/i18n/config";
+import { localizedPath } from "@/lib/i18n/navigation";
+import { t } from "@/lib/i18n/translations";
 
-export function HeroSection({ fullBleed = false }: { fullBleed?: boolean }) {
-  const { t } = useLocale();
-
+export function HeroSection({
+  locale,
+  fullBleed = false,
+}: {
+  locale: Locale;
+  fullBleed?: boolean;
+}) {
   return (
     <section
       className={`hero-banner relative overflow-hidden px-6 py-16 sm:px-12 sm:py-24 lg:py-28 ${
@@ -19,12 +23,12 @@ export function HeroSection({ fullBleed = false }: { fullBleed?: boolean }) {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <p className="mff-eyebrow bg-white/15 text-white/95 backdrop-blur-md">
-          {t("home.heroBadge")}
+          {t(locale, "home.heroBadge")}
         </p>
 
-        <h1 className="mt-8 mff-heading-xl text-white">{t("home.heroTitle")}</h1>
+        <h1 className="mt-8 mff-heading-xl text-white">{t(locale, "home.heroTitle")}</h1>
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-xl">
-          {t("home.heroSubtitle")}
+          {t(locale, "home.heroSubtitle")}
         </p>
 
         <div className="mt-10">
@@ -32,18 +36,30 @@ export function HeroSection({ fullBleed = false }: { fullBleed?: boolean }) {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <LocalizedLink href="/buy-followers" className="mff-btn bg-white text-[#0066cc] hover:bg-white/95">
-            {t("home.ctaExploreServices")}
-          </LocalizedLink>
-          <LocalizedLink href="/free-followers" className="mff-btn bg-[#1a7f37] text-white hover:bg-[#166534]">
-            {t("home.ctaTryFree")}
-          </LocalizedLink>
-          <LocalizedLink href="/register" className="mff-btn-outline-light">
-            {t("home.ctaSignUp")}
-          </LocalizedLink>
+          <Link
+            prefetch={false}
+            href={localizedPath("/buy-followers", locale)}
+            className="mff-btn bg-white text-[#0066cc] hover:bg-white/95"
+          >
+            {t(locale, "home.ctaExploreServices")}
+          </Link>
+          <Link
+            prefetch={false}
+            href={localizedPath("/free-followers", locale)}
+            className="mff-btn bg-[#1a7f37] text-white hover:bg-[#166534]"
+          >
+            {t(locale, "home.ctaTryFree")}
+          </Link>
+          <Link
+            prefetch={false}
+            href={localizedPath("/register", locale)}
+            className="mff-btn-outline-light"
+          >
+            {t(locale, "home.ctaSignUp")}
+          </Link>
         </div>
 
-        <HomeStats />
+        <HomeStats locale={locale} />
       </div>
     </section>
   );

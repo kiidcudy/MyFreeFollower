@@ -1,7 +1,6 @@
-"use client";
-
-import { useLocale } from "@/components/i18n/LocaleProvider";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import type { Locale } from "@/lib/i18n/config";
+import { t } from "@/lib/i18n/translations";
 
 const items = [
   { icon: "01", titleKey: "home.why1Title", descKey: "home.why1Desc", tint: "from-[#0077ed]/12" },
@@ -12,12 +11,10 @@ const items = [
   { icon: "06", titleKey: "home.why6Title", descKey: "home.why6Desc", tint: "from-[#0077ed]/12" },
 ] as const;
 
-export function WhyUs() {
-  const { t } = useLocale();
-
+export function WhyUs({ locale }: { locale: Locale }) {
   return (
     <>
-      <SectionHeader title={t("home.whyTitle")} subtitle={t("home.whySubtitle")} />
+      <SectionHeader title={t(locale, "home.whyTitle")} subtitle={t(locale, "home.whySubtitle")} />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
@@ -29,9 +26,9 @@ export function WhyUs() {
               {item.icon}
             </span>
             <h3 className="mt-4 font-display text-base font-semibold tracking-tight">
-              {t(item.titleKey)}
+              {t(locale, item.titleKey)}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-[#6e6e73]">{t(item.descKey)}</p>
+            <p className="mt-2 text-sm leading-relaxed text-[#6e6e73]">{t(locale, item.descKey)}</p>
           </div>
         ))}
       </div>

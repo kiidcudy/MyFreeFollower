@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { searchCatalog } from "@/lib/catalog/search";
+import type { SearchResult } from "@/lib/catalog/search";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { localizedPath } from "@/lib/i18n/navigation";
 
@@ -11,8 +11,25 @@ export function SiteSearch({ variant = "hero" }: { variant?: "hero" | "header" }
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
+  const [results, setResults] = useState<SearchResult[]>([]);
 
-  const results = useMemo(() => searchCatalog(query, locale), [query, locale]);
+  // The catalog plus its localized titles is ~48 KB that only matters once the
+  // visitor types, so it is pulled in on demand rather than at hydration.
+  useEffect(() => {
+    if (query.trim().length < 2) {
+      setResults([]);
+      return;
+    }
+
+    let active = true;
+    void import("@/lib/catalog/search").then(({ searchCatalog }) => {
+      if (active) setResults(searchCatalog(query, locale));
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [query, locale]);
 
   function go(href: string) {
     router.push(localizedPath(href, locale));

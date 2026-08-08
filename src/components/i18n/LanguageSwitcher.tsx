@@ -56,13 +56,17 @@ export function LanguageSwitcher({ variant = "header" }: LanguageSwitcherProps) 
         onClick={() => setOpen((v) => !v)}
         className="inline-flex items-center gap-1.5 rounded-full bg-black/[0.04] px-3 py-1.5 text-xs font-semibold text-[#1d1d1f] transition hover:bg-black/[0.07]"
         aria-expanded={open}
-        aria-label={t("nav.language")}
       >
+        {/* No aria-label here: the accessible name has to contain the visible
+            text, and the visible text differs between the mobile and desktop
+            breakpoints. Letting the children build the name and appending the
+            purpose in a screen-reader-only span keeps the two in sync. */}
         <span>{current?.flag ?? locale.toUpperCase()}</span>
         <span className="hidden sm:inline">{current?.label}</span>
         <span className="rounded-full bg-black/[0.06] px-2 py-0.5 text-[10px] font-bold text-[#0066cc]">
           {currencyCode(locale)}
         </span>
+        <span className="sr-only">{t("nav.language")}</span>
       </button>
       {open && (
         <ul className="absolute end-0 z-[100] mt-2 max-h-64 w-48 overflow-y-auto rounded-2xl border border-black/[0.06] bg-white/95 p-1.5 shadow-[0_20px_60px_rgba(0,0,0,0.15)] backdrop-blur-xl">
